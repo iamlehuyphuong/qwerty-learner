@@ -100,7 +100,7 @@ const PronunciationSwitcher = () => {
     if (pronunciationConfig.isOpen) {
       return pronunciationConfig.name
     } else {
-      return '关闭'
+      return 'đóng cửa'
     }
   }, [pronunciationConfig.isOpen, pronunciationConfig.name])
 
@@ -116,7 +116,7 @@ const PronunciationSwitcher = () => {
               e.target.blur()
             }}
           >
-            <Tooltip content="发音及音标切换">{currentLabel}</Tooltip>
+            <Tooltip content="Phát âm và chuyển đổi ký hiệu ngữ âm">{currentLabel}</Tooltip>
           </Popover.Button>
 
           <Transition
@@ -131,36 +131,42 @@ const PronunciationSwitcher = () => {
             <Popover.Panel className="absolute left-1/2 z-20 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
               <div className="shadow-upper box-border flex w-60 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow transition duration-1000 ease-in-out dark:bg-gray-800">
                 <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">开关音标显示</span>
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                    Chuyển đổi hiển thị ký hiệu ngữ âm
+                  </span>
                   <div className="flex w-full flex-row items-center justify-between">
                     <Switch checked={phoneticConfig.isOpen} onChange={onChangePhoneticIsOpen} className="switch-root">
                       <span aria-hidden="true" className="switch-thumb" />
                     </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`音标已${
-                      phoneticConfig.isOpen ? '开启' : '关闭'
+                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Các ký hiệu ngữ âm đã được${
+                      phoneticConfig.isOpen ? 'bật lên' : 'đóng cửa'
                     }`}</span>
                   </div>
                 </div>
                 <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">开关单词发音</span>
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                    chuyển đổi cách phát âm từ
+                  </span>
                   <div className="flex w-full flex-row items-center justify-between">
                     <Switch checked={pronunciationConfig.isOpen} onChange={onChangePronunciationIsOpen} className="switch-root">
                       <span aria-hidden="true" className="switch-thumb" />
                     </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`发音已${
-                      pronunciationConfig.isOpen ? '开启' : '关闭'
+                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`phát âm${
+                      pronunciationConfig.isOpen ? 'bật lên' : 'đóng cửa'
                     }`}</span>
                   </div>
                 </div>
                 {window.speechSynthesis && (
                   <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">开关释义发音</span>
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                      chuyển đổi ý nghĩa phát âm
+                    </span>
                     <div className="flex w-full flex-row items-center justify-between">
                       <Switch checked={pronunciationConfig.isTransRead} onChange={onChangePronunciationIsTransRead} className="switch-root">
                         <span aria-hidden="true" className="switch-thumb" />
                       </Switch>
-                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`发音已${
-                        pronunciationConfig.isTransRead ? '开启' : '关闭'
+                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`phát âm${
+                        pronunciationConfig.isTransRead ? 'bật lên' : 'đóng cửa'
                       }`}</span>
                     </div>
                   </div>
@@ -176,18 +182,22 @@ const PronunciationSwitcher = () => {
                   leaveTo="max-h-0 opacity-0"
                 >
                   <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">开关循环发音</span>
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                      Chuyển đổi cách phát âm chu kỳ
+                    </span>
                     <div className="flex w-full flex-row items-center justify-between">
                       <Switch checked={pronunciationConfig.isLoop} onChange={onChangePronunciationIsLoop} className="switch-root">
                         <span aria-hidden="true" className="switch-thumb" />
                       </Switch>
-                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`循环已${
-                        pronunciationConfig.isLoop ? '开启' : '关闭'
+                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Vòng lặp đã được${
+                        pronunciationConfig.isLoop ? 'bật lên' : 'đóng cửa'
                       }`}</span>
                     </div>
                   </div>
                   <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">单词发音口音</span>
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                      giọng phát âm của từ
+                    </span>
                     <div className="flex w-full flex-row items-center justify-between">
                       <Listbox value={pronunciationConfig.type} onChange={onChangePronunciationType}>
                         <div className="relative">
@@ -221,7 +231,7 @@ const PronunciationSwitcher = () => {
                   </div>
                   {pronunciationConfig.isOpen && (
                     <span className="text-colo text-xs font-medium text-gray-500 dark:text-white dark:text-opacity-60">
-                      Tips: 朗读发音快捷键（{CTRL} + J）
+                      Tips: Đọc phím tắt phát âm（{CTRL} + J）
                     </span>
                   )}
                 </Transition>

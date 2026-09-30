@@ -39,9 +39,10 @@ export function ReviewDetail({ errorData, dict }: { errorData: TErrorWordData[];
         <MdiRobotAngry fontSize={30} className="text-indigo-300 " />
         <blockquote>
           <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
-            我们将使用您在该词典的历史练习数据、错误次数、练习时间来智能生成练习列表
+            Chúng tôi sẽ sử dụng dữ liệu thực hành lịch sử của bạn cho từ điển này、số lỗi、Thời gian luyện tập để tạo danh sách bài tập một
+            cách thông minh
             <br />
-            目前该生成方式还处于实验阶段，我们会逐步完善该生成方式
+            Hiện tại, phương pháp tạo này vẫn đang trong giai đoạn thử nghiệm.，Chúng tôi sẽ dần dần cải thiện phương pháp tạo này
           </p>
         </blockquote>
       </div>
@@ -63,20 +64,22 @@ export function ReviewDetail({ errorData, dict }: { errorData: TErrorWordData[];
                 {latestReviewRecord.index + 1}/{latestReviewRecord.words.length}
               </span>
             </div>
-            <div className="mt-1 text-sm font-normal text-gray-500">{`( 创建于 ${timeStamp2String(latestReviewRecord.createTime)} )`}</div>
+            <div className="mt-1 text-sm font-normal text-gray-500">{`( Được tạo ở ${timeStamp2String(
+              latestReviewRecord.createTime,
+            )} )`}</div>
           </>
         )}
 
-        {!latestReviewRecord && <div>当前词典错词数: {errorData.length}</div>}
+        {!latestReviewRecord && <div>Số từ sai trong từ điển hiện tại: {errorData.length}</div>}
 
         <div className="mt-6 flex gap-10">
           {latestReviewRecord && (
             <Button size="sm" onClick={continueReview}>
-              继续当前进度
+              Tiếp tục tiến độ hiện tại
             </Button>
           )}
           <Button size="sm" onClick={startReview}>
-            开始{latestReviewRecord && '新的'}复习
+            bắt đầu{latestReviewRecord && 'mới'}ôn tập
           </Button>
         </div>
       </div>

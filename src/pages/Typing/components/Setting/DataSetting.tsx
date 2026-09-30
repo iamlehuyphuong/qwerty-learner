@@ -58,14 +58,15 @@ export default function DataSetting() {
       <ScrollArea.Viewport className="h-full w-full px-3">
         <div className={styles.tabContent}>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>数据导出</span>
+            <span className={styles.sectionLabel}>Xuất dữ liệu</span>
             <span className={styles.sectionDescription}>
-              目前，用户的练习数据<strong>仅保存在本地</strong>。如果您需要在不同的设备、浏览器或者其他非官方部署上使用 Qwerty Learner，
-              您需要手动进行数据同步和保存。为了保留您的练习进度，以及使用近期即将上线的数据分析和智能训练功能，
-              我们建议您及时备份您的数据。
+              hiện tại，Dữ liệu thực hành của người dùng<strong>Chỉ lưu cục bộ</strong>。nếu như您需要hiện hữu不同của设Chuẩn bị、Được sử
+              dụng trong trình duyệt hoặc các triển khai không chính thức khác Qwerty Learner， Bạn cần đồng bộ hóa và lưu dữ liệu theo cách
+              thủ công。Để duy trì tiến độ thực hành của bạn，Và sử dụng các chức năng phân tích dữ liệu và đào tạo thông minh sẽ được ra
+              mắt trong thời gian tới， Chúng tôi khuyên bạn nên sao lưu dữ liệu của mình kịp thời。
             </span>
             <span className="pl-4 text-left text-sm font-bold leading-tight text-red-500">
-              为了您的数据安全，请不要修改导出的数据文件。
+              Để bảo mật dữ liệu của bạn，Vui lòng không sửa đổi tệp dữ liệu đã xuất。
             </span>
             <div className="flex h-3 w-full items-center justify-start px-5">
               <Progress.Root
@@ -85,15 +86,16 @@ export default function DataSetting() {
               type="button"
               onClick={onClickExport}
               disabled={isExporting}
-              title="导出数据"
+              title="Xuất dữ liệu"
             >
-              导出数据
+              Xuất dữ liệu
             </button>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>数据导入</span>
+            <span className={styles.sectionLabel}>Nhập dữ liệu</span>
             <span className={styles.sectionDescription}>
-              请注意，导入数据将<strong className="text-sm font-bold text-red-500"> 完全覆盖 </strong>当前数据。请谨慎操作。
+              xin lưu ý，Việc nhập dữ liệu sẽ<strong className="text-sm font-bold text-red-500"> bảo hiểm đầy đủ </strong>dữ liệu hiện
+              tại。Hãy hoạt động một cách thận trọng。
             </span>
 
             <div className="flex h-3 w-full items-center justify-start px-5">
@@ -114,9 +116,9 @@ export default function DataSetting() {
               type="button"
               onClick={onClickImport}
               disabled={isImporting}
-              title="导入数据"
+              title="Nhập dữ liệu"
             >
-              导入数据
+              Nhập dữ liệu
             </button>
           </div>
         </div>

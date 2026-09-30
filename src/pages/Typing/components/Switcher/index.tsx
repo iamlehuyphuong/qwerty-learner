@@ -42,18 +42,18 @@ export default function Switcher() {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <Tooltip content="音效设置">
+      <Tooltip content="Cài đặt âm thanh">
         <SoundSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="设置单个单词循环">
+      <Tooltip className="h-7 w-7" content="cài đặt单từ循环">
         <LoopWordSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content={`开关默写模式（${CTRL} + V）`}>
+      <Tooltip className="h-7 w-7" content={`开关Chế độ viết im lặng（${CTRL} + V）`}>
         <WordDictationSwitcher />
       </Tooltip>
-      <Tooltip className="h-7 w-7" content={`开关释义显示（${CTRL} + Shift + V）`}>
+      <Tooltip className="h-7 w-7" content={`开关Sự định nghĩa显示（${CTRL} + Shift + V）`}>
         <button
           className={`p-[2px] ${state?.isTransVisible ? 'text-indigo-500' : 'text-gray-500'} text-lg focus:outline-none`}
           type="button"
@@ -61,21 +61,21 @@ export default function Switcher() {
             changeTransVisibleState()
             e.currentTarget.blur()
           }}
-          aria-label={`开关释义显示（${CTRL} + Shift + V）`}
+          aria-label={`开关Sự định nghĩa显示（${CTRL} + Shift + V）`}
         >
           {state?.isTransVisible ? <IconLanguage /> : <IconLanguageOff />}
         </button>
       </Tooltip>
 
-      <Tooltip content="错题本">
+      <Tooltip content="Sách câu hỏi sai">
         <ErrorBookButton />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="查看数据统计">
+      <Tooltip className="h-7 w-7" content="Xem số liệu thống kê">
         <AnalysisButton />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="开关深色模式">
+      <Tooltip className="h-7 w-7" content="Bật và tắt chế độ tối">
         <button
           className={`p-[2px] text-lg text-indigo-500 focus:outline-none`}
           type="button"
@@ -83,15 +83,15 @@ export default function Switcher() {
             changeDarkModeState()
             e.currentTarget.blur()
           }}
-          aria-label="开关深色模式"
+          aria-label="Bật và tắt chế độ tối"
         >
           {isOpenDarkMode ? <IconMoon className="icon" /> : <IconSun className="icon" />}
         </button>
       </Tooltip>
-      <Tooltip className="h-7 w-7" content="指法图示">
+      <Tooltip className="h-7 w-7" content="sơ đồ ngón tay">
         <HandPositionIllustration></HandPositionIllustration>
       </Tooltip>
-      <Tooltip content="设置">
+      <Tooltip content="cài đặt">
         <Setting />
       </Tooltip>
     </div>

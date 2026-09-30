@@ -74,7 +74,7 @@ export function reportDonateCard(info: donateCardInfo) {
 }
 
 /**
- * mixpanel 单词和章节统计事件
+ * mixpanel từVàchươngthống kê事件
  */
 export type ModeInfo = {
   modeDictation: boolean

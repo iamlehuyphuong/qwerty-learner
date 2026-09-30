@@ -15,7 +15,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
 
   const formatTimestamp = (date: any) => {
     const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, '0') // 月份从0开始
+    const month = String(date.getMonth() + 1).padStart(2, '0') // tháng từ0bắt đầu
     const day = String(date.getDate()).padStart(2, '0')
     const hours = String(date.getHours()).padStart(2, '0')
     const minutes = String(date.getMinutes()).padStart(2, '0')
@@ -28,7 +28,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
     setIsExporting(true)
 
     try {
-      // 获取所有需要的词典数据
+      // Nhận tất cả dữ liệu từ điển cần thiết
       const dictUrls: string[] = []
       renderRecords.forEach((item: any) => {
         const dictInfo = idDictionaryMap[item.dict]
@@ -37,7 +37,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
         }
       })
 
-      // 并行获取所有词典数据
+      // Nhận tất cả dữ liệu từ điển song song
       const dictDataPromises = dictUrls.map(async (url) => {
         try {
           const data = await wordListFetcher(url)
@@ -51,7 +51,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       const dictDataResults = await Promise.all(dictDataPromises)
       const dictDataMap = new Map(dictDataResults.map((result) => [result.url, result.data]))
 
-      const ExportData: Array<{ 单词: string; 释义: string; 错误次数: number; 词典: string }> = []
+      const ExportData: Array<{ từ: string; 'Sự định nghĩa': string; 'số lỗi': number; 'từ điển': string }> = []
 
       renderRecords.forEach((item: any) => {
         const dictInfo = idDictionaryMap[item.dict]
@@ -64,17 +64,17 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
         }
 
         ExportData.push({
-          单词: item.word,
-          释义: translation,
-          错误次数: item.wrongCount,
-          词典: dictInfo?.name || item.dict,
+          từ: item.word,
+          'Sự định nghĩa': translation,
+          'số lỗi': item.wrongCount,
+          'từ điển': dictInfo?.name || item.dict,
         })
       })
 
       let blob: Blob
 
       if (bookType === 'txt') {
-        const content = ExportData.map((item: any) => `${item.单词}: ${item.释义}`).join('\n')
+        const content = ExportData.map((item: any) => `${item['từ']}: ${item['Sự định nghĩa']}`).join('\n')
         blob = new Blob([content], { type: 'text/plain' })
       } else {
         const worksheet = XLSX.utils.json_to_sheet(ExportData)
@@ -92,7 +92,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       }
     } catch (error) {
       console.error('Export failed:', error)
-      alert('导出失败，请重试')
+      alert('Xuất không thành công，Vui lòng thử lại')
     } finally {
       setIsExporting(false)
     }
@@ -103,7 +103,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button className="my-btn-primary h-8 shadow transition hover:bg-indigo-600 disabled:opacity-50" disabled={isExporting}>
-            {isExporting ? '导出中...' : '导出'}
+            {isExporting ? 'Xuất khẩu...' : 'Xuất khẩu'}
           </button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content className="mt-1 rounded bg-indigo-500 text-white shadow-lg">

@@ -2,19 +2,19 @@ import type { WordWithIndex } from '@/typings'
 import type { LetterMistakes } from '@/utils/db/record'
 
 export type ChapterData = {
-  // warning: 因为有章节内随机的存在，所有记录 index 的场景都应该使用 WordWithIndex.index
+  // warning: 因vì有chương内随机của存hiện hữu，Tất cả hồ sơ index của场景都应该sử dụng WordWithIndex.index
   words: WordWithIndex[]
   // chapter index
   index: number
-  // 输入的单词数
+  // 输入củasố lượng từ
   wordCount: number
-  // 输入正确的单词数
+  // 输入正确củasố lượng từ
   correctCount: number
-  // 输入错误的单词数
+  // 输入错误củasố lượng từ
   wrongCount: number
-  // 每个单词的输入记录
+  // 每từcủa输入Ghi
   userInputLogs: UserInputLog[]
-  // 本章节用户输入的单词的 record id 列表
+  // 本chương用户输入củatừcủa record id danh sách
   wordRecordIds: number[]
 }
 
@@ -49,6 +49,6 @@ export type TypingState = {
   isShowSkip: boolean
   isTransVisible: boolean
   isLoopSingleWord: boolean
-  // 是否正在保存数据
+  // Dữ liệu có đang được lưu không?
   isSavingRecord: boolean
 }

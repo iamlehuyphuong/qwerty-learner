@@ -12,7 +12,7 @@ export default function KeyEventHandler({ updateInput }: { updateInput: (updateO
       const char = e.key
 
       if (isChineseSymbol(char)) {
-        alert('您正在使用输入法，请关闭输入法。')
+        alert('您正hiện hữusử dụng输入法，请đóng cửa输入法。')
         return
       }
 

@@ -4,20 +4,20 @@ import type { Word } from '@/typings'
 export interface IWordRecord {
   word: string
   timeStamp: number
-  // 正常章节为 dictKey, 其他功能则为对应的类型
+  // 正常chươngvì dictKey, 其他功能则vì对应của类型
   dict: string
-  // 用户可能是在 错题/其他类似组件中 进行的练习则为 null, start from 0
+  // Người dùng có thể ở Câu hỏi sai/Trong số các thành phần tương tự khác 进行củaluyện tập则vì null, start from 0
   chapter: number | null
-  // 正确次数中输入每个字母的时间差，可以据此计算出总时间
+  // Thời gian chính xác中输入每个字母củathời gian差，可以据此tính toán出tổng thời gian
   timing: number[]
-  // 出错的次数
+  // 出错củahạng hai数
   wrongCount: number
-  // 每个字母被错误输入成什么, index 为字母的索引, 数组内为错误的 e.key
+  // Mỗi chữ cái gõ sai là gì?, index vì字母của索引, 数组内vì错误của e.key
   mistakes: LetterMistakes
 }
 
 export interface LetterMistakes {
-  // 每个字母被错误输入成什么, index 为字母的索引, 数组内为错误的 e.key
+  // Mỗi chữ cái gõ sai là gì?, index vì字母của索引, 数组内vì错误của e.key
   [index: number]: string[]
 }
 
@@ -46,24 +46,24 @@ export class WordRecord implements IWordRecord {
 }
 
 export interface IChapterRecord {
-  // 正常章节为 dictKey, 其他功能则为对应的类型
+  // 正常chươngvì dictKey, 其他功能则vì对应của类型
   dict: string
-  // 在错题场景中为 -1
+  // hiện hữuCâu hỏi sai场景中vì -1
   chapter: number | null
   timeStamp: number
-  // 单位为 s，章节的记录没必要到毫秒级
+  // 单位vì s，chươngcủaGhi没必要到毫秒级
   time: number
-  // 正确按键次数，输对一个字母即记录
+  // 正确theo键hạng hai数，输对một个字母即Ghi
   correctCount: number
-  // 错误的按键次数。 出错会清空整个输入，但只记录一次错误
+  // 错误củatheo键hạng hai数。 Một lỗi sẽ xóa toàn bộ đầu vào，但只Ghimộthạng hai错误
   wrongCount: number
-  // 用户输入的单词总数，可能会使用循环等功能使输入总数大于 20
+  // 用户输入củatừ总数，可能会sử dụng循环等功能使输入总数大于 20
   wordCount: number
-  // 一次打对未犯错的单词列表, 可以和 wordNumber 对比得出出错的单词 indexes
+  // mộthạng hai打对未犯错củatừdanh sách, 可以Và wordNumber 对比得出出错củatừ indexes
   correctWordIndexes: number[]
-  // 章节总单词数
+  // chương总số lượng từ
   wordNumber: number
-  // 单词 record 的 id 列表
+  // từ record của id danh sách
   wordRecordIds: number[]
 }
 
@@ -118,13 +118,13 @@ export class ChapterRecord implements IChapterRecord {
 export interface IReviewRecord {
   id?: number
   dict: string
-  // 当前练习进度
+  // 当前luyện tập进度
   index: number
-  // 创建时间
+  // thời gian sáng tạo
   createTime: number
-  // 是否已经完成
+  // 是否đã完成
   isFinished: boolean
-  // 单词列表, 根据复习算法生成和修改，可能会有重复值
+  // từdanh sách, 根据ôn tập算法生成Và修改，Có thể có giá trị trùng lặp
   words: Word[]
 }
 

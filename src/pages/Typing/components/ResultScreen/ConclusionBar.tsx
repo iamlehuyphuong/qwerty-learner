@@ -14,17 +14,17 @@ const ICON_MAPPER: IconMapper[] = [
   {
     icon: IconHeart,
     className: 'text-indigo-600',
-    text: (mistakeCount: number) => `表现不错！` + (mistakeCount > 0 ? `只错了 ${mistakeCount} 个单词` : '全对了！'),
+    text: (mistakeCount: number) => `hiệu suất tốt！` + (mistakeCount > 0 ? `Chỉ là sai thôi ${mistakeCount} từ` : 'Được rồi！'),
   },
   {
     icon: IconHandThumbUp,
     className: 'text-indigo-600',
-    text: () => '有些小问题哦，下一次可以做得更好！',
+    text: () => 'Có một số vấn đề nhỏ，Có thể làm tốt hơn vào lần sau！',
   },
   {
     icon: IconExclamationTriangle,
     className: 'text-indigo-600',
-    text: () => '错误太多，再来一次如何？',
+    text: () => 'Quá nhiều lỗi，Làm lại lần nữa thì sao？',
   },
 ]
 

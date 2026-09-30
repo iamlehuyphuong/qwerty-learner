@@ -33,20 +33,20 @@ export const keySoundResources: SoundResource[] = Object.keys(videoList)
     return a.key.localeCompare(b.key)
   })
 
-export const wrongSoundResources: SoundResource[] = [{ key: '1', name: '声音1', filename: 'beep.wav' }]
+export const wrongSoundResources: SoundResource[] = [{ key: '1', name: 'âm thanh1', filename: 'beep.wav' }]
 
-export const correctSoundResources: SoundResource[] = [{ key: '1', name: '声音1', filename: 'correct.wav' }]
+export const correctSoundResources: SoundResource[] = [{ key: '1', name: 'âm thanh1', filename: 'correct.wav' }]
 
 export const LANG_PRON_MAP: LanguagePronunciationMap = {
   en: {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '美音',
+        name: 'âm thanh Mỹ',
         pron: 'us',
       },
       {
-        name: '英音',
+        name: 'giọng Anh',
         pron: 'uk',
       },
     ],
@@ -55,11 +55,11 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '美音',
+        name: 'âm thanh Mỹ',
         pron: 'us',
       },
       {
-        name: '英音',
+        name: 'giọng Anh',
         pron: 'uk',
       },
     ],
@@ -68,7 +68,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '德语',
+        name: 'tiếng Đức',
         pron: 'de',
       },
     ],
@@ -77,7 +77,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '罗马音',
+        name: 'được La-tinh hóa',
         pron: 'romaji',
       },
     ],
@@ -86,7 +86,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '哈拼',
+        name: 'Hapin',
         pron: 'hapin',
       },
     ],
@@ -95,7 +95,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '普通话',
+        name: 'tiếng quan thoại',
         pron: 'zh',
       },
     ],
@@ -104,7 +104,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '日语',
+        name: 'tiếng Nhật',
         pron: 'ja',
       },
     ],
@@ -113,7 +113,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '哈萨克语',
+        name: 'Kazakhstan',
         pron: 'kk',
       },
     ],
@@ -122,7 +122,7 @@ export const LANG_PRON_MAP: LanguagePronunciationMap = {
     defaultPronIndex: 0,
     pronunciation: [
       {
-        name: '印尼语',
+        name: 'tiếng Indonesia',
         pron: 'id',
       },
     ],

@@ -38,17 +38,17 @@ const App: React.FC = () => {
   const isReviewMode = useAtomValue(isReviewModeAtom)
 
   useEffect(() => {
-    // 检测用户设备
+    // 检测用户设Chuẩn bị
     if (!IsDesktop()) {
       setTimeout(() => {
         alert(
-          ' Qwerty Learner 目的为提高键盘工作者的英语输入效率，目前暂未适配移动端，希望您使用桌面端浏览器访问。如您使用的是 Ipad 等平板电脑设备，可以使用外接键盘使用本软件。',
+          ' Qwerty Learner 目củavì提高nhân viên bàn phímcủaTiếng Anh输入效率，hiện tại暂未适配移动端，希望您sử dụng桌面端浏览器访问。如您sử dụngcủa是 Ipad 等平板电脑设Chuẩn bị，可以sử dụng外接键盘sử dụng本软件。',
         )
       }, 500)
     }
   }, [])
 
-  // 在组件挂载和currentDictId改变时，检查当前字典是否存在，如果不存在，则将其重置为默认值
+  // hiện hữu组件挂载VàcurrentDictIdkhi thay đổi，Kiểm tra xem từ điển hiện tại có tồn tại không，nếu nhưkhông tồn tại，则Sẽ其重置vì默认值
   useEffect(() => {
     const id = currentDictId
     if (!(id in idDictionaryMap)) {
@@ -104,7 +104,7 @@ const App: React.FC = () => {
   }, [words])
 
   useEffect(() => {
-    // 当用户完成章节后且完成 word Record 数据保存，记录 chapter Record 数据,
+    // 当用户完成chương后且完成 word Record Tiết kiệm dữ liệu，Ghi chapter Record dữ liệu,
     if (state.isFinished && !state.isSavingRecord) {
       chapterLogUploader()
       saveChapterRecord(state)
@@ -114,7 +114,7 @@ const App: React.FC = () => {
   }, [state.isFinished, state.isSavingRecord])
 
   useEffect(() => {
-    // 启动计时器
+    // Bắt đầu hẹn giờ
     let intervalId: number
     if (state.isTyping) {
       intervalId = window.setInterval(() => {
@@ -136,7 +136,7 @@ const App: React.FC = () => {
           <PronunciationSwitcher />
           <Switcher />
           <StartButton isLoading={isLoading} />
-          <Tooltip content="跳过该词">
+          <Tooltip content="跳过该từ">
             <button
               className={`${
                 state.isShowSkip ? 'bg-orange-400' : 'invisible w-0 bg-gray-300 px-0 opacity-0'

@@ -114,31 +114,34 @@ export const DonateCard = () => {
                   <h1 className="gradient-text w-full pt-3 text-center text-[2.4rem] font-bold">{`${chapterNumber} Chapters Achievement !`}</h1>
                   <div className="flex w-full flex-col gap-4 px-4">
                     <p className="mx-auto px-4 indent-4">
-                      Qwerty Learner 已经陪伴您走过
-                      <HighlightedText> {dayFromFirstWord} </HighlightedText>天，一起完成了
+                      Qwerty Learner Đã đồng hành cùng bạn trong suốt cuộc hành trình
+                      <HighlightedText> {dayFromFirstWord} </HighlightedText>bầu trời，Cùng nhau thực hiện
                       <HighlightedText> {wordNumber} </HighlightedText>
-                      个词的练习，帮您纠正了 <HighlightedText> {sumWrongCount} </HighlightedText>
-                      次错误输入。每一次练习，都是您在变得更好的证明
+                      luyện từ，Đã sửa cho bạn <HighlightedText> {sumWrongCount} </HighlightedText>
+                      đầu vào sai。mọi thực hành，Đó là tất cả bằng chứng cho thấy bạn đang tiến bộ hơn
                       <IconParty className="ml-2 inline-block" fontSize={16} />
                       <IconParty className="inline-block" fontSize={16} />
                       <IconParty className="inline-block" fontSize={16} />
                       <br />
                     </p>
                     <p className="mx-auto px-4 indent-4 font-bold">
-                      Qwerty Learner 坚持 <span className="font-medium ">开源、无广告、无商业化</span> 已经
-                      <HighlightedText className="text-indigo-500"> {dayFromQwerty} </HighlightedText>天。
+                      Qwerty Learner kiên trì <span className="font-medium ">Nguồn mở、Không có quảng cáo、Không thương mại hóa</span> đã
+                      <HighlightedText className="text-indigo-500"> {dayFromQwerty} </HighlightedText>bầu trời。
                     </p>
                     <p className="mx-auto px-4 indent-4">
-                      随着越来越多的同学加入，服务器和维护成本也在不断增长，
+                      Khi ngày càng có nhiều sinh viên tham gia，Chi phí máy chủ và bảo trì cũng ngày càng tăng，
                       <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                        目前项目的运营成本仍由开发者个人承担，Qwerty 的长期运营需要您的一份力量
+                        Hiện tại, chi phí vận hành của dự án vẫn do cá nhân chủ đầu tư chịu.，Qwerty Sự hoạt động lâu dài của công ty cần sự
+                        giúp đỡ của bạn
                       </span>
-                      。如果 Qwerty 对您的学习有所帮助，希望您能考虑捐赠支持我们——哪怕是一杯咖啡的金额，都能帮助 Qwerty
-                      继续陪伴更多学习者成长。
+                      。nếu như Qwerty hữu ích cho việc học tập của bạn，Rất mong các bạn cân nhắc quyên góp để ủng hộ chúng tôi——Dù chỉ
+                      bằng giá một tách cà phê，tất cả đều có thể giúp đỡ Qwerty Tiếp tục đồng hành cùng nhiều học viên hơn nữa để trưởng
+                      thành。
                     </p>
                     <p className="mx-auto px-4 indent-4 ">
-                      为了感谢您的慷慨，单次 50 rmb 及以上的捐赠， 我们将回赠 Qwerty 的定制贴纸 5 枚
-                      <span className="text-xs">（仅限大陆地区）</span>，希望您可以跟朋友分享您的快乐
+                      Để cảm ơn sự hào phóng của bạn，Đơn 50 rmb Đóng góp từ và cao hơn， Chúng tôi sẽ trả lại Qwerty dán tùy chỉnh 5 miếng
+                      <span className="text-xs">（Chỉ có Trung Quốc đại lục）</span>，Tôi hy vọng bạn có thể chia sẻ hạnh phúc của mình với
+                      bạn bè
                     </p>
                     <div className="flex items-center justify-center">
                       <StickerButton />
@@ -152,10 +155,10 @@ export const DonateCard = () => {
                       className={`my-btn-primary ${!amount && 'invisible'} w-36 bg-amber-500 font-medium transition-all`}
                       onClick={onClickHasDonated}
                     >
-                      我已捐赠
+                      tôi đã quyên góp
                     </button>
                     <button type="button" className="my-btn-primary w-36 font-medium" onClick={onClickRemindMeLater}>
-                      下次再说
+                      Hẹn gặp lại lần sau
                     </button>
                   </div>
                 </div>

@@ -27,7 +27,7 @@ export default function ShareButton() {
         type="button"
         className="cursor-pointer text-xl text-gray-500 hover:text-indigo-400"
         onClick={onClickShare}
-        title="分享你的成绩给朋友"
+        title="分享你của成绩给朋友"
       >
         <IconShare2 />
       </button>

@@ -20,8 +20,10 @@ export const TipAlert: FC<ITipAlert> = ({ className, show, setShow }) => {
         <div className={`alert z-10 w-fit cursor-pointer pr-5 ${className}`} onClick={onClose}>
           <Alert variant="destructive" className="relative">
             <PhWarning className="h-4 w-4" />
-            <AlertTitle>插件冲突！</AlertTitle>
-            <AlertDescription>如果多次输入失败，可能是与本地浏览器插件冲突，请关闭相关插件或切换浏览器试试</AlertDescription>
+            <AlertTitle>trình cắm thêm冲突！</AlertTitle>
+            <AlertDescription>
+              nếu nhưnhiềuhạng hai输入失败，可能是与本地浏览器trình cắm thêm冲突，请đóng cửa相关trình cắm thêm或切换浏览器试试
+            </AlertDescription>
           </Alert>
         </div>
       )}

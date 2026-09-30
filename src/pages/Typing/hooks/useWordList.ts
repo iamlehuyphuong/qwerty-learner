@@ -40,7 +40,7 @@ export function useWordList(): UseWordListResult {
       newWords = []
     }
 
-    // 记录原始 index, 并对 word.trans 做兜底处理
+    // ghi lại bản gốc index, Và để word.trans Làm một công việc kỹ lưỡng
     return newWords.map((word, index) => {
       let trans: string[]
       if (Array.isArray(word.trans)) {
@@ -62,29 +62,29 @@ export function useWordList(): UseWordListResult {
 }
 
 const firstChapter = [
-  { name: 'cancel', trans: ['取消， 撤销； 删去'], usphone: "'kænsl", ukphone: "'kænsl" },
-  { name: 'explosive', trans: ['爆炸的； 极易引起争论的', '炸药'], usphone: "ɪk'splosɪv; ɪk'splozɪv", ukphone: "ɪk'spləusɪv" },
-  { name: 'numerous', trans: ['众多的'], usphone: "'numərəs", ukphone: "'njuːmərəs" },
-  { name: 'govern', trans: ['居支配地位， 占优势', '统治，治理，支配'], usphone: "'ɡʌvɚn", ukphone: "'gʌvn" },
-  { name: 'analyse', trans: ['分析； 分解； 解析'], usphone: "'æn(ə)laɪz", ukphone: "'ænəlaɪz" },
-  { name: 'discourage', trans: ['使泄气， 使灰心； 阻止， 劝阻'], usphone: "dɪs'kɝɪdʒ", ukphone: "dɪs'kʌrɪdʒ" },
-  { name: 'resemble', trans: ['像， 类似于'], usphone: "rɪ'zɛmbl", ukphone: "rɪ'zembl" },
+  { name: 'cancel', trans: ['Hủy bỏ， Hủy bỏ； Xóa bỏ'], usphone: "'kænsl", ukphone: "'kænsl" },
+  { name: 'explosive', trans: ['爆炸của； 极易引起争论của', 'thuốc nổ'], usphone: "ɪk'splosɪv; ɪk'splozɪv", ukphone: "ɪk'spləusɪv" },
+  { name: 'numerous', trans: ['众nhiềucủa'], usphone: "'numərəs", ukphone: "'njuːmərəs" },
+  { name: 'govern', trans: ['trội， Thống trị', 'luật lệ，quản trị，Thống trị'], usphone: "'ɡʌvɚn", ukphone: "'gʌvn" },
+  { name: 'analyse', trans: ['phân tích； phá vỡ； phân tích cú pháp'], usphone: "'æn(ə)laɪz", ukphone: "'ænəlaɪz" },
+  { name: 'discourage', trans: ['làm nản lòng， làm nản lòng； Ngăn chặn， khuyên can'], usphone: "dɪs'kɝɪdʒ", ukphone: "dɪs'kʌrɪdʒ" },
+  { name: 'resemble', trans: ['hình ảnh， Tương tự như'], usphone: "rɪ'zɛmbl", ukphone: "rɪ'zembl" },
   {
     name: 'remote',
-    trans: ['遥远的； 偏僻的； 关系疏远的； 脱离的； 微乎其微的； 孤高的， 冷淡的； 遥控的'],
+    trans: ['遥远của； 偏僻của； 关系疏远của； 脱离của； 微乎其微của； 孤高của， 冷淡của； 遥控của'],
     usphone: "rɪ'mot",
     ukphone: "rɪ'məut",
   },
-  { name: 'salary', trans: ['薪金， 薪水'], usphone: "'sæləri", ukphone: "'sæləri" },
-  { name: 'pollution', trans: ['污染， 污染物'], usphone: "pə'luʃən", ukphone: "pə'luːʃn" },
-  { name: 'pretend', trans: ['装作， 假装'], usphone: "prɪ'tɛnd", ukphone: "prɪ'tend" },
-  { name: 'kettle', trans: ['水壶'], usphone: "'kɛtl", ukphone: "'ketl" },
-  { name: 'wreck', trans: ['失事；残骸；精神或身体已垮的人', '破坏'], usphone: 'rɛk', ukphone: 'rek' },
-  { name: 'drunk', trans: ['醉的； 陶醉的'], usphone: 'drʌŋk', ukphone: 'drʌŋk' },
-  { name: 'calculate', trans: ['计算； 估计； 计划'], usphone: "'kælkjulet", ukphone: "'kælkjuleɪt" },
-  { name: 'persistent', trans: ['坚持的， 不屈不挠的； 持续不断的； 反复出现的'], usphone: "pə'zɪstənt", ukphone: "pə'sɪstənt" },
-  { name: 'sake', trans: ['缘故， 理由'], usphone: 'sek', ukphone: 'seɪk' },
-  { name: 'conceal', trans: ['把…隐藏起来， 掩盖， 隐瞒'], usphone: "kən'sil", ukphone: "kən'siːl" },
-  { name: 'audience', trans: ['听众， 观众， 读者'], usphone: "'ɔdɪəns", ukphone: "'ɔːdiəns" },
-  { name: 'meanwhile', trans: ['与此同时'], usphone: "'minwaɪl", ukphone: "'miːnwaɪl" },
+  { name: 'salary', trans: ['lương， lương'], usphone: "'sæləri", ukphone: "'sæləri" },
+  { name: 'pollution', trans: ['làm ô nhiễm， chất ô nhiễm'], usphone: "pə'luʃən", ukphone: "pə'luːʃn" },
+  { name: 'pretend', trans: ['Giả vờ， giả vờ'], usphone: "prɪ'tɛnd", ukphone: "prɪ'tend" },
+  { name: 'kettle', trans: ['ấm đun nước'], usphone: "'kɛtl", ukphone: "'ketl" },
+  { name: 'wreck', trans: ['bị đắm；đống đổ nát；精神或身体已垮của人', 'hủy hoại'], usphone: 'rɛk', ukphone: 'rek' },
+  { name: 'drunk', trans: ['醉của； 陶醉của'], usphone: 'drʌŋk', ukphone: 'drʌŋk' },
+  { name: 'calculate', trans: ['tính toán； ước lượng； kế hoạch'], usphone: "'kælkjulet", ukphone: "'kælkjuleɪt" },
+  { name: 'persistent', trans: ['kiên trìcủa， 不屈不挠của； 持续不断của； 反复出现của'], usphone: "pə'zɪstənt", ukphone: "pə'sɪstənt" },
+  { name: 'sake', trans: ['lý do， lý do'], usphone: 'sek', ukphone: 'seɪk' },
+  { name: 'conceal', trans: ['Bó…trốn， che phủ， trốn'], usphone: "kən'sil", ukphone: "kən'siːl" },
+  { name: 'audience', trans: ['khán giả， khán giả， người đọc'], usphone: "'ɔdɪəns", ukphone: "'ɔːdiəns" },
+  { name: 'meanwhile', trans: ['与此cùng lúc'], usphone: "'minwaɪl", ukphone: "'miːnwaɪl" },
 ]

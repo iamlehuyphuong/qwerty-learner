@@ -13,7 +13,7 @@ interface IWordStats {
   wrongTimeRecord: { name: string; value: number }[]
 }
 
-// 获取两个日期之间的所有日期，使用dayjs计算
+// Nhận tất cả các ngày giữa hai ngày，sử dụngdayjstính toán
 function getDatesBetween(start: number, end: number) {
   const dates = []
   let curr = dayjs(start).startOf('day')
@@ -57,7 +57,7 @@ export function useWordStats(startTimeStamp: number, endTimeStamp: number) {
 }
 
 async function getChapterStats(startTimeStamp: number, endTimeStamp: number): Promise<IWordStats> {
-  // indexedDB查找某个数字范围内的数据
+  // indexedDBTìm dữ liệu trong một dãy số
   const records: IWordRecord[] = await db.wordRecords.where('timeStamp').between(startTimeStamp, endTimeStamp).toArray()
 
   if (records.length === 0) {
@@ -66,11 +66,11 @@ async function getChapterStats(startTimeStamp: number, endTimeStamp: number): Pr
 
   let data: {
     [x: string]: {
-      exerciseTime: number //练习次数
-      words: string[] //练习词数组（不去重）
-      totalTime: number //总计用时
-      wrongCount: number //错误次数
-      wrongKeys: string[] //按错的按键
+      exerciseTime: number //Thời gian luyện tập
+      words: string[] //Luyện tập mảng từ（Đừng loại bỏ trọng lượng）
+      totalTime: number //Tổng thời gian sử dụng
+      wrongCount: number //số lỗi
+      wrongKeys: string[] //Nhấn nhầm nút
     }
   } = {}
 
@@ -91,29 +91,29 @@ async function getChapterStats(startTimeStamp: number, endTimeStamp: number): Pr
 
   const RecordArray = Object.entries(data)
 
-  // 练习次数统计
+  // Thực hành thống kê số đếm
   const exerciseRecord: IWordStats['exerciseRecord'] = RecordArray.map(([date, { exerciseTime }]) => ({
     date,
     count: exerciseTime,
     level: getLevel(exerciseTime),
   }))
-  // 练习词数统计（去重）
+  // Luyện tập đếm từ（Xóa trùng lặp）
   const wordRecord: IWordStats['wordRecord'] = RecordArray.map(([date, { words }]) => ({
     date,
     count: Array.from(new Set(words)).length,
     level: getLevel(Array.from(new Set(words)).length),
   }))
-  // wpm=练习词数（不去重）/总时间
+  // wpm=luyện tập đếm từ（Đừng loại bỏ trọng lượng）/tổng thời gian
   const wpmRecord: IWordStats['wpmRecord'] = RecordArray.map<[string, number]>(([date, { words, totalTime }]) => [
     date,
     Math.round(words.length / (totalTime / 1000 / 60)),
   ]).filter((d) => d[1])
-  // 正确率=每个单词的长度合计/(每个单词的长度合计+总错误次数)
+  // Tỷ lệ chính xác=Tổng độ dài của mỗi từ/(Tổng độ dài của mỗi từ+Tổng số lỗi)
   const accuracyRecord: IWordStats['accuracyRecord'] = RecordArray.map<[string, number]>(([date, { words, wrongCount }]) => [
     date,
     Math.round((words.join('').length / (words.join('').length + wrongCount)) * 100),
   ]).filter((d) => d[1])
-  // 错误次数统计
+  // Thống kê lỗi
   const wrongTimeRecord: IWordStats['wrongTimeRecord'] = []
   const allWrongTime = RecordArray.map(([, { wrongKeys }]) => wrongKeys)
     .flat()

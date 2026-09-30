@@ -6,11 +6,11 @@ export type WordState = {
   inputWord: string
   letterStates: LetterState[]
   isFinished: boolean
-  // 是否出现输入错误
+  // Có bất kỳ lỗi đầu vào nào không?
   hasWrong: boolean
-  // 记录是否已经出现过输入错误
+  // Ghi是否đã出现过输入错误
   hasMadeInputWrong: boolean
-  // 用户输入错误的次数
+  // 用户输入错误củahạng hai数
   wrongCount: number
   startTime: string
   endTime: string
@@ -18,7 +18,7 @@ export type WordState = {
   correctCount: number
   letterTimeArray: number[]
   letterMistake: LetterMistakes
-  // 用于随机隐藏字母功能
+  // Được sử dụng để ẩn ngẫu nhiên chức năng chữ cái
   randomLetterVisible: boolean[]
 }
 
