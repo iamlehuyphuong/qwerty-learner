@@ -2,11 +2,12 @@ import { TypingContext, TypingStateActionType } from '../../store'
 import AdvancedSetting from './AdvancedSetting'
 import DataSetting from './DataSetting'
 import SoundSetting from './SoundSetting'
+import { Button } from '@/components/ui/button'
 import ViewSetting from '@/pages/Typing/components/Setting/ViewSetting'
 import { Dialog, Tab, Transition } from '@headlessui/react'
 import classNames from 'classnames'
+import { Settings } from 'lucide-react'
 import { Fragment, useContext, useState } from 'react'
-import IconCog6Tooth from '~icons/heroicons/cog-6-tooth-solid'
 import IconEye from '~icons/heroicons/eye-solid'
 import IconAdjustmentsHorizontal from '~icons/tabler/adjustments-horizontal'
 import IconDatabaseCog from '~icons/tabler/database-cog'
@@ -30,16 +31,15 @@ export default function Setting() {
 
   return (
     <>
-      <button
-        type="button"
+      <Button
+        variant="outline"
+        size="icon"
         onClick={openModal}
-        className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white  ${
-          isOpen && 'bg-indigo-500 text-white'
-        }`}
+        className="h-8 w-8 border-indigo-500 text-indigo-500 transition-colors"
         title="Mở hộp thoại cài đặt"
       >
-        <IconCog6Tooth className="icon" />
-      </button>
+        <Settings className="h-5 w-5" />
+      </Button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>

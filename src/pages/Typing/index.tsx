@@ -13,6 +13,7 @@ import { TypingContext, TypingStateActionType, initialState, typingReducer } fro
 import { DonateCard } from '@/components/DonateCard'
 import Header from '@/components/Header'
 import Tooltip from '@/components/Tooltip'
+import { Button } from '@/components/ui/button'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
 import { IsDesktop, isLegal } from '@/utils'
@@ -139,14 +140,14 @@ const App: React.FC = () => {
           <Switcher />
           <StartButton isLoading={isLoading} />
           <Tooltip content="跳过该từ">
-            <button
+            <Button
               className={`${
-                state.isShowSkip ? 'bg-orange-400' : 'invisible w-0 bg-gray-300 px-0 opacity-0'
-              } my-btn-primary transition-all duration-300 `}
+                state.isShowSkip ? 'bg-orange-400 hover:bg-orange-500' : 'invisible w-0 bg-gray-300 px-0 opacity-0'
+              } transition-all duration-300 `}
               onClick={skipWord}
             >
               Skip
-            </button>
+            </Button>
           </Tooltip>
         </Header>
         <div className="container mx-auto flex h-full flex-1 flex-col items-center justify-center pb-5">

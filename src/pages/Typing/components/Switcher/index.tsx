@@ -7,15 +7,13 @@ import Setting from '../Setting'
 import SoundSwitcher from '../SoundSwitcher'
 import WordDictationSwitcher from '../WordDictationSwitcher'
 import Tooltip from '@/components/Tooltip'
+import { Button } from '@/components/ui/button'
 import { isOpenDarkModeAtom } from '@/store'
 import { CTRL } from '@/utils'
 import { useAtom } from 'jotai'
+import { Languages, Moon, Sun } from 'lucide-react'
 import { useContext } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
-import IconMoon from '~icons/heroicons/moon-solid'
-import IconSun from '~icons/heroicons/sun-solid'
-import IconLanguage from '~icons/tabler/language'
-import IconLanguageOff from '~icons/tabler/language-off'
 
 export default function Switcher() {
   const [isOpenDarkMode, setIsOpenDarkMode] = useAtom(isOpenDarkModeAtom)
@@ -46,49 +44,55 @@ export default function Switcher() {
         <SoundSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="Lặp lại từ vựng">
+      <Tooltip content="Lặp lại từ vựng">
         <LoopWordSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content={`Bật/tắt chế độ viết im lặng (${CTRL} + V)`}>
+      <Tooltip content={`Bật/tắt chế độ viết im lặng (${CTRL} + V)`}>
         <WordDictationSwitcher />
       </Tooltip>
-      <Tooltip className="h-7 w-7" content={`Bật/tắt hiển thị nghĩa (${CTRL} + Shift + V)`}>
-        <button
-          className={`p-[2px] ${state?.isTransVisible ? 'text-indigo-500' : 'text-gray-500'} text-lg focus:outline-none`}
-          type="button"
+      <Tooltip content={`Bật/tắt hiển thị nghĩa (${CTRL} + Shift + V)`}>
+        <Button
+          variant="outline"
+          size="icon"
+          className={`${
+            state?.isTransVisible ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-500 dark:border-gray-700'
+          } h-8 w-8 transition-colors`}
           onClick={(e) => {
             changeTransVisibleState()
             e.currentTarget.blur()
           }}
           aria-label={`Bật/tắt hiển thị nghĩa (${CTRL} + Shift + V)`}
         >
-          {state?.isTransVisible ? <IconLanguage /> : <IconLanguageOff />}
-        </button>
+          {state?.isTransVisible ? <Languages className="h-5 w-5" /> : <Languages className="h-5 w-5 opacity-50" />}
+        </Button>
       </Tooltip>
 
       <Tooltip content="Sổ tay từ viết sai">
         <ErrorBookButton />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="Xem thống kê">
+      <Tooltip content="Xem thống kê">
         <AnalysisButton />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="Bật và tắt chế độ tối">
-        <button
-          className={`p-[2px] text-lg text-indigo-500 focus:outline-none`}
-          type="button"
+      <Tooltip content="Bật và tắt chế độ tối">
+        <Button
+          variant="outline"
+          size="icon"
+          className={`${
+            isOpenDarkMode ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-500 dark:border-gray-700'
+          } h-8 w-8 transition-colors`}
           onClick={(e) => {
             changeDarkModeState()
             e.currentTarget.blur()
           }}
           aria-label="Bật và tắt chế độ tối"
         >
-          {isOpenDarkMode ? <IconMoon className="icon" /> : <IconSun className="icon" />}
-        </button>
+          {isOpenDarkMode ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+        </Button>
       </Tooltip>
-      <Tooltip className="h-7 w-7" content="Vị trí đặt tay">
+      <Tooltip content="Vị trí đặt tay">
         <HandPositionIllustration></HandPositionIllustration>
       </Tooltip>
       <Tooltip content="Cài đặt">

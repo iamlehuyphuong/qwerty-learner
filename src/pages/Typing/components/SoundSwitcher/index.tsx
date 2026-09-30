@@ -1,8 +1,10 @@
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Switch } from '@/components/ui/switch'
 import { hintSoundsConfigAtom, keySoundsConfigAtom } from '@/store'
-import { Popover, Switch, Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
-import { Fragment, useCallback } from 'react'
-import IconSpeakerWave from '~icons/heroicons/speaker-wave-solid'
+import { Volume2 } from 'lucide-react'
+import { useCallback } from 'react'
 
 export default function SoundSwitcher() {
   const [keySoundsConfig, setKeySoundsConfig] = useAtom(keySoundsConfigAtom)
@@ -23,50 +25,34 @@ export default function SoundSwitcher() {
   )
 
   return (
-    <Popover className="relative">
-      {({ open }) => (
-        <>
-          <Popover.Button
-            className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white  ${
-              open ? 'bg-indigo-500 text-white' : ''
-            }`}
-            onFocus={(e) => {
-              e.target.blur()
-            }}
-            aria-label="Cài đặt âm thanh"
-            title="Cài đặt âm thanh"
-          >
-            <IconSpeakerWave className="icon" />
-          </Popover.Button>
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-8 w-8 border-indigo-500 text-indigo-500 transition-colors"
+          onFocus={(e) => {
+            e.target.blur()
+          }}
+          aria-label="Cài đặt âm thanh"
+          title="Cài đặt âm thanh"
+        >
+          <Volume2 className="h-5 w-5" />
+        </Button>
+      </PopoverTrigger>
 
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
-          >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
-              <div className="shadow-upper box-border flex w-72 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow dark:bg-gray-800">
-                <div className="flex w-full flex-row items-center justify-between py-1">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Âm thanh gõ phím</span>
-                  <Switch checked={keySoundsConfig.isOpen} onChange={onChangeKeySound} className="switch-root">
-                    <span aria-hidden="true" className="switch-thumb" />
-                  </Switch>
-                </div>
-                <div className="flex w-full flex-row items-center justify-between py-1">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiệu ứng âm thanh</span>
-                  <Switch checked={hintSoundsConfig.isOpen} onChange={onChangeHintSound} className="switch-root">
-                    <span aria-hidden="true" className="switch-thumb" />
-                  </Switch>
-                </div>
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
+      <PopoverContent className="w-72 p-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-row items-center justify-between py-1">
+            <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Âm thanh gõ phím</span>
+            <Switch checked={keySoundsConfig.isOpen} onChange={(e) => onChangeKeySound(e.target.checked)} />
+          </div>
+          <div className="flex w-full flex-row items-center justify-between py-1">
+            <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiệu ứng âm thanh</span>
+            <Switch checked={hintSoundsConfig.isOpen} onChange={(e) => onChangeHintSound(e.target.checked)} />
+          </div>
+        </div>
+      </PopoverContent>
     </Popover>
   )
 }

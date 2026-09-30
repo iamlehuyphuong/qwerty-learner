@@ -1,10 +1,9 @@
 import Tooltip from '@/components/Tooltip'
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@/components/ui/dropdown'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { currentChapterAtom, currentDictInfoAtom, isReviewModeAtom } from '@/store'
 import range from '@/utils/range'
 import { useAtom, useAtomValue } from 'jotai'
 import { NavLink } from 'react-router-dom'
-import IconCheck from '~icons/tabler/check'
 
 export const DictChapterButton = () => {
   const currentDictInfo = useAtomValue(currentDictInfoAtom)
@@ -21,7 +20,7 @@ export const DictChapterButton = () => {
     <>
       <Tooltip content="Chọn từ điển">
         <NavLink
-          className="block rounded-lg px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white/60 dark:hover:text-white"
+          className="block rounded-lg border border-gray-300 px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white/60 dark:hover:text-white"
           to="/gallery"
         >
           {currentDictInfo.name} {isReviewMode && 'Ôn tập từ viết sai'}
@@ -29,27 +28,23 @@ export const DictChapterButton = () => {
       </Tooltip>
       {!isReviewMode && (
         <Tooltip content="Chọn chương">
-          <Dropdown>
-            <DropdownTrigger
-              onKeyDown={handleKeyDown}
-              className="w-28 rounded-lg px-3 py-1 text-center text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white/60 dark:hover:text-white"
-            >
-              Chương {currentChapter + 1}
-            </DropdownTrigger>
-            <DropdownMenu align="center" className="max-h-60 w-32 overflow-y-auto">
-              {range(0, chapterCount, 1).map((index) => {
-                const selected = currentChapter === index
-                return (
-                  <DropdownItem key={index} onClick={() => setCurrentChapter(index)} className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 items-center justify-center text-indigo-500">
-                      {selected && <IconCheck className="focus:outline-none" />}
-                    </span>
-                    <span>Chương {index + 1}</span>
-                  </DropdownItem>
-                )
-              })}
-            </DropdownMenu>
-          </Dropdown>
+          <div className="w-36">
+            <Select value={currentChapter.toString()} onChange={(val) => setCurrentChapter(parseInt(val))}>
+              <SelectTrigger
+                onKeyDown={handleKeyDown}
+                className="h-8 w-full border-gray-300 text-lg hover:bg-indigo-400 hover:text-white focus:ring-0 dark:border-gray-700 dark:hover:bg-indigo-400 dark:hover:text-white"
+              >
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="max-h-60 overflow-y-auto">
+                {range(0, chapterCount, 1).map((index) => (
+                  <SelectItem key={index} value={index.toString()}>
+                    {`Chương ${index + 1}`}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </Tooltip>
       )}
     </>

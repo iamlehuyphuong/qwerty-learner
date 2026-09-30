@@ -1,7 +1,8 @@
+import { Button } from '@/components/ui/button'
 import { recordAnalysisAction } from '@/utils'
+import { PieChart } from 'lucide-react'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ChartPie from '~icons/heroicons/chart-pie-solid'
 
 const AnalysisButton = () => {
   const navigate = useNavigate()
@@ -12,14 +13,15 @@ const AnalysisButton = () => {
   }, [navigate])
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="outline"
+      size="icon"
       onClick={toAnalysis}
-      className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white`}
+      className="h-8 w-8 border-indigo-500 text-indigo-500 transition-colors"
       title="Xem số liệu thống kê"
     >
-      <ChartPie className="icon" />
-    </button>
+      <PieChart className="h-5 w-5" />
+    </Button>
   )
 }
 

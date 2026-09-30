@@ -1,14 +1,14 @@
 import Tooltip from '@/components/Tooltip'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Switch } from '@/components/ui/switch'
 import { LANG_PRON_MAP } from '@/resources/soundResource'
 import { currentDictInfoAtom, phoneticConfigAtom, pronunciationConfigAtom } from '@/store'
 import type { PronunciationType } from '@/typings'
 import { PRONUNCIATION_PHONETIC_MAP } from '@/typings'
 import { CTRL } from '@/utils'
-import { Listbox, Popover, Switch, Transition } from '@headlessui/react'
 import { useAtom, useAtomValue } from 'jotai'
-import { Fragment, useCallback, useEffect, useMemo } from 'react'
-import IconCheck from '~icons/tabler/check'
-import IconChevronDown from '~icons/tabler/chevron-down'
+import { useCallback, useEffect, useMemo } from 'react'
 
 const PronunciationSwitcher = () => {
   const currentDictInfo = useAtomValue(currentDictInfoAtom)
@@ -105,109 +105,65 @@ const PronunciationSwitcher = () => {
   }, [pronunciationConfig.isOpen, pronunciationConfig.name])
 
   return (
-    <Popover className="relative">
-      {({ open }) => (
-        <>
-          <Popover.Button
-            className={`flex h-8 w-28 cursor-pointer items-center justify-center rounded-md px-1 transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100  ${
-              open ? 'bg-indigo-400 text-white' : 'bg-transparent'
-            }`}
+    <Popover>
+      <Tooltip content="Cài đặt phát âm và phiên âm">
+        <PopoverTrigger asChild>
+          <button
+            className={`flex h-8 w-28 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-transparent px-1 transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100`}
             onFocus={(e) => {
               e.target.blur()
             }}
           >
-            <Tooltip content="Cài đặt phát âm và phiên âm">{currentLabel}</Tooltip>
-          </Popover.Button>
-
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
-          >
-            <Popover.Panel className="absolute left-1/2 z-20 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
-              <div className="shadow-upper box-border flex w-72 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow transition duration-1000 ease-in-out dark:bg-gray-800">
-                <div className="flex w-full flex-row items-center justify-between py-1">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiển thị phiên âm</span>
-                  <Switch checked={phoneticConfig.isOpen} onChange={onChangePhoneticIsOpen} className="switch-root">
-                    <span aria-hidden="true" className="switch-thumb" />
-                  </Switch>
-                </div>
-                <div className="flex w-full flex-row items-center justify-between py-1">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Phát âm từ vựng</span>
-                  <Switch checked={pronunciationConfig.isOpen} onChange={onChangePronunciationIsOpen} className="switch-root">
-                    <span aria-hidden="true" className="switch-thumb" />
-                  </Switch>
-                </div>
-                {window.speechSynthesis && (
-                  <div className="flex w-full flex-row items-center justify-between py-1">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Đọc nghĩa của từ</span>
-                    <Switch checked={pronunciationConfig.isTransRead} onChange={onChangePronunciationIsTransRead} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                  </div>
-                )}
-                <Transition
-                  show={pronunciationConfig.isOpen}
-                  className="flex w-full flex-col items-center justify-center gap-4"
-                  enter="transition-all duration-300 ease-in"
-                  enterFrom="max-h-0 opacity-0"
-                  enterTo="max-h-[300px] opacity-100"
-                  leave="transition-all duration-300 ease-out"
-                  leaveFrom="max-h-[300px] opacity-100"
-                  leaveTo="max-h-0 opacity-0"
-                >
-                  <div className="flex w-full flex-row items-center justify-between py-1">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Lặp lại phát âm</span>
-                    <Switch checked={pronunciationConfig.isLoop} onChange={onChangePronunciationIsLoop} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                  </div>
-                  <div className="flex w-full flex-row items-center justify-between py-1">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Giọng đọc</span>
-                    <Listbox value={pronunciationConfig.type} onChange={onChangePronunciationType}>
-                      <div className="relative">
-                        <Listbox.Button className="listbox-button !w-32">
-                          <span>{pronunciationConfig.name}</span>
-                          <span>
-                            <IconChevronDown className="focus:outline-none" />
-                          </span>
-                        </Listbox.Button>
-                        <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-                          <Listbox.Options className="listbox-options right-0 !w-max min-w-full">
-                            {pronunciationList.map((item) => (
-                              <Listbox.Option key={item.pron} value={item.pron}>
-                                {({ selected }) => (
-                                  <>
-                                    <span>{item.name}</span>
-                                    {selected ? (
-                                      <span className="listbox-options-icon">
-                                        <IconCheck className="focus:outline-none" />
-                                      </span>
-                                    ) : null}
-                                  </>
-                                )}
-                              </Listbox.Option>
-                            ))}
-                          </Listbox.Options>
-                        </Transition>
-                      </div>
-                    </Listbox>
-                  </div>
-                  {pronunciationConfig.isOpen && (
-                    <span className="text-colo text-xs font-medium text-gray-500 dark:text-white dark:text-opacity-60">
-                      Mẹo: Phím tắt phát âm ({CTRL} + J)
-                    </span>
-                  )}
-                </Transition>
+            {currentLabel}
+          </button>
+        </PopoverTrigger>
+      </Tooltip>
+      <PopoverContent className="w-72 p-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-row items-center justify-between py-1">
+            <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiển thị phiên âm</span>
+            <Switch checked={phoneticConfig.isOpen} onChange={(e) => onChangePhoneticIsOpen(e.target.checked)} />
+          </div>
+          <div className="flex w-full flex-row items-center justify-between py-1">
+            <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Phát âm từ vựng</span>
+            <Switch checked={pronunciationConfig.isOpen} onChange={(e) => onChangePronunciationIsOpen(e.target.checked)} />
+          </div>
+          {window.speechSynthesis && (
+            <div className="flex w-full flex-row items-center justify-between py-1">
+              <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Đọc nghĩa của từ</span>
+              <Switch checked={pronunciationConfig.isTransRead} onChange={(e) => onChangePronunciationIsTransRead(e.target.checked)} />
+            </div>
+          )}
+          {pronunciationConfig.isOpen && (
+            <div className="animate-in slide-in-from-top-2 flex w-full flex-col gap-4">
+              <div className="flex w-full flex-row items-center justify-between py-1">
+                <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Lặp lại phát âm</span>
+                <Switch checked={pronunciationConfig.isLoop} onChange={(e) => onChangePronunciationIsLoop(e.target.checked)} />
               </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
+              <div className="flex w-full flex-row items-center justify-between py-1">
+                <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Giọng đọc</span>
+                <div className="w-32">
+                  <Select value={pronunciationConfig.type} onChange={onChangePronunciationType}>
+                    <SelectTrigger className="h-8">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {pronunciationList.map((item) => (
+                        <SelectItem key={item.pron} value={item.pron}>
+                          {item.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <span className="text-xs font-medium text-gray-500 dark:text-white dark:text-opacity-60">
+                Mẹo: Phím tắt phát âm ({CTRL} + J)
+              </span>
+            </div>
+          )}
+        </div>
+      </PopoverContent>
     </Popover>
   )
 }

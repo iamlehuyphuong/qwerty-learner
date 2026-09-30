@@ -1,13 +1,13 @@
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Switch } from '@/components/ui/switch'
 import { wordDictationConfigAtom } from '@/store'
 import type { WordDictationType } from '@/typings'
-import { Listbox, Popover, Switch, Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
-import { Fragment, useLayoutEffect, useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
+import { useLayoutEffect, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
-import IconEyeSlash from '~icons/heroicons/eye-slash-solid'
-import IconEye from '~icons/heroicons/eye-solid'
-import IconCheck from '~icons/tabler/check'
-import IconChevronDown from '~icons/tabler/chevron-down'
 
 const wordDictationTypeList: { name: string; type: WordDictationType }[] = [
   {
@@ -23,7 +23,7 @@ const wordDictationTypeList: { name: string; type: WordDictationType }[] = [
     type: 'hideConsonant',
   },
   {
-    name: 'ẩn ngẫu nhiên',
+    name: 'Ẩn ngẫu nhiên',
     type: 'randomHide',
   },
 ]
@@ -62,96 +62,53 @@ export default function WordDictationSwitcher() {
   )
 
   return (
-    <Popover className="relative">
-      {({ open }) => (
-        <>
-          <Popover.Button
-            className={`flex items-center justify-center rounded p-[2px] text-lg ${
-              wordDictationConfig.isOpen ? 'text-indigo-500' : 'text-gray-500'
-            } outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white  ${
-              open ? 'bg-indigo-500 text-white' : ''
-            }`}
-            type="button"
-            aria-label="开关Chế độ viết im lặng"
-          >
-            {wordDictationConfig.isOpen ? <IconEye className="icon" /> : <IconEyeSlash className="icon" />}
-          </Popover.Button>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
-          >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
-              <div className="shadow-upper box-border flex w-60 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow dark:bg-gray-800">
-                <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                    开关Chế độ viết im lặng
-                  </span>
-                  <div className="flex w-full flex-row items-center justify-between">
-                    <Switch checked={wordDictationConfig.isOpen} onChange={onToggleWordDictation} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Ra lệnh${
-                      wordDictationConfig.isOpen ? 'bật lên' : 'đóng cửa'
-                    }`}</span>
-                  </div>
-                </div>
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          className={`${
+            wordDictationConfig.isOpen ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-500 dark:border-gray-700'
+          } h-8 w-8 transition-colors`}
+          aria-label="Bật tắt chế độ viết im lặng"
+        >
+          {wordDictationConfig.isOpen ? <Eye className="h-5 w-5" /> : <EyeOff className="h-5 w-5" />}
+        </Button>
+      </PopoverTrigger>
 
-                <Transition
-                  show={wordDictationConfig.isOpen}
-                  className="flex w-full flex-col items-center justify-center gap-4"
-                  enter="transition-all duration-300 ease-in"
-                  enterFrom="max-h-0 opacity-0"
-                  enterTo="max-h-[300px] opacity-100"
-                  leave="transition-all duration-300 ease-out"
-                  leaveFrom="max-h-[300px] opacity-100"
-                  leaveTo="max-h-0 opacity-0"
-                >
-                  <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                      Chế độ viết im lặng
-                    </span>
-                    <div className="flex w-full flex-row items-center justify-between">
-                      <Listbox value={currentType.type} onChange={onChangeWordDictationType}>
-                        <div className="relative">
-                          <Listbox.Button className="listbox-button">
-                            <span>{currentType.name}</span>
-                            <span>
-                              <IconChevronDown className="focus:outline-none" />
-                            </span>
-                          </Listbox.Button>
-                          <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-                            <Listbox.Options className="listbox-options">
-                              {wordDictationTypeList.map((item) => (
-                                <Listbox.Option key={item.name} value={item.type}>
-                                  {({ selected }) => (
-                                    <>
-                                      <span>{item.name}</span>
-                                      {selected ? (
-                                        <span className="listbox-options-icon">
-                                          <IconCheck className="focus:outline-none" />
-                                        </span>
-                                      ) : null}
-                                    </>
-                                  )}
-                                </Listbox.Option>
-                              ))}
-                            </Listbox.Options>
-                          </Transition>
-                        </div>
-                      </Listbox>
-                    </div>
-                  </div>
-                </Transition>
+      <PopoverContent className="w-64 p-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-col items-start gap-2 py-0">
+            <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">Chế độ viết im lặng</span>
+            <div className="flex w-full flex-row items-center justify-between">
+              <Switch checked={wordDictationConfig.isOpen} onChange={() => onToggleWordDictation()} />
+              <span className="text-right text-xs font-normal leading-tight text-gray-600">
+                {wordDictationConfig.isOpen ? 'Đang bật' : 'Đang tắt'}
+              </span>
+            </div>
+          </div>
+
+          {wordDictationConfig.isOpen && (
+            <div className="animate-in slide-in-from-top-2 flex w-full flex-col items-start gap-2 py-0">
+              <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">Loại ẩn chữ</span>
+              <div className="flex w-full flex-row items-center justify-between">
+                <Select value={currentType.type} onChange={(value) => onChangeWordDictationType(value as WordDictationType)}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {wordDictationTypeList.map((item) => (
+                      <SelectItem key={item.name} value={item.type}>
+                        {item.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
+            </div>
+          )}
+        </div>
+      </PopoverContent>
     </Popover>
   )
 }
