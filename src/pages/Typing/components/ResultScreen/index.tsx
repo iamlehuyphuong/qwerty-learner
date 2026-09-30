@@ -220,7 +220,7 @@ const ResultScreen = () => {
         <div className="flex h-screen items-center justify-center">
           <div className="my-card fixed flex w-[90vw] max-w-6xl flex-col overflow-hidden rounded-3xl bg-white pb-14 pl-10 pr-5 pt-10 shadow-lg dark:bg-gray-800 md:w-4/5 lg:w-3/5">
             <div className="text-center font-sans text-xl font-normal text-gray-900 dark:text-gray-400 md:text-2xl">
-              {`${currentDictInfo.name} ${isReviewMode ? 'Ôn tập từ gõ sai' : 'Chương ' + (currentChapter + 1)}`}
+              {`${currentDictInfo.name} ${isReviewMode ? 'Ôn tập từ gõ sai' : 'Bài ' + (currentChapter + 1)}`}
             </div>
             <button className="absolute right-7 top-5" onClick={exitButtonHandler}>
               <IconX className="text-gray-400" />
@@ -295,9 +295,9 @@ const ResultScreen = () => {
                       className="my-btn-primary h-12 border-2 border-solid border-gray-300 bg-white text-base text-gray-700 dark:border-gray-700 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700"
                       type="button"
                       onClick={dictationButtonHandler}
-                      title="Luyện tập lại chương này"
+                      title="Luyện tập lại bài này"
                     >
-                      Luyện tập lại chương này
+                      Luyện tập lại bài này
                     </button>
                   </Tooltip>
                   <Tooltip content="phím tắt：space">
@@ -318,9 +318,9 @@ const ResultScreen = () => {
                     className={`{ isLastChapter ? 'cursor-not-allowed opacity-50' : ''} my-btn-primary h-12 text-base font-bold `}
                     type="button"
                     onClick={nextButtonHandler}
-                    title="Chương tiếp theo"
+                    title="Bài tiếp theo"
                   >
-                    Chương tiếp theo
+                    Bài tiếp theo
                   </button>
                 </Tooltip>
               )}
@@ -330,9 +330,9 @@ const ResultScreen = () => {
                   className="my-btn-primary h-12 text-base font-bold"
                   type="button"
                   onClick={onNavigateToGallery}
-                  title="Luyện tập chương khác"
+                  title="Luyện tập bài khác"
                 >
-                  Luyện tập chương khác
+                  Luyện tập bài khác
                 </button>
               )}
             </div>

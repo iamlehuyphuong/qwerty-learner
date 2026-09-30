@@ -1,6 +1,5 @@
 'use client'
 
-import { Popover, PopoverContent, PopoverTrigger } from './popover'
 import * as React from 'react'
 
 interface CommandContextType {
@@ -92,7 +91,7 @@ CommandList.displayName = 'CommandList'
 
 export const CommandEmpty = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className = '', children, ...props }, ref) => {
-    const { searchTerm } = useCommand()
+    useCommand()
     // In a real robust command palette, this would check if any child matched.
     // For simplicity, we assume this is conditionally rendered by the parent based on filtered results.
     return (

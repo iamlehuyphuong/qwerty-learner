@@ -29,7 +29,7 @@ export function useSelect() {
 
 export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue' | 'value'> {
   value?: string | string[]
-  onChange?: (value: any) => void
+  onChange?: (value: string | string[]) => void
   defaultValue?: string | string[]
   multiple?: boolean
 }

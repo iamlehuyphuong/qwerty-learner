@@ -2,7 +2,6 @@
 
 import { Calendar } from './calendar'
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
-import * as React from 'react'
 
 export interface DatePickerProps {
   date?: Date

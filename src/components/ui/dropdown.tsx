@@ -75,12 +75,12 @@ export const DropdownTrigger = React.forwardRef<HTMLButtonElement, DropdownTrigg
     }
 
     if (asChild && React.isValidElement(children)) {
-      return React.cloneElement(children as React.ReactElement<any>, {
+      return React.cloneElement(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
         ref,
         onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
           handleClick(e)
-          if ((children as React.ReactElement<any>).props.onClick) {
-            ;(children as React.ReactElement<any>).props.onClick(e)
+          if ((children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props.onClick) {
+            ;(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props.onClick(e)
           }
         },
         ...props,

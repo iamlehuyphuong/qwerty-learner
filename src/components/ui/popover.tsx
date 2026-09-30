@@ -73,14 +73,14 @@ export const PopoverTrigger = React.forwardRef<HTMLButtonElement, PopoverTrigger
 
     if (asChild && React.isValidElement(children)) {
       return React.cloneElement(
-        children as React.ReactElement<any>,
+        children as React.ReactElement<React.HTMLAttributes<HTMLElement>>,
         {
           ref,
-          onClick: (e: any) => {
+          onClick: (e: React.MouseEvent<HTMLElement>) => {
             handleClick(e)
-            ;(children as React.ReactElement<any>).props.onClick?.(e)
+            ;(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props.onClick?.(e)
           },
-        } as any,
+        } as React.HTMLAttributes<HTMLElement>,
       )
     }
 

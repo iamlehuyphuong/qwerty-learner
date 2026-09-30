@@ -70,8 +70,8 @@ export default function DictDetail({ dictionary: dict }: { dictionary: Dictionar
     <div className="flex flex-col rounded-[4rem] px-4 py-3 pl-5 text-gray-800 dark:text-gray-300">
       <div className="text relative flex h-40 flex-col gap-2">
         <h3 className="text-2xl font-semibold">{dict.name}</h3>
-        <p className="mt-1">{dict.chapterCount} chương</p>
-        <p>chung {dict.length} từ</p>
+        <p className="mt-1">{dict.chapterCount} bài</p>
+        <p>Tổng cộng {dict.length} từ</p>
         <p>{dict.description}</p>
         <div className="absolute bottom-5 right-4">
           <ToggleGroup type="single" value={curTab} onValueChange={handleTabChange}>
@@ -81,7 +81,7 @@ export default function DictDetail({ dictionary: dict }: { dictionary: Dictionar
               className={`${curTab === Tab.Chapters ? 'bg-primary text-primary-foreground' : ''} disabled:opacity-100`}
             >
               <MajesticonsPaperFoldTextLine className="mr-1.5 text-gray-500" />
-              Lựa chọn chương
+              Chọn bài
             </ToggleGroupItem>
             {errorWordData.length > 0 && (
               <>

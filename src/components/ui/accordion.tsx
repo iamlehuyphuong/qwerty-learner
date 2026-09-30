@@ -7,15 +7,7 @@ const AccordionContext = React.createContext<{
   setExpanded: React.Dispatch<React.SetStateAction<string | null>>
 } | null>(null)
 
-export function Accordion({
-  children,
-  className = '',
-  type = 'single',
-}: {
-  children: React.ReactNode
-  className?: string
-  type?: 'single' | 'multiple'
-}) {
+export function Accordion({ children, className = '' }: { children: React.ReactNode; className?: string; type?: 'single' | 'multiple' }) {
   const [expanded, setExpanded] = React.useState<string | null>(null)
 
   return (
@@ -35,7 +27,7 @@ export function AccordionItem({ value, children, className = '' }: { value: stri
     <div className={`rounded-lg border border-border bg-card transition-all ${className}`}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child as React.ReactElement<any>, {
+          return React.cloneElement(child as React.ReactElement<{ value?: string; isExpanded?: boolean }>, {
             value,
             isExpanded,
           })
@@ -120,7 +112,6 @@ export function AccordionTrigger({
 }
 
 export function AccordionContent({
-  value,
   isExpanded,
   children,
   className = '',

@@ -27,7 +27,7 @@ export const DictChapterButton = () => {
         </NavLink>
       </Tooltip>
       {!isReviewMode && (
-        <Tooltip content="Chọn chương">
+        <Tooltip content="Chọn bài">
           <div className="w-36">
             <Select value={currentChapter.toString()} onChange={(val) => setCurrentChapter(parseInt(val))}>
               <SelectTrigger
@@ -39,7 +39,7 @@ export const DictChapterButton = () => {
               <SelectContent className="max-h-60 overflow-y-auto">
                 {range(0, chapterCount, 1).map((index) => (
                   <SelectItem key={index} value={index.toString()}>
-                    {`Chương ${index + 1}`}
+                    {`Bài ${index + 1}`}
                   </SelectItem>
                 ))}
               </SelectContent>

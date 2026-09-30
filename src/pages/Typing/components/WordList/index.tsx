@@ -14,7 +14,7 @@ const currentDictTitle = atom((get) => {
   if (isReviewMode) {
     return `${get(currentDictInfoAtom).name} Ôn tập từ sai`
   } else {
-    return `${get(currentDictInfoAtom).name} Chương ${get(currentChapterAtom) + 1}`
+    return `${get(currentDictInfoAtom).name} Bài ${get(currentChapterAtom) + 1}`
   }
 })
 

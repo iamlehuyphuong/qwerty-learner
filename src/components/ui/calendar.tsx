@@ -11,8 +11,8 @@ export type CalendarProps = {
   className?: string
   mode?: 'single' | 'range'
   numberOfMonths?: number
-  selected?: any // Date | DateRange
-  onSelect?: (date: any) => void
+  selected?: Date | DateRange
+  onSelect?: (date: Date | DateRange | undefined) => void
   month?: Date
   onMonthChange?: (month: Date) => void
   locale?: string
@@ -45,7 +45,7 @@ export function Calendar({
 
   React.useEffect(() => {
     if (controlledMonth) {
-      setDisplayMonths((prev) => {
+      setDisplayMonths(() => {
         const arr = [controlledMonth]
         for (let i = 1; i < numberOfMonths; i++) {
           const next = new Date(arr[i - 1])

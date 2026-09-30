@@ -17,7 +17,7 @@ const detail = [
   },
   {
     title: 'Chế độ viết im lặng',
-    description: 'Bạn có thể chọn viết thầm sau mỗi chương.，Củng cố các từ đã học',
+    description: 'Bạn có thể chọn viết thầm sau mỗi bài.，Củng cố các từ đã học',
     img: dictationImg,
   },
   {
@@ -419,9 +419,8 @@ const MobilePage: React.FC = () => {
                   </div>
                   <h3 className="mb-3 text-lg font-semibold text-gray-900 sm:text-xl">Chế độ đọc chính tả thông minh</h3>
                   <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
-                    Sau khi người dùng hoàn thành một chương bài tập，Một tùy chọn sẽ bật lên để cho biết có nên viết chương này trong im
-                    lặng hay không.，Thuận tiện cho người dùng củng cố các từ đã học trong chương này。Tăng cường trí nhớ thông qua luyện
-                    tập chính tả。
+                    Sau khi người dùng hoàn thành một bài bài tập，Một tùy chọn sẽ bật lên để cho biết có nên viết bài này trong im lặng hay
+                    không.，Thuận tiện cho người dùng củng cố các từ đã học trong bài này。Tăng cường trí nhớ thông qua luyện tập chính tả。
                   </p>
                 </div>
 

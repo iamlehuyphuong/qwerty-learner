@@ -21,7 +21,7 @@ export default function AdvancedSetting() {
               <Switch checked={randomConfig.isOpen} onChange={() => setRandomConfig((prev) => ({ ...prev, isOpen: !prev.isOpen }))} />
             </div>
             <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
-              Các từ trong mỗi chương sẽ được sắp xếp ngẫu nhiên. Có hiệu lực từ chương tiếp theo.
+              Các từ trong mỗi bài sẽ được sắp xếp ngẫu nhiên. Có hiệu lực từ bài tiếp theo.
             </span>
           </div>
           <div className={styles.section}>

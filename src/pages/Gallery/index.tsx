@@ -45,7 +45,7 @@ const GalleryPage: React.FC = () => {
         </div>
         <div className="flex flex-col overflow-y-auto rounded-lg bg-indigo-50 p-6 dark:bg-slate-800">
           <h2 className="text-shadow sticky top-0 z-10 mb-4 text-lg font-bold text-gray-700 dark:text-white dark:text-opacity-70">
-            Lựa chọn chương
+            Chọn bài
           </h2>
           <div className="customized-scrollbar overflow-y-auto">
             <ChapterGroup totalWords={currentDictInfo.length} />

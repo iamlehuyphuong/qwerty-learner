@@ -1,6 +1,6 @@
 import type { Dictionary, Word } from '@/typings'
 import { wordListFetcher } from '@/utils/wordListFetcher'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import useSWR from 'swr'
 
 export default function useGetWord(name: string, dict: Dictionary) {
