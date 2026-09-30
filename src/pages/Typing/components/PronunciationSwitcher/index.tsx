@@ -129,44 +129,25 @@ const PronunciationSwitcher = () => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute left-1/2 z-20 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
-              <div className="shadow-upper box-border flex w-60 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow transition duration-1000 ease-in-out dark:bg-gray-800">
-                <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                    Hiển thị phiên âm
-                  </span>
-                  <div className="flex w-full flex-row items-center justify-between">
-                    <Switch checked={phoneticConfig.isOpen} onChange={onChangePhoneticIsOpen} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                      phoneticConfig.isOpen ? 'Đang bật' : 'Đang tắt'
-                    }`}</span>
-                  </div>
+              <div className="shadow-upper box-border flex w-72 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow transition duration-1000 ease-in-out dark:bg-gray-800">
+                <div className="flex w-full flex-row items-center justify-between py-1">
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiển thị phiên âm</span>
+                  <Switch checked={phoneticConfig.isOpen} onChange={onChangePhoneticIsOpen} className="switch-root">
+                    <span aria-hidden="true" className="switch-thumb" />
+                  </Switch>
                 </div>
-                <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">Phát âm từ vựng</span>
-                  <div className="flex w-full flex-row items-center justify-between">
-                    <Switch checked={pronunciationConfig.isOpen} onChange={onChangePronunciationIsOpen} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                      pronunciationConfig.isOpen ? 'Đang bật' : 'Đang tắt'
-                    }`}</span>
-                  </div>
+                <div className="flex w-full flex-row items-center justify-between py-1">
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Phát âm từ vựng</span>
+                  <Switch checked={pronunciationConfig.isOpen} onChange={onChangePronunciationIsOpen} className="switch-root">
+                    <span aria-hidden="true" className="switch-thumb" />
+                  </Switch>
                 </div>
                 {window.speechSynthesis && (
-                  <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                      Đọc nghĩa của từ
-                    </span>
-                    <div className="flex w-full flex-row items-center justify-between">
-                      <Switch checked={pronunciationConfig.isTransRead} onChange={onChangePronunciationIsTransRead} className="switch-root">
-                        <span aria-hidden="true" className="switch-thumb" />
-                      </Switch>
-                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                        pronunciationConfig.isTransRead ? 'Đang bật' : 'Đang tắt'
-                      }`}</span>
-                    </div>
+                  <div className="flex w-full flex-row items-center justify-between py-1">
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Đọc nghĩa của từ</span>
+                    <Switch checked={pronunciationConfig.isTransRead} onChange={onChangePronunciationIsTransRead} className="switch-root">
+                      <span aria-hidden="true" className="switch-thumb" />
+                    </Switch>
                   </div>
                 )}
                 <Transition
@@ -179,53 +160,42 @@ const PronunciationSwitcher = () => {
                   leaveFrom="max-h-[300px] opacity-100"
                   leaveTo="max-h-0 opacity-0"
                 >
-                  <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                      Lặp lại phát âm
-                    </span>
-                    <div className="flex w-full flex-row items-center justify-between">
-                      <Switch checked={pronunciationConfig.isLoop} onChange={onChangePronunciationIsLoop} className="switch-root">
-                        <span aria-hidden="true" className="switch-thumb" />
-                      </Switch>
-                      <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                        pronunciationConfig.isLoop ? 'Đang bật' : 'Đang tắt'
-                      }`}</span>
-                    </div>
+                  <div className="flex w-full flex-row items-center justify-between py-1">
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Lặp lại phát âm</span>
+                    <Switch checked={pronunciationConfig.isLoop} onChange={onChangePronunciationIsLoop} className="switch-root">
+                      <span aria-hidden="true" className="switch-thumb" />
+                    </Switch>
                   </div>
-                  <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                      Giọng đọc mặc định
-                    </span>
-                    <div className="flex w-full flex-row items-center justify-between">
-                      <Listbox value={pronunciationConfig.type} onChange={onChangePronunciationType}>
-                        <div className="relative">
-                          <Listbox.Button className="listbox-button">
-                            <span>{pronunciationConfig.name}</span>
-                            <span>
-                              <IconChevronDown className="focus:outline-none" />
-                            </span>
-                          </Listbox.Button>
-                          <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-                            <Listbox.Options className="listbox-options">
-                              {pronunciationList.map((item) => (
-                                <Listbox.Option key={item.pron} value={item.pron}>
-                                  {({ selected }) => (
-                                    <>
-                                      <span>{item.name}</span>
-                                      {selected ? (
-                                        <span className="listbox-options-icon">
-                                          <IconCheck className="focus:outline-none" />
-                                        </span>
-                                      ) : null}
-                                    </>
-                                  )}
-                                </Listbox.Option>
-                              ))}
-                            </Listbox.Options>
-                          </Transition>
-                        </div>
-                      </Listbox>
-                    </div>
+                  <div className="flex w-full flex-row items-center justify-between py-1">
+                    <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Giọng đọc</span>
+                    <Listbox value={pronunciationConfig.type} onChange={onChangePronunciationType}>
+                      <div className="relative">
+                        <Listbox.Button className="listbox-button !w-32">
+                          <span>{pronunciationConfig.name}</span>
+                          <span>
+                            <IconChevronDown className="focus:outline-none" />
+                          </span>
+                        </Listbox.Button>
+                        <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
+                          <Listbox.Options className="listbox-options right-0 !w-max min-w-full">
+                            {pronunciationList.map((item) => (
+                              <Listbox.Option key={item.pron} value={item.pron}>
+                                {({ selected }) => (
+                                  <>
+                                    <span>{item.name}</span>
+                                    {selected ? (
+                                      <span className="listbox-options-icon">
+                                        <IconCheck className="focus:outline-none" />
+                                      </span>
+                                    ) : null}
+                                  </>
+                                )}
+                              </Listbox.Option>
+                            ))}
+                          </Listbox.Options>
+                        </Transition>
+                      </div>
+                    </Listbox>
                   </div>
                   {pronunciationConfig.isOpen && (
                     <span className="text-colo text-xs font-medium text-gray-500 dark:text-white dark:text-opacity-60">

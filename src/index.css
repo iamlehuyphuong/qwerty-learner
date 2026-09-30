@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config "../tailwind.config.js";
+
+@custom-variant ui-active (&[data-headlessui-state~="active"], &[data-headlessui-state~="active"] *);
+@custom-variant ui-selected (&[data-headlessui-state~="selected"], &[data-headlessui-state~="selected"] *);
 
 body {
   margin: 0;
@@ -8,13 +10,78 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #faf9ff;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   @apply transition-colors duration-300;
   user-select: none;
 }
 
-html.dark body {
-  @apply bg-gray-900;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+* {
+  @apply border-border;
 }
 
 code {
@@ -80,13 +147,13 @@ body,
   }
 
   .my-btn-primary {
-    @apply flex items-center justify-center rounded-lg bg-indigo-400 px-6 py-1 text-lg text-white hover:opacity-90 focus:outline-none dark:text-opacity-80;
+    @apply flex items-center justify-center rounded-lg bg-indigo-400 px-6 py-1 text-lg text-white hover:opacity-90 focus:outline-none dark:text-white/80;
   }
 
   .my-btn-info-panel {
     @apply mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm
       font-semibold text-white shadow-sm transition-colors focus:outline-none
-      dark:bg-opacity-70 dark:text-opacity-80 sm:ml-3 sm:mt-0 sm:w-auto
+      dark:bg-gray-800/70 dark:text-white/80 sm:ml-3 sm:mt-0 sm:w-auto
       sm:text-sm;
   }
 
@@ -111,7 +178,7 @@ body,
     @apply relative w-40 cursor-pointer rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none dark:bg-gray-600;
   }
   .listbox-button span:nth-of-type(1) {
-    @apply block truncate text-gray-900 dark:text-white dark:text-opacity-60;
+    @apply block truncate text-gray-900 dark:text-white/60;
   }
   .listbox-button span:nth-of-type(2) {
     @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 focus:outline-none;
@@ -120,10 +187,10 @@ body,
     @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg  focus:outline-none dark:bg-gray-600;
   }
   .listbox-options > li {
-    @apply relative cursor-pointer select-none py-2 pl-10 pr-4 text-gray-900 ui-active:bg-indigo-100 ui-active:text-indigo-900 dark:text-white dark:text-opacity-60 dark:ui-active:bg-gray-500 dark:ui-active:text-indigo-300;
+    @apply ui-active:bg-indigo-100 ui-active:text-indigo-900 dark:ui-active:bg-gray-500 dark:ui-active:text-indigo-300 relative cursor-pointer select-none py-2 pl-10 pr-4 text-gray-900 dark:text-white/60;
   }
   .listbox-options > li > span:first-child {
-    @apply block truncate font-normal  ui-selected:font-medium;
+    @apply ui-selected:font-medium block truncate  font-normal;
   }
   .listbox-options-icon {
     @apply absolute inset-y-0 left-0 flex items-center pl-3 text-indigo-600 dark:text-indigo-400;

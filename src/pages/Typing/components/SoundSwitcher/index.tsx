@@ -49,30 +49,18 @@ export default function SoundSwitcher() {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute left-1/2 z-10 mt-2 flex max-w-max -translate-x-1/2 px-4 ">
-              <div className="shadow-upper box-border flex w-60 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow dark:bg-gray-800">
-                <div className="flex w-full  flex-col  items-start gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">Âm thanh gõ phím</span>
-                  <div className="flex w-full flex-row items-center justify-between">
-                    <Switch checked={keySoundsConfig.isOpen} onChange={onChangeKeySound} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                      keySoundsConfig.isOpen ? 'Đang bật' : 'Đang tắt'
-                    }`}</span>
-                  </div>
+              <div className="shadow-upper box-border flex w-72 select-none flex-col items-center justify-center gap-4 rounded-xl bg-white p-4 drop-shadow dark:bg-gray-800">
+                <div className="flex w-full flex-row items-center justify-between py-1">
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Âm thanh gõ phím</span>
+                  <Switch checked={keySoundsConfig.isOpen} onChange={onChangeKeySound} className="switch-root">
+                    <span aria-hidden="true" className="switch-thumb" />
+                  </Switch>
                 </div>
-                <div className="flex w-full flex-col items-start  gap-2 py-0">
-                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
-                    Hiệu ứng âm thanh
-                  </span>
-                  <div className="flex w-full flex-row items-center justify-between">
-                    <Switch checked={hintSoundsConfig.isOpen} onChange={onChangeHintSound} className="switch-root">
-                      <span aria-hidden="true" className="switch-thumb" />
-                    </Switch>
-                    <span className="text-right text-xs font-normal leading-tight text-gray-600">{`${
-                      hintSoundsConfig.isOpen ? 'Đang bật' : 'Đang tắt'
-                    }`}</span>
-                  </div>
+                <div className="flex w-full flex-row items-center justify-between py-1">
+                  <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white/60">Hiệu ứng âm thanh</span>
+                  <Switch checked={hintSoundsConfig.isOpen} onChange={onChangeHintSound} className="switch-root">
+                    <span aria-hidden="true" className="switch-thumb" />
+                  </Switch>
                 </div>
               </div>
             </Popover.Panel>

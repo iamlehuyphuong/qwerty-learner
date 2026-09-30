@@ -53,7 +53,7 @@ export const pronunciationConfigAtom = atomForConfig('pronunciation', {
   isOpen: true,
   volume: 1,
   type: 'us' as PronunciationType,
-  name: 'âm thanh Mỹ',
+  name: 'Giọng Mỹ',
   isLoop: false,
   isTransRead: false,
   transVolume: 1,
