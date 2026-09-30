@@ -17,7 +17,7 @@ export const keySoundResources: SoundResource[] = Object.keys(videoList)
     const suffix = k.substring(k.lastIndexOf('.'))
     return {
       key: name,
-      name: `${name}`,
+      name: name === 'Default' ? 'Mặc định' : name,
       filename: `${name}${suffix}`,
     }
   })

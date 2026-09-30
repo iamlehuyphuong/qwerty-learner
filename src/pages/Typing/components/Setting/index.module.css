@@ -1,24 +1,24 @@
 @reference "../../../../index.css";
 
 .tab-content {
-  @apply flex w-full flex-col items-start justify-start gap-10 overflow-y-auto pb-40 pl-6 pr-9 pt-8;
+  @apply flex w-full flex-col items-start justify-start gap-8 overflow-y-auto pb-20 pl-6 pr-6 pt-6;
 }
 
 .section {
-  @apply flex w-full flex-col items-start gap-4;
+  @apply flex w-full flex-col items-start gap-3;
 }
 .section-label {
-  @apply pb-0 text-xl font-medium text-gray-600;
+  @apply pb-0 text-base font-medium;
 }
 .section-description {
-  @apply -mt-1 pl-4 text-left text-xs font-normal leading-tight text-gray-600;
+  @apply -mt-1 pl-4 text-left text-xs font-normal leading-tight;
 }
 
 .block {
   @apply flex w-full flex-col items-start gap-2 py-0 pl-4;
 }
 .block-label {
-  @apply font-medium text-gray-600;
+  @apply text-sm font-medium;
 }
 .switch-block {
   composes: block;

@@ -20,7 +20,7 @@ export const DictChapterButton = () => {
     <>
       <Tooltip content="Chọn từ điển">
         <NavLink
-          className="flex h-10 items-center rounded-lg border border-gray-300 px-3 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white/60 dark:hover:text-white"
+          className="flex h-10 items-center rounded-lg border border-gray-300 px-3 text-sm transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white/60 dark:hover:text-white"
           to="/gallery"
         >
           {currentDictInfo.name} {isReviewMode && 'Ôn tập từ viết sai'}
@@ -32,7 +32,7 @@ export const DictChapterButton = () => {
             <Select value={currentChapter.toString()} onChange={(val) => setCurrentChapter(parseInt(val))}>
               <SelectTrigger
                 onKeyDown={handleKeyDown}
-                className="h-10 w-full border-gray-300 text-lg hover:bg-indigo-400 hover:text-white focus:ring-0 dark:border-gray-700 dark:hover:bg-indigo-400 dark:hover:text-white"
+                className="h-10 w-full border-gray-300 text-sm hover:bg-indigo-400 hover:text-white focus:ring-0 dark:border-gray-700 dark:hover:bg-indigo-400 dark:hover:text-white"
               >
                 <SelectValue />
               </SelectTrigger>

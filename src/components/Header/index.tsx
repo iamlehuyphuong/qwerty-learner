@@ -12,7 +12,7 @@ const Header: React.FC<PropsWithChildren> = ({ children }) => {
           <img src={logo} className="mr-3 h-16 w-16" alt={`${import.meta.env.VITE_APP_NAME || 'Type & English'} Logo`} />
           <h1>{import.meta.env.VITE_APP_NAME || 'Type & English'}</h1>
         </NavLink>
-        <Card className="flex w-auto content-center items-center justify-end gap-3 rounded-xl px-5 py-3 transition-colors duration-300">
+        <Card className="flex w-auto content-center items-center justify-end gap-3 rounded-xl py-4 pl-4 pr-2 transition-colors duration-300">
           {children}
         </Card>
       </div>

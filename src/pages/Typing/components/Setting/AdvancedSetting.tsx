@@ -1,9 +1,8 @@
 import styles from './index.module.css'
+import { Switch } from '@/components/ui/switch'
 import { isIgnoreCaseAtom, isShowAnswerOnHoverAtom, isShowPrevAndNextWordAtom, isTextSelectableAtom, randomConfigAtom } from '@/store'
-import { Switch } from '@headlessui/react'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { useAtom } from 'jotai'
-import { useCallback } from 'react'
 
 export default function AdvancedSetting() {
   const [randomConfig, setRandomConfig] = useAtom(randomConfigAtom)
@@ -12,116 +11,56 @@ export default function AdvancedSetting() {
   const [isTextSelectable, setIsTextSelectable] = useAtom(isTextSelectableAtom)
   const [isShowAnswerOnHover, setIsShowAnswerOnHover] = useAtom(isShowAnswerOnHoverAtom)
 
-  const onToggleRandom = useCallback(
-    (checked: boolean) => {
-      setRandomConfig((prev) => ({
-        ...prev,
-        isOpen: checked,
-      }))
-    },
-    [setRandomConfig],
-  )
-
-  const onToggleLastAndNextWord = useCallback(
-    (checked: boolean) => {
-      setIsShowPrevAndNextWord(checked)
-    },
-    [setIsShowPrevAndNextWord],
-  )
-
-  const onToggleIgnoreCase = useCallback(
-    (checked: boolean) => {
-      setIsIgnoreCase(checked)
-    },
-    [setIsIgnoreCase],
-  )
-
-  const onToggleTextSelectable = useCallback(
-    (checked: boolean) => {
-      setIsTextSelectable(checked)
-    },
-    [setIsTextSelectable],
-  )
-  const onToggleShowAnswerOnHover = useCallback(
-    (checked: boolean) => {
-      setIsShowAnswerOnHover(checked)
-    },
-    [setIsShowAnswerOnHover],
-  )
-
   return (
-    <ScrollArea.Root className="flex-1 select-none overflow-y-auto ">
+    <ScrollArea.Root className="flex-1 select-none overflow-y-auto">
       <ScrollArea.Viewport className="h-full w-full px-3">
         <div className={styles.tabContent}>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Các chương không theo thứ tự</span>
-            <span className={styles.sectionDescription}>
-              Sau khi mở，Các từ trong mỗi chương luyện tập sẽ được sắp xếp ngẫu nhiên。Chương tiếp theo có hiệu lực
+            <div className="flex w-full items-center justify-between">
+              <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Xáo trộn thứ tự từ</span>
+              <Switch checked={randomConfig.isOpen} onChange={() => setRandomConfig((prev) => ({ ...prev, isOpen: !prev.isOpen }))} />
+            </div>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Các từ trong mỗi chương sẽ được sắp xếp ngẫu nhiên. Có hiệu lực từ chương tiếp theo.
             </span>
-            <div className={styles.switchBlock}>
-              <Switch checked={randomConfig.isOpen} onChange={onToggleRandom} className="switch-root">
-                <span aria-hidden="true" className="switch-thumb" />
-              </Switch>
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Ngẫu nhiên${
-                randomConfig.isOpen ? 'bật lên' : 'đóng cửa'
-              }`}</span>
-            </div>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Hiển thị cái trước trong khi luyện tập/từ tiếp theo</span>
-            <span className={styles.sectionDescription}>
-              Sau khi mở，Trong quá trình thực hiện, bài tập trước sẽ được hiển thị ở trên/từ tiếp theo
+            <div className="flex w-full items-center justify-between">
+              <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Hiển thị từ trước/sau</span>
+              <Switch checked={isShowPrevAndNextWord} onChange={() => setIsShowPrevAndNextWord((prev) => !prev)} />
+            </div>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Hiển thị từ trước và từ tiếp theo trong quá trình luyện tập.
             </span>
-            <div className={styles.switchBlock}>
-              <Switch checked={isShowPrevAndNextWord} onChange={onToggleLastAndNextWord} className="switch-root">
-                <span aria-hidden="true" className="switch-thumb" />
-              </Switch>
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Hiển thị từ có${
-                isShowPrevAndNextWord ? 'bật lên' : 'đóng cửa'
-              }`}</span>
-            </div>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Có nên bỏ qua trường hợp</span>
-            <span className={styles.sectionDescription}>
-              Sau khi mở，Đầu vào không phân biệt chữ hoa chữ thường，Chẳng hạn như đầu vào“hello”Và“Hello”sẽ được coi là đúng
+            <div className="flex w-full items-center justify-between">
+              <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Bỏ qua chữ hoa/thường</span>
+              <Switch checked={isIgnoreCase} onChange={() => setIsIgnoreCase((prev) => !prev)} />
+            </div>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Không phân biệt chữ hoa chữ thường khi nhập. Ví dụ: &quot;hello&quot; và &quot;Hello&quot; đều được tính là đúng.
             </span>
-            <div className={styles.switchBlock}>
-              <Switch checked={isIgnoreCase} onChange={onToggleIgnoreCase} className="switch-root">
-                <span aria-hidden="true" className="switch-thumb" />
-              </Switch>
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Bỏ qua trường hợp${
-                isIgnoreCase ? 'bật lên' : 'đóng cửa'
-              }`}</span>
-            </div>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Có cho phép lựa chọn văn bản hay không</span>
-            <span className={styles.sectionDescription}>Sau khi mở，Văn bản có thể được chọn bằng chuột </span>
-            <div className={styles.switchBlock}>
-              <Switch checked={isTextSelectable} onChange={onToggleTextSelectable} className="switch-root">
-                <span aria-hidden="true" className="switch-thumb" />
-              </Switch>
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Văn bản được chọn là${
-                isTextSelectable ? 'bật lên' : 'đóng cửa'
-              }`}</span>
+            <div className="flex w-full items-center justify-between">
+              <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Cho phép chọn văn bản</span>
+              <Switch checked={isTextSelectable} onChange={() => setIsTextSelectable((prev) => !prev)} />
             </div>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>Cho phép chọn văn bản bằng chuột.</span>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Có cho phép hiển thị lời nhắc ở chế độ viết im lặng hay không</span>
-            <span className={styles.sectionDescription}>Sau khi mở，qua chuột hover Word hiển thị câu trả lời đúng </span>
-            <div className={styles.switchBlock}>
-              <Switch checked={isShowAnswerOnHover} onChange={onToggleShowAnswerOnHover} className="switch-root">
-                <span aria-hidden="true" className="switch-thumb" />
-              </Switch>
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">{`Lời nhắc hiển thị đã được${
-                isShowAnswerOnHover ? 'bật lên' : 'đóng cửa'
-              }`}</span>
+            <div className="flex w-full items-center justify-between">
+              <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Gợi ý khi hover</span>
+              <Switch checked={isShowAnswerOnHover} onChange={() => setIsShowAnswerOnHover((prev) => !prev)} />
             </div>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Hiển thị đáp án khi di chuột vào từ trong chế độ viết im lặng.
+            </span>
           </div>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

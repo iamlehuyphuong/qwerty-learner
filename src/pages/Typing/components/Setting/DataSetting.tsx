@@ -54,35 +54,32 @@ export default function DataSetting() {
   }, [importProgressCallback, onStartImport])
 
   return (
-    <ScrollArea.Root className="flex-1 select-none overflow-y-auto ">
+    <ScrollArea.Root className="flex-1 select-none overflow-y-auto">
       <ScrollArea.Viewport className="h-full w-full px-3">
         <div className={styles.tabContent}>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Xuất dữ liệu</span>
-            <span className={styles.sectionDescription}>
-              hiện tại，Dữ liệu thực hành của người dùng<strong>Chỉ lưu cục bộ</strong>。nếu như您需要hiện hữu不同của设Chuẩn bị、Được sử
-              dụng trong trình duyệt hoặc các triển khai không chính thức khác {import.meta.env.VITE_APP_NAME || 'Type & English'}， Bạn cần
-              đồng bộ hóa và lưu dữ liệu theo cách thủ công。Để duy trì tiến độ thực hành của bạn，Và sử dụng các chức năng phân tích dữ
-              liệu và đào tạo thông minh sẽ được ra mắt trong thời gian tới， Chúng tôi khuyên bạn nên sao lưu dữ liệu của mình kịp thời。
+            <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Xuất dữ liệu</span>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Dữ liệu luyện tập chỉ được lưu trên thiết bị hiện tại. Hãy sao lưu thường xuyên để tránh mất dữ liệu.
             </span>
-            <span className="pl-4 text-left text-sm font-bold leading-tight text-red-500">
-              Để bảo mật dữ liệu của bạn，Vui lòng không sửa đổi tệp dữ liệu đã xuất。
+            <span className="pl-4 text-left text-sm font-bold leading-tight text-red-400">
+              Vui lòng không chỉnh sửa tệp dữ liệu đã xuất.
             </span>
             <div className="flex h-3 w-full items-center justify-start px-5">
               <Progress.Root
-                className="translate-z-0 relative h-2 w-11/12 transform  overflow-hidden rounded-full bg-gray-200"
+                className="translate-z-0 relative h-2 w-11/12 transform overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600"
                 value={exportProgress}
               >
                 <Progress.Indicator
-                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-indigo-400 transition-transform duration-500 ease-out"
+                  className="h-full w-full bg-indigo-500 transition-transform duration-500 ease-out"
                   style={{ transform: `translateX(-${100 - exportProgress}%)` }}
                 />
               </Progress.Root>
-              <span className="ml-4 w-10 text-xs font-normal text-gray-600">{`${exportProgress}%`}</span>
+              <span className="ml-4 w-10 text-xs font-normal text-gray-600 dark:text-white/80">{`${exportProgress}%`}</span>
             </div>
 
             <button
-              className="my-btn-primary ml-4 disabled:bg-gray-300"
+              className="ml-4 rounded-lg border border-indigo-500/50 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20 disabled:opacity-50"
               type="button"
               onClick={onClickExport}
               disabled={isExporting}
@@ -92,27 +89,27 @@ export default function DataSetting() {
             </button>
           </div>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Nhập dữ liệu</span>
-            <span className={styles.sectionDescription}>
-              xin lưu ý，Việc nhập dữ liệu sẽ<strong className="text-sm font-bold text-red-500"> bảo hiểm đầy đủ </strong>dữ liệu hiện
-              tại。Hãy hoạt động một cách thận trọng。
+            <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Nhập dữ liệu</span>
+            <span className={`${styles.sectionDescription} text-gray-600 dark:text-white/70`}>
+              Lưu ý: việc nhập dữ liệu sẽ <strong className="text-sm font-bold text-red-400">ghi đè hoàn toàn</strong> dữ liệu hiện tại. Hãy
+              thao tác cẩn thận.
             </span>
 
             <div className="flex h-3 w-full items-center justify-start px-5">
               <Progress.Root
-                className="translate-z-0 relative h-2 w-11/12 transform  overflow-hidden rounded-full bg-gray-200"
+                className="translate-z-0 relative h-2 w-11/12 transform overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600"
                 value={importProgress}
               >
                 <Progress.Indicator
-                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-indigo-400 transition-transform duration-500 ease-out"
+                  className="h-full w-full bg-indigo-500 transition-transform duration-500 ease-out"
                   style={{ transform: `translateX(-${100 - importProgress}%)` }}
                 />
               </Progress.Root>
-              <span className="ml-4 w-10 text-xs font-normal text-gray-600">{`${importProgress}%`}</span>
+              <span className="ml-4 w-10 text-xs font-normal text-gray-600 dark:text-white/80">{`${importProgress}%`}</span>
             </div>
 
             <button
-              className="my-btn-primary ml-4 disabled:bg-gray-300"
+              className="ml-4 rounded-lg border border-indigo-500/50 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20 disabled:opacity-50"
               type="button"
               onClick={onClickImport}
               disabled={isImporting}
@@ -123,7 +120,7 @@ export default function DataSetting() {
           </div>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

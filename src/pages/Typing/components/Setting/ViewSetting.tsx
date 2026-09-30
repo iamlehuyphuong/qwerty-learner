@@ -34,13 +34,13 @@ export default function ViewSetting() {
   }, [setFontsizeConfig])
 
   return (
-    <ScrollArea.Root className="flex-1 select-none overflow-y-auto ">
+    <ScrollArea.Root className="flex-1 select-none overflow-y-auto">
       <ScrollArea.Viewport className="h-full w-full px-3">
         <div className={styles.tabContent}>
           <div className={styles.section}>
-            <span className={styles.sectionLabel}>Cài đặt phông chữ</span>
+            <span className={`${styles.sectionLabel} text-gray-600 dark:text-white`}>Cài đặt phông chữ</span>
             <div className={styles.block}>
-              <span className={styles.blockLabel}>phông chữ nước ngoài</span>
+              <span className={`${styles.blockLabel} text-gray-600 dark:text-white/90`}>Phông chữ ngoại ngữ</span>
               <div className="flex h-5 w-full items-center justify-between">
                 <Slider.Root
                   value={[fontSizeConfig.foreignFont]}
@@ -55,12 +55,12 @@ export default function ViewSetting() {
                   </Slider.Track>
                   <Slider.Thumb />
                 </Slider.Root>
-                <span className="ml-4 w-10 text-xs font-normal text-gray-600">{fontSizeConfig.foreignFont}px</span>
+                <span className="ml-4 w-10 text-xs font-normal text-gray-600 dark:text-white/80">{fontSizeConfig.foreignFont}px</span>
               </div>
             </div>
 
             <div className={styles.block}>
-              <span className={styles.blockLabel}>phông chữ tiếng trung</span>
+              <span className={`${styles.blockLabel} text-gray-600 dark:text-white/90`}>Phông chữ nghĩa</span>
               <div className="flex h-5 w-full items-center justify-between">
                 <Slider.Root
                   value={[fontSizeConfig.translateFont]}
@@ -75,21 +75,21 @@ export default function ViewSetting() {
                   </Slider.Track>
                   <Slider.Thumb />
                 </Slider.Root>
-                <span className="ml-4 w-10 text-xs font-normal text-gray-600">{fontSizeConfig.translateFont}px</span>
+                <span className="ml-4 w-10 text-xs font-normal text-gray-600 dark:text-white/80">{fontSizeConfig.translateFont}px</span>
               </div>
             </div>
           </div>
           <button
-            className="my-btn-primary ml-4 disabled:bg-gray-300"
+            className="ml-4 rounded-lg border border-indigo-500/50 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20 disabled:opacity-50"
             type="button"
             onClick={onResetFontSize}
-            title="Đặt lại cài đặt phông chữ"
+            title="Đặt lại phông chữ"
           >
-            Đặt lại cài đặt phông chữ
+            Đặt lại phông chữ
           </button>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

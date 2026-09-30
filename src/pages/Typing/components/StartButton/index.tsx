@@ -37,32 +37,26 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
       <div
         ref={refs.setReference}
         {...getReferenceProps()}
-        className={`${
-          state.isTyping
-            ? 'bg-gray-400 shadow-gray-200 dark:bg-gray-600  dark:shadow-none'
-            : 'bg-indigo-500 shadow-indigo-300 dark:shadow-indigo-500/60'
-        } ${
-          isShowReStartButton ? 'h-20' : 'h-auto'
-        } flex-column absolute left-0 top-0 w-32 rounded-lg shadow-lg transition-colors duration-200`}
+        className={`absolute left-0 top-0 flex w-32 flex-col items-center gap-1 rounded-lg transition-all duration-200`}
       >
         <Button
           variant={state.isTyping ? 'secondary' : 'default'}
           className={`${
-            state.isTyping ? 'bg-gray-400  dark:bg-gray-700 dark:hover:bg-gray-500' : 'bg-indigo-500'
-          } h-10 w-32 transform rounded-lg shadow transition-all hover:-translate-y-0.5`}
+            state.isTyping
+              ? 'border-gray-500 bg-gray-700 text-gray-200 hover:bg-gray-600'
+              : 'border-indigo-500 bg-indigo-600 text-white hover:bg-indigo-500'
+          } h-10 w-32 rounded-lg border text-sm font-medium transition-colors`}
           type="button"
           onClick={onToggleIsTyping}
           aria-label={state.isTyping ? 'tạm dừng' : 'bắt đầu'}
         >
-          <span className="font-medium">{state.isTyping ? 'Tạm dừng' : 'Bắt đầu'}</span>
+          {state.isTyping ? 'Tạm dừng' : 'Bắt đầu'}
         </Button>
         {isShowReStartButton && (
-          <div className="absolute bottom-0 flex w-32 justify-center" ref={refs.setFloating} {...getFloatingProps()}>
+          <div className="flex w-32 justify-center" ref={refs.setFloating} {...getFloatingProps()}>
             <Button
-              variant={state.isTyping ? 'secondary' : 'default'}
-              className={`${
-                state.isTyping ? 'bg-gray-500 dark:bg-gray-700 dark:hover:bg-gray-500 ' : 'bg-indigo-400 '
-              } mb-1 mt-1 h-10 w-28 transform rounded-lg transition-colors duration-200 hover:-translate-y-0.5`}
+              variant="default"
+              className="h-9 w-28 rounded-lg border border-indigo-500 bg-indigo-600/80 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
               type="button"
               onClick={onClickRestart}
               aria-label={'Chơi lại'}

@@ -2,6 +2,7 @@
 
 import { CheckCircle2, Circle } from 'lucide-react'
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 
 interface SelectContextType {
   isOpen: boolean
@@ -12,6 +13,8 @@ interface SelectContextType {
   registerItem: (value: string, label: string) => void
   unregisterItem: (value: string) => void
   itemsMap: Record<string, string>
+  containerRef: React.RefObject<HTMLDivElement | null>
+  portalRef: React.RefObject<HTMLDivElement | null>
 }
 
 const SelectContext = React.createContext<SelectContextType | undefined>(undefined)
@@ -38,6 +41,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     const initialValue = defaultValue !== undefined ? defaultValue : multiple ? [] : ''
     const [internalValue, setInternalValue] = React.useState<string | string[]>(initialValue)
     const containerRef = React.useRef<HTMLDivElement>(null)
+    const portalRef = React.useRef<HTMLDivElement>(null)
 
     const isControlled = externalValue !== undefined
     const value = isControlled ? externalValue : internalValue
@@ -78,7 +82,8 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
 
     React.useEffect(() => {
       const handleOutsideClick = (event: MouseEvent) => {
-        if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        const target = event.target as Node
+        if (containerRef.current && !containerRef.current.contains(target) && (!portalRef.current || !portalRef.current.contains(target))) {
           setIsOpen(false)
         }
       }
@@ -92,7 +97,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     }, [isOpen])
 
     return (
-      <SelectContext.Provider value={{ isOpen, setIsOpen, value, onChange, multiple, registerItem, unregisterItem, itemsMap }}>
+      <SelectContext.Provider
+        value={{ isOpen, setIsOpen, value, onChange, multiple, registerItem, unregisterItem, itemsMap, containerRef, portalRef }}
+      >
         <div
           ref={(node) => {
             ;(containerRef as React.MutableRefObject<HTMLDivElement | null>).current = node
@@ -189,23 +196,60 @@ export const SelectValue = React.forwardRef<HTMLSpanElement, SelectValueProps>(
 )
 SelectValue.displayName = 'SelectValue'
 
-export type SelectContentProps = React.HTMLAttributes<HTMLDivElement>
+export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  position?: 'below' | 'above'
+  portal?: boolean
+}
 
-export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(({ className = '', children, ...props }, ref) => {
-  const { isOpen } = useSelect()
+export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
+  ({ className = '', children, position = 'below', portal = false, ...props }, ref) => {
+    const { isOpen, containerRef, portalRef } = useSelect()
+    const [portalStyle, setPortalStyle] = React.useState<React.CSSProperties>({})
 
-  return (
-    <div
-      ref={ref}
-      className={`animate-in fade-in zoom-in-95 absolute z-50 mt-2 flex max-h-60 w-full flex-col gap-1 overflow-auto rounded-lg border border-border bg-card p-1 text-foreground shadow-md ${
-        !isOpen ? 'hidden' : ''
-      } ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-})
+    React.useEffect(() => {
+      if (portal && isOpen && containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect()
+        setPortalStyle({
+          position: 'fixed',
+          top: rect.bottom + 4,
+          left: rect.left,
+          width: rect.width,
+        })
+      }
+    }, [portal, isOpen, containerRef])
+
+    if (portal) {
+      if (!isOpen) return <div className="hidden">{children}</div>
+      return createPortal(
+        <div
+          ref={(node) => {
+            ;(portalRef as React.MutableRefObject<HTMLDivElement | null>).current = node
+            if (typeof ref === 'function') ref(node)
+            else if (ref) ref.current = node
+          }}
+          className={`animate-in fade-in zoom-in-95 z-[100] flex max-h-60 flex-col gap-1 overflow-auto rounded-lg border border-border bg-card p-1 text-foreground shadow-md ${className}`}
+          style={portalStyle}
+          {...props}
+        >
+          {children}
+        </div>,
+        document.body,
+      )
+    }
+
+    return (
+      <div
+        ref={ref}
+        className={`animate-in fade-in zoom-in-95 absolute z-50 flex max-h-60 w-full flex-col gap-1 overflow-auto rounded-lg border border-border bg-card p-1 text-foreground shadow-md ${
+          position === 'above' ? 'bottom-full mb-2' : 'mt-2'
+        } ${!isOpen ? 'hidden' : ''} ${className}`}
+        {...props}
+      >
+        {children}
+      </div>
+    )
+  },
+)
 SelectContent.displayName = 'SelectContent'
 
 export interface SelectItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
