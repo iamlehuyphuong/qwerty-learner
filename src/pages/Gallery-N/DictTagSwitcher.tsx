@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import { RadioGroup } from '@headlessui/react'
 import { useCallback } from 'react'
 
@@ -17,18 +18,23 @@ export default function DictTagSwitcher({ tagList, currentTag, onChangeCurrentTa
 
   return (
     <RadioGroup value={currentTag} onChange={onChangeTag}>
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-wrap items-center gap-3">
         {tagList.map((option) => (
           <RadioGroup.Option
             key={option}
             value={option}
-            className={({ checked }) =>
-              `cursor-pointer whitespace-nowrap rounded-[3rem] px-4 py-2 ${
-                checked ? 'bg-indigo-400 text-white' : 'bg-white text-gray-600 dark:bg-gray-800 dark:text-gray-200'
-              } ${!checked && 'hover:bg-indigo-100 dark:hover:bg-gray-600'}`
-            }
+            className="cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
-            <p className={`font-normal `}>{option}</p>
+            {({ checked }) => (
+              <Badge
+                color={checked ? 'brand' : 'neutral'}
+                variant={checked ? 'solid' : 'soft'}
+                size="md"
+                className="whitespace-nowrap transition-all duration-200"
+              >
+                {option}
+              </Badge>
+            )}
           </RadioGroup.Option>
         ))}
       </div>

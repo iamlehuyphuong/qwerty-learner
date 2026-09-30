@@ -44,7 +44,7 @@ export const Drawer = ({ isOpen, onClose, position = 'right', title, description
       animationName = 'drawer-slide-right'
       break
     case 'left':
-      panelClasses = 'inset-y-0 left-0 h-full w-3/4 sm:max-w-sm border-r border-border'
+      panelClasses = 'inset-y-0 left-0 h-full w-3/4 sm:max-w-lg border-r border-border'
       animationName = 'drawer-slide-left'
       break
     case 'top':

@@ -1,20 +1,19 @@
 import DictionaryGroup from './CategoryDicts'
-import DictRequest from './DictRequest'
 import { LanguageTabSwitcher } from './LanguageTabSwitcher'
 import Layout from '@/components/Layout'
+import { Button } from '@/components/ui/button'
 import { dictionaries } from '@/resources/dictionary'
 import { currentDictInfoAtom } from '@/store'
 import type { Dictionary, LanguageCategoryType } from '@/typings'
 import groupBy, { groupByDictTags } from '@/utils/groupBy'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { useAtomValue } from 'jotai'
+import { Info, X } from 'lucide-react'
 import { createContext, useCallback, useEffect, useMemo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useNavigate } from 'react-router-dom'
 import type { Updater } from 'use-immer'
 import { useImmer } from 'use-immer'
-import IconInfo from '~icons/ic/outline-info'
-import IconX from '~icons/tabler/x'
 
 export type GalleryState = {
   currentLanguageTab: LanguageCategoryType
@@ -63,13 +62,23 @@ export default function GalleryPage() {
   return (
     <Layout>
       <GalleryContext.Provider value={{ state: galleryState, setState: setGalleryState }}>
-        <div className="relative mb-auto mt-auto flex w-full flex-1 flex-col overflow-y-auto pl-20">
-          <IconX className="absolute right-20 top-10 mr-2 h-7 w-7 cursor-pointer text-gray-400" onClick={onBack} />
+        <div className="relative mb-auto mt-auto flex w-full flex-1 flex-col overflow-y-auto px-10">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-10 top-10 z-10 h-8 w-8 text-gray-400 hover:text-gray-600"
+            onClick={onBack}
+          >
+            <X className="h-5 w-5" />
+          </Button>
           <div className="mt-20 flex w-full flex-1 flex-col items-center justify-center overflow-y-auto">
-            <div className="flex h-full flex-col overflow-y-auto">
-              <div className="flex h-20 w-full items-center justify-between pb-6 pr-20">
+            <div className="flex h-full w-full max-w-6xl flex-col overflow-y-auto">
+              <div className="mb-6 flex flex-col items-start pt-4">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">Thư viện từ vựng</h1>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">Khám phá và chọn bộ từ vựng để bắt đầu luyện tập đánh máy.</p>
+              </div>
+              <div className="flex w-full items-center pb-6">
                 <LanguageTabSwitcher />
-                <DictRequest />
               </div>
               <ScrollArea.Root className="flex-1 overflow-y-auto">
                 <ScrollArea.Viewport className="h-full w-full ">
@@ -79,18 +88,17 @@ export default function GalleryPage() {
                     ))}
                   </div>
                   <div className="flex items-center justify-center pb-10 pt-[20rem] text-gray-500">
-                    <IconInfo className="mr-1 h-5 w-5" />
+                    <Info className="mr-1 h-5 w-5 flex-shrink-0" />
                     <p className="mr-5 w-10/12 text-xs">
-                      本dự áncủatừ điểndữ liệu来自nhiều个Nguồn mởdự án以及cộng tác viên cộng đồngcủa无偿提供。Chúng tôi đánh giá cao và tôn
-                      trọng quyền sở hữu trí tuệ của mọi người đóng góp。 Dữ liệu này chỉ dành cho mục đích nghiên cứu và học tập cá
-                      nhân，Mọi mục đích thương mại đều bị nghiêm cấm。nếu như你是dữ liệucủa版权所有者，và tin rằng việc sử dụng của chúng
-                      tôi vi phạm quyền của bạn，Vui lòng liên hệ với chúng tôi qua email ở cuối trang web。Sau khi nhận được khiếu nại bản
-                      quyền hợp lệ，Chúng tôi sẽ xóa nội dung liên quan hoặc tìm kiếm các quyền cần thiết càng sớm càng tốt。 cùng
-                      lúc，Chúng tôi cũng khuyến khích mọi người sử dụng dữ liệu này tôn trọng quyền của chủ sở hữu bản quyền，và tuân thủ
-                      tất cả các luật và quy định có liên quan khi sử dụng dữ liệu này。 xin lưu ý，Mặc dù chúng tôi cố gắng hết sức để đảm
-                      bảo tính hợp pháp và chính xác của tất cả dữ liệu，Tuy nhiên, chúng tôi không thể đảm bảo tính chính xác của bất kỳ dữ
-                      liệu nào、chính trực、không đảm bảo tính hợp pháp hoặc độ tin cậy。Việc sử dụng dữ liệu này hoàn toàn do người dùng tự
-                      chịu rủi ro。
+                      Dữ liệu từ điển của dự án này được tổng hợp miễn phí từ nhiều dự án mã nguồn mở và các thành viên đóng góp trong cộng
+                      đồng. Chúng tôi đánh giá cao và tôn trọng quyền sở hữu trí tuệ của những người đóng góp. Dữ liệu này chỉ dành cho mục
+                      đích nghiên cứu và học tập cá nhân, nghiêm cấm mọi hành vi sử dụng cho mục đích thương mại. Nếu bạn là chủ sở hữu bản
+                      quyền của bất kỳ dữ liệu nào và cho rằng việc sử dụng của chúng tôi vi phạm quyền của bạn, vui lòng liên hệ với chúng
+                      tôi qua email ở cuối trang web. Sau khi nhận được khiếu nại bản quyền hợp lệ, chúng tôi sẽ gỡ bỏ nội dung liên quan
+                      hoặc xin cấp quyền sớm nhất có thể. Đồng thời, chúng tôi cũng khuyến khích người dùng tôn trọng quyền tác giả và tuân
+                      thủ tất cả các luật và quy định hiện hành khi sử dụng dữ liệu. Xin lưu ý: Mặc dù chúng tôi đã cố gắng hết sức để đảm
+                      bảo tính hợp pháp và độ chính xác của dữ liệu, chúng tôi không thể cam kết tính tuyệt đối chính xác, nguyên vẹn hay độ
+                      tin cậy của chúng. Việc sử dụng dữ liệu này hoàn toàn do người dùng tự chịu rủi ro.
                     </p>
                   </div>
                 </ScrollArea.Viewport>

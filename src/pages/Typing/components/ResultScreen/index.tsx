@@ -69,7 +69,7 @@ const ResultScreen = () => {
         const ws = utils.json_to_sheet(exportData)
         const wb = utils.book_new()
         utils.book_append_sheet(wb, ws, 'Data')
-        writeFileXLSX(wb, `${currentDictInfo.name}KHÔNG.${currentChapter + 1}chương.xlsx`)
+        writeFileXLSX(wb, `${currentDictInfo.name}Chuong_${currentChapter + 1}.xlsx`)
       })
       .catch(() => {
         console.log('viết xlsx Nhập mô-đun không thành công')
@@ -220,7 +220,7 @@ const ResultScreen = () => {
         <div className="flex h-screen items-center justify-center">
           <div className="my-card fixed flex w-[90vw] max-w-6xl flex-col overflow-hidden rounded-3xl bg-white pb-14 pl-10 pr-5 pt-10 shadow-lg dark:bg-gray-800 md:w-4/5 lg:w-3/5">
             <div className="text-center font-sans text-xl font-normal text-gray-900 dark:text-gray-400 md:text-2xl">
-              {`${currentDictInfo.name} ${isReviewMode ? 'Nhận xét những câu hỏi sai' : 'KHÔNG.' + (currentChapter + 1) + 'chương'}`}
+              {`${currentDictInfo.name} ${isReviewMode ? 'Ôn tập từ gõ sai' : 'Chương ' + (currentChapter + 1)}`}
             </div>
             <button className="absolute right-7 top-5" onClick={exitButtonHandler}>
               <IconX className="text-gray-400" />
@@ -228,7 +228,7 @@ const ResultScreen = () => {
             <div className="mt-10 flex flex-row gap-2 overflow-hidden">
               <div className="flex flex-shrink-0 flex-grow-0 flex-col gap-3 px-4 sm:px-1 md:px-2 lg:px-4">
                 <RemarkRing remark={`${state.timerData.accuracy}%`} caption="Tỷ lệ chính xác" percentage={state.timerData.accuracy} />
-                <RemarkRing remark={timeString} caption="thời gian chương" />
+                <RemarkRing remark={timeString} caption="Thời gian hoàn thành" />
                 <RemarkRing remark={state.timerData.wpm + ''} caption="WPM" />
               </div>
               <div className="z-10 ml-6 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700">
@@ -295,9 +295,9 @@ const ResultScreen = () => {
                       className="my-btn-primary h-12 border-2 border-solid border-gray-300 bg-white text-base text-gray-700 dark:border-gray-700 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700"
                       type="button"
                       onClick={dictationButtonHandler}
-                      title="Viết chương này trong im lặng"
+                      title="Luyện tập lại chương này"
                     >
-                      Viết chương này trong im lặng
+                      Luyện tập lại chương này
                     </button>
                   </Tooltip>
                   <Tooltip content="phím tắt：space">
@@ -318,9 +318,9 @@ const ResultScreen = () => {
                     className={`{ isLastChapter ? 'cursor-not-allowed opacity-50' : ''} my-btn-primary h-12 text-base font-bold `}
                     type="button"
                     onClick={nextButtonHandler}
-                    title="chương tiếp theo"
+                    title="Chương tiếp theo"
                   >
-                    chương tiếp theo
+                    Chương tiếp theo
                   </button>
                 </Tooltip>
               )}
@@ -330,9 +330,9 @@ const ResultScreen = () => {
                   className="my-btn-primary h-12 text-base font-bold"
                   type="button"
                   onClick={onNavigateToGallery}
-                  title="Luyện tập các chương khác"
+                  title="Luyện tập chương khác"
                 >
-                  Luyện tập các chương khác
+                  Luyện tập chương khác
                 </button>
               )}
             </div>

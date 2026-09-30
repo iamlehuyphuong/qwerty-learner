@@ -34,16 +34,18 @@ export default function DictionaryComponent({ dictionary }: Props) {
       <DialogTrigger asChild>
         <div
           ref={divRef}
-          className={`group flex  h-36 w-80 cursor-pointer items-center justify-center overflow-hidden rounded-lg p-4 text-left shadow-lg focus:outline-none ${
-            isSelected ? 'bg-indigo-400' : 'bg-zinc-50 hover:bg-white dark:bg-gray-800 dark:hover:bg-gray-700'
+          className={`group flex h-36 w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl p-5 text-left shadow-md transition-all hover:shadow-lg focus:outline-none ${
+            isSelected
+              ? 'bg-indigo-500'
+              : 'dark:hover:bg-gray-750 border border-transparent bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800'
           }`}
           role="button"
           // onClick={onClick}
         >
-          <div className="relative ml-1 mt-2 flex h-full w-full flex-col items-start justify-start">
+          <div className="relative flex h-full w-full flex-col items-start justify-center">
             <h1
-              className={`mb-1.5 text-xl font-normal  ${
-                isSelected ? 'text-white' : 'text-gray-800 group-hover:text-indigo-400 dark:text-gray-200'
+              className={`mb-1 w-full truncate pr-14 text-xl font-medium ${
+                isSelected ? 'text-white' : 'text-gray-900 group-hover:text-indigo-500 dark:text-gray-100 dark:group-hover:text-indigo-400'
               }`}
             >
               {dictionary.name}
@@ -51,11 +53,7 @@ export default function DictionaryComponent({ dictionary }: Props) {
             <TooltipProvider>
               <Tooltip delayDuration={400}>
                 <TooltipTrigger asChild>
-                  <p
-                    className={`mb-1 max-w-full truncate ${
-                      isSelected ? 'text-white' : 'textdelayDuration-gray-600 dark:text-gray-200'
-                    } whitespace-nowrap`}
-                  >
+                  <p className={`mb-2 w-full truncate pr-14 ${isSelected ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'}`}>
                     {dictionary.description}
                   </p>
                 </TooltipTrigger>
@@ -65,22 +63,30 @@ export default function DictionaryComponent({ dictionary }: Props) {
               </Tooltip>
             </TooltipProvider>
 
-            <p className={`mb-0.5 font-bold  ${isSelected ? 'text-white' : 'text-gray-600 dark:text-gray-200'}`}>{dictionary.length} từ</p>
-            <div className=" flex w-full items-center pt-2">
+            <p className={`mb-1 text-sm font-semibold ${isSelected ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
+              {dictionary.length} từ
+            </p>
+            <div className="absolute bottom-0 w-full pr-14">
               {progress > 0 && (
                 <Progress.Root
                   value={progress}
                   max={100}
-                  className={`mr-4 h-2 w-full rounded-full border  bg-white ${isSelected ? 'border-indigo-600' : 'border-indigo-400'}`}
+                  className={`h-1.5 w-full overflow-hidden rounded-full ${
+                    isSelected ? 'bg-indigo-300/50' : 'bg-gray-200 dark:bg-gray-700'
+                  }`}
                 >
                   <Progress.Indicator
-                    className={`h-full rounded-full pl-0 ${isSelected ? 'bg-indigo-600' : 'bg-indigo-400'}`}
-                    style={{ width: `calc(${progress}% )` }}
+                    className={`h-full rounded-full transition-all duration-500 ${isSelected ? 'bg-white' : 'bg-indigo-500'}`}
+                    style={{ width: `${progress}%` }}
                   />
                 </Progress.Root>
               )}
-              <img src={bookCover} className={`absolute right-3 top-3 w-16 ${isSelected ? 'opacity-50' : 'opacity-20'}`} />
             </div>
+            <img
+              src={bookCover}
+              className={`absolute right-0 top-1/2 w-16 -translate-y-1/2 ${isSelected ? 'opacity-50' : 'opacity-[0.15] dark:opacity-20'}`}
+              alt=""
+            />
           </div>
         </div>
       </DialogTrigger>

@@ -1,12 +1,9 @@
 import { GalleryContext } from '.'
-import codeFlag from '@/assets/flags/code.png'
 import deFlag from '@/assets/flags/de.png'
 import enFlag from '@/assets/flags/en.png'
-import idFlag from '@/assets/flags/id.png'
 import jpFlag from '@/assets/flags/ja.png'
-import kkFlag from '@/assets/flags/kk.png'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import type { LanguageCategoryType } from '@/typings'
-import { RadioGroup } from '@headlessui/react'
 import { useCallback, useContext } from 'react'
 
 export type LanguageTabOption = {
@@ -17,11 +14,8 @@ export type LanguageTabOption = {
 
 const options: LanguageTabOption[] = [
   { id: 'en', name: 'Tiếng Anh', flag: enFlag },
-  { id: 'ja', name: 'tiếng Nhật', flag: jpFlag },
-  { id: 'de', name: 'tiếng Đức', flag: deFlag },
-  { id: 'kk', name: 'Kazakhstan', flag: kkFlag },
-  { id: 'id', name: 'tiếng Indonesia', flag: idFlag },
-  { id: 'code', name: 'Code', flag: codeFlag },
+  { id: 'ja', name: 'Tiếng Nhật', flag: jpFlag },
+  { id: 'de', name: 'Tiếng Đức', flag: deFlag },
 ]
 
 export function LanguageTabSwitcher() {
@@ -38,19 +32,15 @@ export function LanguageTabSwitcher() {
   )
 
   return (
-    <RadioGroup value={state.currentLanguageTab} onChange={onChangeTab}>
-      <div className="flex items-center space-x-4">
+    <Tabs value={state.currentLanguageTab} onValueChange={onChangeTab}>
+      <TabsList className="h-12 w-max justify-start bg-slate-100 p-1 dark:bg-slate-800">
         {options.map((option) => (
-          <RadioGroup.Option key={option.id} value={option.id} className="cursor-pointer">
-            {({ checked }) => (
-              <div className={`flex items-center border-b-2 px-2 pb-1 ${checked ? 'border-indigo-500' : 'border-transparent'}`}>
-                <img src={option.flag} className="mr-1.5 h-7 w-7" />
-                <p className={`text-lg font-medium text-gray-700 dark:text-gray-200`}>{option.name}</p>
-              </div>
-            )}
-          </RadioGroup.Option>
+          <TabsTrigger key={option.id} value={option.id} className="flex items-center gap-2 px-6 py-2">
+            <img src={option.flag} className="h-5 w-5 rounded-[2px] object-cover shadow-sm" alt="" />
+            <span className="text-base font-medium">{option.name}</span>
+          </TabsTrigger>
         ))}
-      </div>
-    </RadioGroup>
+      </TabsList>
+    </Tabs>
   )
 }
