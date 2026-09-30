@@ -44,7 +44,7 @@ export default function DictionaryComponent({ dictionary }: Props) {
         >
           <div className="relative flex h-full w-full flex-col items-start justify-center">
             <h1
-              className={`mb-1 w-full truncate pr-14 text-xl font-medium ${
+              className={`relative z-10 mb-1 w-full truncate pr-4 text-lg font-medium ${
                 isSelected ? 'text-white' : 'text-gray-900 group-hover:text-indigo-500 dark:text-gray-100 dark:group-hover:text-indigo-400'
               }`}
             >
@@ -53,7 +53,11 @@ export default function DictionaryComponent({ dictionary }: Props) {
             <TooltipProvider>
               <Tooltip delayDuration={400}>
                 <TooltipTrigger asChild>
-                  <p className={`mb-2 w-full truncate pr-14 ${isSelected ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <p
+                    className={`relative z-10 mb-2 line-clamp-3 w-full pr-4 text-sm ${
+                      isSelected ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'
+                    }`}
+                  >
                     {dictionary.description}
                   </p>
                 </TooltipTrigger>
@@ -63,10 +67,10 @@ export default function DictionaryComponent({ dictionary }: Props) {
               </Tooltip>
             </TooltipProvider>
 
-            <p className={`mb-1 text-sm font-semibold ${isSelected ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
+            <p className={`relative z-10 mb-1 text-sm font-semibold ${isSelected ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
               {dictionary.length} từ
             </p>
-            <div className="absolute bottom-0 w-full pr-14">
+            <div className="absolute bottom-0 z-10 w-full pr-4">
               {progress > 0 && (
                 <Progress.Root
                   value={progress}
@@ -84,7 +88,9 @@ export default function DictionaryComponent({ dictionary }: Props) {
             </div>
             <img
               src={bookCover}
-              className={`absolute right-0 top-1/2 w-16 -translate-y-1/2 ${isSelected ? 'opacity-50' : 'opacity-[0.15] dark:opacity-20'}`}
+              className={`pointer-events-none absolute right-0 top-1/2 z-0 w-24 -translate-y-1/2 ${
+                isSelected ? 'opacity-20' : 'opacity-[0.08] dark:opacity-10'
+              }`}
               alt=""
             />
           </div>

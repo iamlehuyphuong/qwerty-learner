@@ -87,20 +87,6 @@ export default function GalleryPage() {
                       <DictionaryGroup key={category} groupedDictsByTag={groupeByTag} />
                     ))}
                   </div>
-                  <div className="flex items-center justify-center pb-10 pt-[20rem] text-gray-500">
-                    <Info className="mr-1 h-5 w-5 flex-shrink-0" />
-                    <p className="mr-5 w-10/12 text-xs">
-                      Dữ liệu từ điển của dự án này được tổng hợp miễn phí từ nhiều dự án mã nguồn mở và các thành viên đóng góp trong cộng
-                      đồng. Chúng tôi đánh giá cao và tôn trọng quyền sở hữu trí tuệ của những người đóng góp. Dữ liệu này chỉ dành cho mục
-                      đích nghiên cứu và học tập cá nhân, nghiêm cấm mọi hành vi sử dụng cho mục đích thương mại. Nếu bạn là chủ sở hữu bản
-                      quyền của bất kỳ dữ liệu nào và cho rằng việc sử dụng của chúng tôi vi phạm quyền của bạn, vui lòng liên hệ với chúng
-                      tôi qua email ở cuối trang web. Sau khi nhận được khiếu nại bản quyền hợp lệ, chúng tôi sẽ gỡ bỏ nội dung liên quan
-                      hoặc xin cấp quyền sớm nhất có thể. Đồng thời, chúng tôi cũng khuyến khích người dùng tôn trọng quyền tác giả và tuân
-                      thủ tất cả các luật và quy định hiện hành khi sử dụng dữ liệu. Xin lưu ý: Mặc dù chúng tôi đã cố gắng hết sức để đảm
-                      bảo tính hợp pháp và độ chính xác của dữ liệu, chúng tôi không thể cam kết tính tuyệt đối chính xác, nguyên vẹn hay độ
-                      tin cậy của chúng. Việc sử dụng dữ liệu này hoàn toàn do người dùng tự chịu rủi ro.
-                    </p>
-                  </div>
                 </ScrollArea.Viewport>
                 <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
               </ScrollArea.Root>

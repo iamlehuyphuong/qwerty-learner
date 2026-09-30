@@ -16,13 +16,13 @@ import type { ReviewRecord } from '@/utils/db/record'
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 
-export const currentDictIdAtom = atomWithStorage('currentDict', 'cet4')
+export const currentDictIdAtom = atomWithStorage('currentDict', 'coca_20000')
 export const currentDictInfoAtom = atom<Dictionary>((get) => {
   const id = get(currentDictIdAtom)
   let dict = idDictionaryMap[id]
-  // nếu như dict không tồn tại，sau đó quay lại cet4. Typing Ủy ban Trung ương kiểm tra DictId tồn tại，nếu nhưkhông tồn tại则会重置vì cet4
+  // nếu như dict không tồn tại，sau đó quay lại coca_20000. Typing Ủy ban Trung ương kiểm tra DictId tồn tại，nếu nhưkhông tồn tại则会重置vì coca_20000
   if (!dict) {
-    dict = idDictionaryMap.cet4
+    dict = idDictionaryMap['coca_20000']
   }
   return dict
 })
