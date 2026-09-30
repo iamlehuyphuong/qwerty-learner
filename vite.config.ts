@@ -45,6 +45,9 @@ export default defineConfig(async ({ mode }) => {
         '@': path.resolve(__dirname, 'src'),
       },
     },
+    server: {
+      port: 5000,
+    },
     css: {
       modules: {
         localsConvention: 'camelCaseOnly',
