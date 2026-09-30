@@ -99,7 +99,7 @@ export interface PopoverContentProps extends React.HTMLAttributes<HTMLDivElement
 }
 
 export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
-  ({ className = '', children, align = 'center', sideOffset = 8, style, ...props }, ref) => {
+  ({ className = '', children, align = 'center', sideOffset = 24, style, ...props }, ref) => {
     const { isOpen } = usePopover()
 
     if (!isOpen) return null

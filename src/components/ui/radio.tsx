@@ -6,14 +6,15 @@ export type RadioProps = React.InputHTMLAttributes<HTMLInputElement>
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(({ className = '', disabled, ...props }, ref) => {
   return (
-    <div className={`relative flex items-center justify-center ${disabled ? 'pointer-events-none opacity-50' : ''}`}>
+    <div className={`relative flex h-5 w-5 items-center justify-center ${disabled ? 'pointer-events-none opacity-50' : ''}`}>
       <input
         type="radio"
-        className={`checked:bg-brand-500 checked:border-brand-500 focus-visible:ring-brand-500 peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-border bg-card transition-colors focus:outline-none focus-visible:ring-2 ${className}`}
+        className={`peer absolute inset-0 m-0 h-full w-full cursor-pointer appearance-none rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${className}`}
         ref={ref}
         disabled={disabled}
         {...props}
       />
+      <div className="pointer-events-none absolute inset-0 rounded-full border-2 border-gray-500 transition-colors peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
       <div className="pointer-events-none absolute h-2 w-2 rounded-full bg-white opacity-0 transition-opacity peer-checked:opacity-100"></div>
     </div>
   )

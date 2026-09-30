@@ -1,5 +1,6 @@
 'use client'
 
+import { CheckCircle2, Circle } from 'lucide-react'
 import * as React from 'react'
 
 interface SelectContextType {
@@ -244,7 +245,7 @@ export const SelectItem = React.forwardRef<HTMLButtonElement, SelectItemProps>(
         role="option"
         aria-selected={isSelected}
         onClick={handleClick}
-        className={`group relative flex w-full cursor-pointer select-none items-center gap-2.5 rounded-md px-2 py-2 text-sm outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground disabled:pointer-events-none disabled:opacity-50
+        className={`group relative flex w-full cursor-pointer select-none items-center gap-2.5 rounded-md px-2 py-2 text-sm outline-none transition-colors hover:bg-indigo-500/20 hover:text-foreground focus:bg-indigo-500/20 focus:text-foreground disabled:pointer-events-none disabled:opacity-50
           ${isSelected && !multiple ? 'bg-muted font-medium text-foreground' : ''}
           ${className}`}
         {...props}
@@ -271,14 +272,10 @@ export const SelectItem = React.forwardRef<HTMLButtonElement, SelectItemProps>(
               </svg>
             )}
           </div>
+        ) : isSelected ? (
+          <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-indigo-500" />
         ) : (
-          <div
-            className={`flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border transition-colors ${
-              isSelected ? 'border-brand-500 bg-transparent' : 'border-border bg-transparent group-hover:border-muted-foreground/50'
-            }`}
-          >
-            {isSelected && <div className="bg-brand-500 h-2 w-2 rounded-full" />}
-          </div>
+          <Circle className="h-4 w-4 flex-shrink-0 text-gray-500 group-hover:text-indigo-400" />
         )}
 
         {/* Item Icon */}

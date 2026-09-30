@@ -8,20 +8,13 @@ import SoundSwitcher from '../SoundSwitcher'
 import WordDictationSwitcher from '../WordDictationSwitcher'
 import Tooltip from '@/components/Tooltip'
 import { Button } from '@/components/ui/button'
-import { isOpenDarkModeAtom } from '@/store'
 import { CTRL } from '@/utils'
-import { useAtom } from 'jotai'
-import { Languages, Moon, Sun } from 'lucide-react'
+import { Languages } from 'lucide-react'
 import { useContext } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 
 export default function Switcher() {
-  const [isOpenDarkMode, setIsOpenDarkMode] = useAtom(isOpenDarkModeAtom)
   const { state, dispatch } = useContext(TypingContext) ?? {}
-
-  const changeDarkModeState = () => {
-    setIsOpenDarkMode((old) => !old)
-  }
 
   const changeTransVisibleState = () => {
     if (dispatch) {
@@ -76,22 +69,6 @@ export default function Switcher() {
         <AnalysisButton />
       </Tooltip>
 
-      <Tooltip content="Bật và tắt chế độ tối">
-        <Button
-          variant="outline"
-          size="icon"
-          className={`${
-            isOpenDarkMode ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-500 dark:border-gray-700'
-          } h-8 w-8 transition-colors`}
-          onClick={(e) => {
-            changeDarkModeState()
-            e.currentTarget.blur()
-          }}
-          aria-label="Bật và tắt chế độ tối"
-        >
-          {isOpenDarkMode ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-        </Button>
-      </Tooltip>
       <Tooltip content="Vị trí đặt tay">
         <HandPositionIllustration></HandPositionIllustration>
       </Tooltip>

@@ -78,14 +78,9 @@ export default function WordDictationSwitcher() {
 
       <PopoverContent className="w-64 p-4">
         <div className="flex flex-col gap-4">
-          <div className="flex w-full flex-col items-start gap-2 py-0">
+          <div className="flex w-full flex-row items-center justify-between py-0">
             <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">Chế độ viết im lặng</span>
-            <div className="flex w-full flex-row items-center justify-between">
-              <Switch checked={wordDictationConfig.isOpen} onChange={() => onToggleWordDictation()} />
-              <span className="text-right text-xs font-normal leading-tight text-gray-600">
-                {wordDictationConfig.isOpen ? 'Đang bật' : 'Đang tắt'}
-              </span>
-            </div>
+            <Switch checked={wordDictationConfig.isOpen} onChange={() => onToggleWordDictation()} />
           </div>
 
           {wordDictationConfig.isOpen && (

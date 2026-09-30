@@ -33,7 +33,7 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
   const { getReferenceProps, getFloatingProps } = useInteractions([hoverButton])
 
   return (
-    <Tooltip content={`${state.isTyping ? 'Tạm dừng' : 'Bắt đầu'} (Enter)`} className="box-content h-7 w-24 px-4 py-1">
+    <Tooltip content={`${state.isTyping ? 'Tạm dừng' : 'Bắt đầu'} (Enter)`} className="box-content h-10 w-32">
       <div
         ref={refs.setReference}
         {...getReferenceProps()}

@@ -109,7 +109,7 @@ const PronunciationSwitcher = () => {
       <Tooltip content="Cài đặt phát âm và phiên âm">
         <PopoverTrigger asChild>
           <button
-            className={`flex h-8 w-28 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-transparent px-1 transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100`}
+            className={`flex h-10 w-28 cursor-pointer items-center justify-center rounded-lg border border-gray-300 bg-transparent px-1 transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:border-gray-700 dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100`}
             onFocus={(e) => {
               e.target.blur()
             }}
