@@ -32,7 +32,7 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
   const { getReferenceProps, getFloatingProps } = useInteractions([hoverButton])
 
   return (
-    <Tooltip content={`${state.isTyping ? 'tạm dừng' : 'bắt đầu'} （Enter）`} className="box-content h-7 w-8 px-6 py-1">
+    <Tooltip content={`${state.isTyping ? 'Tạm dừng' : 'Bắt đầu'} (Enter)`} className="box-content h-7 w-24 px-4 py-1">
       <div
         ref={refs.setReference}
         {...getReferenceProps()}
@@ -42,29 +42,29 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
             : 'bg-indigo-500 shadow-indigo-300 dark:shadow-indigo-500/60'
         } ${
           isShowReStartButton ? 'h-20' : 'h-auto'
-        } flex-column absolute left-0 top-0 w-20 rounded-lg shadow-lg transition-colors duration-200`}
+        } flex-column absolute left-0 top-0 w-32 rounded-lg shadow-lg transition-colors duration-200`}
       >
         <button
           className={`${
             state.isTyping ? 'bg-gray-400  dark:bg-gray-700 dark:hover:bg-gray-500' : 'bg-indigo-500'
-          } my-btn-primary w-20 shadow`}
+          } my-btn-primary w-32 transform shadow transition-all hover:-translate-y-0.5`}
           type="button"
           onClick={onToggleIsTyping}
           aria-label={state.isTyping ? 'tạm dừng' : 'bắt đầu'}
         >
-          <span className="font-medium">{state.isTyping ? 'Pause' : 'Start'}</span>
+          <span className="font-medium">{state.isTyping ? 'Tạm dừng' : 'Bắt đầu'}</span>
         </button>
         {isShowReStartButton && (
-          <div className="absolute bottom-0 flex w-20 justify-center" ref={refs.setFloating} {...getFloatingProps()}>
+          <div className="absolute bottom-0 flex w-32 justify-center" ref={refs.setFloating} {...getFloatingProps()}>
             <button
               className={`${
                 state.isTyping ? 'bg-gray-500 dark:bg-gray-700 dark:hover:bg-gray-500 ' : 'bg-indigo-400 '
-              } my-btn-primary mb-1 mt-1 w-18  transition-colors duration-200`}
+              } my-btn-primary mb-1 mt-1 w-28  transform transition-colors duration-200 hover:-translate-y-0.5`}
               type="button"
               onClick={onClickRestart}
-              aria-label={'重新bắt đầu'}
+              aria-label={'Chơi lại'}
             >
-              Restart
+              Chơi lại
             </button>
           </div>
         )}

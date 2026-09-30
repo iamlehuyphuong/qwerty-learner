@@ -28,7 +28,7 @@ export const errorColumns = (onDelete: (word: string) => Promise<void>): ColumnD
   {
     accessorKey: 'trans',
     size: 500,
-    header: 'Sự định nghĩa',
+    header: 'Nghĩa của từ',
   },
   {
     accessorKey: 'errorCount',

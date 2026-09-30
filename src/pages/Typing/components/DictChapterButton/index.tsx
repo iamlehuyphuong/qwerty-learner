@@ -20,22 +20,22 @@ export const DictChapterButton = () => {
   }
   return (
     <>
-      <Tooltip content="Chuyển đổi từ điển">
+      <Tooltip content="Chọn từ điển">
         <NavLink
           className="block rounded-lg px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100"
           to="/gallery"
         >
-          {currentDictInfo.name} {isReviewMode && 'Nhận xét những câu hỏi sai'}
+          {currentDictInfo.name} {isReviewMode && 'Ôn tập từ viết sai'}
         </NavLink>
       </Tooltip>
       {!isReviewMode && (
-        <Tooltip content="Chuyển đổi chương">
+        <Tooltip content="Chọn chương">
           <Listbox value={currentChapter} onChange={setCurrentChapter}>
             <Listbox.Button
               onKeyDown={handleKeyDown}
-              className="rounded-lg px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100"
+              className="w-28 rounded-lg px-3 py-1 text-center text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100"
             >
-              KHÔNG. {currentChapter + 1} chương
+              Chương {currentChapter + 1}
             </Listbox.Button>
             <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
               <Listbox.Options className="listbox-options z-10 w-32">
@@ -48,7 +48,7 @@ export const DictChapterButton = () => {
                             <IconCheck className="focus:outline-none" />
                           </span>
                         ) : null}
-                        <span>KHÔNG. {index + 1} chương</span>
+                        <span>Chương {index + 1}</span>
                       </div>
                     )}
                   </Listbox.Option>

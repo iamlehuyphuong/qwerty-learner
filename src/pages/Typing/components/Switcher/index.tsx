@@ -46,14 +46,14 @@ export default function Switcher() {
         <SoundSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="cài đặt单từ循环">
+      <Tooltip className="h-7 w-7" content="Lặp lại từ vựng">
         <LoopWordSwitcher />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content={`开关Chế độ viết im lặng（${CTRL} + V）`}>
+      <Tooltip className="h-7 w-7" content={`Bật/tắt chế độ viết im lặng (${CTRL} + V)`}>
         <WordDictationSwitcher />
       </Tooltip>
-      <Tooltip className="h-7 w-7" content={`开关Sự định nghĩa显示（${CTRL} + Shift + V）`}>
+      <Tooltip className="h-7 w-7" content={`Bật/tắt hiển thị nghĩa (${CTRL} + Shift + V)`}>
         <button
           className={`p-[2px] ${state?.isTransVisible ? 'text-indigo-500' : 'text-gray-500'} text-lg focus:outline-none`}
           type="button"
@@ -61,17 +61,17 @@ export default function Switcher() {
             changeTransVisibleState()
             e.currentTarget.blur()
           }}
-          aria-label={`开关Sự định nghĩa显示（${CTRL} + Shift + V）`}
+          aria-label={`Bật/tắt hiển thị nghĩa (${CTRL} + Shift + V)`}
         >
           {state?.isTransVisible ? <IconLanguage /> : <IconLanguageOff />}
         </button>
       </Tooltip>
 
-      <Tooltip content="Sách câu hỏi sai">
+      <Tooltip content="Sổ tay từ viết sai">
         <ErrorBookButton />
       </Tooltip>
 
-      <Tooltip className="h-7 w-7" content="Xem số liệu thống kê">
+      <Tooltip className="h-7 w-7" content="Xem thống kê">
         <AnalysisButton />
       </Tooltip>
 
@@ -88,10 +88,10 @@ export default function Switcher() {
           {isOpenDarkMode ? <IconMoon className="icon" /> : <IconSun className="icon" />}
         </button>
       </Tooltip>
-      <Tooltip className="h-7 w-7" content="sơ đồ ngón tay">
+      <Tooltip className="h-7 w-7" content="Vị trí đặt tay">
         <HandPositionIllustration></HandPositionIllustration>
       </Tooltip>
-      <Tooltip content="cài đặt">
+      <Tooltip content="Cài đặt">
         <Setting />
       </Tooltip>
     </div>

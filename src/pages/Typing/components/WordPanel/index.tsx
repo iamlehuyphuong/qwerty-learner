@@ -165,7 +165,7 @@ export default function WordPanel() {
               <div className="absolute flex h-full w-full justify-center">
                 <div className="z-10 flex w-full items-center backdrop-blur-sm">
                   <p className="w-full select-none text-center text-xl text-gray-600 dark:text-gray-50">
-                    Nhấn phím bất kỳ{state.timerData.time ? 'Tiếp tục' : 'bắt đầu'}
+                    Nhấn phím bất kỳ để {state.timerData.time ? 'tiếp tục' : 'bắt đầu'}
                   </p>
                 </div>
               </div>

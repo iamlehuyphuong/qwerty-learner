@@ -1631,7 +1631,7 @@ const internationalExam: DictionaryResource[] = [
   {
     id: 'Categorized_TOEFL_Vocabulary_by_Zhanghongyan',
     name: 'Categorized Vocab.',
-    description: 'từGhi theo danh mục TOEFL 2021 by ZhangHongYan (sách gốcSự định nghĩaVàghi nhớ; từsự liên tiếpCon số)',
+    description: 'từGhi theo danh mục TOEFL 2021 by ZhangHongYan (sách gốc Nghĩa và ghi nhớ; từsự liên tiếpCon số)',
     category: 'kỳ thi quốc tế',
     tags: ['TOEFL'],
     url: '/dicts/Categorized_TOEFL_Vocabulary_by_Zhanghongyan.json',

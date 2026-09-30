@@ -51,7 +51,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       const dictDataResults = await Promise.all(dictDataPromises)
       const dictDataMap = new Map(dictDataResults.map((result) => [result.url, result.data]))
 
-      const ExportData: Array<{ từ: string; 'Sự định nghĩa': string; 'số lỗi': number; 'từ điển': string }> = []
+      const ExportData: Array<{ từ: string; nghĩa: string; 'số lỗi': number; 'từ điển': string }> = []
 
       renderRecords.forEach((item: any) => {
         const dictInfo = idDictionaryMap[item.dict]
@@ -65,7 +65,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
 
         ExportData.push({
           từ: item.word,
-          'Sự định nghĩa': translation,
+          nghĩa: translation,
           'số lỗi': item.wrongCount,
           'từ điển': dictInfo?.name || item.dict,
         })
@@ -74,7 +74,7 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       let blob: Blob
 
       if (bookType === 'txt') {
-        const content = ExportData.map((item: any) => `${item['từ']}: ${item['Sự định nghĩa']}`).join('\n')
+        const content = ExportData.map((item: any) => `${item['từ']}: ${item['nghĩa']}`).join('\n')
         blob = new Blob([content], { type: 'text/plain' })
       } else {
         const worksheet = XLSX.utils.json_to_sheet(ExportData)
