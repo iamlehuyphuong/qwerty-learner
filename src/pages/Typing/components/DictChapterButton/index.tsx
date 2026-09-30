@@ -1,9 +1,8 @@
 import Tooltip from '@/components/Tooltip'
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@/components/ui/dropdown'
 import { currentChapterAtom, currentDictInfoAtom, isReviewModeAtom } from '@/store'
 import range from '@/utils/range'
-import { Listbox, Transition } from '@headlessui/react'
 import { useAtom, useAtomValue } from 'jotai'
-import { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 import IconCheck from '~icons/tabler/check'
 
@@ -22,7 +21,7 @@ export const DictChapterButton = () => {
     <>
       <Tooltip content="Chọn từ điển">
         <NavLink
-          className="block rounded-lg px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100"
+          className="block rounded-lg px-3 py-1 text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white/60 dark:hover:text-white"
           to="/gallery"
         >
           {currentDictInfo.name} {isReviewMode && 'Ôn tập từ viết sai'}
@@ -30,32 +29,27 @@ export const DictChapterButton = () => {
       </Tooltip>
       {!isReviewMode && (
         <Tooltip content="Chọn chương">
-          <Listbox value={currentChapter} onChange={setCurrentChapter}>
-            <Listbox.Button
+          <Dropdown>
+            <DropdownTrigger
               onKeyDown={handleKeyDown}
-              className="w-28 rounded-lg px-3 py-1 text-center text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100"
+              className="w-28 rounded-lg px-3 py-1 text-center text-lg transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white/60 dark:hover:text-white"
             >
               Chương {currentChapter + 1}
-            </Listbox.Button>
-            <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-              <Listbox.Options className="listbox-options z-10 w-32">
-                {range(0, chapterCount, 1).map((index) => (
-                  <Listbox.Option key={index} value={index}>
-                    {({ selected }) => (
-                      <div className="group flex cursor-pointer items-center justify-between">
-                        {selected ? (
-                          <span className="listbox-options-icon">
-                            <IconCheck className="focus:outline-none" />
-                          </span>
-                        ) : null}
-                        <span>Chương {index + 1}</span>
-                      </div>
-                    )}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
-            </Transition>
-          </Listbox>
+            </DropdownTrigger>
+            <DropdownMenu align="center" className="max-h-60 w-32 overflow-y-auto">
+              {range(0, chapterCount, 1).map((index) => {
+                const selected = currentChapter === index
+                return (
+                  <DropdownItem key={index} onClick={() => setCurrentChapter(index)} className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 items-center justify-center text-indigo-500">
+                      {selected && <IconCheck className="focus:outline-none" />}
+                    </span>
+                    <span>Chương {index + 1}</span>
+                  </DropdownItem>
+                )
+              })}
+            </DropdownMenu>
+          </Dropdown>
         </Tooltip>
       )}
     </>
