@@ -10,20 +10,21 @@ import 'react-tooltip/dist/react-tooltip.css'
 interface HeatmapChartsProps {
   title: string
   data: Activity[]
+  unit?: string
 }
 
-const HeatmapCharts: FC<HeatmapChartsProps> = ({ data, title }) => {
+const HeatmapCharts: FC<HeatmapChartsProps> = ({ data, title, unit = 'lần' }) => {
   const [isOpenDarkMode] = useAtom(isOpenDarkModeAtom)
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="text-center text-xl font-bold text-gray-600	dark:text-white">{title}</div>
+      <div className="mb-3 text-center text-lg font-semibold text-foreground">{title}</div>
       <ActivityCalendar
-        fontSize={20}
-        blockSize={22}
-        blockRadius={7}
+        fontSize={16}
+        blockSize={18}
+        blockRadius={5}
         style={{
-          padding: '40px 60px 20px 100px',
+          padding: '20px 40px 16px 80px',
           color: isOpenDarkMode ? '#fff' : '#000',
         }}
         colorScheme={isOpenDarkMode ? 'dark' : 'light'}
@@ -35,30 +36,24 @@ const HeatmapCharts: FC<HeatmapChartsProps> = ({ data, title }) => {
         renderBlock={(block, activity) =>
           React.cloneElement(block, {
             'data-tooltip-id': 'react-tooltip',
-            'data-tooltip-html': `${activity.date} luyện tập ${activity.count} hạng hai`,
+            'data-tooltip-html': activity.count > 0 ? `${activity.date}: ${activity.count} ${unit}` : `${activity.date}: Chưa luyện tập`,
+            ...(activity.count === 0
+              ? {
+                  fill: 'transparent',
+                  stroke: isOpenDarkMode ? 'hsl(0, 0%, 25%)' : '#e0e0e0',
+                  strokeWidth: 1,
+                }
+              : {}),
           })
         }
         showWeekdayLabels={true}
         labels={{
-          months: [
-            'Tháng Một',
-            'Tháng hai',
-            'Bước đều',
-            'Tháng tư',
-            'Có thể',
-            'Tháng sáu',
-            'Tháng bảy',
-            'Tháng tám',
-            'Tháng 9',
-            'tháng mười',
-            'Tháng mười một',
-            'Tháng 12',
-          ],
-          weekdays: ['ngày', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu'],
-          totalCount: 'Tổng cộng trong năm qua {{count}} hạng hai',
+          months: ['Th1', 'Th2', 'Th3', 'Th4', 'Th5', 'Th6', 'Th7', 'Th8', 'Th9', 'Th10', 'Th11', 'Th12'],
+          weekdays: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+          totalCount: `Tổng cộng {{count}} ${unit} trong năm qua`,
           legend: {
-            less: 'một vài',
-            more: 'nhiều',
+            less: 'Ít',
+            more: 'Nhiều',
           },
         }}
       />
