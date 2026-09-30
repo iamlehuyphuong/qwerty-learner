@@ -22,12 +22,27 @@ const HeadWrongNumber: FC<IHeadWrongNumberProps> = ({ className, sortType, setSo
     setSortType(sortTypes[sortType])
   }, [setSortType, sortType])
 
+  const ariaSort = sortType === 'asc' ? 'ascending' : sortType === 'desc' ? 'descending' : 'none'
+
   return (
-    <span className={`relative cursor-pointer ${className}`} onClick={onClick}>
-      số lỗi
-      <div className="absolute -right-2 bottom-0 top-0 flex flex-col items-center justify-center text-[12px]">
+    <span
+      className={`inline-flex cursor-pointer items-center gap-1 ${className}`}
+      onClick={onClick}
+      role="button"
+      aria-sort={ariaSort}
+      aria-label="Sắp xếp theo số lỗi"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick()
+        }
+      }}
+    >
+      Số lỗi
+      <span className="inline-flex flex-col text-[10px] leading-none">
         <UPIcon
-          className={classNames('-mb-2 ', {
+          className={classNames('-mb-1.5', {
             'text-indigo-500': sortType === 'asc',
             'text-gray-400': sortType !== 'asc',
           })}
@@ -38,7 +53,7 @@ const HeadWrongNumber: FC<IHeadWrongNumberProps> = ({ className, sortType, setSo
             'text-gray-400': sortType !== 'desc',
           })}
         />
-      </div>
+      </span>
     </span>
   )
 }

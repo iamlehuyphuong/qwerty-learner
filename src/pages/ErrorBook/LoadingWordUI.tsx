@@ -12,7 +12,7 @@ export const LoadingWordUI: FC<LoadingWordUIProps> = ({ className, isLoading, ha
   return (
     <div className={`${className}`}>
       {hasError ? (
-        <div className="tooltip !bg-transparent" data-tip="Tải dữ liệu không thành công">
+        <div className="tooltip !bg-transparent" data-tip="Không tải được dữ liệu">
           <ErrorIcon className="text-red-500" />
         </div>
       ) : (

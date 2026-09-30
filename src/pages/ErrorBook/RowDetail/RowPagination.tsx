@@ -1,9 +1,9 @@
 import { currentRowDetailAtom } from '../store'
 import type { groupedWordRecords } from '../type'
+import { Button } from '@/components/ui/button'
 import { useAtom } from 'jotai'
 import type { FC } from 'react'
-import { useMemo } from 'react'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import NextIcon from '~icons/ooui/next-ltr'
 import PrevIcon from '~icons/ooui/next-rtl'
@@ -12,8 +12,6 @@ type IRowPaginationProps = {
   className?: string
   allRecords: groupedWordRecords[]
 }
-
-export const ITEM_PER_PAGE = 20
 
 const RowPagination: FC<IRowPaginationProps> = ({ className, allRecords }) => {
   const [currentRowDetail, setCurrentRowDetail] = useAtom(currentRowDetailAtom)
@@ -24,7 +22,6 @@ const RowPagination: FC<IRowPaginationProps> = ({ className, allRecords }) => {
 
   const nextRowDetail = useCallback(() => {
     if (!currentRowDetail) return
-
     const index = currentIndex
     if (index === -1) return
     const nextIndex = index + 1
@@ -34,7 +31,6 @@ const RowPagination: FC<IRowPaginationProps> = ({ className, allRecords }) => {
 
   const prevRowDetail = useCallback(() => {
     if (!currentRowDetail) return
-
     const index = currentIndex
     if (index === -1) return
     const prevIndex = index - 1
@@ -48,9 +44,7 @@ const RowPagination: FC<IRowPaginationProps> = ({ className, allRecords }) => {
       prevRowDetail()
       e.stopPropagation()
     },
-    {
-      preventDefault: true,
-    },
+    { preventDefault: true },
   )
 
   useHotkeys(
@@ -59,23 +53,32 @@ const RowPagination: FC<IRowPaginationProps> = ({ className, allRecords }) => {
       nextRowDetail()
       e.stopPropagation()
     },
-    {
-      preventDefault: true,
-    },
+    { preventDefault: true },
   )
 
   return (
-    <div className={`-gap-1 flex select-none items-center ${className}`}>
-      <button
-        className="d cursor-pointer rounded-full  p-1  text-indigo-500 focus:outline-none dark:text-indigo-300"
+    <div className={`flex select-none items-center gap-1 ${className}`}>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-7 w-7 rounded-full"
         onClick={prevRowDetail}
+        disabled={currentIndex <= 0}
+        aria-label="Từ trước"
       >
-        <PrevIcon />
-      </button>
-      <span className="text-sm text-black dark:text-white">{`${currentIndex + 1} / ${allRecords.length}`}</span>
-      <button className="cursor-pointer rounded-full p-1 text-indigo-500  focus:outline-none dark:text-indigo-300" onClick={nextRowDetail}>
-        <NextIcon />
-      </button>
+        <PrevIcon className="h-4 w-4" />
+      </Button>
+      <span className="text-sm text-muted-foreground">{`${currentIndex + 1} / ${allRecords.length}`}</span>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-7 w-7 rounded-full"
+        onClick={nextRowDetail}
+        disabled={currentIndex >= allRecords.length - 1}
+        aria-label="Từ tiếp"
+      >
+        <NextIcon className="h-4 w-4" />
+      </Button>
     </div>
   )
 }

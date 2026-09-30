@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { LoadingWordUI } from '../LoadingWordUI'
 import useGetWord from '../hooks/useGetWord'
 import { currentRowDetailAtom } from '../store'
@@ -7,6 +6,7 @@ import DataTag from './DataTag'
 import RowPagination from './RowPagination'
 import type { WordPronunciationIconRef } from '@/components/WordPronunciationIcon'
 import { WordPronunciationIcon } from '@/components/WordPronunciationIcon'
+import { Button } from '@/components/ui/button'
 import Phonetic from '@/pages/Typing/components/WordPanel/components/Phonetic'
 import Letter from '@/pages/Typing/components/WordPanel/components/Word/Letter'
 import { idDictionaryMap } from '@/resources/dictionary'
@@ -37,10 +37,10 @@ const RowDetail: React.FC<RowDetailProps> = ({ currentRowDetail, allRecords }) =
         ? currentRowDetail.records.reduce((acc, cur) => acc + cur.totalTime, 0) / currentRowDetail.records.length
         : 0
     const timeStr = (time / 1000).toFixed(2)
-    const correctCount = currentRowDetail.records.length
+    const practiceCount = currentRowDetail.records.length
+    const correctCount = currentRowDetail.records.reduce((acc, cur) => acc + cur.timing.length, 0)
     const wrongCount = currentRowDetail.wrongCount
-    const sumCount = correctCount + wrongCount
-    return { time: timeStr, sumCount, correctCount, wrongCount }
+    return { time: timeStr, practiceCount, correctCount, wrongCount }
   }, [currentRowDetail.records, currentRowDetail.wrongCount])
 
   const onClose = useCallback(() => {
@@ -66,9 +66,11 @@ const RowDetail: React.FC<RowDetailProps> = ({ currentRowDetail, allRecords }) =
   )
 
   return (
-    <div className="absolute inset-0 flex  flex-col items-center  justify-center ">
-      <div className="my-card relative z-10 flex h-[32rem] min-w-[26rem] select-text flex-col items-center justify-around rounded-2xl bg-white px-3 py-10 dark:bg-gray-900">
-        <IconX className="absolute right-3 top-3  h-6 w-6 cursor-pointer text-gray-400" onClick={onClose} />
+    <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className="my-card relative z-10 flex h-[32rem] w-[36rem] select-text flex-col items-center justify-around rounded-2xl border border-border bg-card px-6 py-10 text-card-foreground">
+        <Button variant="ghost" size="icon" className="absolute right-2 top-2 h-7 w-7" onClick={onClose}>
+          <IconX className="h-5 w-5" />
+        </Button>
         <div className="flex flex-col items-center justify-start">
           <div>
             {currentRowDetail.word.split('').map((t, index) => (
@@ -81,37 +83,37 @@ const RowDetail: React.FC<RowDetailProps> = ({ currentRowDetail, allRecords }) =
               <WordPronunciationIcon
                 lang={dictInfo.language}
                 word={word}
-                className="absolute -right-7 top-1/2 h-5 w-5 -translate-y-1/2 transform "
+                className="absolute -right-7 top-1/2 h-5 w-5 -translate-y-1/2 transform"
                 ref={wordPronunciationIconRef}
               />
             )}
           </div>
           <div className="flex max-w-[24rem] items-center">
-            <span className={`max-w-4xl text-center font-sans transition-colors duration-300 dark:text-white dark:text-opacity-80`}>
+            <span className="max-w-4xl text-center font-sans text-muted-foreground transition-colors duration-300">
               {word ? word.trans.join('；') : <LoadingWordUI isLoading={isLoading} hasError={hasError} />}
             </span>
           </div>
         </div>
-        <div className="item flex flex-col gap-4">
-          <div className="flex gap-6">
-            <DataTag icon={ClockIcon} name="thời gian trung bình" data={rowDetailData.time} />
-            <DataTag icon={HashtagIcon} name="Thời gian luyện tập" data={rowDetailData.sumCount} />
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-4">
+            <DataTag icon={ClockIcon} name="TB mỗi lần (s)" data={rowDetailData.time} />
+            <DataTag icon={HashtagIcon} name="Số lần luyện tập" data={rowDetailData.practiceCount} />
           </div>
-          <div className="flex gap-6">
-            <DataTag icon={CheckCircle} name="Thời gian chính xác" data={rowDetailData.correctCount} />
-            <DataTag icon={XCircle} name="số lỗi" data={rowDetailData.wrongCount} />
+          <div className="flex gap-4">
+            <DataTag icon={CheckCircle} name="Số lần nhấn đúng" data={rowDetailData.correctCount} />
+            <DataTag icon={XCircle} name="Số lần nhấn sai" data={rowDetailData.wrongCount} />
           </div>
         </div>
         <RowPagination className="absolute bottom-6 mt-10" allRecords={allRecords} />
       </div>
-      <div className="absolute inset-0 z-0  cursor-pointer bg-transparent" onClick={onClose}></div>
+      <div className="absolute inset-0 z-0 cursor-pointer bg-black/30" onClick={onClose}></div>
     </div>
   )
 }
 
 type RowDetailData = {
   time: string
-  sumCount: number
+  practiceCount: number
   correctCount: number
   wrongCount: number
 }

@@ -25,36 +25,43 @@ const ErrorRow: FC<IErrorRowProps> = ({ record, onDelete }) => {
     recordErrorBookAction('detail')
   }, [record, setCurrentRowDetail])
 
+  const handleDelete = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation()
+      if (window.confirm(`Bạn có chắc muốn xóa "${record.word}" khỏi sổ lỗi?`)) {
+        onDelete()
+      }
+    },
+    [onDelete, record.word],
+  )
+
   return (
-    <li
-      className="opacity-85 flex w-full cursor-pointer items-center justify-between rounded-lg bg-white px-6 py-3 text-black shadow-md dark:bg-gray-800 dark:text-white"
+    <div
+      className="flex w-full cursor-pointer items-center rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-colors hover:bg-accent"
       onClick={onClick}
     >
-      <span className="basis-2/12 break-normal">{record.word}</span>
-      <span className="basis-6/12 break-normal">
+      <span className="w-[15%] truncate py-3 pl-6 text-sm font-medium">{record.word}</span>
+      <span className="w-[40%] truncate px-4 py-3 text-sm text-muted-foreground">
         {word ? word.trans.join('；') : <LoadingWordUI isLoading={isLoading} hasError={hasError} />}
       </span>
-      <span className="basis-1/12 break-normal pl-8">{record.wrongCount}</span>
-      <span className="basis-1/12 break-normal">{dictInfo?.name}</span>
-      <span
-        className="basis-1/12 break-normal"
-        onClick={(e) => {
-          e.stopPropagation()
-          onDelete()
-        }}
-      >
+      <span className="w-[12%] px-4 py-3 text-sm">{record.wrongCount}</span>
+      <span className="w-[18%] truncate px-4 py-3 text-sm text-muted-foreground">{dictInfo?.name ?? record.dict}</span>
+      <span className="flex w-[15%] justify-end py-3 pr-6" onClick={handleDelete}>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <DeleteIcon />
+              <DeleteIcon
+                className="h-4 w-4 text-muted-foreground/50 transition-colors hover:text-destructive"
+                aria-label={`Xóa từ ${record.word}`}
+              />
             </TooltipTrigger>
             <TooltipContent>
-              <p>Delete Records</p>
+              <p>Xóa</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </span>
-    </li>
+    </div>
   )
 }
 

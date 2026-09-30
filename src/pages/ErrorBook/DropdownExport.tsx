@@ -1,3 +1,5 @@
+import type { groupedWordRecords } from './type'
+import { Button } from '@/components/ui/button'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { wordListFetcher } from '@/utils/wordListFetcher'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
@@ -7,15 +9,20 @@ import { useState } from 'react'
 import * as XLSX from 'xlsx'
 
 type DropdownProps = {
-  renderRecords: any
+  renderRecords: groupedWordRecords[]
 }
 
 const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
   const [isExporting, setIsExporting] = useState(false)
 
-  const formatTimestamp = (date: any) => {
+  const sanitizeCsvValue = (value: string) => {
+    if (/^[=+\-@\t\r]/.test(value)) return `'${value}`
+    return value
+  }
+
+  const formatTimestamp = (date: Date) => {
     const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, '0') // tháng từ0bắt đầu
+    const month = String(date.getMonth() + 1).padStart(2, '0')
     const day = String(date.getDate()).padStart(2, '0')
     const hours = String(date.getHours()).padStart(2, '0')
     const minutes = String(date.getMinutes()).padStart(2, '0')
@@ -28,23 +35,21 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
     setIsExporting(true)
 
     try {
-      // Nhận tất cả dữ liệu từ điển cần thiết
       const dictUrls: string[] = []
-      renderRecords.forEach((item: any) => {
+      renderRecords.forEach((item) => {
         const dictInfo = idDictionaryMap[item.dict]
         if (dictInfo?.url && !dictUrls.includes(dictInfo.url)) {
           dictUrls.push(dictInfo.url)
         }
       })
 
-      // Nhận tất cả dữ liệu từ điển song song
       const dictDataPromises = dictUrls.map(async (url) => {
         try {
           const data = await wordListFetcher(url)
           return { url, data }
         } catch (error) {
           console.error(`Failed to fetch dictionary data from ${url}:`, error)
-          return { url, data: [] }
+          return { url, data: [] as Awaited<ReturnType<typeof wordListFetcher>> }
         }
       })
 
@@ -53,28 +58,29 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
 
       const ExportData: Array<{ từ: string; nghĩa: string; 'số lỗi': number; 'từ điển': string }> = []
 
-      renderRecords.forEach((item: any) => {
+      renderRecords.forEach((item) => {
         const dictInfo = idDictionaryMap[item.dict]
         let translation = ''
 
         if (dictInfo?.url && dictDataMap.has(dictInfo.url)) {
           const wordList = dictDataMap.get(dictInfo.url) || []
-          const word = wordList.find((w: any) => w.name === item.word)
+          const word = wordList.find((w) => w.name === item.word)
           translation = word ? word.trans.join('；') : ''
         }
 
+        const isCsv = bookType === 'csv'
         ExportData.push({
-          từ: item.word,
-          nghĩa: translation,
+          từ: isCsv ? sanitizeCsvValue(item.word) : item.word,
+          nghĩa: isCsv ? sanitizeCsvValue(translation) : translation,
           'số lỗi': item.wrongCount,
-          'từ điển': dictInfo?.name || item.dict,
+          'từ điển': isCsv ? sanitizeCsvValue(dictInfo?.name || item.dict) : dictInfo?.name || item.dict,
         })
       })
 
       let blob: Blob
 
       if (bookType === 'txt') {
-        const content = ExportData.map((item: any) => `${item['từ']}: ${item['nghĩa']}`).join('\n')
+        const content = ExportData.map((item) => `${item['từ']}: ${item['nghĩa']}`).join('\n')
         blob = new Blob([content], { type: 'text/plain' })
       } else {
         const worksheet = XLSX.utils.json_to_sheet(ExportData)
@@ -92,30 +98,30 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
       }
     } catch (error) {
       console.error('Export failed:', error)
-      alert('Xuất không thành công，Vui lòng thử lại')
+      alert('Xuất file không thành công. Vui lòng thử lại.')
     } finally {
       setIsExporting(false)
     }
   }
 
   return (
-    <div className="z-10">
+    <div className="z-10 inline-flex justify-end">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className="my-btn-primary h-8 shadow transition hover:bg-indigo-600 disabled:opacity-50" disabled={isExporting}>
-            {isExporting ? 'Xuất khẩu...' : 'Xuất khẩu'}
-          </button>
+          <Button size="sm" disabled={isExporting}>
+            {isExporting ? 'Đang xuất...' : 'Xuất file'}
+          </Button>
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content className="mt-1 rounded bg-indigo-500 text-white shadow-lg">
+        <DropdownMenu.Content className="mt-1 rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-md">
           <DropdownMenu.Item
-            className="cursor-pointer rounded px-4 py-2 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none"
+            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
             onClick={() => handleExport('xlsx')}
             disabled={isExporting}
           >
             .xlsx
           </DropdownMenu.Item>
           <DropdownMenu.Item
-            className="cursor-pointer rounded px-4 py-2 hover:bg-indigo-600 focus:bg-indigo-600 focus:outline-none"
+            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
             onClick={() => handleExport('csv')}
             disabled={isExporting}
           >
