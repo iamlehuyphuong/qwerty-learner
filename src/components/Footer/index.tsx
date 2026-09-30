@@ -8,8 +8,8 @@ import type React from 'react'
 import { useCallback } from 'react'
 import IconMail from '~icons/material-symbols/mail'
 import IconCoffee2 from '~icons/mdi/coffee'
+import IconZalo from '~icons/my-icons/zalo'
 import IconFacebook from '~icons/simple-icons/facebook'
-import IconZalo from '~icons/simple-icons/zalo'
 import IconCoffee from '~icons/tabler/coffee'
 
 const Footer: React.FC = () => {
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
         onClose={() => handleCloseInfoPanel('donate')}
       >
         <p className="indent-4 text-sm text-gray-500 dark:text-gray-300">
-          Cảm ơn bạn rất nhiều vì đã sử dụng {import.meta.env.VITE_APP_NAME || 'Qwerty Learner'}! Hiện tại website đang được bảo trì và phát
+          Cảm ơn bạn rất nhiều vì đã sử dụng {import.meta.env.VITE_APP_NAME || 'Type & English'}! Hiện tại website đang được bảo trì và phát
           triển trong thời gian rảnh rỗi. Để đảm bảo rằng trang web có thể tiếp tục cung cấp dịch vụ chất lượng cao cho mọi người, chúng tôi
           cần sự giúp đỡ của bạn!
           <br />
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
         </p>
         <br />
         <p className="indent-4 text-sm text-gray-700 dark:text-gray-200">
-          Chúng tôi tin rằng, những nỗ lực chung có thể làm cho {import.meta.env.VITE_APP_NAME || 'Qwerty Learner'} trở thành một nền tảng
+          Chúng tôi tin rằng, những nỗ lực chung có thể làm cho {import.meta.env.VITE_APP_NAME || 'Type & English'} trở thành một nền tảng
           học tập tốt hơn. Sự ủng hộ của các bạn sẽ tiếp thêm động lực cho chúng tôi tiếp tục tiến về phía trước. Cảm ơn sự hỗ trợ của bạn!
         </p>
         <br />

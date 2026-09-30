@@ -61,9 +61,9 @@ export default function DataSetting() {
             <span className={styles.sectionLabel}>Xuất dữ liệu</span>
             <span className={styles.sectionDescription}>
               hiện tại，Dữ liệu thực hành của người dùng<strong>Chỉ lưu cục bộ</strong>。nếu như您需要hiện hữu不同của设Chuẩn bị、Được sử
-              dụng trong trình duyệt hoặc các triển khai không chính thức khác Qwerty Learner， Bạn cần đồng bộ hóa và lưu dữ liệu theo cách
-              thủ công。Để duy trì tiến độ thực hành của bạn，Và sử dụng các chức năng phân tích dữ liệu và đào tạo thông minh sẽ được ra
-              mắt trong thời gian tới， Chúng tôi khuyên bạn nên sao lưu dữ liệu của mình kịp thời。
+              dụng trong trình duyệt hoặc các triển khai không chính thức khác {import.meta.env.VITE_APP_NAME || 'Type & English'}， Bạn cần
+              đồng bộ hóa và lưu dữ liệu theo cách thủ công。Để duy trì tiến độ thực hành của bạn，Và sử dụng các chức năng phân tích dữ
+              liệu và đào tạo thông minh sẽ được ra mắt trong thời gian tới， Chúng tôi khuyên bạn nên sao lưu dữ liệu của mình kịp thời。
             </span>
             <span className="pl-4 text-left text-sm font-bold leading-tight text-red-500">
               Để bảo mật dữ liệu của bạn，Vui lòng không sửa đổi tệp dữ liệu đã xuất。

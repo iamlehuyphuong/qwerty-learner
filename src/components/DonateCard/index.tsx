@@ -114,7 +114,7 @@ export const DonateCard = () => {
                   <h1 className="gradient-text w-full pt-3 text-center text-[2.4rem] font-bold">{`${chapterNumber} Chapters Achievement !`}</h1>
                   <div className="flex w-full flex-col gap-4 px-4">
                     <p className="mx-auto px-4 indent-4">
-                      Qwerty Learner Đã đồng hành cùng bạn trong suốt cuộc hành trình
+                      {import.meta.env.VITE_APP_NAME || 'Type & English'} Đã đồng hành cùng bạn trong suốt cuộc hành trình
                       <HighlightedText> {dayFromFirstWord} </HighlightedText>bầu trời，Cùng nhau thực hiện
                       <HighlightedText> {wordNumber} </HighlightedText>
                       luyện từ，Đã sửa cho bạn <HighlightedText> {sumWrongCount} </HighlightedText>
@@ -125,7 +125,8 @@ export const DonateCard = () => {
                       <br />
                     </p>
                     <p className="mx-auto px-4 indent-4 font-bold">
-                      Qwerty Learner kiên trì <span className="font-medium ">Nguồn mở、Không có quảng cáo、Không thương mại hóa</span> đã
+                      {import.meta.env.VITE_APP_NAME || 'Type & English'} kiên trì{' '}
+                      <span className="font-medium ">Nguồn mở、Không có quảng cáo、Không thương mại hóa</span> đã
                       <HighlightedText className="text-indigo-500"> {dayFromQwerty} </HighlightedText>bầu trời。
                     </p>
                     <p className="mx-auto px-4 indent-4">

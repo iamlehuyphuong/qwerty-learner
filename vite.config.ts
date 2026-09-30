@@ -24,6 +24,7 @@ export default defineConfig(async ({ mode }) => {
         customCollections: {
           'my-icons': {
             xiaohongshu: () => fs.readFile('./src/assets/xiaohongshu.svg', 'utf-8'),
+            zalo: () => fs.readFile('./src/assets/zalo.svg', 'utf-8'),
           },
         },
       }),

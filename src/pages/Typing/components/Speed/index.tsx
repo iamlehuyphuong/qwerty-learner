@@ -13,11 +13,11 @@ export default function Speed() {
 
   return (
     <div className="my-card flex w-3/5 rounded-xl bg-white p-4 py-10 opacity-50 transition-colors duration-300 dark:bg-gray-800">
-      <InfoBox info={`${minutesString}:${secondsString}`} description="thời gian" />
-      <InfoBox info={inputNumber + ''} description="Số lượng đầu vào" />
-      <InfoBox info={state.timerData.wpm + ''} description="WPM" />
-      <InfoBox info={state.chapterData.correctCount + ''} description="đúng số" />
-      <InfoBox info={state.timerData.accuracy + ''} description="Tỷ lệ chính xác" />
+      <InfoBox info={`${minutesString}:${secondsString}`} description="Thời gian" />
+      <InfoBox info={inputNumber + ''} description="Số từ" />
+      <InfoBox info={state.timerData.wpm + ''} description="Từ/Phút" />
+      <InfoBox info={state.chapterData.correctCount + ''} description="Số từ đúng" />
+      <InfoBox info={state.timerData.accuracy + ''} description="Tỉ lệ chính xác" />
     </div>
   )
 }

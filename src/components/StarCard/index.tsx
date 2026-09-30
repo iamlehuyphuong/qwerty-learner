@@ -114,8 +114,9 @@ export default function StarCard() {
           </button>
         </div>
         <span className="pb-4 text-xl text-gray-600 dark:text-gray-50">
-          kiên trìluyện tập，Cải thiện kỹ năng ngôn ngữ。Sẽ <span className="text-indigo-600">「Qwerty Learner」</span>Lưu vào mục yêu
-          thích，không bao giờ mất！
+          kiên trìluyện tập，Cải thiện kỹ năng ngôn ngữ。Sẽ{' '}
+          <span className="text-indigo-600">「{import.meta.env.VITE_APP_NAME || 'Type & English'}」</span>Lưu vào mục yêu thích，không bao
+          giờ mất！
         </span>
         {content}
       </div>

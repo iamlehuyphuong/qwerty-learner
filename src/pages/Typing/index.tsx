@@ -42,7 +42,9 @@ const App: React.FC = () => {
     if (!IsDesktop()) {
       setTimeout(() => {
         alert(
-          ' Qwerty Learner 目củavì提高nhân viên bàn phímcủaTiếng Anh输入效率，hiện tại暂未适配移动端，希望您sử dụng桌面端浏览器访问。如您sử dụngcủa是 Ipad 等平板电脑设Chuẩn bị，可以sử dụng外接键盘sử dụng本软件。',
+          ` ${
+            import.meta.env.VITE_APP_NAME || 'Type & English'
+          } 目củavì提高nhân viên bàn phímcủaTiếng Anh输入效率，hiện tại暂未适配移动端，希望您sử dụng桌面端浏览器访问。如您sử dụngcủa是 Ipad 等平板电脑设Chuẩn bị，可以sử dụng外接键盘sử dụng本软件。`,
         )
       }, 500)
     }

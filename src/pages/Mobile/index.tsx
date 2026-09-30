@@ -68,9 +68,11 @@ const MobilePage: React.FC = () => {
     <div className="flex w-screen flex-col bg-white lg:mx-auto lg:max-w-7xl">
       <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b border-gray-100/50 bg-white/80 px-6 py-6 backdrop-blur-xl lg:px-12">
         <div className="flex items-center">
-          <img src={logo} className="mr-4 h-10 w-10 lg:h-12 lg:w-12" alt="Qwerty Learner Logo" />
+          <img src={logo} className="mr-4 h-10 w-10 lg:h-12 lg:w-12" alt={`${import.meta.env.VITE_APP_NAME || 'Type & English'} Logo`} />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold tracking-tight text-indigo-500 lg:text-xl">Qwerty Learner</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-indigo-500 lg:text-xl">
+              {import.meta.env.VITE_APP_NAME || 'Type & English'}
+            </h1>
             <span className="text-xs font-normal text-gray-500">Trang web chính thức</span>
           </div>
         </div>
@@ -125,7 +127,7 @@ const MobilePage: React.FC = () => {
             </li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <span className="font-medium text-gray-900" itemProp="name">
-                Qwerty Learner Trang web chính thức
+                {import.meta.env.VITE_APP_NAME || 'Type & English'} Trang web chính thức
               </span>
               <meta itemProp="position" content="2" />
             </li>
@@ -210,22 +212,30 @@ const MobilePage: React.FC = () => {
               >
                 <img
                   src={hotImg}
-                  alt="Qwerty Learner Phần mềm học tiếng Anh giao diện từ điển phổ biến - CET Luyện trực tuyến từ vựng IELTS và TOEFL Band 4 và Band 6"
+                  alt={`${
+                    import.meta.env.VITE_APP_NAME || 'Type & English'
+                  } Phần mềm học tiếng Anh giao diện từ điển phổ biến - CET Luyện trực tuyến từ vựng IELTS và TOEFL Band 4 và Band 6`}
                   className="w-full flex-shrink-0"
                 />
                 <img
                   src={directoryImg}
-                  alt="Qwerty Learner Danh mục từ điển phần mềm học tiếng Anh miễn phí - Hỗ trợ việc học tiếng Anh kỹ thuật của lập trình viên"
+                  alt={`${
+                    import.meta.env.VITE_APP_NAME || 'Type & English'
+                  } Danh mục từ điển phần mềm học tiếng Anh miễn phí - Hỗ trợ việc học tiếng Anh kỹ thuật của lập trình viên`}
                   className="w-full flex-shrink-0"
                 />
                 <img
                   src={indexImg}
-                  alt="Qwerty Learner Giao diện chính của phần mềm luyện gõ tiếng Anh - Luyện trí nhớ từ vựng tiếng Anh trực tuyến"
+                  alt={`${
+                    import.meta.env.VITE_APP_NAME || 'Type & English'
+                  } Giao diện chính của phần mềm luyện gõ tiếng Anh - Luyện trí nhớ từ vựng tiếng Anh trực tuyến`}
                   className="w-full flex-shrink-0"
                 />
                 <img
                   src={hotImg}
-                  alt="Qwerty Learner Phần mềm học tiếng Anh giao diện từ điển phổ biến - CET Luyện trực tuyến từ vựng IELTS và TOEFL Band 4 và Band 6"
+                  alt={`${
+                    import.meta.env.VITE_APP_NAME || 'Type & English'
+                  } Phần mềm học tiếng Anh giao diện từ điển phổ biến - CET Luyện trực tuyến từ vựng IELTS và TOEFL Band 4 và Band 6`}
                   className="w-full flex-shrink-0"
                 />
               </div>
@@ -245,12 +255,12 @@ const MobilePage: React.FC = () => {
 
         <section className="mt-24 bg-gray-50/30 px-6 py-24 lg:mt-32 lg:px-24" itemScope itemType="https://schema.org/Product">
           <div className="mx-auto max-w-7xl">
-            <meta itemProp="name" content="Qwerty Learner" />
+            <meta itemProp="name" content={import.meta.env.VITE_APP_NAME || 'Type & English'} />
             <meta
               itemProp="description"
               content="Phần mềm học tiếng Anh dành cho người làm bàn phím，Kết hợp luyện gõ phím với ghi nhớ từ"
             />
-            <meta itemProp="brand" content="Qwerty Learner" />
+            <meta itemProp="brand" content={import.meta.env.VITE_APP_NAME || 'Type & English'} />
 
             {/* Offers Schema */}
             <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
@@ -366,7 +376,9 @@ const MobilePage: React.FC = () => {
                 <img
                   className="w-full object-contain"
                   src={detail[activeIndex].img}
-                  alt={`Qwerty Learner ${detail[activeIndex].title} Hiển thị chức năng - Ảnh chụp màn hình tính năng đặc biệt của phần mềm học tiếng Anh`}
+                  alt={`${import.meta.env.VITE_APP_NAME || 'Type & English'} ${
+                    detail[activeIndex].title
+                  } Hiển thị chức năng - Ảnh chụp màn hình tính năng đặc biệt của phần mềm học tiếng Anh`}
                 />
               </div>
             </div>
