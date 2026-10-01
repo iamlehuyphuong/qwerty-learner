@@ -15,11 +15,15 @@ import { isUserLoggedInAtom } from '@/store'
 import type { User } from 'firebase/auth'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useSetAtom } from 'jotai'
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
-const Header: React.FC<PropsWithChildren> = ({ children }) => {
+interface HeaderProps extends PropsWithChildren {
+  leftNode?: ReactNode
+}
+
+const Header: React.FC<HeaderProps> = ({ children, leftNode }) => {
   const setIsLoggedIn = useSetAtom(isUserLoggedInAtom)
   const [user, setUser] = useState<User | null>(null)
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
@@ -35,8 +39,9 @@ const Header: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   return (
-    <header className="container z-20 mx-auto w-full px-10 py-3">
-      <Card className="flex w-full flex-col items-center justify-between space-y-3 rounded-xl px-4 py-2 transition-colors duration-300 lg:flex-row lg:space-y-0">
+    <header className="container z-20 mx-auto flex w-full items-center gap-4 px-10 py-3">
+      {leftNode}
+      <Card className="flex flex-1 flex-col items-center justify-between space-y-3 rounded-xl px-4 py-2 transition-colors duration-300 lg:flex-row lg:space-y-0">
         {/* User Info (Left) */}
         <Dropdown>
           <DropdownTrigger className="flex cursor-pointer items-center gap-3 rounded-lg p-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800">

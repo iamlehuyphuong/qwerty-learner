@@ -36,14 +36,14 @@ export default function WordList() {
 
   return (
     <>
-      <Tooltip content="Danh sách từ" placement="top" className="!absolute left-5 top-[50%] z-20">
+      <Tooltip content="Danh sách từ" placement="bottom">
         <Button
           variant="outline"
           size="icon"
           onClick={openModal}
-          className="fixed left-0 top-[50%] z-20 h-10 w-10 rounded-lg rounded-l-none border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white"
+          className="h-12 w-12 shrink-0 rounded-xl border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white"
         >
-          <List className="h-5 w-5" />
+          <List className="h-6 w-6" />
         </Button>
       </Tooltip>
 

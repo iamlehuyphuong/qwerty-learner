@@ -142,7 +142,7 @@ const App: React.FC = () => {
       <StarCard />
       {state.isFinished && <ResultScreen />}
       <Layout>
-        <Header>
+        <Header leftNode={<WordList />}>
           <DictChapterButton />
           <PronunciationSwitcher />
           <Switcher />
@@ -175,7 +175,7 @@ const App: React.FC = () => {
 
             {!state.isFinished && (
               <div className="pointer-events-none flex w-full flex-col items-center">
-                <Progress className={`mb-0 w-1/4 transition-opacity duration-300 ${state.isTyping ? 'opacity-100' : 'opacity-0'}`} />
+                <Progress className={`mb-8 w-1/4 transition-opacity duration-300 ${state.isTyping ? 'opacity-100' : 'opacity-0'}`} />
                 <div className="pointer-events-auto w-full">
                   <HandPositionImage />
                 </div>
@@ -186,7 +186,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </Layout>
-      <WordList />
       <EnhancedPromotionModal />
     </TypingContext.Provider>
   )
