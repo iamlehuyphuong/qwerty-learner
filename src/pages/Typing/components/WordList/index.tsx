@@ -8,13 +8,13 @@ import { atom, useAtomValue } from 'jotai'
 import { List } from 'lucide-react'
 import { useContext, useState } from 'react'
 
-const currentDictTitle = atom((get) => {
+const currentDictTitleData = atom((get) => {
   const isReviewMode = get(isReviewModeAtom)
 
   if (isReviewMode) {
-    return `${get(currentDictInfoAtom).name} Ôn tập từ sai`
+    return { name: get(currentDictInfoAtom).name, subtitle: 'Ôn tập từ sai' }
   } else {
-    return `${get(currentDictInfoAtom).name} Bài ${get(currentChapterAtom) + 1}`
+    return { name: get(currentDictInfoAtom).name, subtitle: `Bài ${get(currentChapterAtom) + 1}` }
   }
 })
 
@@ -23,7 +23,7 @@ export default function WordList() {
   const { state, dispatch } = useContext(TypingContext)!
 
   const [isOpen, setIsOpen] = useState(false)
-  const currentDictTitleValue = useAtomValue(currentDictTitle)
+  const { name, subtitle } = useAtomValue(currentDictTitleData)
 
   function closeModal() {
     setIsOpen(false)
@@ -47,7 +47,17 @@ export default function WordList() {
         </Button>
       </Tooltip>
 
-      <Drawer isOpen={isOpen} onClose={closeModal} position="left" title={currentDictTitleValue}>
+      <Drawer
+        isOpen={isOpen}
+        onClose={closeModal}
+        position="left"
+        title={
+          <div className="flex flex-col gap-1">
+            <span className="font-bold">{name}</span>
+            <span className="text-sm font-normal text-slate-500 dark:text-slate-400">{subtitle}</span>
+          </div>
+        }
+      >
         <div className="flex flex-col gap-1">
           {state.chapterData.words?.map((word, index) => {
             return <WordCard word={word} key={`${word.name}_${index}`} isActive={state.chapterData.index === index} />

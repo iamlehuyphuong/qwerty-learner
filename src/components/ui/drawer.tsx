@@ -7,8 +7,8 @@ export interface DrawerProps {
   isOpen: boolean
   onClose: () => void
   position?: 'left' | 'right' | 'top' | 'bottom'
-  title?: string
-  description?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
   children?: React.ReactNode
   footer?: React.ReactNode
   className?: string
