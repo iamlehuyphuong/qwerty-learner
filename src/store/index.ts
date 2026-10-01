@@ -1,6 +1,7 @@
 import atomForConfig from './atomForConfig'
 import { reviewInfoAtom } from './reviewInfoAtom'
 import { DISMISS_START_CARD_DATE_KEY, defaultFontSizeConfig } from '@/constants'
+import type { CloudChapterProgressMap } from '@/lib/cloudSync'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { correctSoundResources, keySoundResources, wrongSoundResources } from '@/resources/soundResource'
 import type {
@@ -117,6 +118,12 @@ export const hasSeenEnhancedPromotionAtom = atomWithStorage('hasSeenEnhancedProm
 export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
 
 export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
+
+// Cloud sync (Firestore)
+// 'loading' cho tới khi biết trạng thái đăng nhập và đã tải xong dữ liệu từ cloud
+export const cloudSyncStatusAtom = atom<'loading' | 'ready' | 'idle'>('loading')
+// Tiến độ từng bài đã hoàn thành lưu trên cloud, key = `${dictId}__${chapter}`
+export const cloudChapterProgressAtom = atom<CloudChapterProgressMap>({})
 
 // for dev test
 //   dismissStartCardDateAtom = atom<Date | null>(new Date())

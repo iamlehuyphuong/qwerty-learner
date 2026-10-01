@@ -48,20 +48,25 @@ const RegisterPage = () => {
         const userCode = timeString + randomChar
 
         // Create user document
-        await setDoc(doc(db, 'users', userCredential.user.uid), {
-          uid: userCredential.user.uid,
-          code: userCode,
-          email: email,
-          name: name,
-          isDonated: false,
-          totalDonate: 0,
-          totalTimeSpentMs: 0,
-          totalChapters: 0,
-          totalWords: 0,
-          averageWpm: 0,
-          createdAt: serverTimestamp(),
-          updatedAt: serverTimestamp(),
-        })
+        await setDoc(
+          doc(db, 'users', userCredential.user.uid),
+          {
+            uid: userCredential.user.uid,
+            code: userCode,
+            email: email,
+            name: name,
+            isDonated: false,
+            totalDonate: 0,
+            totalTimeSpentMs: 0,
+            totalChapters: 0,
+            totalWords: 0,
+            averageWpm: 0,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+          },
+          // merge: cloud sync có thể đã ghi settings/progress ngay khi tài khoản được tạo
+          { merge: true },
+        )
 
         navigate('/')
       }

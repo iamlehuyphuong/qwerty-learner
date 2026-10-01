@@ -1,0 +1,161 @@
+rules_version = '2';
+
+// Cấu trúc dữ liệu: xem src/lib/cloudSync.ts
+//   users/{uid}                                   thông tin user, settings, progress, thống kê tổng
+//   users/{uid}/history/{autoId}                  log từng lần luyện tập (chỉ thêm mới)
+//   users/{uid}/chapterProgress/{dictId}__{ch}    tổng hợp từng bài đã hoàn thành
+//
+// Các field donate (isDonated, totalDonate) chỉ được thay đổi từ server (Admin SDK bỏ qua rules).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function data() {
+      return request.resource.data;
+    }
+
+    function isNonNegativeNumber(value) {
+      return value is number && value >= 0;
+    }
+
+    // ---------- users/{uid} ----------
+
+    function userAllowedKeys() {
+      return [
+        'uid', 'code', 'email', 'name',
+        'isDonated', 'totalDonate',
+        'totalTimeSpentMs', 'totalChapters', 'totalWords', 'averageWpm',
+        'createdAt', 'updatedAt',
+        'settings', 'settingsUpdatedAt',
+        'progress',
+      ];
+    }
+
+    function isValidProgress(progress) {
+      return progress is map
+        && progress.keys().hasOnly(['dictId', 'chapter', 'updatedAt'])
+        && progress.dictId is string && progress.dictId.size() > 0 && progress.dictId.size() <= 200
+        && progress.chapter is int && progress.chapter >= 0
+        && (!('updatedAt' in progress) || progress.updatedAt is timestamp);
+    }
+
+    function isValidUserData(uid) {
+      return (!('uid' in data()) || data().uid == uid)
+        && (!('email' in data()) || data().email is string)
+        && (!('name' in data()) || data().name is string)
+        && (!('code' in data()) || data().code is string)
+        && (!('totalTimeSpentMs' in data()) || isNonNegativeNumber(data().totalTimeSpentMs))
+        && (!('totalChapters' in data()) || isNonNegativeNumber(data().totalChapters))
+        && (!('totalWords' in data()) || isNonNegativeNumber(data().totalWords))
+        && (!('averageWpm' in data()) || isNonNegativeNumber(data().averageWpm))
+        && (!('settings' in data()) || data().settings is map)
+        && (!('progress' in data()) || isValidProgress(data().progress));
+    }
+
+    // Field chỉ được đặt một lần: chưa có thì được đặt, đã có thì không được đổi
+    function isSetOnce(field) {
+      return !(field in resource.data) || data()[field] == resource.data[field];
+    }
+
+    // Field donate: user chỉ được khởi tạo giá trị mặc định, không được tự thay đổi
+    function isDonateFieldUnchanged(field, defaultValue) {
+      return (field in resource.data && field in data() && data()[field] == resource.data[field])
+        || (!(field in resource.data) && (!(field in data()) || data()[field] == defaultValue));
+    }
+
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+
+      // Có thể được tạo bởi trang Register, bởi cloud sync hoặc bởi uploader (setDoc merge)
+      allow create: if isOwner(uid)
+        && data().keys().hasOnly(userAllowedKeys())
+        && isValidUserData(uid)
+        && (!('isDonated' in data()) || data().isDonated == false)
+        && (!('totalDonate' in data()) || data().totalDonate == 0);
+
+      // Chỉ kiểm tra các field client thay đổi, để field do server/admin thêm không làm hỏng lệnh ghi
+      allow update: if isOwner(uid)
+        && data().diff(resource.data).affectedKeys().hasOnly(userAllowedKeys())
+        && isValidUserData(uid)
+        && isSetOnce('uid')
+        && isSetOnce('code')
+        && isSetOnce('createdAt')
+        && isDonateFieldUnchanged('isDonated', false)
+        && isDonateFieldUnchanged('totalDonate', 0);
+
+      allow delete: if false;
+
+      // ---------- users/{uid}/history/{logId} ----------
+      match /history/{logId} {
+        allow read: if isOwner(uid);
+
+        allow create: if isOwner(uid)
+          && data().keys().hasOnly([
+            'dictID', 'chapter', 'timeSpentMs', 'accuracy', 'correctCount',
+            'wrongCount', 'wordCount', 'wpm', 'isRevision', 'timestamp',
+          ])
+          && data().dictID is string
+          && data().chapter is int && data().chapter >= -1
+          && isNonNegativeNumber(data().timeSpentMs)
+          && isNonNegativeNumber(data().correctCount)
+          && isNonNegativeNumber(data().wrongCount)
+          && isNonNegativeNumber(data().wordCount)
+          && isNonNegativeNumber(data().wpm)
+          && (!('accuracy' in data()) || isNonNegativeNumber(data().accuracy))
+          && data().isRevision is bool
+          && data().timestamp == request.time;
+
+        // Lịch sử chỉ thêm mới, không sửa/xoá
+        allow update, delete: if false;
+      }
+
+      // ---------- users/{uid}/chapterProgress/{progressId} ----------
+      match /chapterProgress/{progressId} {
+        function isValidChapterProgress() {
+          return data().keys().hasOnly([
+              'dictId', 'chapter', 'completedCount', 'totalTimeSpentMs', 'bestWpm',
+              'lastWpm', 'lastAccuracy', 'lastWrongCount', 'firstCompletedAt', 'lastCompletedAt',
+            ])
+            && data().dictId is string
+            && data().chapter is int && data().chapter >= 0
+            && progressId == data().dictId + '__' + string(data().chapter)
+            && data().completedCount is int
+            && isNonNegativeNumber(data().totalTimeSpentMs)
+            && isNonNegativeNumber(data().bestWpm)
+            && isNonNegativeNumber(data().lastWpm)
+            && isNonNegativeNumber(data().lastAccuracy) && data().lastAccuracy <= 100
+            && isNonNegativeNumber(data().lastWrongCount)
+            && data().firstCompletedAt is int
+            && data().lastCompletedAt is int
+            && data().bestWpm >= data().lastWpm;
+        }
+
+        allow read: if isOwner(uid);
+
+        allow create: if isOwner(uid)
+          && isValidChapterProgress()
+          && data().completedCount == 1;
+
+        // Mỗi lần hoàn thành bài chỉ được tăng đúng 1 lần, số liệu cộng dồn không được giảm
+        allow update: if isOwner(uid)
+          && isValidChapterProgress()
+          && data().dictId == resource.data.dictId
+          && data().chapter == resource.data.chapter
+          && data().completedCount == resource.data.completedCount + 1
+          && data().totalTimeSpentMs >= resource.data.totalTimeSpentMs
+          && data().bestWpm >= resource.data.bestWpm
+          && data().firstCompletedAt == resource.data.firstCompletedAt;
+
+        allow delete: if false;
+      }
+    }
+
+    // Mặc định chặn mọi thứ khác
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

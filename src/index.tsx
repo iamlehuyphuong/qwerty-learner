@@ -5,8 +5,9 @@ import LoginPage from './pages/Login'
 import MobilePage from './pages/Mobile'
 import RegisterPage from './pages/Register'
 import TypingPage from './pages/Typing'
+import { useCloudSync } from '@/hooks/useCloudSync'
 import { auth } from '@/lib/firebase'
-import { isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
+import { cloudSyncStatusAtom, isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
 import { Analytics } from '@vercel/analytics/react'
 import 'animate.css'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -36,6 +37,8 @@ function Root() {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
   const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
+  const cloudSyncStatus = useAtomValue(cloudSyncStatusAtom)
+  useCloudSync()
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -61,28 +64,32 @@ function Root() {
     <React.StrictMode>
       <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/qwerty-learner' : ''}>
         <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            {!isLoggedIn ? (
-              <Route path="*" element={<Navigate to="/login" replace />} />
-            ) : (
-              <>
-                {isMobile ? (
-                  <Route path="*" element={<Navigate to="/mobile" replace />} />
-                ) : (
-                  <>
-                    <Route index element={<TypingPage />} />
-                    <Route path="/gallery" element={<GalleryPage />} />
-                    <Route path="/analysis" element={<AnalysisPage />} />
-                    <Route path="/error-book" element={<ErrorBook />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                  </>
-                )}
-                <Route path="/mobile" element={<MobilePage />} />
-              </>
-            )}
-          </Routes>
+          {isLoggedIn && cloudSyncStatus === 'loading' ? (
+            <Loading />
+          ) : (
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              {!isLoggedIn ? (
+                <Route path="*" element={<Navigate to="/login" replace />} />
+              ) : (
+                <>
+                  {isMobile ? (
+                    <Route path="*" element={<Navigate to="/mobile" replace />} />
+                  ) : (
+                    <>
+                      <Route index element={<TypingPage />} />
+                      <Route path="/gallery" element={<GalleryPage />} />
+                      <Route path="/analysis" element={<AnalysisPage />} />
+                      <Route path="/error-book" element={<ErrorBook />} />
+                      <Route path="*" element={<Navigate to="/" replace />} />
+                    </>
+                  )}
+                  <Route path="/mobile" element={<MobilePage />} />
+                </>
+              )}
+            </Routes>
+          )}
         </Suspense>
       </BrowserRouter>
       <Analytics />
