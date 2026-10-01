@@ -53,6 +53,7 @@
     "react-router-dom": "^6.8.2",
     "react-timer-hook": "^3.0.5",
     "react-tooltip": "^5.18.0",
+    "serve": "^14.2.6",
     "source-map-explorer": "^2.5.2",
     "swr": "^2.0.4",
     "tailwind-merge": "^2.6.1",
@@ -64,7 +65,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "vite",
+    "start": "serve -s build -l tcp://0.0.0.0:${PORT:-8080}",
     "build": "cross-env CI=false vite build --base=./",
     "test": "echo \"No tests\"",
     "test:e2e": "playwright test",
