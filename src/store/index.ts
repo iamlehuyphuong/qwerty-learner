@@ -119,6 +119,9 @@ export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
 
 export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
 
+// Current target key that needs to be typed (for dynamic hand position highlight)
+export const currentTargetKeyAtom = atom<string>('')
+
 // Cloud sync (Firestore)
 // 'loading' cho tới khi biết trạng thái đăng nhập và đã tải xong dữ liệu từ cloud
 export const cloudSyncStatusAtom = atom<'loading' | 'ready' | 'idle'>('loading')

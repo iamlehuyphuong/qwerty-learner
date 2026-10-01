@@ -1,0 +1,5 @@
+node_modules
+build
+.git
+src-tauri/target
+stats.html

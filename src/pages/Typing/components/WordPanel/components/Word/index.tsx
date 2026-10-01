@@ -15,6 +15,7 @@ import { TypingContext, TypingStateActionType } from '@/pages/Typing/store'
 import {
   currentChapterAtom,
   currentDictInfoAtom,
+  currentTargetKeyAtom,
   isIgnoreCaseAtom,
   isShowAnswerOnHoverAtom,
   isTextSelectableAtom,
@@ -24,7 +25,7 @@ import {
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
 import { useSaveWordRecord } from '@/utils/db'
-import { useAtomValue } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useImmer } from 'use-immer'
@@ -51,6 +52,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
 
   const [showTipAlert, setShowTipAlert] = useState(false)
   const wordPronunciationIconRef = useRef<WordPronunciationIconRef>(null)
+  const setCurrentTargetKey = useSetAtom(currentTargetKeyAtom)
 
   useEffect(() => {
     // run only when word changes
@@ -69,7 +71,22 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
     newWordState.startTime = getUtcStringForMixpanel()
     newWordState.randomLetterVisible = headword.split('').map(() => Math.random() > 0.4)
     setWordState(newWordState)
-  }, [word, setWordState])
+
+    // Set the first target key for hand position display
+    if (headword.length > 0) {
+      setCurrentTargetKey(headword[0])
+    }
+  }, [word, setWordState, setCurrentTargetKey])
+
+  // Update target key whenever input position changes
+  useEffect(() => {
+    const nextIndex = wordState.inputWord.length
+    if (nextIndex < wordState.displayWord.length) {
+      setCurrentTargetKey(wordState.displayWord[nextIndex])
+    } else {
+      setCurrentTargetKey('')
+    }
+  }, [wordState.inputWord.length, wordState.displayWord, setCurrentTargetKey])
 
   const updateInput = useCallback(
     (updateAction: WordUpdateAction) => {
