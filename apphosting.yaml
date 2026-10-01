@@ -6,7 +6,64 @@ runConfig:
   maxInstances: 2
 
 env:
-  - variable: NODE_ENV
-    value: production
   - variable: NPM_CONFIG_PRODUCTION
     value: 'false'
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: VITE_APP_NAME
+    value: 'Type & English'
+    availability:
+      - BUILD
+  - variable: VITE_FRONTEND_URL
+    value: 'https://typing.taskify.vn'
+    availability:
+      - BUILD
+  - variable: VITE_CONTACT_EMAIL
+    value: 'lehuyphuong.work@gmail.com'
+    availability:
+      - BUILD
+  - variable: VITE_ZALO_PHONE
+    value: '0123456789'
+    availability:
+      - BUILD
+  - variable: VITE_FACEBOOK_USERNAME
+    value: 'username'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_API_KEY
+    value: 'AIzaSyA9Wo0NhjHUes_wUDIcHBoB7tgutmImaqI'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_AUTH_DOMAIN
+    value: 'typing-english.firebaseapp.com'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_PROJECT_ID
+    value: 'typing-english'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_STORAGE_BUCKET
+    value: 'typing-english.firebasestorage.app'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_MESSAGING_SENDER_ID
+    value: '376016695100'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_APP_ID
+    value: '1:376016695100:web:7bdce8c1bc2e8184fc3839'
+    availability:
+      - BUILD
+  - variable: VITE_FIREBASE_MEASUREMENT_ID
+    value: 'G-QVBSQ1JKLP'
+    availability:
+      - BUILD
+  - variable: VITE_BANK_ACCOUNT
+    value: '9988776655'
+    availability:
+      - BUILD
+  - variable: VITE_BANK_NAME
+    value: 'Vietcombank'
+    availability:
+      - BUILD
