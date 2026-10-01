@@ -193,13 +193,13 @@ function HandsSVG({ svgWidth, targetKey }: { svgWidth: number; targetKey: string
   `
 
   const activeFingerInfo = targetKey ? getFingerInfo(targetKey) : undefined
-  const FINGERTIPS = [
-    { x: 150, y: 218 }, // Pinky
-    { x: 208, y: 202 }, // Ring
-    { x: 263, y: 190 }, // Middle
-    { x: 302, y: 205 }, // Index
-    { x: 365, y: 305 }, // Thumb
-  ]
+  const FINGERTIPS: Record<string, { x: number; y: number }> = {
+    pinky: { x: 138, y: 202 },
+    ring: { x: 200, y: 196 },
+    middle: { x: 263, y: 190 },
+    index: { x: 312, y: 205 },
+    thumb: { x: 365, y: 305 },
+  }
 
   return (
     <g
@@ -227,12 +227,12 @@ function HandsSVG({ svgWidth, targetKey }: { svgWidth: number; targetKey: string
           strokeLinejoin="bevel"
           d={LEFT_HAND_PATH}
         />
-        {activeFingerInfo?.hand === 0 && (
+        {activeFingerInfo?.hand === 'left' && (
           <circle
             cx={FINGERTIPS[activeFingerInfo.finger].x}
             cy={FINGERTIPS[activeFingerInfo.finger].y}
             r="16"
-            fill={activeFingerInfo.color}
+            fill="#ef4444"
             filter="url(#glow)"
           />
         )}
@@ -248,12 +248,12 @@ function HandsSVG({ svgWidth, targetKey }: { svgWidth: number; targetKey: string
           strokeLinejoin="bevel"
           d={LEFT_HAND_PATH}
         />
-        {activeFingerInfo?.hand === 1 && (
+        {activeFingerInfo?.hand === 'right' && (
           <circle
             cx={FINGERTIPS[activeFingerInfo.finger].x}
             cy={FINGERTIPS[activeFingerInfo.finger].y}
             r="16"
-            fill={activeFingerInfo.color}
+            fill="#ef4444"
             filter="url(#glow)"
           />
         )}
