@@ -1,310 +1,464 @@
 [
     {
         "name": "deliver",
-        "trans": ["v. 递送"]
+        "trans": [
+            "v. giao hàng"
+        ]
     },
     {
         "name": "purse",
-        "trans": ["n. 钱包"]
+        "trans": [
+            "n. ví"
+        ]
     },
     {
         "name": "suit",
-        "trans": ["n. 套装"]
+        "trans": [
+            "n. bộ đồ"
+        ]
     },
     {
         "name": "brick",
-        "trans": ["n. 砖块"]
+        "trans": [
+            "n. Gạch"
+        ]
     },
     {
         "name": "assignment",
-        "trans": ["n. 作业"]
+        "trans": [
+            "n. bài tập về nhà"
+        ]
     },
     {
         "name": "register",
-        "trans": ["v. 注册"]
+        "trans": [
+            "v. Đăng ký"
+        ]
     },
     {
         "name": "research",
-        "trans": ["n./v. 研究"]
+        "trans": [
+            "n./v. nghiên cứu"
+        ]
     },
     {
         "name": "soil",
-        "trans": ["n. 土壤"]
+        "trans": [
+            "n. đất"
+        ]
     },
     {
         "name": "residence",
-        "trans": ["n. 住处，住宅"]
+        "trans": [
+            "n. nơi cư trú"
+        ]
     },
     {
         "name": "designer",
-        "trans": ["n. 设计师"]
+        "trans": [
+            "n. nhà thiết kế"
+        ]
     },
     {
         "name": "board game",
-        "trans": ["n. 桌游"]
+        "trans": [
+            "n. trò chơi trên bàn"
+        ]
     },
     {
         "name": "locker",
-        "trans": ["n. 储物柜"]
+        "trans": [
+            "n. tủ đựng đồ"
+        ]
     },
     {
         "name": "century",
-        "trans": ["n. 世纪"]
+        "trans": [
+            "n. thế kỷ"
+        ]
     },
     {
         "name": "agriculture",
-        "trans": ["n. 农业"]
+        "trans": [
+            "n. Nông nghiệp"
+        ]
     },
     {
         "name": "fair",
-        "trans": ["n. 展览会"]
+        "trans": [
+            "n. triển lãm"
+        ]
     },
     {
         "name": "region",
-        "trans": ["n. 地区"]
+        "trans": [
+            "n. khu vực"
+        ]
     },
     {
         "name": "website",
-        "trans": ["n. 网站"]
+        "trans": [
+            "n. trang web"
+        ]
     },
     {
         "name": "formal",
-        "trans": ["adj. 正式的"]
+        "trans": [
+            "adj. chính thức"
+        ]
     },
     {
         "name": "log in",
-        "trans": ["v. 登录"]
+        "trans": [
+            "v. Đăng nhập"
+        ]
     },
     {
         "name": "cover",
-        "trans": ["v. 包括"]
+        "trans": [
+            "v. bao gồm"
+        ]
     },
     {
         "name": "development",
-        "trans": ["n. 发展"]
+        "trans": [
+            "n. phát triển"
+        ]
     },
     {
         "name": "shelf",
-        "trans": ["n. 架子"]
+        "trans": [
+            "n. kệ"
+        ]
     },
     {
         "name": "save",
-        "trans": ["v. 节省"]
+        "trans": [
+            "v. lưu lại"
+        ]
     },
     {
         "name": "audience",
-        "trans": ["n. 观众"]
+        "trans": [
+            "n. khán giả"
+        ]
     },
     {
         "name": "heat",
-        "trans": ["n. 高温"]
+        "trans": [
+            "n. nhiệt độ cao"
+        ]
     },
     {
         "name": "indicator",
-        "trans": ["n. 指标"]
+        "trans": [
+            "n. chỉ báo"
+        ]
     },
     {
         "name": "kilogram",
-        "trans": ["n. 公斤"]
+        "trans": [
+            "n. kilôgam"
+        ]
     },
     {
         "name": "specially",
-        "trans": ["adv. 特别地"]
+        "trans": [
+            "adv. đặc biệt"
+        ]
     },
     {
         "name": "traditional",
-        "trans": ["adj. 传统的"]
+        "trans": [
+            "adj. truyền thống"
+        ]
     },
     {
         "name": "refund",
-        "trans": ["v. 退还"]
+        "trans": [
+            "v. trở lại"
+        ]
     },
     {
         "name": "trip",
-        "trans": ["n. 旅行"]
+        "trans": [
+            "n. du lịch"
+        ]
     },
     {
         "name": "sick",
-        "trans": ["n. 病人"]
+        "trans": [
+            "n. bệnh nhân"
+        ]
     },
     {
         "name": "tap water",
-        "trans": ["n. 自来水"]
+        "trans": [
+            "n. nước máy"
+        ]
     },
     {
         "name": "destination",
-        "trans": ["n. 目的地"]
+        "trans": [
+            "n. điểm đến"
+        ]
     },
     {
         "name": "advance",
-        "trans": ["n. 发展"]
+        "trans": [
+            "n. phát triển"
+        ]
     },
     {
         "name": "match",
-        "trans": ["v. 比赛"]
+        "trans": [
+            "v. sự cạnh tranh"
+        ]
     },
     {
         "name": "length",
-        "trans": ["n. 长度"]
+        "trans": [
+            "n. chiều dài"
+        ]
     },
     {
         "name": "remove",
-        "trans": ["v. 移除"]
+        "trans": [
+            "v. Xóa"
+        ]
     },
     {
         "name": "change",
-        "trans": ["v. 改变"]
+        "trans": [
+            "v. thay đổi"
+        ]
     },
     {
         "name": "tools",
-        "trans": ["n. 工具"]
+        "trans": [
+            "n. Công cụ"
+        ]
     },
     {
         "name": "garden",
-        "trans": ["n. 花园"]
+        "trans": [
+            "n. vườn"
+        ]
     },
     {
         "name": "overfill",
-        "trans": ["v. 装满"]
+        "trans": [
+            "v. đầy đủ"
+        ]
     },
     {
         "name": "ferry",
-        "trans": ["n. 渡轮"]
+        "trans": [
+            "n. phà"
+        ]
     },
     {
         "name": "plastic",
-        "trans": ["adj. 塑料的"]
+        "trans": [
+            "adj. nhựa"
+        ]
     },
     {
         "name": "waterproof",
-        "trans": ["adj. 防水的"]
+        "trans": [
+            "adj. không thấm nước"
+        ]
     },
     {
         "name": "station",
-        "trans": ["n. 车站"]
+        "trans": [
+            "n. trạm"
+        ]
     },
     {
         "name": "dancing",
-        "trans": ["n. 舞蹈"]
+        "trans": [
+            "n. khiêu vũ"
+        ]
     },
     {
         "name": "monitor",
-        "trans": ["v. 监视"]
+        "trans": [
+            "v. giám sát"
+        ]
     },
     {
         "name": "questionnaire",
-        "trans": ["n. 调查问卷"]
+        "trans": [
+            "n. Bảng câu hỏi"
+        ]
     },
     {
         "name": "silver",
-        "trans": ["n. 银"]
+        "trans": [
+            "n. bạc"
+        ]
     },
     {
         "name": "experiment",
-        "trans": ["n. 实验"]
+        "trans": [
+            "n. thí nghiệm"
+        ]
     },
     {
         "name": "chip",
-        "trans": ["n. 芯片"]
+        "trans": [
+            "n. chip"
+        ]
     },
     {
         "name": "firewood",
-        "trans": ["n. 柴火"]
+        "trans": [
+            "n. củi"
+        ]
     },
     {
         "name": "information",
-        "trans": ["n. 信息"]
+        "trans": [
+            "n. thông tin"
+        ]
     },
     {
         "name": "prize",
-        "trans": ["n. 奖品"]
+        "trans": [
+            "n. giải thưởng"
+        ]
     },
     {
         "name": "inspection",
-        "trans": ["n. 视察"]
+        "trans": [
+            "n. kiểm tra"
+        ]
     },
     {
         "name": "fee",
-        "trans": ["n. 费用"]
+        "trans": [
+            "n. chi phí"
+        ]
     },
     {
         "name": "budget",
-        "trans": ["n. 预算"]
+        "trans": [
+            "n. ngân sách"
+        ]
     },
     {
         "name": "insurance",
-        "trans": ["n. 保险"]
+        "trans": [
+            "n. bảo hiểm"
+        ]
     },
     {
         "name": "health",
-        "trans": ["n. 健康"]
+        "trans": [
+            "n. sức khỏe"
+        ]
     },
     {
         "name": "land",
-        "trans": ["n. 陆地"]
+        "trans": [
+            "n. đất đai"
+        ]
     },
     {
         "name": "labour",
-        "trans": ["n. 劳动力"]
+        "trans": [
+            "n. lực lượng lao động"
+        ]
     },
     {
         "name": "furniture",
-        "trans": ["n. 家具"]
+        "trans": [
+            "n. đồ nội thất"
+        ]
     },
     {
         "name": "feature",
-        "trans": ["n. 特色"]
+        "trans": [
+            "n. Tính năng"
+        ]
     },
     {
         "name": "art",
-        "trans": ["n. 艺术"]
+        "trans": [
+            "n. nghệ thuật"
+        ]
     },
     {
         "name": "participate",
-        "trans": ["v. 参与"]
+        "trans": [
+            "v. tham gia"
+        ]
     },
     {
         "name": "mixed",
-        "trans": ["adj. 混合的"]
+        "trans": [
+            "adj. hỗn hợp"
+        ]
     },
     {
         "name": "attend",
-        "trans": ["v. 出席"]
+        "trans": [
+            "v. tham dự"
+        ]
     },
     {
         "name": "assignment",
-        "trans": ["n. 作业"]
+        "trans": [
+            "n. bài tập về nhà"
+        ]
     },
     {
         "name": "government",
-        "trans": ["n. 政府"]
+        "trans": [
+            "n. chính phủ"
+        ]
     },
     {
         "name": "fund",
-        "trans": ["n. 资助"]
+        "trans": [
+            "n. tài trợ"
+        ]
     },
     {
         "name": "salary",
-        "trans": ["n. 工资"]
+        "trans": [
+            "n. tiền lương"
+        ]
     },
     {
         "name": "confidence",
-        "trans": ["n. 信心"]
+        "trans": [
+            "n. sự tự tin"
+        ]
     },
     {
         "name": "register",
-        "trans": ["v. 注册"]
+        "trans": [
+            "v. Đăng ký"
+        ]
     },
     {
         "name": "flexible",
-        "trans": ["adj. 灵活的"]
+        "trans": [
+            "adj. linh hoạt"
+        ]
     },
     {
         "name": "password",
-        "trans": ["n. 密码"]
+        "trans": [
+            "n. Mật khẩu"
+        ]
     },
     {
         "name": "flat",
-        "trans": ["adj. 平的"]
+        "trans": [
+            "adj. bằng phẳng"
+        ]
     }
 ]

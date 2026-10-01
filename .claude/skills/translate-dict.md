@@ -10,6 +10,7 @@ description: Dịch nghĩa tiếng Trung sang tiếng Việt trong file từ đi
 Dịch các định nghĩa tiếng Trung (`"trans": ["唱歌"]`) sang tiếng Việt (`"trans": ["hát"]`) trong các file JSON từ điển tại `public/dicts/`.
 
 Quy tắc:
+
 - Giữ nguyên từ loại: `n.`, `vt.`, `vi.`, `adj.`, `adv.`, `prep.`, `vt.&vi.`, v.v.
 - Giữ nguyên tiếng Anh trong dòng thì/chia động từ: `"时态:calendared, calendaring"` → `"thì:calendared, calendaring"`
 - Dịch label tiếng Trung: `时态`→`thì`, `名词`→`danh từ`, `形容词`→`tính từ`, `动词`→`động từ`, `副词`→`phó từ`
@@ -18,6 +19,7 @@ Quy tắc:
 ## Cách sử dụng
 
 Khi user gọi skill này, hỏi user muốn dịch file nào:
+
 - Một file cụ thể: `EF_LEVEL_2.json`
 - Một nhóm file: `EF_LEVEL_*.json`
 - Tất cả file chưa dịch: `*.json`
@@ -47,6 +49,7 @@ python3 ../../.claude/skills/translate_zh_vi.py "<pattern>" --backup
 ### Bước 3: Kiểm tra kết quả
 
 Sau khi dịch xong, đọc file JSON để kiểm tra mẫu vài entries đầu, đảm bảo:
+
 - Không còn ký tự Trung Quốc trong `trans`
 - Bản dịch tiếng Việt có ý nghĩa
 - Entries rỗng đã được bổ sung
@@ -56,6 +59,7 @@ Sau khi dịch xong, đọc file JSON để kiểm tra mẫu vài entries đầu
 Script chính: `.claude/skills/translate_zh_vi.py`
 
 Sử dụng thư viện `googletrans` để dịch batch. Cần cài đặt:
+
 ```bash
 pip install googletrans==4.0.0-rc1
 ```
@@ -72,33 +76,37 @@ pip install googletrans==4.0.0-rc1
 ## Ví dụ output
 
 Trước:
+
 ```json
 {
-    "name": "sing",
-    "trans": ["唱歌"]
+  "name": "sing",
+  "trans": ["唱歌"]
 }
 ```
 
 Sau:
+
 ```json
 {
-    "name": "sing",
-    "trans": ["hát"]
+  "name": "sing",
+  "trans": ["hát"]
 }
 ```
 
 Trước (rỗng):
+
 ```json
 {
-    "name": "hello",
-    "trans": []
+  "name": "hello",
+  "trans": []
 }
 ```
 
 Sau:
+
 ```json
 {
-    "name": "hello",
-    "trans": ["xin chào"]
+  "name": "hello",
+  "trans": ["xin chào"]
 }
 ```

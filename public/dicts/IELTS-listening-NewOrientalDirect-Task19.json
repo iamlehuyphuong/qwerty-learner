@@ -2,157 +2,157 @@
     {
         "name": "species",
         "trans": [
-            "n. 物种"
+            "n. Loài"
         ]
     },
     {
         "name": "rare",
         "trans": [
-            "adj. 稀有的"
+            "adj. hiếm"
         ]
     },
     {
         "name": "female",
         "trans": [
-            "adj. 雌性的"
+            "adj. nữ"
         ]
     },
     {
         "name": "mammal",
         "trans": [
-            "n. 哺乳动物"
+            "n. động vật có vú"
         ]
     },
     {
         "name": "reptile",
         "trans": [
-            "n. 爬行动物"
+            "n. loài bò sát"
         ]
     },
     {
         "name": "amphibian",
         "trans": [
-            "n. 两栖动物"
+            "n. động vật lưỡng cư"
         ]
     },
     {
         "name": "livestock",
         "trans": [
-            "n. 牲畜"
+            "n. vật nuôi"
         ]
     },
     {
         "name": "cattle",
         "trans": [
-            "n. 牛"
+            "n. con bò"
         ]
     },
     {
         "name": "distribution",
         "trans": [
-            "n. 分布、分配"
+            "n. phân phối, phân bổ"
         ]
     },
     {
         "name": "habitat",
         "trans": [
-            "n. 栖息地"
+            "n. môi trường sống"
         ]
     },
     {
         "name": "inhabit",
         "trans": [
-            "v. 居住"
+            "v. sống"
         ]
     },
     {
         "name": "territory",
         "trans": [
-            "n. 领地"
+            "n. Lãnh thổ"
         ]
     },
     {
         "name": "nest",
         "trans": [
-            "n. 巢"
+            "n. tổ"
         ]
     },
     {
         "name": "reserve",
         "trans": [
-            "n. 保护区"
+            "n. khu vực được bảo vệ"
         ]
     },
     {
         "name": "sanctuary",
         "trans": [
-            "n. 保护区"
+            "n. khu vực được bảo vệ"
         ]
     },
     {
         "name": "conservation",
         "trans": [
-            "n. 保护"
+            "n. bảo vệ"
         ]
     },
     {
         "name": "zoo",
         "trans": [
-            "n. 动物园"
+            "n. sở thú"
         ]
     },
     {
         "name": "tail",
         "trans": [
-            "n. 尾巴"
+            "n. đuôi"
         ]
     },
     {
         "name": "pattern",
         "trans": [
-            "n. 图案，样式"
+            "n. hoa văn, phong cách"
         ]
     },
     {
         "name": "jaw",
         "trans": [
-            "n. 颌，下巴"
+            "n. hàm, cằm"
         ]
     },
     {
         "name": "tongue",
         "trans": [
-            "n. 舌头"
+            "n. lưỡi"
         ]
     },
     {
         "name": "mane",
         "trans": [
-            "n. 鬃毛"
+            "n. bờm"
         ]
     },
     {
         "name": "teeth",
         "trans": [
-            "n. 牙齿"
+            "n. Răng"
         ]
     },
     {
         "name": "beak",
         "trans": [
-            "n. 喙"
+            "n. mỏ"
         ]
     },
     {
         "name": "claw",
         "trans": [
-            "n. 爪"
+            "n. móng vuốt"
         ]
     },
     {
         "name": "feather",
         "trans": [
-            "n. 羽毛"
+            "n. lông vũ"
         ]
     }
 ]

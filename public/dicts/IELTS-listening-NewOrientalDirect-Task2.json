@@ -2,202 +2,202 @@
     {
         "name": "dictionary",
         "trans": [
-            "n. 词典"
+            "n. từ điển"
         ]
     },
     {
         "name": "encyclopedia",
         "trans": [
-            "n. 百科全书"
+            "n. Bách khoa toàn thư"
         ]
     },
     {
         "name": "reference book",
         "trans": [
-            "n. 参考书"
+            "n. Sách tham khảo"
         ]
     },
     {
         "name": "textbook",
         "trans": [
-            "n. 课本"
+            "n. sách giáo khoa"
         ]
     },
     {
         "name": "handout",
         "trans": [
-            "n. 讲义"
+            "n. Tài liệu phát tay"
         ]
     },
     {
         "name": "paper",
         "trans": [
-            "n. 论文"
+            "n. Giấy"
         ]
     },
     {
         "name": "online",
         "trans": [
-            "adj. 在线的"
+            "adj. trực tuyến"
         ]
     },
     {
         "name": "internet",
         "trans": [
-            "n. 互联网"
+            "n. Internet"
         ]
     },
     {
         "name": "database",
         "trans": [
-            "n. 数据库"
+            "n. cơ sở dữ liệu"
         ]
     },
     {
         "name": "digital",
         "trans": [
-            "adj. 电子的，数码的"
+            "adj. điện tử, kỹ thuật số"
         ]
     },
     {
         "name": "physical",
         "trans": [
-            "adj. 实体的"
+            "adj. thể chất"
         ]
     },
     {
         "name": "video",
         "trans": [
-            "n. 视频"
+            "n. video"
         ]
     },
     {
         "name": "CD-ROM",
         "trans": [
-            "n. 只读光盘"
+            "n. CD-ROM"
         ]
     },
     {
         "name": "DVD",
         "trans": [
-            "n. 数字化视频光盘"
+            "n. đĩa video kỹ thuật số"
         ]
     },
     {
         "name": "periodical",
         "trans": [
-            "n. 期刊"
+            "n. tạp chí"
         ]
     },
     {
         "name": "journal",
         "trans": [
-            "n. 学报"
+            "n. tạp chí"
         ]
     },
     {
         "name": "current",
         "trans": [
-            "adj. 现在的"
+            "adj. hiện tại"
         ]
     },
     {
         "name": "back",
         "trans": [
-            "adj. 过去的"
+            "adj. quá khứ"
         ]
     },
     {
         "name": "issue",
         "trans": [
-            "n. 刊物"
+            "n. Ấn phẩm"
         ]
     },
     {
         "name": "leaflet",
         "trans": [
-            "n. 传单"
+            "n. tờ rơi"
         ]
     },
     {
         "name": "booklet",
         "trans": [
-            "n. 小册子"
+            "n. tờ rơi"
         ]
     },
     {
         "name": "magazine",
         "trans": [
-            "n. 杂志"
+            "n. tạp chí"
         ]
     },
     {
         "name": "newspaper",
         "trans": [
-            "n. 报纸"
+            "n. tờ báo"
         ]
     },
     {
         "name": "novel",
         "trans": [
-            "n. 小说"
+            "n. tiểu thuyết"
         ]
     },
     {
         "name": "fiction",
         "trans": [
-            "n. 虚构小说"
+            "n. tiểu thuyết hư cấu"
         ]
     },
     {
         "name": "non - fiction",
         "trans": [
-            "n. 纪实文学"
+            "n. văn học tài liệu"
         ]
     },
     {
         "name": "enquiry/inquiry",
         "trans": [
-            "n. 询问，调查"
+            "n. hỏi thăm, điều tra"
         ]
     },
     {
         "name": "delivery desk",
         "trans": [
-            "n. 借书台"
+            "n. Bàn mượn"
         ]
     },
     {
         "name": "circulation desk",
         "trans": [
-            "n. 还书处"
+            "n. văn phòng trả sách"
         ]
     },
     {
         "name": "open shelf",
         "trans": [
-            "n. 开架",
-            "adj. 开架的"
+            "n. kệ mở",
+            "adj. khung mở"
         ]
     },
     {
         "name": "closed shelf",
         "trans": [
-            "n. 闭架",
-            "adj. 闭架的"
+            "n. khung kín",
+            "adj. khung kín"
         ]
     },
     {
         "name": "photocopy",
         "trans": [
-            "n. 影印本",
-            "v. 复印"
+            "n. sao chụp",
+            "v. sao chép"
         ]
     },
     {
         "name": "scanner",
         "trans": [
-            "n. 扫描仪"
+            "n. Máy quét"
         ]
     }
 ]

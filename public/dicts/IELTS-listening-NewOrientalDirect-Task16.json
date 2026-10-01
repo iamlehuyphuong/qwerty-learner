@@ -2,253 +2,253 @@
     {
         "name": "research",
         "trans": [
-            "n. 研究；调查；探索"
+            "n. nghiên cứu, cuộc điều tra, thăm dò"
         ]
     },
     {
         "name": "project",
         "trans": [
-            "n. 项目；方案；工程"
+            "n. dự án, kế hoạch"
         ]
     },
     {
         "name": "programme",
         "trans": [
-            "n. （电视或广播中的）节目"
+            "n. một chương trình trên truyền hình hoặc đài phát thanh"
         ]
     },
     {
         "name": "proposal",
         "trans": [
-            "n. 建议；计划；提案"
+            "n. gợi ý, kế hoạch, đề nghị"
         ]
     },
     {
         "name": "procedure",
         "trans": [
-            "n. 程序；步骤；常规"
+            "n. thủ tục, bước chân, thói quen"
         ]
     },
     {
         "name": "allocate",
         "trans": [
-            "v. 分配；分派；拨给，划拨"
+            "v. phân bổ"
         ]
     },
     {
         "name": "reference",
         "trans": [
-            "n. 提到；谈到；论及、参考文献、推荐信、介绍人"
+            "n. đề cập đến, nói về, thảo luận, tham khảo, thư giới thiệu, người giới thiệu"
         ]
     },
     {
         "name": "laboratory",
         "trans": [
-            "n. 实验室；实验大楼"
+            "n. phòng thí nghiệm, tòa nhà thí nghiệm"
         ]
     },
     {
         "name": "equipment",
         "trans": [
-            "n. 设备；器材；用具"
+            "n. thiết bị, đồ dùng"
         ]
     },
     {
         "name": "microscope",
         "trans": [
-            "n. 显微镜"
+            "n. kính hiển vi"
         ]
     },
     {
         "name": "development",
         "trans": [
-            "n. 成长，发育；发展"
+            "n. lớn lên, phát triển"
         ]
     },
     {
         "name": "stage",
         "trans": [
-            "n. 阶段；发展时期"
+            "n. sân khấu, thời kỳ phát triển"
         ]
     },
     {
         "name": "phase",
         "trans": [
-            "n. （发展或变化的）阶段，时期"
+            "n. một giai đoạn hoặc thời kỳ phát triển hoặc thay đổi"
         ]
     },
     {
         "name": "monitor",
         "trans": [
-            "v. 监控，监测"
+            "v. theo dõi"
         ]
     },
     {
         "name": "record",
         "trans": [
-            "v. 录制；录（音）；录（像）"
+            "v. ghi lại, ghi âm (âm thanh), ghi lại (video)"
         ]
     },
     {
         "name": "label",
         "trans": [
-            "v. 贴标签"
+            "v. nhãn"
         ]
     },
     {
         "name": "diagram",
         "trans": [
-            "n. 图，图解，示意图"
+            "n. sơ đồ"
         ]
     },
     {
         "name": "analyze",
         "trans": [
-            "v. 分析"
+            "v. phân tích"
         ]
     },
     {
         "name": "analysis",
         "trans": [
-            "n. 分析"
+            "n. phân tích"
         ]
     },
     {
         "name": "finding",
         "trans": [
-            "n. （正式的）调查发现，调研结果"
+            "n. (chính thức) kết quả điều tra, phát hiện"
         ]
     },
     {
         "name": "presentation",
         "trans": [
-            "n. 报告，演讲，陈述"
+            "n. báo cáo, phát biểu, tuyên bố"
         ]
     },
     {
         "name": "topic",
         "trans": [
-            "n. 话题；主题"
+            "n. chủ đề"
         ]
     },
     {
         "name": "survey",
         "trans": [
-            "n. 调查"
+            "n. điều tra"
         ]
     },
     {
         "name": "journal",
         "trans": [
-            "n. 杂志，期刊；报纸"
+            "n. tạp chí, định kỳ, tờ báo"
         ]
     },
     {
         "name": "discussion",
         "trans": [
-            "n. 讨论，议论，谈论"
+            "n. thảo luận"
         ]
     },
     {
         "name": "outline",
         "trans": [
-            "n. 轮廓，略图，外形"
+            "n. phác thảo, hình dạng"
         ]
     },
     {
         "name": "structure",
         "trans": [
-            "n. 结构；构造；机构；体系"
+            "n. kết cấu, tổ chức, hệ thống"
         ]
     },
     {
         "name": "content",
         "trans": [
-            "n. 内容"
+            "n. nội dung"
         ]
     },
     {
         "name": "introduction",
         "trans": [
-            "n. 采用；引进；推行；放入，插入"
+            "n. Thông qua, giới thiệu, khuyến khích, đưa vào, nhét vào"
         ]
     },
     {
         "name": "overview",
         "trans": [
-            "n. 概述；概观"
+            "n. tổng quan"
         ]
     },
     {
         "name": "background",
         "trans": [
-            "n. （画、照片的）背景，衬托"
+            "n. (tranh, ảnh) nền, giấy bạc"
         ]
     },
     {
         "name": "summary",
         "trans": [
-            "n. 总结，概要，摘要"
+            "n. tóm tắt, trừu tượng"
         ]
     },
     {
         "name": "conclusion",
         "trans": [
-            "n. 结局；结尾；结果"
+            "n. kết thúc, Phần kết luận, kết quả"
         ]
     },
     {
         "name": "round off",
         "trans": [
-            "phr. v. 结束，圆满完成"
+            "phr. v. Kết thúc, hoàn thành thành công"
         ]
     },
     {
         "name": "slide",
         "trans": [
-            "n. 幻灯片"
+            "n. trình chiếu"
         ]
     },
     {
         "name": "illustration",
         "trans": [
-            "n. 插图；图解，图示"
+            "n. minh họa, sơ đồ, hình minh họa"
         ]
     },
     {
         "name": "handout",
         "trans": [
-            "n. （尤指发给学生或听报告的人的）讲义，印刷品"
+            "n. một tài liệu phát tay hoặc tài liệu in được đưa ra, đặc biệt là cho sinh viên hoặc diễn giả"
         ]
     },
     {
         "name": "note",
         "trans": [
-            "n. 笔记，便条"
+            "n. ghi chú"
         ]
     },
     {
         "name": "eye contact",
         "trans": [
-            "N. phrase 目光接触"
+            "N. cụm từ giao tiếp bằng mắt"
         ]
     },
     {
         "name": "audience",
         "trans": [
-            "n. 观众；听众；读者"
+            "n. khán giả, người nghe, người đọc"
         ]
     },
     {
         "name": "body language",
         "trans": [
-            "N. phrase 身体语言，肢体语言"
+            "N. cụm từ ngôn ngữ cơ thể, ngôn ngữ cơ thể"
         ]
     },
     {
         "name": "style",
         "trans": [
-            "n. 做事方式；（尤指）风格，作风"
+            "n. cách làm việc, (đặc biệt) phong cách, phong cách"
         ]
     }
 ]

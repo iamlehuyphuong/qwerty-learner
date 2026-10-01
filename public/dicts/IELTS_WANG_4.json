@@ -2,7 +2,7 @@
     {
         "name": "abnormal",
         "trans": [
-            "不正常的"
+            "bất thường"
         ],
         "usphone": "æbˈnɔːml",
         "ukphone": "æbˈnɔːrml"
@@ -10,7 +10,7 @@
     {
         "name": "academic",
         "trans": [
-            "学术的"
+            "học thuật"
         ],
         "usphone": "ˌækəˈdemɪk",
         "ukphone": "ˌækəˈdemɪk"
@@ -18,7 +18,7 @@
     {
         "name": "accessible",
         "trans": [
-            "可接近的"
+            "có thể truy cập"
         ],
         "usphone": "əkˈsesəbl",
         "ukphone": "əkˈsesəbl"
@@ -26,7 +26,7 @@
     {
         "name": "accountable",
         "trans": [
-            "负有责任的"
+            "chịu trách nhiệm"
         ],
         "usphone": "əˈkaʊntəbl",
         "ukphone": "əˈkaʊntəbl"
@@ -34,7 +34,7 @@
     {
         "name": "accurate",
         "trans": [
-            "正确无误的"
+            "đúng"
         ],
         "usphone": "ˈækjərət",
         "ukphone": "ˈækjərət"
@@ -42,7 +42,7 @@
     {
         "name": "additional",
         "trans": [
-            "额外的"
+            "thêm"
         ],
         "usphone": "əˈdɪʃənl",
         "ukphone": "əˈdɪʃənl"
@@ -50,7 +50,7 @@
     {
         "name": "adequate",
         "trans": [
-            "充足的；令人满 意的"
+            "đủ, thỏa đáng"
         ],
         "usphone": "ˈædɪkwət",
         "ukphone": "ˈædɪkwət"
@@ -58,7 +58,7 @@
     {
         "name": "advanced",
         "trans": [
-            "高级的，先进的"
+            "tiên tiến"
         ],
         "usphone": "əd'vænst",
         "ukphone": "əd'vænst"
@@ -66,7 +66,7 @@
     {
         "name": "advisable",
         "trans": [
-            "明智的"
+            "khôn ngoan"
         ],
         "usphone": "ədˈvaɪzəbl",
         "ukphone": "ədˈvaɪzəbl"
@@ -74,7 +74,7 @@
     {
         "name": "allergic",
         "trans": [
-            "过敏的"
+            "dị ứng"
         ],
         "usphone": "əˈlɜːdʒɪk",
         "ukphone": "əˈlɜːrdʒɪk"
@@ -82,7 +82,7 @@
     {
         "name": "alternative",
         "trans": [
-            "可选择的"
+            "tùy chọn"
         ],
         "usphone": "ɔːlˈtɜːnətɪv",
         "ukphone": "ɔːlˈtɜːrnətɪv"
@@ -90,7 +90,7 @@
     {
         "name": "amazing",
         "trans": [
-            "令人惊讶的"
+            "đáng ngạc nhiên"
         ],
         "usphone": "əˈmeɪzɪŋ",
         "ukphone": "əˈmeɪzɪŋ"
@@ -98,7 +98,7 @@
     {
         "name": "ambiguous",
         "trans": [
-            "有歧义的"
+            "mơ hồ"
         ],
         "usphone": "æmˈbɪɡjuəs",
         "ukphone": "æmˈbɪɡjuəs"
@@ -106,7 +106,7 @@
     {
         "name": "ambitious",
         "trans": [
-            "极富野心的"
+            "cực kỳ tham vọng"
         ],
         "usphone": "æmˈbɪʃəs",
         "ukphone": "æmˈbɪʃəs"
@@ -114,7 +114,7 @@
     {
         "name": "analytical",
         "trans": [
-            "分析的"
+            "phân tích"
         ],
         "usphone": "ˌænəˈlɪtɪkl",
         "ukphone": "ˌænəˈlɪtɪkl"
@@ -122,7 +122,7 @@
     {
         "name": "ancient",
         "trans": [
-            "古代的"
+            "cổ xưa"
         ],
         "usphone": "ˈeɪnʃənt",
         "ukphone": "ˈeɪnʃənt"
@@ -130,7 +130,7 @@
     {
         "name": "angry",
         "trans": [
-            "气愤的，生气的"
+            "tức giận"
         ],
         "usphone": "ˈæŋɡri",
         "ukphone": "ˈæŋɡri"
@@ -138,7 +138,7 @@
     {
         "name": "applied",
         "trans": [
-            "应用的"
+            "áp dụng"
         ],
         "usphone": "əˈplaɪd",
         "ukphone": "əˈplaɪd"
@@ -146,7 +146,7 @@
     {
         "name": "archaeological",
         "trans": [
-            "考古学的"
+            "khảo cổ học"
         ],
         "usphone": "ˌɑrkiːəˈlɑdʒɪkəl",
         "ukphone": "ˌɑːrkiːəˈlɒdʒɪkəl"
@@ -154,7 +154,7 @@
     {
         "name": "artificial",
         "trans": [
-            "人工的"
+            "nhân tạo"
         ],
         "usphone": "ˌɑːtɪˈfɪʃl",
         "ukphone": "ˌɑːrtɪˈfɪʃl"
@@ -162,7 +162,7 @@
     {
         "name": "artistic",
         "trans": [
-            "艺术的"
+            "nghệ thuật"
         ],
         "usphone": "ɑːˈtɪstɪk",
         "ukphone": "ɑːrˈtɪstɪk"
@@ -170,7 +170,7 @@
     {
         "name": "ascending",
         "trans": [
-            "上升的"
+            "tăng lên"
         ],
         "usphone": "ə'sɛndɪŋ",
         "ukphone": "ə'sendiŋ"
@@ -178,7 +178,7 @@
     {
         "name": "atmospheric",
         "trans": [
-            "大气的"
+            "Khí quyển"
         ],
         "usphone": "ˌætməsˈferɪk",
         "ukphone": "ˌætməsˈferɪk"
@@ -186,7 +186,7 @@
     {
         "name": "attentive",
         "trans": [
-            "注意的"
+            "Chú ý"
         ],
         "usphone": "əˈtentɪv",
         "ukphone": "əˈtentɪv"
@@ -194,7 +194,7 @@
     {
         "name": "audio",
         "trans": [
-            "声音的"
+            "phát âm"
         ],
         "usphone": "ˈɔːdiəʊ",
         "ukphone": "ˈɔːdioʊ"
@@ -202,7 +202,7 @@
     {
         "name": "available",
         "trans": [
-            "可获得的，有时间的"
+            "có sẵn, có thời gian"
         ],
         "usphone": "əˈveɪləbl",
         "ukphone": "əˈveɪləbl"
@@ -210,7 +210,7 @@
     {
         "name": "aware",
         "trans": [
-            "意识到的"
+            "nhận thức được"
         ],
         "usphone": "əˈweə",
         "ukphone": "əˈwer"
@@ -218,7 +218,7 @@
     {
         "name": "awful",
         "trans": [
-            "可怕的"
+            "khủng khiếp"
         ],
         "usphone": "ˈɔːfl",
         "ukphone": "ˈɔːfl"
@@ -226,7 +226,7 @@
     {
         "name": "auto",
         "trans": [
-            "自动的"
+            "tự động"
         ],
         "usphone": "ˈɔːtəʊ",
         "ukphone": "ˈɔːtoʊ"
@@ -234,7 +234,7 @@
     {
         "name": "bald",
         "trans": [
-            "光秃的"
+            "trần trụi"
         ],
         "usphone": "bɔːld",
         "ukphone": "bɔːld"
@@ -242,7 +242,7 @@
     {
         "name": "barren",
         "trans": [
-            "贫瘠的"
+            "cằn cỗi"
         ],
         "usphone": "ˈbærən",
         "ukphone": "ˈbærən"
@@ -250,7 +250,7 @@
     {
         "name": "basic",
         "trans": [
-            "基础的"
+            "cơ bản"
         ],
         "usphone": "ˈbeɪsɪk",
         "ukphone": "ˈbeɪsɪk"
@@ -258,7 +258,7 @@
     {
         "name": "beautiful",
         "trans": [
-            "美丽的"
+            "đẹp"
         ],
         "usphone": "ˈbjuːtɪfl",
         "ukphone": "ˈbjuːtɪfl"
@@ -266,7 +266,7 @@
     {
         "name": "biological",
         "trans": [
-            "生物的"
+            "sinh học"
         ],
         "usphone": "ˌbaɪəˈlɒdʒɪkl",
         "ukphone": "ˌbaɪəˈlɑːdʒɪkl"
@@ -274,7 +274,7 @@
     {
         "name": "blind",
         "trans": [
-            "盲的"
+            "mù"
         ],
         "usphone": "blaɪnd",
         "ukphone": "blaɪnd"
@@ -282,7 +282,7 @@
     {
         "name": "blond",
         "trans": [
-            "金发的"
+            "tóc vàng"
         ],
         "usphone": "blɒnd",
         "ukphone": "blɑːnd"
@@ -290,7 +290,7 @@
     {
         "name": "British",
         "trans": [
-            "英国的"
+            "người Anh"
         ],
         "usphone": "'brɪtɪʃ",
         "ukphone": "'brɪtɪʃ"
@@ -298,7 +298,7 @@
     {
         "name": "broad",
         "trans": [
-            "广泛的"
+            "rộng rãi"
         ],
         "usphone": "brɔːd",
         "ukphone": "brɔːd"
@@ -306,7 +306,7 @@
     {
         "name": "buried",
         "trans": [
-            "埋藏的"
+            "chôn cất"
         ],
         "usphone": "ˈberid",
         "ukphone": "ˈberid"
@@ -314,7 +314,7 @@
     {
         "name": "calculating",
         "trans": [
-            "计算的"
+            "tính toán"
         ],
         "usphone": "ˈkælkjuleɪtɪŋ",
         "ukphone": "ˈkælkjuleɪtɪŋ"
@@ -322,7 +322,7 @@
     {
         "name": "casual",
         "trans": [
-            "随便的"
+            "Tình cờ"
         ],
         "usphone": "ˈkæʒuəl",
         "ukphone": "ˈkæʒuəl"
@@ -330,7 +330,7 @@
     {
         "name": "central",
         "trans": [
-            "中央的"
+            "trung tâm"
         ],
         "usphone": "ˈsentrəl",
         "ukphone": "ˈsentrəl"
@@ -338,7 +338,7 @@
     {
         "name": "challenging",
         "trans": [
-            "挑战的"
+            "đầy thử thách"
         ],
         "usphone": "ˈtʃælɪndʒɪŋ",
         "ukphone": "ˈtʃælɪndʒɪŋ"
@@ -346,7 +346,7 @@
     {
         "name": "cheaper",
         "trans": [
-            "便宜些的"
+            "Rẻ hơn"
         ],
         "usphone": "ˈtʃiːpə",
         "ukphone": "ˈtʃipər"
@@ -354,7 +354,7 @@
     {
         "name": "cheerful",
         "trans": [
-            "高兴的"
+            "hạnh phúc"
         ],
         "usphone": "ˈtʃɪəfl",
         "ukphone": "ˈtʃɪrfl"
@@ -362,7 +362,7 @@
     {
         "name": "children's",
         "trans": [
-            "儿童的"
+            "trẻ em"
         ],
         "usphone": "ˈtʃɪldrənz",
         "ukphone": "ˈtʃɪldrənz"
@@ -370,7 +370,7 @@
     {
         "name": "classical",
         "trans": [
-            "古典的"
+            "cổ điển"
         ],
         "usphone": "ˈklæsɪkl",
         "ukphone": "ˈklæsɪkl"
@@ -378,7 +378,7 @@
     {
         "name": "clean",
         "trans": [
-            "干净的"
+            "sạch sẽ"
         ],
         "usphone": "kliːn",
         "ukphone": "kliːn"
@@ -386,7 +386,7 @@
     {
         "name": "cleanest",
         "trans": [
-            "最干净的"
+            "sạch sẽ nhất"
         ],
         "usphone": "kliːnist",
         "ukphone": "kliːnist"
@@ -394,7 +394,7 @@
     {
         "name": "clear",
         "trans": [
-            "清楚的"
+            "rõ ràng"
         ],
         "usphone": "klɪə",
         "ukphone": "klɪr"
@@ -402,7 +402,7 @@
     {
         "name": "clever",
         "trans": [
-            "聪明的"
+            "thông minh"
         ],
         "usphone": "ˈklevə",
         "ukphone": "ˈklevər"
@@ -410,7 +410,7 @@
     {
         "name": "coastal",
         "trans": [
-            "海边的"
+            "bờ biển"
         ],
         "usphone": "ˈkəʊstl",
         "ukphone": "ˈkoʊstl"
@@ -418,7 +418,7 @@
     {
         "name": "comfortable",
         "trans": [
-            "舒适的"
+            "thoải mái"
         ],
         "usphone": "ˈkʌmftəbl",
         "ukphone": "ˈkʌmftəbl"
@@ -426,7 +426,7 @@
     {
         "name": "common",
         "trans": [
-            "普通的"
+            "Bình thường"
         ],
         "usphone": "ˈkɒmən",
         "ukphone": "ˈkɑːmən"
@@ -434,7 +434,7 @@
     {
         "name": "commonsense",
         "trans": [
-            "有常识的"
+            "lẽ thường"
         ],
         "usphone": "ˈkɑmənˌsɛns",
         "ukphone": "ˈkɒmənˌsɛns"
@@ -442,7 +442,7 @@
     {
         "name": "complete",
         "trans": [
-            "完全的"
+            "hoàn toàn"
         ],
         "usphone": "kəmˈpliːt",
         "ukphone": "kəmˈpliːt"
@@ -450,7 +450,7 @@
     {
         "name": "completed",
         "trans": [
-            "完成的"
+            "hoàn thành"
         ],
         "usphone": "kəmˈpliːtɪd",
         "ukphone": "kəmˈpliːtɪd"
@@ -458,7 +458,7 @@
     {
         "name": "confident",
         "trans": [
-            "自信的"
+            "tự tin"
         ],
         "usphone": "ˈkɒnfɪdənt",
         "ukphone": "ˈkɑːnfɪdənt"
@@ -466,7 +466,7 @@
     {
         "name": "conservative",
         "trans": [
-            "保守的"
+            "bảo thủ"
         ],
         "usphone": "kənˈsɜːvətɪv",
         "ukphone": "kənˈsɜːrvətɪv"
@@ -474,7 +474,7 @@
     {
         "name": "convenient",
         "trans": [
-            "方便的"
+            "Thuận tiện"
         ],
         "usphone": "kənˈviːniənt",
         "ukphone": "kənˈviːniənt"
@@ -482,7 +482,7 @@
     {
         "name": "co-operative",
         "trans": [
-            "合作的(=cooperative)"
+            "hợp tác xã (= hợp tác xã)"
         ],
         "usphone": "ˈkoʊˌɑpəˌreɪtɪv",
         "ukphone": "ˈkəʊˌɒpərətɪv"
@@ -490,7 +490,7 @@
     {
         "name": "corrupt",
         "trans": [
-            "腐败的"
+            "tham nhũng"
         ],
         "usphone": "kəˈrʌpt",
         "ukphone": "kəˈrʌpt"
@@ -498,7 +498,7 @@
     {
         "name": "costly",
         "trans": [
-            "昂贵的，费钱的"
+            "đắt tiền, tốn kém"
         ],
         "usphone": "ˈkɒstli",
         "ukphone": "ˈkɔːstli"
@@ -506,7 +506,7 @@
     {
         "name": "cream",
         "trans": [
-            "奶油色的"
+            "màu kem"
         ],
         "usphone": "kriːm",
         "ukphone": "kriːm"
@@ -514,7 +514,7 @@
     {
         "name": "critical",
         "trans": [
-            "批评的"
+            "quan trọng"
         ],
         "usphone": "ˈkrɪtɪkl",
         "ukphone": "ˈkrɪtɪkl"
@@ -522,7 +522,7 @@
     {
         "name": "crucial",
         "trans": [
-            "至关重要的，决定性的"
+            "quan trọng, quyết định"
         ],
         "usphone": "ˈkruːʃl",
         "ukphone": "ˈkruːʃl"
@@ -530,7 +530,7 @@
     {
         "name": "cultural",
         "trans": [
-            "文化的"
+            "văn hóa"
         ],
         "usphone": "ˈkʌltʃərəl",
         "ukphone": "ˈkʌltʃərəl"
@@ -538,7 +538,7 @@
     {
         "name": "curly",
         "trans": [
-            "卷发的"
+            "tóc xoăn"
         ],
         "usphone": "ˈkɜːli",
         "ukphone": "ˈkɜːrli"
@@ -546,7 +546,7 @@
     {
         "name": "current",
         "trans": [
-            "目前的"
+            "hiện tại"
         ],
         "usphone": "ˈkʌrənt",
         "ukphone": "ˈkɜːrənt"
@@ -554,7 +554,7 @@
     {
         "name": "daily",
         "trans": [
-            "每日的"
+            "hàng ngày"
         ],
         "usphone": "ˈdeɪli",
         "ukphone": "ˈdeɪli"
@@ -562,7 +562,7 @@
     {
         "name": "dairy",
         "trans": [
-            "牛奶的"
+            "sữa"
         ],
         "usphone": "ˈdeəri",
         "ukphone": "ˈderi"
@@ -570,7 +570,7 @@
     {
         "name": "dangerous",
         "trans": [
-            "危险的"
+            "nguy hiểm"
         ],
         "usphone": "ˈdeɪndʒərəs",
         "ukphone": "ˈdeɪndʒərəs"
@@ -578,7 +578,7 @@
     {
         "name": "dark",
         "trans": [
-            "黑暗的，深色的"
+            "tối"
         ],
         "usphone": "dɑːk",
         "ukphone": "dɑːrk"
@@ -586,7 +586,7 @@
     {
         "name": "departmental",
         "trans": [
-            "部门的"
+            "Sở"
         ],
         "usphone": "ˌdiːpɑːtˈmentl",
         "ukphone": "ˌdiːpɑːrtˈmentl"
@@ -594,7 +594,7 @@
     {
         "name": "dependent",
         "trans": [
-            "依赖的"
+            "phụ thuộc"
         ],
         "usphone": "dɪˈpendənt",
         "ukphone": "dɪˈpendənt"
@@ -602,7 +602,7 @@
     {
         "name": "detailed",
         "trans": [
-            "细节的"
+            "chi tiết"
         ],
         "usphone": "ˈdiːteɪld",
         "ukphone": "ˈdiːteɪld"
@@ -610,7 +610,7 @@
     {
         "name": "different",
         "trans": [
-            "不同的"
+            "khác nhau"
         ],
         "usphone": "ˈdɪfrənt",
         "ukphone": "ˈdɪfrənt"
@@ -618,7 +618,7 @@
     {
         "name": "direct",
         "trans": [
-            "直接的"
+            "trực tiếp"
         ],
         "usphone": "dəˈrekt",
         "ukphone": "dəˈrekt"
@@ -626,7 +626,7 @@
     {
         "name": "disabled",
         "trans": [
-            "肢体有残疾的"
+            "khuyết tật về thể chất"
         ],
         "usphone": "dɪsˈeɪbld",
         "ukphone": "dɪsˈeɪbld"
@@ -634,7 +634,7 @@
     {
         "name": "distant",
         "trans": [
-            "远的"
+            "rất xa"
         ],
         "usphone": "ˈdɪstənt",
         "ukphone": "ˈdɪstənt"
@@ -642,7 +642,7 @@
     {
         "name": "distinct",
         "trans": [
-            "明显的"
+            "hiển nhiên"
         ],
         "usphone": "dɪˈstɪŋkt",
         "ukphone": "dɪˈstɪŋkt"
@@ -650,7 +650,7 @@
     {
         "name": "domestic",
         "trans": [
-            "国内的，家里的，内部的"
+            "Trong nước, nội bộ"
         ],
         "usphone": "dəˈmestɪk",
         "ukphone": "dəˈmestɪk"
@@ -658,7 +658,7 @@
     {
         "name": "dominant",
         "trans": [
-            "最主要的"
+            "Điều quan trọng nhất"
         ],
         "usphone": "ˈdɒmɪnənt",
         "ukphone": "ˈdɑːmɪnənt"
@@ -666,7 +666,7 @@
     {
         "name": "eastern",
         "trans": [
-            "东方的，东部的"
+            "phương đông"
         ],
         "usphone": "ˈiːstən",
         "ukphone": "ˈiːstərn"
@@ -674,7 +674,7 @@
     {
         "name": "economic",
         "trans": [
-            "经济的"
+            "kinh tế"
         ],
         "usphone": "ˌiːkəˈnɒmɪk",
         "ukphone": "ˌiːkəˈnɑːmɪk"
@@ -682,7 +682,7 @@
     {
         "name": "educational",
         "trans": [
-            "教育的"
+            "giáo dục"
         ],
         "usphone": "ˌedʒuˈkeɪʃənl",
         "ukphone": "ˌedʒuˈkeɪʃənl"
@@ -690,7 +690,7 @@
     {
         "name": "effective",
         "trans": [
-            "有效的"
+            "hợp lệ"
         ],
         "usphone": "ɪˈfektɪv",
         "ukphone": "ɪˈfektɪv"
@@ -698,7 +698,7 @@
     {
         "name": "efficient",
         "trans": [
-            "有效率的"
+            "hiệu quả"
         ],
         "usphone": "ɪˈfɪʃnt",
         "ukphone": "ɪˈfɪʃnt"
@@ -706,7 +706,7 @@
     {
         "name": "elementary",
         "trans": [
-            "初级的"
+            "Thiếu niên"
         ],
         "usphone": "ˌelɪˈmentri",
         "ukphone": "ˌelɪˈmentri"
@@ -714,7 +714,7 @@
     {
         "name": "empty",
         "trans": [
-            "空的"
+            "trống rỗng"
         ],
         "usphone": "ˈempti",
         "ukphone": "ˈempti"
@@ -722,7 +722,7 @@
     {
         "name": "enormous",
         "trans": [
-            "广泛的，大的"
+            "rộng lớn"
         ],
         "usphone": "ɪˈnɔːməs",
         "ukphone": "ɪˈnɔːrməs"
@@ -730,7 +730,7 @@
     {
         "name": "enthusiastic",
         "trans": [
-            "热情的"
+            "đam mê"
         ],
         "usphone": "ɪnˌθjuːziˈæstɪk",
         "ukphone": "ɪnˌθuːziˈæstɪk"
@@ -738,7 +738,7 @@
     {
         "name": "environmental",
         "trans": [
-            "环境的"
+            "môi trường"
         ],
         "usphone": "ɪnˌvaɪrənˈmentl",
         "ukphone": "ɪnˌvaɪrənˈmentl"
@@ -746,7 +746,7 @@
     {
         "name": "essential",
         "trans": [
-            "基本的"
+            "cơ bản"
         ],
         "usphone": "ɪˈsenʃl",
         "ukphone": "ɪˈsenʃl"
@@ -754,7 +754,7 @@
     {
         "name": "excited",
         "trans": [
-            "兴奋的"
+            "vui mừng"
         ],
         "usphone": "ɪkˈsaɪtɪd",
         "ukphone": "ɪkˈsaɪtɪd"
@@ -762,7 +762,7 @@
     {
         "name": "exciting",
         "trans": [
-            "令人兴奋的"
+            "thú vị"
         ],
         "usphone": "ɪkˈsaɪtɪŋ",
         "ukphone": "ɪkˈsaɪtɪŋ"
@@ -770,7 +770,7 @@
     {
         "name": "existent",
         "trans": [
-            "存在的"
+            "tồn tại"
         ],
         "usphone": "ɪɡˈzɪstənt",
         "ukphone": "ɪɡˈzɪstənt"
@@ -778,7 +778,7 @@
     {
         "name": "expensive",
         "trans": [
-            "昂贵的"
+            "đắt tiền"
         ],
         "usphone": "ɪkˈspensɪv",
         "ukphone": "ɪkˈspensɪv"
@@ -786,7 +786,7 @@
     {
         "name": "experienced",
         "trans": [
-            "有经验的"
+            "có kinh nghiệm"
         ],
         "usphone": "ɪkˈspɪəriənst",
         "ukphone": "ɪkˈspɪriənst"
@@ -794,7 +794,7 @@
     {
         "name": "experimental",
         "trans": [
-            "实验的"
+            "thực nghiệm"
         ],
         "usphone": "ɪkˌsperɪˈmentl",
         "ukphone": "ɪkˌsperɪˈmentl"
@@ -802,7 +802,7 @@
     {
         "name": "extensive",
         "trans": [
-            "广泛的"
+            "rộng rãi"
         ],
         "usphone": "ɪkˈstensɪv",
         "ukphone": "ɪkˈstensɪv"
@@ -810,7 +810,7 @@
     {
         "name": "extra",
         "trans": [
-            "额外的"
+            "thêm"
         ],
         "usphone": "ˈekstrə",
         "ukphone": "ˈekstrə"
@@ -818,7 +818,7 @@
     {
         "name": "fair",
         "trans": [
-            "美丽的；公平的"
+            "đẹp, công bằng"
         ],
         "usphone": "feə",
         "ukphone": "fer"
@@ -826,7 +826,7 @@
     {
         "name": "fake",
         "trans": [
-            "假的，伪造的"
+            "giả"
         ],
         "usphone": "feɪk",
         "ukphone": "feɪk"
@@ -834,7 +834,7 @@
     {
         "name": "famed",
         "trans": [
-            "著名的"
+            "nổi tiếng"
         ],
         "usphone": "feɪmd",
         "ukphone": "feɪmd"
@@ -842,7 +842,7 @@
     {
         "name": "familiar",
         "trans": [
-            "熟悉的"
+            "quen thuộc"
         ],
         "usphone": "fəˈmɪliə",
         "ukphone": "fəˈmɪliər"
@@ -850,7 +850,7 @@
     {
         "name": "famous",
         "trans": [
-            "著名的"
+            "nổi tiếng"
         ],
         "usphone": "ˈfeɪməs",
         "ukphone": "ˈfeɪməs"
@@ -858,7 +858,7 @@
     {
         "name": "fancy",
         "trans": [
-            "奇怪的"
+            "kỳ lạ"
         ],
         "usphone": "ˈfænsi",
         "ukphone": "ˈfænsi"
@@ -866,7 +866,7 @@
     {
         "name": "fashionable",
         "trans": [
-            "流行的，时髦的"
+            "phổ biến, thời trang"
         ],
         "usphone": "ˈfæʃnəbl",
         "ukphone": "ˈfæʃnəbl"
@@ -874,7 +874,7 @@
     {
         "name": "favourite",
         "trans": [
-            "最喜爱的"
+            "yêu thích"
         ],
         "usphone": "ˈfeɪvərɪt",
         "ukphone": "ˈfeɪvərɪt"
@@ -882,7 +882,7 @@
     {
         "name": "final",
         "trans": [
-            "最后的"
+            "cuối cùng"
         ],
         "usphone": "ˈfaɪnl",
         "ukphone": "ˈfaɪnl"
@@ -890,7 +890,7 @@
     {
         "name": "financial",
         "trans": [
-            "金融的"
+            "tài chính"
         ],
         "usphone": "faɪˈnænʃl",
         "ukphone": "faɪˈnænʃl"
@@ -898,7 +898,7 @@
     {
         "name": "fine",
         "trans": [
-            "好的"
+            "được rồi"
         ],
         "usphone": "faɪn",
         "ukphone": "faɪn"
@@ -906,7 +906,7 @@
     {
         "name": "firm",
         "trans": [
-            "坚实的"
+            "chất rắn"
         ],
         "usphone": "fɜːm",
         "ukphone": "fɜːrm"
@@ -914,7 +914,7 @@
     {
         "name": "flexible",
         "trans": [
-            "灵活的"
+            "linh hoạt"
         ],
         "usphone": "ˈfleksəbl",
         "ukphone": "ˈfleksəbl"
@@ -922,7 +922,7 @@
     {
         "name": "foreign",
         "trans": [
-            "国外的"
+            "nước ngoài"
         ],
         "usphone": "ˈfɒrən",
         "ukphone": "ˈfɔːrən"
@@ -930,7 +930,7 @@
     {
         "name": "formal",
         "trans": [
-            "正式的"
+            "chính thức"
         ],
         "usphone": "ˈfɔːml",
         "ukphone": "ˈfɔːrml"
@@ -938,7 +938,7 @@
     {
         "name": "former",
         "trans": [
-            "以前的"
+            "trước đó"
         ],
         "usphone": "ˈfɔːmə",
         "ukphone": "ˈfɔːrmər"
@@ -946,7 +946,7 @@
     {
         "name": "free",
         "trans": [
-            "自由的"
+            "miễn phí"
         ],
         "usphone": "friː",
         "ukphone": "friː"
@@ -954,7 +954,7 @@
     {
         "name": "frequent",
         "trans": [
-            "经常的，频繁的"
+            "thường xuyên"
         ],
         "usphone": "ˈfriːkwənt , friˈkwent",
         "ukphone": "ˈfriːkwənt , friˈkwent"
@@ -962,7 +962,7 @@
     {
         "name": "fundamental",
         "trans": [
-            "基本的，基础的"
+            "cơ bản"
         ],
         "usphone": "ˌfʌndəˈmentl",
         "ukphone": "ˌfʌndəˈmentl"
@@ -970,7 +970,7 @@
     {
         "name": "further",
         "trans": [
-            "进一步的"
+            "hơn nữa"
         ],
         "usphone": "ˈfɜːðə",
         "ukphone": "ˈfɜːrðər"
@@ -978,7 +978,7 @@
     {
         "name": "general",
         "trans": [
-            "普通的，笼统的"
+            "thông thường, chung chung"
         ],
         "usphone": "ˈdʒenrəl",
         "ukphone": "ˈdʒenrəl"
@@ -986,7 +986,7 @@
     {
         "name": "genetic",
         "trans": [
-            "遗传的"
+            "di truyền"
         ],
         "usphone": "dʒəˈnetɪk",
         "ukphone": "dʒəˈnetɪk"
@@ -994,7 +994,7 @@
     {
         "name": "geographical",
         "trans": [
-            "地理学的"
+            "địa lý"
         ],
         "usphone": "ˌdʒiːəˈɡræfɪkl",
         "ukphone": "ˌdʒiːəˈɡræfɪkl"
@@ -1002,7 +1002,7 @@
     {
         "name": "global",
         "trans": [
-            "全球的，整体的"
+            "toàn cầu, tổng thể"
         ],
         "usphone": "ˈɡləʊbl",
         "ukphone": "ˈɡloʊbl"
@@ -1010,7 +1010,7 @@
     {
         "name": "handy",
         "trans": [
-            "方便的"
+            "Thuận tiện"
         ],
         "usphone": "ˈhændi",
         "ukphone": "ˈhændi"
@@ -1018,7 +1018,7 @@
     {
         "name": "harmful",
         "trans": [
-            "有害的"
+            "Có hại"
         ],
         "usphone": "ˈhɑːmfl",
         "ukphone": "ˈhɑːrmfl"
@@ -1026,7 +1026,7 @@
     {
         "name": "hazardous",
         "trans": [
-            "冒险的，危险的"
+            "mạo hiểm, nguy hiểm"
         ],
         "usphone": "ˈhæzədəs",
         "ukphone": "ˈhæzərdəs"
@@ -1034,7 +1034,7 @@
     {
         "name": "healthy",
         "trans": [
-            "健康的"
+            "khỏe mạnh"
         ],
         "usphone": "ˈhelθi",
         "ukphone": "ˈhelθi"
@@ -1042,7 +1042,7 @@
     {
         "name": "heavier",
         "trans": [
-            "更沉重的"
+            "nặng hơn"
         ],
         "usphone": "ˈhevɪə",
         "ukphone": "ˈheviər"
@@ -1050,7 +1050,7 @@
     {
         "name": "heavy",
         "trans": [
-            "重的"
+            "nặng nề"
         ],
         "usphone": "ˈhevi",
         "ukphone": "ˈhevi"
@@ -1058,7 +1058,7 @@
     {
         "name": "helpful",
         "trans": [
-            "有用的"
+            "hữu ích"
         ],
         "usphone": "ˈhelpfl",
         "ukphone": "ˈhelpfl"
@@ -1066,7 +1066,7 @@
     {
         "name": "herbivorous",
         "trans": [
-            "食草的"
+            "ăn cỏ"
         ],
         "usphone": "hɜ:'bɪvərəs",
         "ukphone": "həˈbɪvərəs,ə-"
@@ -1074,7 +1074,7 @@
     {
         "name": "higher",
         "trans": [
-            "更高的"
+            "cao hơn"
         ],
         "usphone": "ˈhaɪə",
         "ukphone": "ˈhaɪər"
@@ -1082,7 +1082,7 @@
     {
         "name": "highly-trained",
         "trans": [
-            "高度训练的"
+            "được đào tạo bài bản"
         ],
         "usphone": "ˈhaɪliˌtreɪnd",
         "ukphone": "ˈhaɪliˌtreɪnd"
@@ -1090,7 +1090,7 @@
     {
         "name": "historical",
         "trans": [
-            "历史的"
+            "lịch sử"
         ],
         "usphone": "hɪˈstɒrɪkl",
         "ukphone": "hɪˈstɔːrɪkl"
@@ -1098,7 +1098,7 @@
     {
         "name": "least",
         "trans": [
-            "最少的，最小的"
+            "ít nhất, nhỏ nhất"
         ],
         "usphone": "liːst",
         "ukphone": "liːst"
@@ -1106,7 +1106,7 @@
     {
         "name": "ill",
         "trans": [
-            "生病的"
+            "bị bệnh"
         ],
         "usphone": "ɪl",
         "ukphone": "ɪl"
@@ -1114,7 +1114,7 @@
     {
         "name": "illegal",
         "trans": [
-            "非法的"
+            "bất hợp pháp"
         ],
         "usphone": "ɪˈliːɡl",
         "ukphone": "ɪˈliːɡl"
@@ -1122,7 +1122,7 @@
     {
         "name": "immune",
         "trans": [
-            "免疫的"
+            "miễn dịch"
         ],
         "usphone": "ɪˈmjuːn",
         "ukphone": "ɪˈmjuːn"
@@ -1130,7 +1130,7 @@
     {
         "name": "important",
         "trans": [
-            "重要的"
+            "quan trọng"
         ],
         "usphone": "ɪmˈpɔːtnt",
         "ukphone": "ɪmˈpɔːrtnt"
@@ -1138,7 +1138,7 @@
     {
         "name": "impossible",
         "trans": [
-            "不可能的"
+            "không thể"
         ],
         "usphone": "ɪmˈpɒsəbl",
         "ukphone": "ɪmˈpɑːsəbl"
@@ -1146,7 +1146,7 @@
     {
         "name": "inaccurate",
         "trans": [
-            "不准确的"
+            "không chính xác"
         ],
         "usphone": "ɪn'ækjərət",
         "ukphone": "ɪn'ækjʊrət"
@@ -1154,7 +1154,7 @@
     {
         "name": "inadequate",
         "trans": [
-            "不足的"
+            "không đầy đủ"
         ],
         "usphone": "ɪnˈædɪkwət",
         "ukphone": "ɪnˈædɪkwət"
@@ -1162,7 +1162,7 @@
     {
         "name": "individual",
         "trans": [
-            "个人的"
+            "cá nhân"
         ],
         "usphone": "ˌɪndɪˈvɪdʒuəl",
         "ukphone": "ˌɪndɪˈvɪdʒuəl"
@@ -1170,7 +1170,7 @@
     {
         "name": "industrial",
         "trans": [
-            "工业的"
+            "công nghiệp"
         ],
         "usphone": "ɪnˈdʌstriəl",
         "ukphone": "ɪnˈdʌstriəl"
@@ -1178,7 +1178,7 @@
     {
         "name": "informative",
         "trans": [
-            "通知的，有信息的"
+            "Thông báo, cung cấp thông tin"
         ],
         "usphone": "ɪnˈfɔːmətɪv",
         "ukphone": "ɪnˈfɔːrmətɪv"
@@ -1186,7 +1186,7 @@
     {
         "name": "initial",
         "trans": [
-            "最初的"
+            "ban đầu"
         ],
         "usphone": "ɪˈnɪʃl",
         "ukphone": "ɪˈnɪʃl"
@@ -1194,7 +1194,7 @@
     {
         "name": "inspiring",
         "trans": [
-            "鼓舞人心的"
+            "truyền cảm hứng"
         ],
         "usphone": "ɪnˈspaɪərɪŋ",
         "ukphone": "ɪnˈspaɪərɪŋ"
@@ -1202,7 +1202,7 @@
     {
         "name": "intact",
         "trans": [
-            "完好无损的"
+            "nguyên vẹn"
         ],
         "usphone": "ɪnˈtækt",
         "ukphone": "ɪnˈtækt"
@@ -1210,7 +1210,7 @@
     {
         "name": "intelligent",
         "trans": [
-            "智力的"
+            "trí tuệ"
         ],
         "usphone": "ɪnˈtelɪdʒənt",
         "ukphone": "ɪnˈtelɪdʒənt"
@@ -1218,7 +1218,7 @@
     {
         "name": "intensive",
         "trans": [
-            "强化的"
+            "gia cố"
         ],
         "usphone": "ɪnˈtensɪv",
         "ukphone": "ɪnˈtensɪv"
@@ -1226,7 +1226,7 @@
     {
         "name": "interesting",
         "trans": [
-            "有趣的"
+            "thú vị"
         ],
         "usphone": "'ɪntrəstɪŋ",
         "ukphone": "ˈɪntrəstɪŋ"
@@ -1234,7 +1234,7 @@
     {
         "name": "intermediate",
         "trans": [
-            "中级的"
+            "Trung cấp"
         ],
         "usphone": "ˌɪntəˈmiːdiət",
         "ukphone": "ˌɪntərˈmiːdiət"
@@ -1242,7 +1242,7 @@
     {
         "name": "internal",
         "trans": [
-            "内部的"
+            "nội bộ"
         ],
         "usphone": "ɪnˈtɜːnl",
         "ukphone": "ɪnˈtɜːrnl"
@@ -1250,7 +1250,7 @@
     {
         "name": "international",
         "trans": [
-            "国际的"
+            "Quốc tế"
         ],
         "usphone": "ˌɪntəˈnæʃnəl",
         "ukphone": "ˌɪntərˈnæʃnəl"
@@ -1258,7 +1258,7 @@
     {
         "name": "irregular",
         "trans": [
-            "不规则的"
+            "không thường xuyên"
         ],
         "usphone": "ɪˈreɡjələ",
         "ukphone": "ɪˈreɡjələr"
@@ -1266,7 +1266,7 @@
     {
         "name": "irritable",
         "trans": [
-            "易怒的"
+            "cáu kỉnh"
         ],
         "usphone": "ˈɪrɪtəbl",
         "ukphone": "ˈɪrɪtəbl"
@@ -1274,7 +1274,7 @@
     {
         "name": "isolated",
         "trans": [
-            "与世隔绝的"
+            "bị cô lập"
         ],
         "usphone": "ˈaɪsəleɪtɪd",
         "ukphone": "ˈaɪsəleɪtɪd"
@@ -1282,7 +1282,7 @@
     {
         "name": "key",
         "trans": [
-            "重点的，关键的"
+            "then chốt, cốt yếu"
         ],
         "usphone": "kiː",
         "ukphone": "kiː"
@@ -1290,7 +1290,7 @@
     {
         "name": "latest",
         "trans": [
-            "最新的"
+            "mới nhất"
         ],
         "usphone": "ˈleɪtɪst",
         "ukphone": "ˈleɪtɪst"
@@ -1298,7 +1298,7 @@
     {
         "name": "legal",
         "trans": [
-            "合法的"
+            "hợp pháp"
         ],
         "usphone": "ˈliːɡl",
         "ukphone": "ˈliːɡl"
@@ -1306,7 +1306,7 @@
     {
         "name": "little-known",
         "trans": [
-            "不知名的，无名的"
+            "không rõ, vô danh"
         ],
         "usphone": "ˈlɪtəlˌnoʊn",
         "ukphone": "ˈlɪtl̩ˌnəʊn"
@@ -1314,7 +1314,7 @@
     {
         "name": "loyal",
         "trans": [
-            "忠诚的"
+            "trung thành"
         ],
         "usphone": "ˈlɔɪəl",
         "ukphone": "ˈlɔɪəl"
@@ -1322,7 +1322,7 @@
     {
         "name": "magic",
         "trans": [
-            "魔术的"
+            "ma thuật"
         ],
         "usphone": "ˈmædʒɪk",
         "ukphone": "ˈmædʒɪk"
@@ -1330,7 +1330,7 @@
     {
         "name": "magical",
         "trans": [
-            "难以想象的，不可思议的"
+            "không thể tưởng tượng được, không thể tin được"
         ],
         "usphone": "ˈmædʒɪkl",
         "ukphone": "ˈmædʒɪkl"
@@ -1338,7 +1338,7 @@
     {
         "name": "magnificent",
         "trans": [
-            "华丽的"
+            "tuyệt đẹp"
         ],
         "usphone": "mæɡˈnɪfɪsnt",
         "ukphone": "mæɡˈnɪfɪsnt"
@@ -1346,7 +1346,7 @@
     {
         "name": "major",
         "trans": [
-            "主要的"
+            "chính"
         ],
         "usphone": "ˈmeɪdʒə",
         "ukphone": "ˈmeɪdʒər"
@@ -1354,7 +1354,7 @@
     {
         "name": "martial",
         "trans": [
-            "武术的"
+            "võ thuật"
         ],
         "usphone": "ˈmɑːʃl",
         "ukphone": "ˈmɑːrʃl"
@@ -1362,7 +1362,7 @@
     {
         "name": "mature",
         "trans": [
-            "成熟的"
+            "trưởng thành"
         ],
         "usphone": "məˈtʃʊə",
         "ukphone": "məˈtʃʊr"
@@ -1370,7 +1370,7 @@
     {
         "name": "medical",
         "trans": [
-            "医疗的"
+            "y tế"
         ],
         "usphone": "ˈmedɪkl",
         "ukphone": "ˈmedɪkl"
@@ -1378,7 +1378,7 @@
     {
         "name": "mental",
         "trans": [
-            "精神的"
+            "tinh thần"
         ],
         "usphone": "ˈmentl",
         "ukphone": "ˈmentl"
@@ -1386,7 +1386,7 @@
     {
         "name": "mid",
         "trans": [
-            "中间的"
+            "ở giữa"
         ],
         "usphone": "mɪd",
         "ukphone": "mɪd"
@@ -1394,7 +1394,7 @@
     {
         "name": "migratory",
         "trans": [
-            "迁移的"
+            "di cư"
         ],
         "usphone": "ˈmaɪɡrətri",
         "ukphone": "ˈmaɪɡrətɔːri"
@@ -1402,7 +1402,7 @@
     {
         "name": "military",
         "trans": [
-            "军人的，军队的"
+            "quân sự, quân đội"
         ],
         "usphone": "ˈmɪlətri",
         "ukphone": "ˈmɪləteri"
@@ -1410,7 +1410,7 @@
     {
         "name": "miserable",
         "trans": [
-            "痛苦的"
+            "đau đớn"
         ],
         "usphone": "ˈmɪzrəbl",
         "ukphone": "ˈmɪzrəbl"
@@ -1418,7 +1418,7 @@
     {
         "name": "mobile",
         "trans": [
-            "运动的"
+            "thể thao"
         ],
         "usphone": "ˈməʊbaɪl",
         "ukphone": "ˈmoʊbl"
@@ -1426,7 +1426,7 @@
     {
         "name": "moderate",
         "trans": [
-            "中度的"
+            "vừa phải"
         ],
         "usphone": "ˈmɒdərət , ˈmɒdəreɪt",
         "ukphone": "ˈmɑːdərət , ˈmɑːdəreɪt"
@@ -1434,7 +1434,7 @@
     {
         "name": "modern",
         "trans": [
-            "现代的"
+            "hiện đại"
         ],
         "usphone": "ˈmɒdn",
         "ukphone": "ˈmɑːdərn"
@@ -1442,7 +1442,7 @@
     {
         "name": "musical",
         "trans": [
-            "音乐的"
+            "âm nhạc"
         ],
         "usphone": "ˈmjuːzɪkl",
         "ukphone": "ˈmjuːzɪkl"
@@ -1450,7 +1450,7 @@
     {
         "name": "natural",
         "trans": [
-            "自然的"
+            "tự nhiên"
         ],
         "usphone": "ˈnætʃrəl",
         "ukphone": "ˈnætʃrəl"
@@ -1458,7 +1458,7 @@
     {
         "name": "negative",
         "trans": [
-            "消极的"
+            "tiêu cực"
         ],
         "usphone": "ˈneɡətɪv",
         "ukphone": "ˈneɡətɪv"
@@ -1466,7 +1466,7 @@
     {
         "name": "neighbouring",
         "trans": [
-            "附近的，临近的"
+            "lân cận, liền kề"
         ],
         "usphone": "ˈneɪbərɪŋ",
         "ukphone": "ˈneɪbərɪŋ"
@@ -1474,7 +1474,7 @@
     {
         "name": "nervous",
         "trans": [
-            "紧张的"
+            "lo lắng"
         ],
         "usphone": "ˈnɜːvəs",
         "ukphone": "ˈnɜːrvəs"
@@ -1482,7 +1482,7 @@
     {
         "name": "noble",
         "trans": [
-            "高尚的，贵族的"
+            "cao quý, quý tộc"
         ],
         "usphone": "'nobl",
         "ukphone": "'nəʊb(ə)l"
@@ -1490,7 +1490,7 @@
     {
         "name": "noisy",
         "trans": [
-            "嘈杂的"
+            "ồn ào"
         ],
         "usphone": "ˈnɔɪzi",
         "ukphone": "ˈnɔɪzi"
@@ -1498,7 +1498,7 @@
     {
         "name": "non-active",
         "trans": [
-            "不活跃的"
+            "không hoạt động"
         ],
         "usphone": "ˌnɑnˈæktɪv",
         "ukphone": "ˌnɒnˈæktɪv"
@@ -1506,7 +1506,7 @@
     {
         "name": "normal",
         "trans": [
-            "正常的"
+            "bình thường"
         ],
         "usphone": "ˈnɔːml",
         "ukphone": "ˈnɔːrml"
@@ -1514,7 +1514,7 @@
     {
         "name": "northern",
         "trans": [
-            "北方的"
+            "miền Bắc"
         ],
         "usphone": "ˈnɔːðən",
         "ukphone": "ˈnɔːrðərn"
@@ -1522,7 +1522,7 @@
     {
         "name": "objective",
         "trans": [
-            "客观的"
+            "mục tiêu"
         ],
         "usphone": "əbˈdʒektɪv",
         "ukphone": "əbˈdʒektɪv"
@@ -1530,7 +1530,7 @@
     {
         "name": "occupational",
         "trans": [
-            "职业的"
+            "chuyên nghiệp"
         ],
         "usphone": "ˌɒkjuˈpeɪʃənl",
         "ukphone": "ˌɑːkjuˈpeɪʃənl"
@@ -1538,7 +1538,7 @@
     {
         "name": "Olympic",
         "trans": [
-            "奥运会的"
+            "thế vận hội"
         ],
         "usphone": "əˈlɪmpɪk",
         "ukphone": "əˈlɪmpɪk"
@@ -1546,7 +1546,7 @@
     {
         "name": "optic",
         "trans": [
-            "光学的"
+            "Quang học"
         ],
         "usphone": "'ɑptɪk",
         "ukphone": "'ɑːptɪk"
@@ -1554,7 +1554,7 @@
     {
         "name": "optional",
         "trans": [
-            "可选择的"
+            "tùy chọn"
         ],
         "usphone": "ˈɒpʃənl",
         "ukphone": "ˈɑːpʃənl"
@@ -1562,7 +1562,7 @@
     {
         "name": "oral",
         "trans": [
-            "口语的"
+            "nói"
         ],
         "usphone": "ˈɔːrəl",
         "ukphone": "ˈɔːrəl"
@@ -1570,7 +1570,7 @@
     {
         "name": "organic",
         "trans": [
-            "有机的"
+            "hữu cơ"
         ],
         "usphone": "ɔːˈɡænɪk",
         "ukphone": "ɔːrˈɡænɪk"
@@ -1578,7 +1578,7 @@
     {
         "name": "overall",
         "trans": [
-            "整个的"
+            "toàn bộ"
         ],
         "usphone": "ˌəʊvərˈɔːl , ˈəʊvərɔːl",
         "ukphone": "ˌoʊvərˈɔːl , ˈoʊvərɔːl"
@@ -1586,7 +1586,7 @@
     {
         "name": "overhead",
         "trans": [
-            "头上的"
+            "trên đầu"
         ],
         "usphone": "ˌəʊvəˈhed , ˈəʊvəhed",
         "ukphone": "ˌoʊvərˈhed , ˈoʊvərhed"
@@ -1594,7 +1594,7 @@
     {
         "name": "overseas",
         "trans": [
-            "海外的"
+            "ở nước ngoài"
         ],
         "usphone": "ˌəʊvəˈsiːz",
         "ukphone": "ˌoʊvərˈsiːz"
@@ -1602,7 +1602,7 @@
     {
         "name": "parental",
         "trans": [
-            "父母的"
+            "của cha mẹ"
         ],
         "usphone": "pəˈrentl",
         "ukphone": "pəˈrentl"
@@ -1610,7 +1610,7 @@
     {
         "name": "payable",
         "trans": [
-            "可支付的"
+            "phải trả"
         ],
         "usphone": "ˈpeɪəbl",
         "ukphone": "ˈpeɪəbl"
@@ -1618,7 +1618,7 @@
     {
         "name": "perfect",
         "trans": [
-            "完美的"
+            "hoàn hảo"
         ],
         "usphone": "ˈpɜːfɪkt , pəˈfekt",
         "ukphone": "ˈpɜːrfɪkt , pərˈfekt"
@@ -1626,7 +1626,7 @@
     {
         "name": "personal",
         "trans": [
-            "个人的"
+            "cá nhân"
         ],
         "usphone": "ˈpɜːsənl",
         "ukphone": "ˈpɜːrsənl"
@@ -1634,7 +1634,7 @@
     {
         "name": "physical",
         "trans": [
-            "肉体的；身体的"
+            "thể chất"
         ],
         "usphone": "ˈfɪzɪkl",
         "ukphone": "ˈfɪzɪkl"
@@ -1642,7 +1642,7 @@
     {
         "name": "pleasant",
         "trans": [
-            "愉快的"
+            "dễ chịu"
         ],
         "usphone": "ˈpleznt",
         "ukphone": "ˈpleznt"
@@ -1650,7 +1650,7 @@
     {
         "name": "political",
         "trans": [
-            "政治的"
+            "chính trị"
         ],
         "usphone": "pəˈlɪtɪkl",
         "ukphone": "pəˈlɪtɪkl"
@@ -1658,7 +1658,7 @@
     {
         "name": "pop",
         "trans": [
-            "流行的"
+            "phổ biến"
         ],
         "usphone": "pɒp",
         "ukphone": "pɑːp"
@@ -1666,7 +1666,7 @@
     {
         "name": "popular",
         "trans": [
-            "时髦的"
+            "hợp thời trang"
         ],
         "usphone": "ˈpɒpjələ",
         "ukphone": "ˈpɑːpjələr"
@@ -1674,7 +1674,7 @@
     {
         "name": "positive",
         "trans": [
-            "积极的"
+            "tích cực"
         ],
         "usphone": "ˈpɒzətɪv",
         "ukphone": "ˈpɑːzətɪv"
@@ -1682,7 +1682,7 @@
     {
         "name": "possible",
         "trans": [
-            "可能的"
+            "có thể"
         ],
         "usphone": "ˈpɒsəbl",
         "ukphone": "ˈpɑːsəbl"
@@ -1690,7 +1690,7 @@
     {
         "name": "potential",
         "trans": [
-            "潜在的"
+            "tiềm năng"
         ],
         "usphone": "pəˈtenʃl",
         "ukphone": "pəˈtenʃl"
@@ -1698,7 +1698,7 @@
     {
         "name": "practical",
         "trans": [
-            "实际的"
+            "thực tế"
         ],
         "usphone": "ˈpræktɪkl",
         "ukphone": "ˈpræktɪkl"
@@ -1706,7 +1706,7 @@
     {
         "name": "precious",
         "trans": [
-            "珍贵的"
+            "quý giá"
         ],
         "usphone": "ˈpreʃəs",
         "ukphone": "ˈpreʃəs"
@@ -1714,7 +1714,7 @@
     {
         "name": "predictable",
         "trans": [
-            "可预言的"
+            "có thể dự đoán được"
         ],
         "usphone": "prɪˈdɪktəbl",
         "ukphone": "prɪˈdɪktəbl"
@@ -1722,7 +1722,7 @@
     {
         "name": "present",
         "trans": [
-            "目前的"
+            "hiện tại"
         ],
         "usphone": "ˈpreznt , prɪˈzent",
         "ukphone": "ˈpreznt , prɪˈzent"
@@ -1730,7 +1730,7 @@
     {
         "name": "previous",
         "trans": [
-            "以前的，原来的"
+            "trước đó, bản gốc"
         ],
         "usphone": "ˈpriːviəs",
         "ukphone": "ˈpriːviəs"
@@ -1738,7 +1738,7 @@
     {
         "name": "printed",
         "trans": [
-            "打印出来的"
+            "in"
         ],
         "usphone": "ˈprɪntɪd",
         "ukphone": "ˈprɪntɪd"
@@ -1746,7 +1746,7 @@
     {
         "name": "private",
         "trans": [
-            "私人的"
+            "riêng tư"
         ],
         "usphone": "ˈpraɪvət",
         "ukphone": "ˈpraɪvɪt"
@@ -1754,7 +1754,7 @@
     {
         "name": "professional",
         "trans": [
-            "专业的"
+            "chuyên nghiệp"
         ],
         "usphone": "prəˈfeʃənl",
         "ukphone": "prəˈfeʃənl"
@@ -1762,7 +1762,7 @@
     {
         "name": "promising",
         "trans": [
-            "有前途的"
+            "đầy hứa hẹn"
         ],
         "usphone": "ˈprɒmɪsɪŋ",
         "ukphone": "ˈprɑːmɪsɪŋ"
@@ -1770,7 +1770,7 @@
     {
         "name": "psychiatric",
         "trans": [
-            "精神病的"
+            "tâm thần"
         ],
         "usphone": "ˌsaɪkiˈætrɪk",
         "ukphone": "ˌsaɪkiˈætrɪk"
@@ -1778,7 +1778,7 @@
     {
         "name": "psychological",
         "trans": [
-            "心理的"
+            "tâm lý"
         ],
         "usphone": "ˌsaɪkəˈlɒdʒɪkl",
         "ukphone": "ˌsaɪkəˈlɑːdʒɪkl"
@@ -1786,7 +1786,7 @@
     {
         "name": "public",
         "trans": [
-            "公共的"
+            "công khai"
         ],
         "usphone": "ˈpʌblɪk",
         "ukphone": "ˈpʌblɪk"
@@ -1794,7 +1794,7 @@
     {
         "name": "pure",
         "trans": [
-            "纯洁的"
+            "tinh khiết"
         ],
         "usphone": "pjʊə",
         "ukphone": "pjʊr"
@@ -1802,7 +1802,7 @@
     {
         "name": "purest",
         "trans": [
-            "最纯净的（最高级"
+            "tinh khiết nhất (cao cấp nhất)"
         ],
         "usphone": "ˈpjʊərɪst",
         "ukphone": "ˈpjʊrəst"
@@ -1810,7 +1810,7 @@
     {
         "name": "Queen's",
         "trans": [
-            "女王的"
+            "của nữ hoàng"
         ],
         "usphone": "kwinz",
         "ukphone": "kwiːnz"
@@ -1818,7 +1818,7 @@
     {
         "name": "random",
         "trans": [
-            "随机的"
+            "ngẫu nhiên"
         ],
         "usphone": "ˈrændəm",
         "ukphone": "ˈrændəm"
@@ -1826,7 +1826,7 @@
     {
         "name": "rapid",
         "trans": [
-            "快速的"
+            "nhanh"
         ],
         "usphone": "ˈræpɪd",
         "ukphone": "ˈræpɪd"
@@ -1834,7 +1834,7 @@
     {
         "name": "rare",
         "trans": [
-            "罕见的"
+            "hiếm"
         ],
         "usphone": "reə",
         "ukphone": "rer"
@@ -1842,7 +1842,7 @@
     {
         "name": "raw",
         "trans": [
-            "生的"
+            "thô"
         ],
         "usphone": "rɔː",
         "ukphone": "rɔː"
@@ -1850,7 +1850,7 @@
     {
         "name": "recycled",
         "trans": [
-            "回收的"
+            "tái chế"
         ],
         "usphone": "ˌriːˈsaɪkld",
         "ukphone": "ˌriːˈsaɪkld"
@@ -1858,7 +1858,7 @@
     {
         "name": "redundant",
         "trans": [
-            "多余的"
+            "dư thừa"
         ],
         "usphone": "rɪˈdʌndənt",
         "ukphone": "rɪˈdʌndənt"
@@ -1866,7 +1866,7 @@
     {
         "name": "regional",
         "trans": [
-            "局域的"
+            "địa phương"
         ],
         "usphone": "ˈriːdʒənl",
         "ukphone": "ˈriːdʒənl"
@@ -1874,7 +1874,7 @@
     {
         "name": "regular",
         "trans": [
-            "定期的；规律的"
+            "thường xuyên, đều đặn"
         ],
         "usphone": "ˈreɡjələ",
         "ukphone": "ˈreɡjələr"
@@ -1882,7 +1882,7 @@
     {
         "name": "reinforced",
         "trans": [
-            "加强的"
+            "tăng cường"
         ],
         "usphone": "ˌriːɪnˈfɔːst",
         "ukphone": "ˌriːɪnˈfɔːrst"
@@ -1890,7 +1890,7 @@
     {
         "name": "related",
         "trans": [
-            "相关的"
+            "có liên quan"
         ],
         "usphone": "rɪˈleɪtɪd",
         "ukphone": "rɪˈleɪtɪd"
@@ -1898,7 +1898,7 @@
     {
         "name": "relevant",
         "trans": [
-            "相关的"
+            "có liên quan"
         ],
         "usphone": "ˈreləvənt",
         "ukphone": "ˈreləvənt"
@@ -1906,7 +1906,7 @@
     {
         "name": "reliable",
         "trans": [
-            "可信赖的，可靠的，可依赖的"
+            "đáng tin cậy"
         ],
         "usphone": "rɪˈlaɪəbl",
         "ukphone": "rɪˈlaɪəbl"
@@ -1914,7 +1914,7 @@
     {
         "name": "remote",
         "trans": [
-            "远的"
+            "rất xa"
         ],
         "usphone": "rɪˈməʊt",
         "ukphone": "rɪˈmoʊt"
@@ -1922,7 +1922,7 @@
     {
         "name": "resistant",
         "trans": [
-            "抵抗的"
+            "Chống chịu"
         ],
         "usphone": "rɪˈzɪstənt",
         "ukphone": "rɪˈzɪstənt"
@@ -1930,7 +1930,7 @@
     {
         "name": "reverse",
         "trans": [
-            "相反的"
+            "Ngược lại"
         ],
         "usphone": "rɪˈvɜːs",
         "ukphone": "rɪˈvɜːrs"
@@ -1938,7 +1938,7 @@
     {
         "name": "rising",
         "trans": [
-            "上升的"
+            "tăng lên"
         ],
         "usphone": "ˈraɪzɪŋ",
         "ukphone": "ˈraɪzɪŋ"
@@ -1946,7 +1946,7 @@
     {
         "name": "royal",
         "trans": [
-            "皇家的"
+            "hoàng gia"
         ],
         "usphone": "ˈrɔɪəl",
         "ukphone": "ˈrɔɪəl"
@@ -1954,7 +1954,7 @@
     {
         "name": "rural",
         "trans": [
-            "乡下的"
+            "Nông thôn"
         ],
         "usphone": "ˈrʊərəl",
         "ukphone": "ˈrʊrəl"
@@ -1962,7 +1962,7 @@
     {
         "name": "sacked",
         "trans": [
-            "被解雇的"
+            "bị sa thải"
         ],
         "usphone": "sækt",
         "ukphone": "sækt"
@@ -1970,7 +1970,7 @@
     {
         "name": "safe",
         "trans": [
-            "安全的"
+            "an toàn"
         ],
         "usphone": "seɪf",
         "ukphone": "seɪf"
@@ -1978,7 +1978,7 @@
     {
         "name": "satisfactory",
         "trans": [
-            "满意的"
+            "hài lòng"
         ],
         "usphone": "ˌsætɪsˈfæktəri",
         "ukphone": "ˌsætɪsˈfæktəri"
@@ -1986,7 +1986,7 @@
     {
         "name": "scarce",
         "trans": [
-            "不足的"
+            "không đầy đủ"
         ],
         "usphone": "skeəs",
         "ukphone": "skers"
@@ -1994,7 +1994,7 @@
     {
         "name": "scientific",
         "trans": [
-            "科学的"
+            "khoa học"
         ],
         "usphone": "ˌsaɪənˈtɪfɪk",
         "ukphone": "ˌsaɪənˈtɪfɪk"
@@ -2002,7 +2002,7 @@
     {
         "name": "seasonal",
         "trans": [
-            "季节的"
+            "theo mùa"
         ],
         "usphone": "ˈsiːzənl",
         "ukphone": "ˈsiːzənl"
@@ -2010,7 +2010,7 @@
     {
         "name": "seasoned",
         "trans": [
-            "风干的"
+            "sấy khô bằng không khí"
         ],
         "usphone": "ˈsiːznd",
         "ukphone": "ˈsiːznd"
@@ -2018,7 +2018,7 @@
     {
         "name": "secondary",
         "trans": [
-            "第二的"
+            "thứ hai"
         ],
         "usphone": "ˈsekəndri",
         "ukphone": "ˈsekənderi"
@@ -2026,7 +2026,7 @@
     {
         "name": "second-hand",
         "trans": [
-            "二手的"
+            "đồ cũ"
         ],
         "usphone": "ˈsɛkəndˌhænd",
         "ukphone": "ˈsɛkəndˌhænd"
@@ -2034,7 +2034,7 @@
     {
         "name": "self-funded",
         "trans": [
-            "自给自足的"
+            "tự túc"
         ],
         "usphone": "ˈsɛlfˌfʌndɪd",
         "ukphone": "ˈsɛlfˌfʌndɪd"
@@ -2042,7 +2042,7 @@
     {
         "name": "self-sufficient",
         "trans": [
-            "自给自足的"
+            "tự túc"
         ],
         "usphone": "'selfsə'fiʃənt",
         "ukphone": "ˌselfsə'fɪʃnt"
@@ -2050,7 +2050,7 @@
     {
         "name": "senior",
         "trans": [
-            "高级的"
+            "nâng cao"
         ],
         "usphone": "ˈsiːniə",
         "ukphone": "ˈsiːniər"
@@ -2058,7 +2058,7 @@
     {
         "name": "sensible",
         "trans": [
-            "明智的"
+            "khôn ngoan"
         ],
         "usphone": "ˈsensəbl",
         "ukphone": "ˈsensəbl"
@@ -2066,7 +2066,7 @@
     {
         "name": "serial",
         "trans": [
-            "连续的"
+            "liên tục"
         ],
         "usphone": "ˈsɪəriəl",
         "ukphone": "ˈsɪriəl"
@@ -2074,7 +2074,7 @@
     {
         "name": "serious",
         "trans": [
-            "严肃的"
+            "nghiêm trọng"
         ],
         "usphone": "ˈsɪəriəs",
         "ukphone": "ˈsɪriəs"
@@ -2082,7 +2082,7 @@
     {
         "name": "seven-screen",
         "trans": [
-            "七个屏幕的"
+            "bảy màn hình"
         ],
         "usphone": "ˈsɛvənˌskrin",
         "ukphone": "ˈsɛvənˌskriːn"
@@ -2090,7 +2090,7 @@
     {
         "name": "several",
         "trans": [
-            "几个"
+            "một số"
         ],
         "usphone": "ˈsevrəl",
         "ukphone": "ˈsevrəl"
@@ -2098,7 +2098,7 @@
     {
         "name": "shared",
         "trans": [
-            "共享的"
+            "đã chia sẻ"
         ],
         "usphone": "ʃeəd",
         "ukphone": "ʃerd"
@@ -2106,7 +2106,7 @@
     {
         "name": "sharp",
         "trans": [
-            "锋利的；紧急的"
+            "sắc nét, khẩn cấp"
         ],
         "usphone": "ʃɑːp",
         "ukphone": "ʃɑːrp"
@@ -2114,7 +2114,7 @@
     {
         "name": "short",
         "trans": [
-            "短的"
+            "ngắn"
         ],
         "usphone": "ʃɔːt",
         "ukphone": "ʃɔːrt"
@@ -2122,7 +2122,7 @@
     {
         "name": "sick",
         "trans": [
-            "生病的"
+            "bị bệnh"
         ],
         "usphone": "sɪk",
         "ukphone": "sɪk"
@@ -2130,7 +2130,7 @@
     {
         "name": "silent",
         "trans": [
-            "安静的"
+            "yên tĩnh"
         ],
         "usphone": "ˈsaɪlənt",
         "ukphone": "ˈsaɪlənt"
@@ -2138,7 +2138,7 @@
     {
         "name": "silver",
         "trans": [
-            "银的"
+            "bạc"
         ],
         "usphone": "ˈsɪlvə",
         "ukphone": "ˈsɪlvər"
@@ -2146,7 +2146,7 @@
     {
         "name": "similar",
         "trans": [
-            "相似的"
+            "tương tự"
         ],
         "usphone": "ˈsɪmələ",
         "ukphone": "ˈsɪmələr"
@@ -2154,7 +2154,7 @@
     {
         "name": "simple",
         "trans": [
-            "简单的"
+            "đơn giản"
         ],
         "usphone": "ˈsɪmpl",
         "ukphone": "ˈsɪmpl"
@@ -2162,7 +2162,7 @@
     {
         "name": "sleepy",
         "trans": [
-            "想睡的"
+            "Muốn ngủ"
         ],
         "usphone": "ˈsliːpi",
         "ukphone": "ˈsliːpi"
@@ -2170,7 +2170,7 @@
     {
         "name": "slim",
         "trans": [
-            "苗条的"
+            "mảnh khảnh"
         ],
         "usphone": "slɪm",
         "ukphone": "slɪm"
@@ -2178,7 +2178,7 @@
     {
         "name": "smart",
         "trans": [
-            "聪明的"
+            "thông minh"
         ],
         "usphone": "smɑːt",
         "ukphone": "smɑːrt"
@@ -2186,7 +2186,7 @@
     {
         "name": "smelly",
         "trans": [
-            "有臭味的"
+            "có mùi hôi"
         ],
         "usphone": "ˈsmeli",
         "ukphone": "ˈsmeli"
@@ -2194,7 +2194,7 @@
     {
         "name": "social",
         "trans": [
-            "社会的"
+            "xã hội"
         ],
         "usphone": "ˈsəʊʃl",
         "ukphone": "ˈsoʊʃl"
@@ -2202,7 +2202,7 @@
     {
         "name": "solar",
         "trans": [
-            "太阳的"
+            "năng lượng mặt trời"
         ],
         "usphone": "ˈsəʊlə",
         "ukphone": "ˈsoʊlər"
@@ -2210,7 +2210,7 @@
     {
         "name": "soundproof",
         "trans": [
-            "隔音的"
+            "Cách âm"
         ],
         "usphone": "ˈsaʊn(d)pruːf",
         "ukphone": "ˈsaʊn(d)ˌpruf"
@@ -2218,7 +2218,7 @@
     {
         "name": "southern",
         "trans": [
-            "南方的"
+            "miền Nam"
         ],
         "usphone": "ˈsʌðən",
         "ukphone": "ˈsʌðərn"
@@ -2226,7 +2226,7 @@
     {
         "name": "spacious",
         "trans": [
-            "宽敞的，宽广的"
+            "rộng rãi"
         ],
         "usphone": "ˈspeɪʃəs",
         "ukphone": "ˈspeɪʃəs"
@@ -2234,7 +2234,7 @@
     {
         "name": "spare",
         "trans": [
-            "多余的"
+            "dư thừa"
         ],
         "usphone": "speə",
         "ukphone": "sper"
@@ -2242,7 +2242,7 @@
     {
         "name": "special",
         "trans": [
-            "特别的"
+            "đặc biệt"
         ],
         "usphone": "ˈspeʃl",
         "ukphone": "ˈspeʃl"
@@ -2250,7 +2250,7 @@
     {
         "name": "specialised",
         "trans": [
-            "特别的，专门的"
+            "đặc biệt, tận tâm"
         ],
         "usphone": "'speʃəlaɪzd",
         "ukphone": "'speʃəlaɪzd"
@@ -2258,7 +2258,7 @@
     {
         "name": "species",
         "trans": [
-            "种类，物种"
+            "loại, loài"
         ],
         "usphone": "ˈspiːʃiːz",
         "ukphone": "ˈspiːʃiːz"
@@ -2266,7 +2266,7 @@
     {
         "name": "specific",
         "trans": [
-            "特别的"
+            "đặc biệt"
         ],
         "usphone": "spəˈsɪfɪk",
         "ukphone": "spəˈsɪfɪk"
@@ -2274,7 +2274,7 @@
     {
         "name": "spiral",
         "trans": [
-            "螺旋的"
+            "xoắn ốc"
         ],
         "usphone": "ˈspaɪrəl",
         "ukphone": "ˈspaɪrəl"
@@ -2282,7 +2282,7 @@
     {
         "name": "stable",
         "trans": [
-            "adj.稳定的 n.马圈"
+            "tính từ ổn định n. bút ngựa"
         ],
         "usphone": "ˈsteɪbl",
         "ukphone": "ˈsteɪbl"
@@ -2290,7 +2290,7 @@
     {
         "name": "steady",
         "trans": [
-            "稳定的"
+            "ổn định"
         ],
         "usphone": "ˈstedi",
         "ukphone": "ˈstedi"
@@ -2298,7 +2298,7 @@
     {
         "name": "stout",
         "trans": [
-            "（形容人）结实 的，强壮的"
+            "(mô tả người) mạnh mẽ, mạnh mẽ"
         ],
         "usphone": "staʊt",
         "ukphone": "staʊt"
@@ -2306,7 +2306,7 @@
     {
         "name": "strained",
         "trans": [
-            "紧张的"
+            "lo lắng"
         ],
         "usphone": "streɪnd",
         "ukphone": "streɪnd"
@@ -2314,7 +2314,7 @@
     {
         "name": "stressful",
         "trans": [
-            "压力的"
+            "căng thẳng"
         ],
         "usphone": "ˈstresfl",
         "ukphone": "ˈstresfl"
@@ -2322,7 +2322,7 @@
     {
         "name": "stretching",
         "trans": [
-            "伸展的"
+            "kéo dài"
         ],
         "usphone": "ˈstretʃɪŋ",
         "ukphone": "ˈstretʃɪŋ"
@@ -2330,7 +2330,7 @@
     {
         "name": "strong",
         "trans": [
-            "强壮的"
+            "mạnh mẽ"
         ],
         "usphone": "strɒŋ",
         "ukphone": "strɔːŋ"
@@ -2338,7 +2338,7 @@
     {
         "name": "stronger",
         "trans": [
-            "更强的"
+            "mạnh mẽ hơn"
         ],
         "usphone": "ˈstrɒŋgə",
         "ukphone": "ˈstrɔːŋər"
@@ -2346,7 +2346,7 @@
     {
         "name": "subjective",
         "trans": [
-            "主观的"
+            "chủ quan"
         ],
         "usphone": "səbˈdʒektɪv",
         "ukphone": "səbˈdʒektɪv"
@@ -2354,7 +2354,7 @@
     {
         "name": "successful",
         "trans": [
-            "成功的"
+            "thành công"
         ],
         "usphone": "səkˈsesfl",
         "ukphone": "səkˈsesfl"
@@ -2362,7 +2362,7 @@
     {
         "name": "sufficient",
         "trans": [
-            "充分的"
+            "đầy đủ"
         ],
         "usphone": "səˈfɪʃnt",
         "ukphone": "səˈfɪʃnt"
@@ -2370,7 +2370,7 @@
     {
         "name": "suitable",
         "trans": [
-            "合适的"
+            "phù hợp"
         ],
         "usphone": "ˈsuːtəbl",
         "ukphone": "ˈsuːtəbl"
@@ -2378,7 +2378,7 @@
     {
         "name": "super",
         "trans": [
-            "超级的"
+            "siêu"
         ],
         "usphone": "ˈsuːpə",
         "ukphone": "ˈsuːpər"
@@ -2386,7 +2386,7 @@
     {
         "name": "surprised",
         "trans": [
-            "惊奇的"
+            "Đáng ngạc nhiên"
         ],
         "usphone": "səˈpraɪzd",
         "ukphone": "sərˈpraɪzd"
@@ -2394,7 +2394,7 @@
     {
         "name": "systematic",
         "trans": [
-            "系统的"
+            "có tính hệ thống"
         ],
         "usphone": "ˌsɪstəˈmætɪk",
         "ukphone": "ˌsɪstəˈmætɪk"
@@ -2402,7 +2402,7 @@
     {
         "name": "technical",
         "trans": [
-            "科技的"
+            "công nghệ"
         ],
         "usphone": "ˈteknɪkl",
         "ukphone": "ˈteknɪkl"
@@ -2410,7 +2410,7 @@
     {
         "name": "theoretical",
         "trans": [
-            "理论的"
+            "lý thuyết"
         ],
         "usphone": "ˌθɪəˈretɪkl",
         "ukphone": "ˌθiːəˈretɪkl"
@@ -2418,7 +2418,7 @@
     {
         "name": "traditional",
         "trans": [
-            "传统的"
+            "truyền thống"
         ],
         "usphone": "trəˈdɪʃənl",
         "ukphone": "trəˈdɪʃənl"
@@ -2426,7 +2426,7 @@
     {
         "name": "troublesome",
         "trans": [
-            "带来麻烦的"
+            "mang lại rắc rối"
         ],
         "usphone": "ˈtrʌblsəm",
         "ukphone": "ˈtrʌblsəm"
@@ -2434,7 +2434,7 @@
     {
         "name": "typical",
         "trans": [
-            "典型的"
+            "điển hình"
         ],
         "usphone": "ˈtɪpɪkl",
         "ukphone": "ˈtɪpɪkl"
@@ -2442,7 +2442,7 @@
     {
         "name": "unanimous",
         "trans": [
-            "意见一致的"
+            "nhất trí"
         ],
         "usphone": "juˈnænɪməs",
         "ukphone": "juˈnænɪməs"
@@ -2450,7 +2450,7 @@
     {
         "name": "uncomfortable",
         "trans": [
-            "不舒服的"
+            "khó chịu"
         ],
         "usphone": "ʌnˈkʌmftəbl",
         "ukphone": "ʌnˈkʌmftəbl"
@@ -2458,7 +2458,7 @@
     {
         "name": "unconvincing",
         "trans": [
-            "没有说服力的"
+            "không thuyết phục"
         ],
         "usphone": "ˌənˈkɑnvɪnsɪŋ",
         "ukphone": "ˌʌnkənˈvɪnsɪŋ"
@@ -2466,7 +2466,7 @@
     {
         "name": "underground",
         "trans": [
-            "地下的"
+            "dưới lòng đất"
         ],
         "usphone": "ˌʌndəˈɡraʊnd , ˈʌndəɡraʊnd",
         "ukphone": "ˌʌndərˈɡraʊnd , ˈʌndərɡraʊnd"
@@ -2474,7 +2474,7 @@
     {
         "name": "unfair",
         "trans": [
-            "不公平的"
+            "không công bằng"
         ],
         "usphone": "ˌʌnˈfeə",
         "ukphone": "ˌʌnˈfer"
@@ -2482,7 +2482,7 @@
     {
         "name": "unhealthy",
         "trans": [
-            "不健康的"
+            "không khỏe mạnh"
         ],
         "usphone": "ʌnˈhelθi",
         "ukphone": "ʌnˈhelθi"
@@ -2490,7 +2490,7 @@
     {
         "name": "unique",
         "trans": [
-            "独特的"
+            "độc nhất"
         ],
         "usphone": "juˈniːk",
         "ukphone": "juˈniːk"
@@ -2498,7 +2498,7 @@
     {
         "name": "united",
         "trans": [
-            "联合的"
+            "Hoa"
         ],
         "usphone": "jʊ'naɪtɪd",
         "ukphone": "jʊ'naɪtɪd"
@@ -2506,7 +2506,7 @@
     {
         "name": "unreliable",
         "trans": [
-            "不可依赖的"
+            "không đáng tin cậy"
         ],
         "usphone": "ˌʌnrɪˈlaɪəbl",
         "ukphone": "ˌʌnrɪˈlaɪəbl"
@@ -2514,7 +2514,7 @@
     {
         "name": "unsocial",
         "trans": [
-            "不合群的"
+            "Khó gần"
         ],
         "usphone": "ˌənˈsoʊʃəl",
         "ukphone": "ˌʌnˈsəʊʃəl"
@@ -2522,7 +2522,7 @@
     {
         "name": "unusual",
         "trans": [
-            "非同寻常的"
+            "phi thường"
         ],
         "usphone": "ʌnˈjuːʒuəl",
         "ukphone": "ʌnˈjuːʒuəl"
@@ -2530,7 +2530,7 @@
     {
         "name": "useful",
         "trans": [
-            "有用的"
+            "hữu ích"
         ],
         "usphone": "ˈjuːsfl",
         "ukphone": "ˈjuːsfl"
@@ -2538,7 +2538,7 @@
     {
         "name": "useless",
         "trans": [
-            "没用的"
+            "vô dụng"
         ],
         "usphone": "ˈjuːsləs",
         "ukphone": "ˈjuːsləs"
@@ -2546,7 +2546,7 @@
     {
         "name": "usual",
         "trans": [
-            "平常的，普通的"
+            "bình thường, tầm thường"
         ],
         "usphone": "ˈjuːʒuəl",
         "ukphone": "ˈjuːʒuəl"
@@ -2554,7 +2554,7 @@
     {
         "name": "various",
         "trans": [
-            "各种的"
+            "khác nhau"
         ],
         "usphone": "ˈveəriəs",
         "ukphone": "ˈveriəs"
@@ -2562,7 +2562,7 @@
     {
         "name": "violent",
         "trans": [
-            "猛烈的，暴力的"
+            "khốc liệt, bạo lực"
         ],
         "usphone": "ˈvaɪələnt",
         "ukphone": "ˈvaɪələnt"
@@ -2570,7 +2570,7 @@
     {
         "name": "virtual",
         "trans": [
-            "虚拟的"
+            "ảo"
         ],
         "usphone": "ˈvɜːtʃuəl",
         "ukphone": "ˈvɜːrtʃuəl"
@@ -2578,7 +2578,7 @@
     {
         "name": "visible",
         "trans": [
-            "可见的"
+            "có thể nhìn thấy"
         ],
         "usphone": "ˈvɪzəbl",
         "ukphone": "ˈvɪzəbl"
@@ -2586,7 +2586,7 @@
     {
         "name": "visual",
         "trans": [
-            "视觉的"
+            "trực quan"
         ],
         "usphone": "ˈvɪʒuəl",
         "ukphone": "ˈvɪʒuəl"
@@ -2594,7 +2594,7 @@
     {
         "name": "warm",
         "trans": [
-            "温暖的"
+            "ấm áp"
         ],
         "usphone": "wɔːm",
         "ukphone": "wɔːrm"
@@ -2602,7 +2602,7 @@
     {
         "name": "washable",
         "trans": [
-            "可洗的"
+            "có thể giặt được"
         ],
         "usphone": "ˈwɑʃəbl̩",
         "ukphone": "ˈwɒʃəbl̩"
@@ -2610,7 +2610,7 @@
     {
         "name": "wealthy",
         "trans": [
-            "有钱的"
+            "giàu có"
         ],
         "usphone": "ˈwelθi",
         "ukphone": "ˈwelθi"
@@ -2618,7 +2618,7 @@
     {
         "name": "weekly",
         "trans": [
-            "每周的"
+            "hàng tuần"
         ],
         "usphone": "ˈwiːkli",
         "ukphone": "ˈwiːkli"
@@ -2626,7 +2626,7 @@
     {
         "name": "western",
         "trans": [
-            "西方的"
+            "phương Tây"
         ],
         "usphone": "'wɛstɚn",
         "ukphone": "'west(ə)n"
@@ -2634,7 +2634,7 @@
     {
         "name": "whole",
         "trans": [
-            "整个的"
+            "toàn bộ"
         ],
         "usphone": "həʊl",
         "ukphone": "hoʊl"
@@ -2642,7 +2642,7 @@
     {
         "name": "wide",
         "trans": [
-            "广泛的"
+            "rộng rãi"
         ],
         "usphone": "waɪd",
         "ukphone": "waɪd"
@@ -2650,7 +2650,7 @@
     {
         "name": "wise",
         "trans": [
-            "明智的"
+            "khôn ngoan"
         ],
         "usphone": "waɪz",
         "ukphone": "waɪz"
@@ -2658,7 +2658,7 @@
     {
         "name": "worthwhile",
         "trans": [
-            "值得的"
+            "đáng giá"
         ],
         "usphone": "ˌwɜːθˈwaɪl",
         "ukphone": "ˌwɜːrθˈwaɪl"
@@ -2666,7 +2666,7 @@
     {
         "name": "worthy",
         "trans": [
-            "值得做某事"
+            "đáng làm điều gì đó"
         ],
         "usphone": "ˈwɜːði",
         "ukphone": "ˈwɜːrði"
@@ -2674,7 +2674,7 @@
     {
         "name": "almost",
         "trans": [
-            "几乎，差不多"
+            "gần như"
         ],
         "usphone": "ˈɔːlməʊst",
         "ukphone": "ˈɔːlmoʊst"
@@ -2682,7 +2682,7 @@
     {
         "name": "currently",
         "trans": [
-            "目前地"
+            "vị trí hiện tại"
         ],
         "usphone": "ˈkʌrəntli",
         "ukphone": "ˈkɜːrəntli"
@@ -2690,7 +2690,7 @@
     {
         "name": "directly",
         "trans": [
-            "直接地"
+            "trực tiếp"
         ],
         "usphone": "dəˈrektli",
         "ukphone": "dəˈrektli"
@@ -2698,7 +2698,7 @@
     {
         "name": "effectively",
         "trans": [
-            "有效地"
+            "một cách hiệu quả"
         ],
         "usphone": "ɪˈfektɪvli",
         "ukphone": "ɪˈfektɪvli"
@@ -2706,7 +2706,7 @@
     {
         "name": "efficiently",
         "trans": [
-            "有效率地"
+            "hiệu quả"
         ],
         "usphone": "ɪˈfɪʃntli",
         "ukphone": "ɪˈfɪʃntli"
@@ -2714,7 +2714,7 @@
     {
         "name": "originally",
         "trans": [
-            "最初地"
+            "ban đầu"
         ],
         "usphone": "əˈrɪdʒənəli",
         "ukphone": "əˈrɪdʒənəli"
@@ -2722,7 +2722,7 @@
     {
         "name": "physically",
         "trans": [
-            "身体地"
+            "về thể chất"
         ],
         "usphone": "ˈfɪzɪkli",
         "ukphone": "ˈfɪzɪkli"
@@ -2730,7 +2730,7 @@
     {
         "name": "professionally",
         "trans": [
-            "专业地"
+            "một cách chuyên nghiệp"
         ],
         "usphone": "prəˈfeʃənəli",
         "ukphone": "prəˈfeʃənəli"
@@ -2738,7 +2738,7 @@
     {
         "name": "rapidly",
         "trans": [
-            "快速地"
+            "nhanh chóng"
         ],
         "usphone": "ˈræpɪdli",
         "ukphone": "ˈræpɪdli"
@@ -2746,7 +2746,7 @@
     {
         "name": "regularly",
         "trans": [
-            "定期地"
+            "thường xuyên"
         ],
         "usphone": "ˈreɡjələli",
         "ukphone": "ˈreɡjələrli"
@@ -2754,7 +2754,7 @@
     {
         "name": "scarcely",
         "trans": [
-            "不足地"
+            "không đầy đủ"
         ],
         "usphone": "ˈskeəsli",
         "ukphone": "ˈskersli"
@@ -2762,7 +2762,7 @@
     {
         "name": "virtually",
         "trans": [
-            "几乎"
+            "gần như"
         ],
         "usphone": "ˈvɜːtʃuəli",
         "ukphone": "ˈvɜːrtʃuəli"

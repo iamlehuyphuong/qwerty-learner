@@ -2,217 +2,217 @@
     {
         "name": "pedestrian",
         "trans": [
-            "n. 行人"
+            "n. người đi bộ"
         ]
     },
     {
         "name": "safety",
         "trans": [
-            "n. 安全"
+            "n. an toàn"
         ]
     },
     {
         "name": "traffic accident",
         "trans": [
-            "n. 交通事故"
+            "n. tai nạn giao thông"
         ]
     },
     {
         "name": "traffic jam",
         "trans": [
-            "n. 交通堵塞"
+            "n. ùn tắc giao thông"
         ]
     },
     {
         "name": "traffic congestion",
         "trans": [
-            "n. 交通堵塞"
+            "n. ùn tắc giao thông"
         ]
     },
     {
         "name": "pollution",
         "trans": [
-            "n. 污染"
+            "n. sự ô nhiễm"
         ]
     },
     {
         "name": "install",
         "trans": [
-            "v. 安装"
+            "v. Cài đặt"
         ]
     },
     {
         "name": "traffic light",
         "trans": [
-            "n. 交通信号灯"
+            "n. đèn giao thông"
         ]
     },
     {
         "name": "crossroads",
         "trans": [
-            "n. 十字路口"
+            "n. ngã tư"
         ]
     },
     {
         "name": "intersection",
         "trans": [
-            "n. 十字路口"
+            "n. ngã tư"
         ]
     },
     {
         "name": "junction",
         "trans": [
-            "n. 路口"
+            "n. ngã tư"
         ]
     },
     {
         "name": "erect",
         "trans": [
-            "v. 树立"
+            "v. thành lập"
         ]
     },
     {
         "name": "sign",
         "trans": [
-            "n. 标志"
+            "n. biểu tượng"
         ]
     },
     {
         "name": "keep clear",
         "trans": [
-            "禁止占用"
+            "Không được phép làm nghề"
         ]
     },
     {
         "name": "out of bounds",
         "trans": [
-            "禁止入内"
+            "Không được phép vào"
         ]
     },
     {
         "name": "pavement",
         "trans": [
-            "n. 人行道"
+            "n. vỉa hè"
         ]
     },
     {
         "name": "footpath",
         "trans": [
-            "n. 人行道"
+            "n. vỉa hè"
         ]
     },
     {
         "name": "widen",
         "trans": [
-            "v. 使……变宽"
+            "v. làm rộng hơn"
         ]
     },
     {
         "name": "colour",
         "trans": [
-            "v. 给……着色"
+            "v. màu sắc"
         ]
     },
     {
         "name": "mark",
         "trans": [
-            "v. 做标记"
+            "v. đánh dấu"
         ]
     },
     {
         "name": "bend",
         "trans": [
-            "n. 转弯处"
+            "n. bước ngoặt"
         ]
     },
     {
         "name": "corner",
         "trans": [
-            "n. 转弯处"
+            "n. bước ngoặt"
         ]
     },
     {
         "name": "cycle path/ lane",
         "trans": [
-            "n. 自行车道"
+            "n. đường dành cho xe đạp"
         ]
     },
     {
         "name": "separate",
         "trans": [
-            "adj. 分开的，单独的"
+            "adj. riêng biệt"
         ]
     },
     {
         "name": "parking",
         "trans": [
-            "n. 停车"
+            "n. bãi đậu xe"
         ]
     },
     {
         "name": "car park",
         "trans": [
-            "n. 【英】停车场"
+            "n. [Anh]Bãi đậu xe"
         ]
     },
     {
         "name": "parking lot",
         "trans": [
-            "n. 【美】停车场"
+            "n. [US]Bãi đậu xe"
         ]
     },
     {
         "name": "disabled",
         "trans": [
-            "adj. 残疾的"
+            "adj. bị vô hiệu hóa"
         ]
     },
     {
         "name": "pay and display",
         "trans": [
-            "泊车付费系统"
+            "Hệ thống thanh toán bãi đậu xe"
         ]
     },
     {
         "name": "regulation",
         "trans": [
-            "n. 法规，规则"
+            "n. quy định, quy tắc"
         ]
     },
     {
         "name": "regulate",
         "trans": [
-            "v. 控制，调节"
+            "v. kiểm soát, điều tiết"
         ]
     },
     {
         "name": "restriction",
         "trans": [
-            "n. 限制"
+            "n. giới hạn"
         ]
     },
     {
         "name": "lorry",
         "trans": [
-            "n. 卡车"
+            "n. xe tải"
         ]
     },
     {
         "name": "load",
         "trans": [
-            "v. 装载"
+            "v. tải"
         ]
     },
     {
         "name": "obey",
         "trans": [
-            "v. 遵守"
+            "v. tuân thủ"
         ]
     },
     {
         "name": "ban",
         "trans": [
-            "v. 禁止"
+            "v. bị cấm"
         ]
     }
 ]

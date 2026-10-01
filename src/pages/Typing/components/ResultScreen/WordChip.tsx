@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import usePronunciationSound from '@/hooks/usePronunciation'
 import type { WordWithIndex } from '@/typings'
 import { flip, offset, shift, useFloating, useHover, useInteractions, useRole } from '@floating-ui/react'
@@ -22,16 +23,17 @@ export default function WordChip({ word }: { word: WordWithIndex }) {
 
   return (
     <>
-      <button
+      <Badge
         ref={refs.setReference}
-        className="word-chip select-all"
-        {...getReferenceProps()}
-        type="button"
-        onClick={onClickWord}
+        variant="outline"
+        color="neutral"
+        size="lg"
+        className="cursor-pointer select-all font-mono text-lg dark:border-slate-600 dark:hover:bg-slate-700/40"
         title={`đọc to ${word.name}`}
+        {...getReferenceProps({ onClick: onClickWord })}
       >
-        <span>{word.name}</span>
-      </button>
+        {word.name}
+      </Badge>
       {showTranslation && (
         <div
           ref={refs.setFloating}

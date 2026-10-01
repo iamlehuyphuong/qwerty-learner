@@ -1,310 +1,468 @@
 [
     {
         "name": "limitation",
-        "trans": ["n. 限制"]
+        "trans": [
+            "n. giới hạn"
+        ]
     },
     {
         "name": "grassland",
-        "trans": ["n. 草原"]
+        "trans": [
+            "n. đồng cỏ"
+        ]
     },
     {
         "name": "marine",
-        "trans": ["adj. 海洋的", "海事的"]
+        "trans": [
+            "adj. đại dương",
+            "hàng hải"
+        ]
     },
     {
         "name": "undergraduate",
-        "trans": ["n. 大学生"]
+        "trans": [
+            "n. sinh viên đại học"
+        ]
     },
     {
         "name": "scrub",
-        "trans": ["v. 用力擦洗"]
+        "trans": [
+            "v. Chà mạnh"
+        ]
     },
     {
         "name": "journal",
-        "trans": ["n. 期刊"]
+        "trans": [
+            "n. tạp chí"
+        ]
     },
     {
         "name": "base",
-        "trans": ["n. 基础", "基地"]
+        "trans": [
+            "n. Khái niệm cơ bản",
+            "căn cứ"
+        ]
     },
     {
         "name": "archaeology",
-        "trans": ["n. 考古学"]
+        "trans": [
+            "n. Khảo cổ học"
+        ]
     },
     {
         "name": "reference",
-        "trans": ["n. 参考", "参考书"]
+        "trans": [
+            "n. Tài liệu tham khảo",
+            "Sách tham khảo"
+        ]
     },
     {
         "name": "classical",
-        "trans": ["adj. 古典的"]
+        "trans": [
+            "adj. cổ điển"
+        ]
     },
     {
         "name": "brief",
-        "trans": ["adj. 简短的"]
+        "trans": [
+            "adj. ngắn"
+        ]
     },
     {
         "name": "module",
-        "trans": ["n. 模块"]
+        "trans": [
+            "n. mô-đun"
+        ]
     },
     {
         "name": "compulsory",
-        "trans": ["adj. 必修的"]
+        "trans": [
+            "adj. bắt buộc"
+        ]
     },
     {
         "name": "classification",
-        "trans": ["n. 分类"]
+        "trans": [
+            "n. Phân loại"
+        ]
     },
     {
         "name": "score",
-        "trans": ["n. 分数"]
+        "trans": [
+            "n. ghi điểm"
+        ]
     },
     {
         "name": "judge",
-        "trans": ["v. 判断"]
+        "trans": [
+            "v. thẩm phán"
+        ]
     },
     {
         "name": "coursework",
-        "trans": ["n. 课程作业"]
+        "trans": [
+            "n. bài tập"
+        ]
     },
     {
         "name": "origin",
-        "trans": ["n. 起源"]
+        "trans": [
+            "n. Xuất xứ"
+        ]
     },
     {
         "name": "oral",
-        "trans": ["adj. 口头的"]
+        "trans": [
+            "adj. bằng lời nói"
+        ]
     },
     {
         "name": "engine",
-        "trans": ["n. 发动机"]
+        "trans": [
+            "n. động cơ"
+        ]
     },
     {
         "name": "capacity",
-        "trans": ["n. 容量", "能力"]
+        "trans": [
+            "n. công suất",
+            "khả năng"
+        ]
     },
     {
         "name": "prefer",
-        "trans": ["v. 更喜欢"]
+        "trans": [
+            "v. thích hơn"
+        ]
     },
     {
         "name": "commercial",
-        "trans": ["adj. 商业的"]
+        "trans": [
+            "adj. thương mại"
+        ]
     },
     {
         "name": "reliable",
-        "trans": ["adj. 可靠的"]
+        "trans": [
+            "adj. đáng tin cậy"
+        ]
     },
     {
         "name": "roll over",
-        "trans": ["v. 翻滚"]
+        "trans": [
+            "v. cuộn"
+        ]
     },
     {
         "name": "harmful",
-        "trans": ["adj. 有害的"]
+        "trans": [
+            "adj. Có hại"
+        ]
     },
     {
         "name": "statistics",
-        "trans": ["n. 统计学"]
+        "trans": [
+            "n. Thống kê"
+        ]
     },
     {
         "name": "note",
-        "trans": ["n. 笔记"]
+        "trans": [
+            "n. Ghi chú"
+        ]
     },
     {
         "name": "raise",
-        "trans": ["v. 提高"]
+        "trans": [
+            "v. cải thiện"
+        ]
     },
     {
         "name": "cost",
-        "trans": ["n. 花费"]
+        "trans": [
+            "n. chi phí"
+        ]
     },
     {
         "name": "reputation",
-        "trans": ["n. 名望"]
+        "trans": [
+            "n. danh tiếng"
+        ]
     },
     {
         "name": "software",
-        "trans": ["n. 软件"]
+        "trans": [
+            "n. Phần mềm"
+        ]
     },
     {
         "name": "creative",
-        "trans": ["adj. 有创造力的"]
+        "trans": [
+            "adj. sáng tạo"
+        ]
     },
     {
         "name": "diploma",
-        "trans": ["n. 毕业证书"]
+        "trans": [
+            "n. bằng tốt nghiệp"
+        ]
     },
     {
         "name": "respondent",
-        "trans": ["n. 回答者"]
+        "trans": [
+            "n. Bị đơn"
+        ]
     },
     {
         "name": "uncertain",
-        "trans": ["adj. 不确定的"]
+        "trans": [
+            "adj. không chắc chắn"
+        ]
     },
     {
         "name": "gradual",
-        "trans": ["adj. 逐渐的"]
+        "trans": [
+            "adj. dần dần"
+        ]
     },
     {
         "name": "privacy",
-        "trans": ["n. 隐私"]
+        "trans": [
+            "n. Quyền riêng tư"
+        ]
     },
     {
         "name": "margin",
-        "trans": ["n. 边缘"]
+        "trans": [
+            "n. cạnh"
+        ]
     },
     {
         "name": "interaction",
-        "trans": ["n. 互动"]
+        "trans": [
+            "n. tương tác"
+        ]
     },
     {
         "name": "bibliography",
-        "trans": ["n. 参考书目"]
+        "trans": [
+            "n. Thư mục"
+        ]
     },
     {
         "name": "scale",
-        "trans": ["n. 规模"]
+        "trans": [
+            "n. quy mô"
+        ]
     },
     {
         "name": "legislation",
-        "trans": ["n. 法律"]
+        "trans": [
+            "n. pháp luật"
+        ]
     },
     {
         "name": "flexibility",
-        "trans": ["n. 灵活性"]
+        "trans": [
+            "n. Tính linh hoạt"
+        ]
     },
     {
         "name": "overweigh",
-        "trans": ["v. 比...重要"]
+        "trans": [
+            "v. quan trọng hơn"
+        ]
     },
     {
         "name": "psycholinguistics",
-        "trans": ["n. 心理语言学"]
+        "trans": [
+            "n. tâm lý học"
+        ]
     },
     {
         "name": "distinguish",
-        "trans": ["v. 区别"]
+        "trans": [
+            "v. sự khác biệt"
+        ]
     },
     {
         "name": "explode",
-        "trans": ["v. 爆炸"]
+        "trans": [
+            "v. vụ nổ"
+        ]
     },
     {
         "name": "celebrity",
-        "trans": ["n. 名人"]
+        "trans": [
+            "n. người nổi tiếng"
+        ]
     },
     {
         "name": "pigeon",
-        "trans": ["n. 鸽子"]
+        "trans": [
+            "n. chim bồ câu"
+        ]
     },
     {
         "name": "vague",
-        "trans": ["adj. 模糊的"]
+        "trans": [
+            "adj. mơ hồ"
+        ]
     },
     {
         "name": "exploit",
-        "trans": ["v. 开发"]
+        "trans": [
+            "v. phát triển"
+        ]
     },
     {
         "name": "disguise",
-        "trans": ["v. 伪装"]
+        "trans": [
+            "v. Ngụy trang"
+        ]
     },
     {
         "name": "index",
-        "trans": ["n. 索引"]
+        "trans": [
+            "n. chỉ mục"
+        ]
     },
     {
         "name": "text",
-        "trans": ["n. 文本"]
+        "trans": [
+            "n. văn bản"
+        ]
     },
     {
         "name": "factual",
-        "trans": ["adj. 事实的"]
+        "trans": [
+            "adj. thực tế"
+        ]
     },
     {
         "name": "digital",
-        "trans": ["adj. 数字的"]
+        "trans": [
+            "adj. kỹ thuật số"
+        ]
     },
     {
         "name": "editor",
-        "trans": ["n. 编辑"]
+        "trans": [
+            "n. Chỉnh sửa"
+        ]
     },
     {
         "name": "status",
-        "trans": ["n. 地位"]
+        "trans": [
+            "n. trạng thái"
+        ]
     },
     {
         "name": "theoretical",
-        "trans": ["adj. 理论上的"]
+        "trans": [
+            "adj. Về mặt lý thuyết"
+        ]
     },
     {
         "name": "freedom",
-        "trans": ["n. 自由"]
+        "trans": [
+            "n. sự tự do"
+        ]
     },
     {
         "name": "challenging",
-        "trans": ["adj. 挑战的"]
+        "trans": [
+            "adj. đầy thử thách"
+        ]
     },
     {
         "name": "background",
-        "trans": ["n. 背景"]
+        "trans": [
+            "n. nền"
+        ]
     },
     {
         "name": "overview",
-        "trans": ["n. 概览"]
+        "trans": [
+            "n. Tổng quan"
+        ]
     },
     {
         "name": "existing",
-        "trans": ["adj. 现存的"]
+        "trans": [
+            "adj. hiện có"
+        ]
     },
     {
         "name": "chat",
-        "trans": ["n. 聊天"]
+        "trans": [
+            "n. trò chuyện"
+        ]
     },
     {
         "name": "technology",
-        "trans": ["n. 技术"]
+        "trans": [
+            "n. công nghệ"
+        ]
     },
     {
         "name": "debate",
-        "trans": ["v. 辩论"]
+        "trans": [
+            "v. Tranh luận"
+        ]
     },
     {
         "name": "friendliness",
-        "trans": ["n. 友好"]
+        "trans": [
+            "n. Thân thiện"
+        ]
     },
     {
         "name": "exchange",
-        "trans": ["v. 交换"]
+        "trans": [
+            "v. trao đổi"
+        ]
     },
     {
         "name": "conclusion",
-        "trans": ["n. 结论"]
+        "trans": [
+            "n. Kết luận"
+        ]
     },
     {
         "name": "secretary",
-        "trans": ["n. 秘书"]
+        "trans": [
+            "n. thư ký"
+        ]
     },
     {
         "name": "upper",
-        "trans": ["adj. 上层的"]
+        "trans": [
+            "adj. tầng lớp thượng lưu"
+        ]
     },
     {
         "name": "cautious",
-        "trans": ["adj. 谨慎的"]
+        "trans": [
+            "adj. thận trọng"
+        ]
     },
     {
         "name": "dissertation",
-        "trans": ["n. 论文"]
+        "trans": [
+            "n. Giấy"
+        ]
     },
     {
         "name": "methodology",
-        "trans": ["n. 方法论"]
+        "trans": [
+            "n. phương pháp luận"
+        ]
     },
     {
         "name": "generalisation",
-        "trans": ["n. 概括"]
+        "trans": [
+            "n. khái quát hóa"
+        ]
     }
 ]

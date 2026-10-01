@@ -2,265 +2,265 @@
     {
         "name": "reserve",
         "trans": [
-            "v. 预定"
+            "v. Sách"
         ]
     },
     {
         "name": "book",
         "trans": [
-            "v. 预定"
+            "v. Sách"
         ]
     },
     {
         "name": "rent",
         "trans": [
-            "v. 租"
+            "v. thuê"
         ]
     },
     {
         "name": "hire",
         "trans": [
-            "v. 租"
+            "v. thuê"
         ]
     },
     {
         "name": "room",
         "trans": [
-            "n. 房间；空间"
+            "n. phòng, không gian"
         ]
     },
     {
         "name": "in advance",
         "trans": [
-            "adv. 提前"
+            "adv. trước"
         ]
     },
     {
         "name": "event",
         "trans": [
-            "n. 事由，事件"
+            "n. nguyên nhân, sự việc"
         ]
     },
     {
         "name": "ceremony",
         "trans": [
-            "n. 仪式，典礼"
+            "n. buổi lễ"
         ]
     },
     {
         "name": "conference",
         "trans": [
-            "n. 会议"
+            "n. cuộc họp"
         ]
     },
     {
         "name": "anniversary",
         "trans": [
-            "n. 纪念日"
+            "n. ngày kỷ niệm"
         ]
     },
     {
         "name": "facility",
         "trans": [
-            "n. 设施"
+            "n. cơ sở vật chất"
         ]
     },
     {
         "name": "hall",
         "trans": [
-            "n. 礼堂"
+            "n. khán phòng"
         ]
     },
     {
         "name": "projector",
         "trans": [
-            "n. 投影仪"
+            "n. máy chiếu"
         ]
     },
     {
         "name": "microphone",
         "trans": [
-            "n. 话筒"
+            "n. Micrô"
         ]
     },
     {
         "name": "cater",
         "trans": [
-            "v. 为……提供餐饮"
+            "v. Phục vụ cho"
         ]
     },
     {
         "name": "buffet",
         "trans": [
-            "n. 自助餐"
+            "n. Buffet"
         ]
     },
     {
         "name": "entertainment",
         "trans": [
-            "n. 娱乐"
+            "n. Giải trí"
         ]
     },
     {
         "name": "gym",
         "trans": [
-            "n. 健身房"
+            "n. phòng tập thể dục"
         ]
     },
     {
         "name": "spa",
         "trans": [
-            "n. 水疗"
+            "n. spa"
         ]
     },
     {
         "name": "live",
         "trans": [
-            "adj. 现场的"
+            "adj. sống"
         ]
     },
     {
         "name": "band",
         "trans": [
-            "n. 乐队"
+            "n. ban nhạc"
         ]
     },
     {
         "name": "rooftop",
         "trans": [
-            "n. 屋顶"
+            "n. mái nhà"
         ]
     },
     {
         "name": "gallery",
         "trans": [
-            "n. 画廊"
+            "n. phòng trưng bày"
         ]
     },
     {
         "name": "payment",
         "trans": [
-            "n. 付款"
+            "n. thanh toán"
         ]
     },
     {
         "name": "charge",
         "trans": [
-            "v. 收费"
+            "v. Tính phí"
         ]
     },
     {
         "name": "discount",
         "trans": [
-            "n. 折扣"
+            "n. Giảm giá"
         ]
     },
     {
         "name": "deposit",
         "trans": [
-            "n. 定金, 存款"
+            "n. đặt cọc"
         ]
     },
     {
         "name": "cash",
         "trans": [
-            "n. 现金"
+            "n. Tiền mặt"
         ]
     },
     {
         "name": "credit card",
         "trans": [
-            "n. 信用卡"
+            "n. thẻ tín dụng"
         ]
     },
     {
         "name": "check / cheque",
         "trans": [
-            "n. 支票"
+            "n. kiểm tra"
         ]
     },
     {
         "name": "transport",
         "trans": [
-            "n. 交通"
+            "n. vận chuyển"
         ]
     },
     {
         "name": "flight",
         "trans": [
-            "n. 飞机，航班"
+            "n. máy bay, chuyến bay"
         ]
     },
     {
         "name": "shuttle",
         "trans": [
-            "n. 通勤大巴"
+            "n. xe buýt đi lại"
         ]
     },
     {
         "name": "door-to-door",
         "trans": [
-            "adj. 门对门的"
+            "adj. cửa đến cửa"
         ]
     },
     {
         "name": "departure",
         "trans": [
-            "n. 出发"
+            "n. khởi hành"
         ]
     },
     {
         "name": "arrival",
         "trans": [
-            "n. 到达"
+            "n. Đến"
         ]
     },
     {
         "name": "transfer",
         "trans": [
-            "v. 换乘"
+            "v. chuyển nhượng"
         ]
     },
     {
         "name": "connection",
         "trans": [
-            "n. 联运，转机转车"
+            "n. vận tải đa phương thức, chuyển giao"
         ]
     },
     {
         "name": "solar",
         "trans": [
-            "adj. 太阳能的"
+            "adj. năng lượng mặt trời"
         ]
     },
     {
         "name": "licence / license",
         "trans": [
-            "n. 许可证"
+            "n. giấy phép"
         ]
     },
     {
         "name": "taxi",
         "trans": [
-            "n. 出租车"
+            "n. Taxi"
         ]
     },
     {
         "name": "cab",
         "trans": [
-            "n. 出租车"
+            "n. Taxi"
         ]
     },
     {
         "name": "tram",
         "trans": [
-            "n. 有轨电车"
+            "n. xe điện"
         ]
     },
     {
         "name": "helicopter",
         "trans": [
-            "n. 直升机"
+            "n. máy bay trực thăng"
         ]
     }
 ]

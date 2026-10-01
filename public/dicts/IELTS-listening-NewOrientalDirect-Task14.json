@@ -2,277 +2,277 @@
     {
         "name": "ferry",
         "trans": [
-            "n. （尤指定期的）渡船，轮渡"
+            "n. một chiếc phà (đặc biệt là một chuyến theo lịch trình)"
         ]
     },
     {
         "name": "boat",
         "trans": [
-            "n. 艇；小船"
+            "n. thuyền"
         ]
     },
     {
         "name": "ship",
         "trans": [
-            "n. （尤指航海的）大船，海轮，轮船，舰"
+            "n. (đặc biệt là hàng hải) tàu, tàu biển, tàu"
         ]
     },
     {
         "name": "steam ship",
         "trans": [
-            "n. 汽船；轮船"
+            "n. tàu hơi nước, nồi hấp"
         ]
     },
     {
         "name": "harbor",
         "trans": [
-            "n. 港口，港湾"
+            "n. cảng, bến cảng"
         ]
     },
     {
         "name": "fly",
         "trans": [
-            "v. （鸟、昆虫或飞机）飞，飞行"
+            "v. (của một con chim, côn trùng hoặc máy bay) bay"
         ]
     },
     {
         "name": "airport",
         "trans": [
-            "n. 航空站，航空港，机场"
+            "n. nhà ga hàng không, sân bay"
         ]
     },
     {
         "name": "terminal",
         "trans": [
-            "n. 航空站，终点站"
+            "n. sân bay, nhà ga"
         ]
     },
     {
         "name": "train",
         "trans": [
-            "n. 火车，列车"
+            "n. xe lửa"
         ]
     },
     {
         "name": "tram",
         "trans": [
-            "n. （通常在市内运营的）有轨电车"
+            "n. một chiếc xe điện thường hoạt động trong thành phố"
         ]
     },
     {
         "name": "coach",
         "trans": [
-            "n. 教练；辅导老师；私人教师；家庭教师"
+            "n. huấn luyện viên, gia sư, gia sư riêng"
         ]
     },
     {
         "name": "minibus",
         "trans": [
-            "n. 小型公共汽车；中巴车"
+            "n. xe buýt nhỏ"
         ]
     },
     {
         "name": "attraction",
         "trans": [
-            "n. 吸引（力）；有吸引力的事物"
+            "n. Lực hấp dẫn (lực), những điều hấp dẫn"
         ]
     },
     {
         "name": "places of interest",
         "trans": [
-            "n. 名胜古迹"
+            "n. địa điểm yêu thích"
         ]
     },
     {
         "name": "theme park",
         "trans": [
-            "n. 主题公园"
+            "n. công viên giải trí"
         ]
     },
     {
         "name": "campsite",
         "trans": [
-            "n. 度假营地；野营地，宿营地"
+            "n. trại nghỉ mát, khu cắm trại"
         ]
     },
     {
         "name": "castle",
         "trans": [
-            "n. 城堡；堡垒"
+            "n. lâu đài, pháo đài"
         ]
     },
     {
         "name": "desert",
         "trans": [
-            "n. 沙漠，荒漠"
+            "n. sa mạc"
         ]
     },
     {
         "name": "mountain",
         "trans": [
-            "n. （高）山，山岳"
+            "n. (cao) núi, núi"
         ]
     },
     {
         "name": "forest",
         "trans": [
-            "n. 森林；林区"
+            "n. rừng, diện tích rừng"
         ]
     },
     {
         "name": "lake",
         "trans": [
-            "n. 湖，湖泊"
+            "n. hồ"
         ]
     },
     {
         "name": "waterfall",
         "trans": [
-            "n. 瀑布"
+            "n. thác nước"
         ]
     },
     {
         "name": "botanic garden",
         "trans": [
-            "n. 植物园"
+            "n. vườn thực vật"
         ]
     },
     {
         "name": "sea",
         "trans": [
-            "n. 海，海洋"
+            "n. biển, đại dương"
         ]
     },
     {
         "name": "ocean",
         "trans": [
-            "n. 海洋，大洋；大海"
+            "n. đại dương, biển"
         ]
     },
     {
         "name": "coast",
         "trans": [
-            "n. 海岸；沿海地区"
+            "n. bờ biển, khu vực ven biển"
         ]
     },
     {
         "name": "beach",
         "trans": [
-            "n. 海滨，湖滨；海滩，沙滩"
+            "n. ven biển, ven hồ, bãi biển, bãi cát"
         ]
     },
     {
         "name": "island/isle",
         "trans": [
-            "n. 岛，岛屿"
+            "n. hòn đảo"
         ]
     },
     {
         "name": "museum",
         "trans": [
-            "n. 博物馆，博物院"
+            "n. bảo tàng, viện bảo tàng"
         ]
     },
     {
         "name": "gallery",
         "trans": [
-            "n. （艺术作品）陈列馆；美术馆；画廊"
+            "n. (tác phẩm nghệ thuật) phòng triển lãm, phòng trưng bày nghệ thuật, phòng trưng bày"
         ]
     },
     {
         "name": "sculpture",
         "trans": [
-            "n. 雕塑，雕刻；塑像，雕塑品，雕刻品"
+            "n. điêu khắc, chạm khắc, bức tượng"
         ]
     },
     {
         "name": "heritage site",
         "trans": [
-            "n. 遗址(景区）"
+            "n. Tàn tích (danh lam thắng cảnh)"
         ]
     },
     {
         "name": "adventure playground",
         "trans": [
-            "n. 儿童游乐园"
+            "n. công viên giải trí trẻ em"
         ]
     },
     {
         "name": "circus",
         "trans": [
-            "n. 马戏团；马戏演员；马戏表演"
+            "n. rạp xiếc, người biểu diễn xiếc, biểu diễn xiếc"
         ]
     },
     {
         "name": "whale watch",
         "trans": [
-            "n. phrase 看鲸"
+            "n. cụm từ xem cá voi"
         ]
     },
     {
         "name": "bush walking",
         "trans": [
-            "n. 在丛林中徒步"
+            "n. Đi bộ trong rừng"
         ]
     },
     {
         "name": "trekking",
         "trans": [
-            "n. 以长距离步行作为消遣的活动"
+            "n. Các hoạt động giải trí liên quan đến đi bộ đường dài"
         ]
     },
     {
         "name": "hiking",
         "trans": [
-            "n. （在乡村的）长途徒步旅行，远足，健行"
+            "n. một cuộc đi bộ dài (ở nông thôn)"
         ]
     },
     {
         "name": "fishing",
         "trans": [
-            "n. 钓鱼；捕鱼"
+            "n. câu cá"
         ]
     },
     {
         "name": "kite surfing",
         "trans": [
-            "n. 风筝冲浪"
+            "n. lướt ván diều"
         ]
     },
     {
         "name": "surfing",
         "trans": [
-            "n. 冲浪运动"
+            "n. lướt sóng"
         ]
     },
     {
         "name": "water skiing",
         "trans": [
-            "n. 滑水"
+            "n. trượt nước"
         ]
     },
     {
         "name": "scuba diving",
         "trans": [
-            "n. 潜水"
+            "n. Lặn"
         ]
     },
     {
         "name": "sunbathe",
         "trans": [
-            "v. （为使皮肤变黑而）晒太阳，沐日光浴"
+            "v. (làm đen da) tắm nắng hoặc tắm nắng"
         ]
     },
     {
         "name": "skiing",
         "trans": [
-            "n. 滑雪；滑雪运动"
+            "n. trượt tuyết"
         ]
     },
     {
         "name": "recreation",
         "trans": [
-            "n. 娱乐；消遣（方式）"
+            "n. giải trí, trò tiêu khiển (phương pháp)"
         ]
     }
 ]

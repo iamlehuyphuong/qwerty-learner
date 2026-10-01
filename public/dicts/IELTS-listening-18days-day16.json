@@ -1,310 +1,464 @@
 [
     {
         "name": "real",
-        "trans": ["真实的"]
+        "trans": [
+            "thực"
+        ]
     },
     {
         "name": "activity",
-        "trans": ["活动"]
+        "trans": [
+            "Hoạt động"
+        ]
     },
     {
         "name": "impact",
-        "trans": ["影响"]
+        "trans": [
+            "ảnh hưởng"
+        ]
     },
     {
         "name": "sociable",
-        "trans": ["社交的"]
+        "trans": [
+            "xã hội"
+        ]
     },
     {
         "name": "focus on",
-        "trans": ["聚焦于"]
+        "trans": [
+            "tập trung vào"
+        ]
     },
     {
         "name": "realistic",
-        "trans": ["现实的"]
+        "trans": [
+            "thực tế"
+        ]
     },
     {
         "name": "bungalow",
-        "trans": ["平房"]
+        "trans": [
+            "nhà gỗ một tầng"
+        ]
     },
     {
         "name": "pest",
-        "trans": ["害虫"]
+        "trans": [
+            "loài gây hại"
+        ]
     },
     {
         "name": "polish",
-        "trans": ["打磨"]
+        "trans": [
+            "đánh bóng"
+        ]
     },
     {
         "name": "paddle",
-        "trans": ["划桨"]
+        "trans": [
+            "chèo thuyền"
+        ]
     },
     {
         "name": "speed",
-        "trans": ["速度"]
+        "trans": [
+            "tốc độ"
+        ]
     },
     {
         "name": "resistant",
-        "trans": ["反抗的"]
+        "trans": [
+            "nổi loạn"
+        ]
     },
     {
         "name": "contest",
-        "trans": ["争辩"]
+        "trans": [
+            "tranh luận"
+        ]
     },
     {
         "name": "survive",
-        "trans": ["幸存"]
+        "trans": [
+            "sống sót"
+        ]
     },
     {
         "name": "sailor",
-        "trans": ["水手"]
+        "trans": [
+            "thủy thủ"
+        ]
     },
     {
         "name": "rival",
-        "trans": ["对手"]
+        "trans": [
+            "đối thủ"
+        ]
     },
     {
         "name": "humidity",
-        "trans": ["湿度"]
+        "trans": [
+            "Độ ẩm"
+        ]
     },
     {
         "name": "acid rainfall",
-        "trans": ["酸雨"]
+        "trans": [
+            "mưa axit"
+        ]
     },
     {
         "name": "movement",
-        "trans": ["活动"]
+        "trans": [
+            "Hoạt động"
+        ]
     },
     {
         "name": "appearance",
-        "trans": ["外观"]
+        "trans": [
+            "Ngoại hình"
+        ]
     },
     {
         "name": "herbivorous",
-        "trans": ["食草的"]
+        "trans": [
+            "ăn cỏ"
+        ]
     },
     {
         "name": "organ",
-        "trans": ["器官"]
+        "trans": [
+            "cơ quan"
+        ]
     },
     {
         "name": "tongue",
-        "trans": ["舌头"]
+        "trans": [
+            "lưỡi"
+        ]
     },
     {
         "name": "self defence",
-        "trans": ["自我防御"]
+        "trans": [
+            "tự vệ"
+        ]
     },
     {
         "name": "varied",
-        "trans": ["多变的"]
+        "trans": [
+            "có thể thay đổi"
+        ]
     },
     {
         "name": "physical",
-        "trans": ["身体的"]
+        "trans": [
+            "thể chất"
+        ]
     },
     {
         "name": "destruction",
-        "trans": ["破坏"]
+        "trans": [
+            "phá hủy"
+        ]
     },
     {
         "name": "subsidy",
-        "trans": ["津贴"]
+        "trans": [
+            "trợ cấp"
+        ]
     },
     {
         "name": "income",
-        "trans": ["收入"]
+        "trans": [
+            "thu nhập"
+        ]
     },
     {
         "name": "charge",
-        "trans": ["要价"]
+        "trans": [
+            "hỏi giá"
+        ]
     },
     {
         "name": "calculator",
-        "trans": ["计算器"]
+        "trans": [
+            "máy tính"
+        ]
     },
     {
         "name": "caterpillar",
-        "trans": ["毛虫"]
+        "trans": [
+            "sâu bướm"
+        ]
     },
     {
         "name": "antifreeze",
-        "trans": ["防冻剂"]
+        "trans": [
+            "chất chống đông"
+        ]
     },
     {
         "name": "concentration",
-        "trans": ["专心"]
+        "trans": [
+            "tập trung"
+        ]
     },
     {
         "name": "pepper",
-        "trans": ["胡椒"]
+        "trans": [
+            "hạt tiêu"
+        ]
     },
     {
         "name": "mood",
-        "trans": ["心情"]
+        "trans": [
+            "tâm trạng"
+        ]
     },
     {
         "name": "domestic",
-        "trans": ["国内的"]
+        "trans": [
+            "Trong nước"
+        ]
     },
     {
         "name": "nursery",
-        "trans": ["幼儿园"]
+        "trans": [
+            "mẫu giáo"
+        ]
     },
     {
         "name": "melt",
-        "trans": ["熔化"]
+        "trans": [
+            "tan chảy"
+        ]
     },
     {
         "name": "quantity",
-        "trans": ["数量"]
+        "trans": [
+            "số lượng"
+        ]
     },
     {
         "name": "pause",
-        "trans": ["暂停"]
+        "trans": [
+            "tạm dừng"
+        ]
     },
     {
         "name": "happiness",
-        "trans": ["幸福"]
+        "trans": [
+            "hạnh phúc"
+        ]
     },
     {
         "name": "negative",
-        "trans": ["消极的"]
+        "trans": [
+            "tiêu cực"
+        ]
     },
     {
         "name": "human",
-        "trans": ["人类"]
+        "trans": [
+            "con người"
+        ]
     },
     {
         "name": "goal",
-        "trans": ["目标"]
+        "trans": [
+            "mục tiêu"
+        ]
     },
     {
         "name": "suppressing",
-        "trans": ["压制的"]
+        "trans": [
+            "bị đàn áp"
+        ]
     },
     {
         "name": "wax",
-        "trans": ["蜡"]
+        "trans": [
+            "sáp"
+        ]
     },
     {
         "name": "dragonfly",
-        "trans": ["蜻蜓"]
+        "trans": [
+            "chuồn chuồn"
+        ]
     },
     {
         "name": "malaria",
-        "trans": ["疟疾"]
+        "trans": [
+            "Sốt rét"
+        ]
     },
     {
         "name": "weakness",
-        "trans": ["弱点"]
+        "trans": [
+            "Điểm yếu"
+        ]
     },
     {
         "name": "contaminate",
-        "trans": ["污染"]
+        "trans": [
+            "sự ô nhiễm"
+        ]
     },
     {
         "name": "reinforce",
-        "trans": ["加强"]
+        "trans": [
+            "tăng cường"
+        ]
     },
     {
         "name": "distance",
-        "trans": ["距离"]
+        "trans": [
+            "khoảng cách"
+        ]
     },
     {
         "name": "pump",
-        "trans": ["抽水"]
+        "trans": [
+            "bơm nước"
+        ]
     },
     {
         "name": "competitor",
-        "trans": ["竞争者"]
+        "trans": [
+            "đối thủ cạnh tranh"
+        ]
     },
     {
         "name": "skyscraper",
-        "trans": ["摩天大楼"]
+        "trans": [
+            "tòa nhà chọc trời"
+        ]
     },
     {
         "name": "construction",
-        "trans": ["建设"]
+        "trans": [
+            "xây dựng"
+        ]
     },
     {
         "name": "guideline",
-        "trans": ["指导方针"]
+        "trans": [
+            "hướng dẫn"
+        ]
     },
     {
         "name": "carnivorous",
-        "trans": ["食肉的"]
+        "trans": [
+            "ăn thịt"
+        ]
     },
     {
         "name": "prey",
-        "trans": ["捕食者"]
+        "trans": [
+            "kẻ săn mồi"
+        ]
     },
     {
         "name": "evolve",
-        "trans": ["进化"]
+        "trans": [
+            "sự tiến hóa"
+        ]
     },
     {
         "name": "sting",
-        "trans": ["刺"]
+        "trans": [
+            "cái gai"
+        ]
     },
     {
         "name": "scent",
-        "trans": ["气味"]
+        "trans": [
+            "mùi"
+        ]
     },
     {
         "name": "cure",
-        "trans": ["治愈"]
+        "trans": [
+            "chữa bệnh"
+        ]
     },
     {
         "name": "particular",
-        "trans": ["特别的"]
+        "trans": [
+            "đặc biệt"
+        ]
     },
     {
         "name": "planet",
-        "trans": ["行星"]
+        "trans": [
+            "hành tinh"
+        ]
     },
     {
         "name": "supplement",
-        "trans": ["补充"]
+        "trans": [
+            "bổ sung"
+        ]
     },
     {
         "name": "dentist",
-        "trans": ["牙医"]
+        "trans": [
+            "nha sĩ"
+        ]
     },
     {
         "name": "personality",
-        "trans": ["品格"]
+        "trans": [
+            "nhân vật"
+        ]
     },
     {
         "name": "hibernate",
-        "trans": ["冬眠"]
+        "trans": [
+            "ngủ đông"
+        ]
     },
     {
         "name": "substance",
-        "trans": ["物质"]
+        "trans": [
+            "vấn đề"
+        ]
     },
     {
         "name": "bark",
-        "trans": ["树皮"]
+        "trans": [
+            "vỏ cây"
+        ]
     },
     {
         "name": "surface",
-        "trans": ["表面"]
+        "trans": [
+            "bề mặt"
+        ]
     },
     {
         "name": "wealth",
-        "trans": ["财富"]
+        "trans": [
+            "sự giàu có"
+        ]
     },
     {
         "name": "exploration",
-        "trans": ["探测"]
+        "trans": [
+            "phát hiện"
+        ]
     },
     {
         "name": "boost",
-        "trans": ["促进"]
+        "trans": [
+            "thúc đẩy"
+        ]
     },
     {
         "name": "immigration",
-        "trans": ["移居"]
+        "trans": [
+            "di cư"
+        ]
     }
 ]

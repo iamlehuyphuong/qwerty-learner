@@ -2,271 +2,271 @@
     {
         "name": "venue",
         "trans": [
-            "n. 场所，场馆"
+            "n. địa điểm"
         ]
     },
     {
         "name": "theatre / theater",
         "trans": [
-            "n. 剧院"
+            "n. rạp hát"
         ]
     },
     {
         "name": "concert hall",
         "trans": [
-            "n. 音乐厅"
+            "n. phòng hòa nhạc"
         ]
     },
     {
         "name": "museum",
         "trans": [
-            "n. 博物馆"
+            "n. viện bảo tàng"
         ]
     },
     {
         "name": "castle",
         "trans": [
-            "n. 城堡"
+            "n. lâu đài"
         ]
     },
     {
         "name": "unsafe",
         "trans": [
-            "adj. 不安全的"
+            "adj. không an toàn"
         ]
     },
     {
         "name": "shabby-looking",
         "trans": [
-            "adj. 外表破旧的"
+            "adj. ngoại hình tồi tàn"
         ]
     },
     {
         "name": "damaged",
         "trans": [
-            "adj. 被破坏的"
+            "adj. bị phá hủy"
         ]
     },
     {
         "name": "destroy",
         "trans": [
-            "v. 毁坏"
+            "v. phá hủy"
         ]
     },
     {
         "name": "bomb",
         "trans": [
-            "n. 炸弹"
+            "n. quả bom"
         ]
     },
     {
         "name": "demolition",
         "trans": [
-            "n. 拆除"
+            "n. tháo dỡ"
         ]
     },
     {
         "name": "reconstruct",
         "trans": [
-            "v. 重建"
+            "v. xây dựng lại"
         ]
     },
     {
         "name": "rebuild",
         "trans": [
-            "v. 重建"
+            "v. xây dựng lại"
         ]
     },
     {
         "name": "refurbish",
         "trans": [
-            "v. 整修"
+            "v. cải tạo"
         ]
     },
     {
         "name": "redecorate",
         "trans": [
-            "v. 重新装饰"
+            "v. trang trí lại"
         ]
     },
     {
         "name": "relocate",
         "trans": [
-            "v. 搬迁"
+            "v. tái định cư"
         ]
     },
     {
         "name": "reorient",
         "trans": [
-            "v. 重定向，改变方向"
+            "v. chuyển hướng, đổi hướng"
         ]
     },
     {
         "name": "exterior",
         "trans": [
-            "n. 外部"
+            "n. bên ngoài"
         ]
     },
     {
         "name": "repaint",
         "trans": [
-            "v. 重新粉刷"
+            "v. sơn lại"
         ]
     },
     {
         "name": "statue",
         "trans": [
-            "n. 雕像，塑像"
+            "n. bức tượng"
         ]
     },
     {
         "name": "sculpture",
         "trans": [
-            "n. 雕塑，雕刻"
+            "n. điêu khắc, khắc"
         ]
     },
     {
         "name": "interior",
         "trans": [
-            "n. 内部"
+            "n. nội bộ"
         ]
     },
     {
         "name": "ceiling",
         "trans": [
-            "n. 天花板"
+            "n. trần nhà"
         ]
     },
     {
         "name": "light",
         "trans": [
-            "n. 灯"
+            "n. đèn"
         ]
     },
     {
         "name": "chandelier",
         "trans": [
-            "n. 枝形吊灯"
+            "n. đèn chùm"
         ]
     },
     {
         "name": "wall",
         "trans": [
-            "n. 墙壁"
+            "n. bức tường"
         ]
     },
     {
         "name": "acoustic",
         "trans": [
-            "adj. 音响的"
+            "adj. âm thanh"
         ]
     },
     {
         "name": "floor",
         "trans": [
-            "n. 地板，楼层"
+            "n. sàn"
         ]
     },
     {
         "name": "basement",
         "trans": [
-            "n. 地下室"
+            "n. tầng hầm"
         ]
     },
     {
         "name": "ground floor",
         "trans": [
-            "n. 【英】一层"
+            "n. [Tiếng Anh] tầng một"
         ]
     },
     {
         "name": "foyer",
         "trans": [
-            "n. 门厅"
+            "n. tiền sảnh"
         ]
     },
     {
         "name": "box office",
         "trans": [
-            "n. 售票处"
+            "n. Phòng vé"
         ]
     },
     {
         "name": "lift",
         "trans": [
-            "n. 【英】电梯"
+            "n. [VƯƠNG QUỐC ANH]Thang máy"
         ]
     },
     {
         "name": "elevator",
         "trans": [
-            "n. 【美】电梯"
+            "n. 【Làm đẹp】Thang máy"
         ]
     },
     {
         "name": "escalator",
         "trans": [
-            "n. 扶梯"
+            "n. thang cuốn"
         ]
     },
     {
         "name": "dressing room",
         "trans": [
-            "n. 化妆间"
+            "n. Phòng bột"
         ]
     },
     {
         "name": "cloakroom",
         "trans": [
-            "n. 衣帽寄存处"
+            "n. Kiểm tra áo choàng"
         ]
     },
     {
         "name": "stage",
         "trans": [
-            "n. 舞台"
+            "n. sân khấu"
         ]
     },
     {
         "name": "backstage",
         "trans": [
-            "n. 后台"
+            "n. Hậu trường"
         ]
     },
     {
         "name": "auditorium",
         "trans": [
-            "n. 观众席"
+            "n. khán phòng"
         ]
     },
     {
         "name": "leg-room",
         "trans": [
-            "n. 伸腿处"
+            "n. Duỗi chân"
         ]
     },
     {
         "name": "funding",
         "trans": [
-            "n. 资金"
+            "n. quỹ"
         ]
     },
     {
         "name": "government",
         "trans": [
-            "n. 政府"
+            "n. chính phủ"
         ]
     },
     {
         "name": "council",
         "trans": [
-            "n. 议会"
+            "n. quốc hội"
         ]
     },
     {
         "name": "raise",
         "trans": [
-            "v. 筹集（资金）"
+            "v. gây quỹ (quỹ)"
         ]
     }
 ]

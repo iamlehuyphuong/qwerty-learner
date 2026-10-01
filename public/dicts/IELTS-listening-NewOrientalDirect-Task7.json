@@ -2,235 +2,235 @@
     {
         "name": "job agency",
         "trans": [
-            "n. 求职中介"
+            "n. cơ quan tìm kiếm việc làm"
         ]
     },
     {
         "name": "agent",
         "trans": [
-            "n. 代理人，中介人"
+            "n. đại lý, trung gian"
         ]
     },
     {
         "name": "recruit",
         "trans": [
-            "v. 招聘，征募"
+            "v. Tuyển dụng"
         ]
     },
     {
         "name": "available",
         "trans": [
-            "adj. 可提供的，可获得的"
+            "adj. có sẵn, có thể đạt được"
         ]
     },
     {
         "name": "vacant",
         "trans": [
-            "adj. 空缺的"
+            "adj. bỏ trống"
         ]
     },
     {
         "name": "applicant",
         "trans": [
-            "n. 申请人，求职者"
+            "n. người nộp đơn, người tìm việc"
         ]
     },
     {
         "name": "personnel",
         "trans": [
-            "n. 人事部门，人员"
+            "n. Phòng nhân sự, nhân sự"
         ]
     },
     {
         "name": "job description",
         "trans": [
-            "n. 职位描述"
+            "n. Mô tả công việc"
         ]
     },
     {
         "name": "vouch",
         "trans": [
-            "v. 担保，证明"
+            "v. đảm bảo, chứng minh"
         ]
     },
     {
         "name": "referee",
         "trans": [
-            "n. 介绍人；v. 裁判"
+            "n. người giới thiệu, v. trọng tài"
         ]
     },
     {
         "name": "shift",
         "trans": [
-            "n. 轮班；v. 转换"
+            "n. thay đổi, v. chuyển đổi"
         ]
     },
     {
         "name": "commute",
         "trans": [
-            "n. 通勤；v. 通勤"
+            "n. đi lại, v. đi lại"
         ]
     },
     {
         "name": "CV",
         "trans": [
-            "n. 简历"
+            "n. Tiếp tục"
         ]
     },
     {
         "name": "résumé",
         "trans": [
-            "n. 简历"
+            "n. Tiếp tục"
         ]
     },
     {
         "name": "interview",
         "trans": [
-            "n. 面试"
+            "n. phỏng vấn"
         ]
     },
     {
         "name": "candidate",
         "trans": [
-            "n. 候选人"
+            "n. ứng cử viên"
         ]
     },
     {
         "name": "offer",
         "trans": [
-            "n. 录用通知；v. 提供"
+            "n. Thông báo chấp nhận, v. Cung cấp"
         ]
     },
     {
         "name": "employer",
         "trans": [
-            "n. 雇主"
+            "n. chủ lao động"
         ]
     },
     {
         "name": "employee",
         "trans": [
-            "n. 雇员"
+            "n. nhân viên"
         ]
     },
     {
         "name": "certificate",
         "trans": [
-            "n. 证书"
+            "n. Giấy chứng nhận"
         ]
     },
     {
         "name": "licence",
         "trans": [
-            "n. 执照"
+            "n. giấy phép"
         ]
     },
     {
         "name": "work permit",
         "trans": [
-            "n. 工作许可证"
+            "n. giấy phép lao động"
         ]
     },
     {
         "name": "experience",
         "trans": [
-            "n. 经验"
+            "n. kinh nghiệm"
         ]
     },
     {
         "name": "quality",
         "trans": [
-            "n. 品质"
+            "n. chất lượng"
         ]
     },
     {
         "name": "personality",
         "trans": [
-            "n. 个性，人格特质"
+            "n. tính cách, nét tính cách"
         ]
     },
     {
         "name": "education background",
         "trans": [
-            "n. 教育背景"
+            "n. Nền giáo dục"
         ]
     },
     {
         "name": "degree",
         "trans": [
-            "n. 学位"
+            "n. bằng cấp"
         ]
     },
     {
         "name": "major",
         "trans": [
-            "n. 主修科目"
+            "n. Môn học chính"
         ]
     },
     {
         "name": "bachelor",
         "trans": [
-            "n. 学士"
+            "n. Cử nhân"
         ]
     },
     {
         "name": "master",
         "trans": [
-            "n. 硕士"
+            "n. Bậc thầy"
         ]
     },
     {
         "name": "suit",
         "trans": [
-            "n. 套装"
+            "n. bộ đồ"
         ]
     },
     {
         "name": "uniform",
         "trans": [
-            "n. 制服"
+            "n. đồng phục"
         ]
     },
     {
         "name": "smart",
         "trans": [
-            "adj. 讲究时髦的"
+            "adj. hợp thời trang"
         ]
     },
     {
         "name": "casual",
         "trans": [
-            "adj. 休闲的"
+            "adj. Bình thường"
         ]
     },
     {
         "name": "salary",
         "trans": [
-            "n. 薪水"
+            "n. tiền lương"
         ]
     },
     {
         "name": "tip",
         "trans": [
-            "n. 小费；n. 建议；v. 给小费"
+            "n. Mẹo, N. Gợi ý, v. Mẹo"
         ]
     },
     {
         "name": "pension",
         "trans": [
-            "n. 退休金，津贴"
+            "n. lương hưu, phụ cấp"
         ]
     },
     {
         "name": "welfare",
         "trans": [
-            "n. 福利"
+            "n. phúc lợi"
         ]
     },
     {
         "name": "insurance",
         "trans": [
-            "n. 保险"
+            "n. bảo hiểm"
         ]
     }
 ]

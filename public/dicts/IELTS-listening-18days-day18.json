@@ -1,306 +1,472 @@
 [
     {
         "name": "steel",
-        "trans": ["钢"]
+        "trans": [
+            "thép"
+        ]
     },
     {
         "name": "preserve",
-        "trans": ["保存"]
+        "trans": [
+            "lưu lại"
+        ]
     },
     {
         "name": "tongue",
-        "trans": ["舌头"]
+        "trans": [
+            "lưỡi"
+        ]
     },
     {
         "name": "finger",
-        "trans": ["手指"]
+        "trans": [
+            "ngón tay"
+        ]
     },
     {
         "name": "protein",
-        "trans": ["蛋白质"]
+        "trans": [
+            "chất đạm"
+        ]
     },
     {
         "name": "philosopher",
-        "trans": ["哲学家"]
+        "trans": [
+            "triết gia"
+        ]
     },
     {
         "name": "corporation",
-        "trans": ["公司"]
+        "trans": [
+            "công ty"
+        ]
     },
     {
         "name": "pottery",
-        "trans": ["陶瓷"]
+        "trans": [
+            "gốm sứ"
+        ]
     },
     {
         "name": "gun",
-        "trans": ["枪"]
+        "trans": [
+            "súng"
+        ]
     },
     {
         "name": "lane",
-        "trans": ["车道"]
+        "trans": [
+            "đường lái xe"
+        ]
     },
     {
         "name": "achievement",
-        "trans": ["成就"]
+        "trans": [
+            "thành tích"
+        ]
     },
     {
         "name": "frequent",
-        "trans": ["频繁的"]
+        "trans": [
+            "Thường xuyên"
+        ]
     },
     {
         "name": "axe",
-        "trans": ["斧头"]
+        "trans": [
+            "rìu"
+        ]
     },
     {
         "name": "soldier",
-        "trans": ["士兵"]
+        "trans": [
+            "người lính"
+        ]
     },
     {
         "name": "energy-saving",
-        "trans": ["节能的"]
+        "trans": [
+            "tiết kiệm năng lượng"
+        ]
     },
     {
         "name": "life span",
-        "trans": ["寿命"]
+        "trans": [
+            "tuổi thọ"
+        ]
     },
     {
         "name": "presence",
-        "trans": ["存在"]
+        "trans": [
+            "tồn tại"
+        ]
     },
     {
         "name": "resistant",
-        "trans": ["反抗的"]
+        "trans": [
+            "nổi loạn"
+        ]
     },
     {
         "name": "jam",
-        "trans": ["（纸）浆", "果酱"]
+        "trans": [
+            "(giấy) bột giấy",
+            "Mứt"
+        ]
     },
     {
         "name": "barcode",
-        "trans": ["条形码"]
+        "trans": [
+            "mã vạch"
+        ]
     },
     {
         "name": "argument",
-        "trans": ["论据"]
+        "trans": [
+            "Đối số"
+        ]
     },
     {
         "name": "traffic flow",
-        "trans": ["交通吞吐量"]
+        "trans": [
+            "thông lượng giao thông"
+        ]
     },
     {
         "name": "random",
-        "trans": ["随机的"]
+        "trans": [
+            "ngẫu nhiên"
+        ]
     },
     {
         "name": "genetic",
-        "trans": ["基因的", "遗传的"]
+        "trans": [
+            "di truyền",
+            "di truyền"
+        ]
     },
     {
         "name": "generation",
-        "trans": ["一代人", "代"]
+        "trans": [
+            "thế hệ",
+            "thế hệ"
+        ]
     },
     {
         "name": "mechanism",
-        "trans": ["机理", "途径"]
+        "trans": [
+            "Cơ chế",
+            "đường"
+        ]
     },
     {
         "name": "angle",
-        "trans": ["角度"]
+        "trans": [
+            "góc"
+        ]
     },
     {
         "name": "crowded",
-        "trans": ["拥挤的"]
+        "trans": [
+            "đông đúc"
+        ]
     },
     {
         "name": "storm",
-        "trans": ["暴风雨（雪）"]
+        "trans": [
+            "bão (tuyết)"
+        ]
     },
     {
         "name": "shortage",
-        "trans": ["短缺", "不足"]
+        "trans": [
+            "sự thiếu hụt",
+            "không đủ"
+        ]
     },
     {
         "name": "laboratory",
-        "trans": ["实验室"]
+        "trans": [
+            "phòng thí nghiệm"
+        ]
     },
     {
         "name": "aboriginal",
-        "trans": ["土著居民"]
+        "trans": [
+            "thổ dân"
+        ]
     },
     {
         "name": "gravity",
-        "trans": ["重力"]
+        "trans": [
+            "Trọng lực"
+        ]
     },
     {
         "name": "digest",
-        "trans": ["消化"]
+        "trans": [
+            "tiêu hóa"
+        ]
     },
     {
         "name": "challenge",
-        "trans": ["挑战"]
+        "trans": [
+            "thử thách"
+        ]
     },
     {
         "name": "comprehension",
-        "trans": ["理解", "理解力"]
+        "trans": [
+            "hiểu",
+            "sự hiểu biết"
+        ]
     },
     {
         "name": "enthusiasm",
-        "trans": ["热情"]
+        "trans": [
+            "Sự nhiệt tình"
+        ]
     },
     {
         "name": "powder",
-        "trans": ["粉末"]
+        "trans": [
+            "bột"
+        ]
     },
     {
         "name": "dioxide",
-        "trans": ["二氧化物"]
+        "trans": [
+            "điôxit"
+        ]
     },
     {
         "name": "retain",
-        "trans": ["保持", "记住"]
+        "trans": [
+            "giữ",
+            "nhớ"
+        ]
     },
     {
         "name": "bacteria",
-        "trans": ["细菌"]
+        "trans": [
+            "Vi khuẩn"
+        ]
     },
     {
         "name": "accountable",
-        "trans": ["有责任的"]
+        "trans": [
+            "Chịu trách nhiệm"
+        ]
     },
     {
         "name": "morale",
-        "trans": ["士气"]
+        "trans": [
+            "tinh thần"
+        ]
     },
     {
         "name": "triangle",
-        "trans": ["三角形"]
+        "trans": [
+            "tam giác"
+        ]
     },
     {
         "name": "trash",
-        "trans": ["垃圾"]
+        "trans": [
+            "rác thải"
+        ]
     },
     {
         "name": "coin",
-        "trans": ["硬币"]
+        "trans": [
+            "đồng xu"
+        ]
     },
     {
         "name": "mall",
-        "trans": ["商场"]
+        "trans": [
+            "trung tâm mua sắm"
+        ]
     },
     {
         "name": "aspiration",
-        "trans": ["抱负"]
+        "trans": [
+            "tham vọng"
+        ]
     },
     {
         "name": "moral",
-        "trans": ["道德的"]
+        "trans": [
+            "đạo đức"
+        ]
     },
     {
         "name": "passage",
-        "trans": ["文章", "通道"]
+        "trans": [
+            "Bài viết",
+            "kênh"
+        ]
     },
     {
         "name": "permit",
-        "trans": ["许可"]
+        "trans": [
+            "sự cho phép"
+        ]
     },
     {
         "name": "adapt",
-        "trans": ["适应"]
+        "trans": [
+            "thích nghi"
+        ]
     },
     {
         "name": "conservation",
-        "trans": ["保存"]
+        "trans": [
+            "lưu lại"
+        ]
     },
     {
         "name": "geological",
-        "trans": ["地理的"]
+        "trans": [
+            "địa lý"
+        ]
     },
     {
         "name": "polish",
-        "trans": ["抛光"]
+        "trans": [
+            "đánh bóng"
+        ]
     },
     {
         "name": "life cycle",
-        "trans": ["生命周期"]
+        "trans": [
+            "vòng đời"
+        ]
     },
     {
         "name": "operation",
-        "trans": ["操作"]
+        "trans": [
+            "hoạt động"
+        ]
     },
     {
         "name": "persuasive",
-        "trans": ["有说服力的"]
+        "trans": [
+            "thuyết phục"
+        ]
     },
     {
         "name": "efficient",
-        "trans": ["有效率的"]
+        "trans": [
+            "hiệu quả"
+        ]
     },
     {
         "name": "rush",
-        "trans": ["仓促行事"]
+        "trans": [
+            "hành động vội vàng"
+        ]
     },
     {
         "name": "signal",
-        "trans": ["信号"]
+        "trans": [
+            "tín hiệu"
+        ]
     },
     {
         "name": "density",
-        "trans": ["密度", "浓度"]
+        "trans": [
+            "Mật độ",
+            "sự tập trung"
+        ]
     },
     {
         "name": "port",
-        "trans": ["港口"]
+        "trans": [
+            "hải cảng"
+        ]
     },
     {
         "name": "cliff",
-        "trans": ["悬崖"]
+        "trans": [
+            "vách đá"
+        ]
     },
     {
         "name": "mobility",
-        "trans": ["流动性", "移动性"]
+        "trans": [
+            "Thanh khoản",
+            "Tính cơ động"
+        ]
     },
     {
         "name": "velvet",
-        "trans": ["丝绒", "天鹅绒"]
+        "trans": [
+            "nhung",
+            "nhung"
+        ]
     },
     {
         "name": "fence",
-        "trans": ["栅栏"]
+        "trans": [
+            "hàng rào"
+        ]
     },
     {
         "name": "flock",
-        "trans": ["兽群", "鸟群"]
+        "trans": [
+            "bầy đàn",
+            "đàn chim"
+        ]
     },
     {
         "name": "passive",
-        "trans": ["被动的", "消极的"]
+        "trans": [
+            "Bị động",
+            "tiêu cực"
+        ]
     },
     {
         "name": "stem",
-        "trans": ["茎"]
+        "trans": [
+            "thân cây"
+        ]
     },
     {
         "name": "industry",
-        "trans": ["工业"]
+        "trans": [
+            "Công nghiệp"
+        ]
     },
     {
         "name": "cycle",
-        "trans": ["骑自行车"]
+        "trans": [
+            "Đi xe đạp"
+        ]
     },
     {
         "name": "oven",
-        "trans": ["烤箱", "烤炉"]
+        "trans": [
+            "lò nướng",
+            "lò nướng"
+        ]
     },
     {
         "name": "criteria",
-        "trans": ["标准"]
+        "trans": [
+            "Tiêu chuẩn"
+        ]
     },
     {
         "name": "license",
-        "trans": ["许可证"]
+        "trans": [
+            "giấy phép"
+        ]
     },
     {
         "name": "curriculum vitae",
-        "trans": ["个人简历"]
+        "trans": [
+            "Tiếp tục"
+        ]
     }
 ]
