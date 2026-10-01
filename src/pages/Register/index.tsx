@@ -5,30 +5,34 @@ import { Label } from '@/components/ui/label'
 import { auth, db } from '@/lib/firebase'
 import { isUserLoggedInAtom } from '@/store'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { useAtom } from 'jotai'
 import type React from 'react'
 import { useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 const RegisterPage = () => {
-  const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
+  const [isLoggedIn] = useAtom(isUserLoggedInAtom)
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
+  const [isRegistering, setIsRegistering] = useState(false)
 
-  if (isLoggedIn) {
+  if (isLoggedIn && !isRegistering) {
     return <Navigate to="/" replace />
   }
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    setIsRegistering(true)
     try {
       if (password !== confirmPassword) {
         setError('Mật khẩu xác nhận không khớp')
+        setIsRegistering(false)
         return
       }
       if (name && email && password) {
@@ -62,6 +66,7 @@ const RegisterPage = () => {
         navigate('/')
       }
     } catch (err: any) {
+      console.error('Lỗi khi tạo user doc:', err)
       if (err.code === 'auth/email-already-in-use') {
         setError('Email này đã được đăng ký')
       } else if (err.code === 'auth/weak-password') {
@@ -69,6 +74,8 @@ const RegisterPage = () => {
       } else {
         setError(err.message || 'Lỗi đăng ký')
       }
+    } finally {
+      setIsRegistering(false)
     }
   }
 

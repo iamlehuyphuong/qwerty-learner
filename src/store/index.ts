@@ -116,5 +116,7 @@ export const hasSeenEnhancedPromotionAtom = atomWithStorage('hasSeenEnhancedProm
 // Authentication
 export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
 
+export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
+
 // for dev test
 //   dismissStartCardDateAtom = atom<Date | null>(new Date())

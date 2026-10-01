@@ -1,7 +1,7 @@
 import { auth, db } from '@/lib/firebase'
 import type { TypingState } from '@/pages/Typing/store/type'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
-import { collection, addDoc, doc, updateDoc, increment, serverTimestamp } from 'firebase/firestore'
+import { addDoc, collection, doc, increment, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { useAtomValue } from 'jotai'
 import { useCallback } from 'react'
 

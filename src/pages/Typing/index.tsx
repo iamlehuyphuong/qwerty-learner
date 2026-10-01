@@ -1,8 +1,8 @@
 import Layout from '../../components/Layout'
 import { DictChapterButton } from './components/DictChapterButton'
+import { HandPositionImage } from './components/HandPositionIllustration'
 import PronunciationSwitcher from './components/PronunciationSwitcher'
 import ResultScreen from './components/ResultScreen'
-import ShareButton from './components/ShareButton'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
 import Switcher from './components/Switcher'
@@ -17,10 +17,9 @@ import Header from '@/components/Header'
 import StarCard from '@/components/StarCard'
 import Tooltip from '@/components/Tooltip'
 import { Button } from '@/components/ui/button'
-import { DISMISS_START_CARD_DATE_KEY } from '@/constants'
 import { useFirebaseChapterLogUploader } from '@/hooks/useFirebaseChapterLogUploader'
 import { idDictionaryMap } from '@/resources/dictionary'
-import { currentChapterAtom, currentDictIdAtom, infoPanelStateAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
+import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
 import { IsDesktop, isLegal } from '@/utils'
 import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
@@ -172,6 +171,9 @@ const App: React.FC = () => {
                 !state.isFinished && <WordPanel />
               )}
             </div>
+
+            {!state.isFinished && <HandPositionImage />}
+
             <Speed />
           </div>
         </div>

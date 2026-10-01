@@ -11,7 +11,7 @@ import { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
-  const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
+  const [isLoggedIn] = useAtom(isUserLoggedInAtom)
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

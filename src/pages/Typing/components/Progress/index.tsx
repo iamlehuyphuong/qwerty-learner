@@ -8,9 +8,9 @@ export default function Progress({ className }: { className?: string }) {
   const [phase, setPhase] = useState(0)
 
   const colorSwitcher: { [key: number]: string } = {
-    0: 'bg-indigo-200 dark:bg-indigo-300',
-    1: 'bg-indigo-300 dark:bg-indigo-400',
-    2: 'bg-indigo-400 dark:bg-indigo-500',
+    0: 'bg-indigo-500 dark:bg-indigo-500',
+    1: 'bg-indigo-600 dark:bg-indigo-600',
+    2: 'bg-indigo-700 dark:bg-indigo-700',
   }
 
   useEffect(() => {
@@ -22,11 +22,11 @@ export default function Progress({ className }: { className?: string }) {
 
   return (
     <div className={`relative w-1/4 pt-1 ${className}`}>
-      <div className="mb-4 flex h-2 overflow-hidden rounded-xl bg-indigo-100 text-xs transition-all duration-300 dark:bg-indigo-200">
+      <div className="mb-4 flex h-2 overflow-hidden rounded-xl border border-slate-200 bg-transparent text-xs transition-all duration-300 dark:border-slate-700">
         <div
           style={{ width: `${progress}%` }}
           className={`flex flex-col justify-center whitespace-nowrap rounded-xl text-center text-white shadow-none transition-all duration-300 ${
-            colorSwitcher[phase] ?? 'bg-indigo-200 dark:bg-indigo-300'
+            colorSwitcher[phase] ?? 'bg-indigo-500 dark:bg-indigo-500'
           }`}
         ></div>
       </div>
