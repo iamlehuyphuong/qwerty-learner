@@ -59,7 +59,10 @@ const Footer: React.FC = () => {
         <DonatingCard />
       </InfoPanel>
 
-      <footer className="mb-1 mt-4 flex w-full items-center justify-center gap-4 text-sm ease-in" onClick={(e) => e.currentTarget.blur()}>
+      <footer
+        className="relative z-10 mb-1 mt-4 flex w-full items-center justify-center gap-4 text-sm ease-in"
+        onClick={(e) => e.currentTarget.blur()}
+      >
         <a
           href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'lehuyphuong.work@gmail.com'}`}
           target="_blank"

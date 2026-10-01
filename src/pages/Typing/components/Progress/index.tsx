@@ -22,7 +22,7 @@ export default function Progress({ className }: { className?: string }) {
 
   return (
     <div className={`relative w-1/4 pt-1 ${className}`}>
-      <div className="mb-4 flex h-2 overflow-hidden rounded-xl border border-slate-200 bg-transparent text-xs transition-all duration-300 dark:border-slate-700">
+      <div className="flex h-2 overflow-hidden rounded-xl border border-slate-200 bg-transparent text-xs transition-all duration-300 dark:border-slate-700">
         <div
           style={{ width: `${progress}%` }}
           className={`flex flex-col justify-center whitespace-nowrap rounded-xl text-center text-white shadow-none transition-all duration-300 ${

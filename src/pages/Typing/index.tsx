@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout'
 import { DictChapterButton } from './components/DictChapterButton'
 import { HandPositionImage } from './components/HandPositionIllustration'
+import Progress from './components/Progress'
 import PronunciationSwitcher from './components/PronunciationSwitcher'
 import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
@@ -172,7 +173,14 @@ const App: React.FC = () => {
               )}
             </div>
 
-            {!state.isFinished && <HandPositionImage />}
+            {!state.isFinished && (
+              <div className="pointer-events-none flex w-full flex-col items-center">
+                <Progress className={`mb-0 w-1/4 transition-opacity duration-300 ${state.isTyping ? 'opacity-100' : 'opacity-0'}`} />
+                <div className="pointer-events-auto w-full">
+                  <HandPositionImage />
+                </div>
+              </div>
+            )}
 
             <Speed />
           </div>

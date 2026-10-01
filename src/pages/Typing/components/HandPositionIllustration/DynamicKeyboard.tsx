@@ -331,7 +331,7 @@ export default function DynamicKeyboard() {
   const svgHeight = KEYBOARD_ROWS.length * (ROW_H + GAP) + PADDING * 2 + HAND_HEIGHT
 
   return (
-    <div className="pointer-events-none mt-[50px] flex w-full select-none justify-center opacity-90 transition-all duration-300">
+    <div className="pointer-events-none flex w-full translate-y-[40px] select-none justify-center opacity-90 transition-all duration-300">
       <div className="relative">
         <svg
           width="100%"
