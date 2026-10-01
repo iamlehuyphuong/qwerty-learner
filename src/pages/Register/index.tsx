@@ -107,11 +107,11 @@ const RegisterPage = () => {
 
           <form onSubmit={handleRegister} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Họ tên</Label>
+              <Label htmlFor="name">Biệt Danh</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="Nguyễn Văn A"
+                placeholder="Ví dụ: Cú đêm"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
