@@ -18,6 +18,7 @@ import StarCard from '@/components/StarCard'
 import Tooltip from '@/components/Tooltip'
 import { Button } from '@/components/ui/button'
 import { DISMISS_START_CARD_DATE_KEY } from '@/constants'
+import { useFirebaseChapterLogUploader } from '@/hooks/useFirebaseChapterLogUploader'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { currentChapterAtom, currentDictIdAtom, infoPanelStateAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
 import { IsDesktop, isLegal } from '@/utils'
@@ -37,6 +38,7 @@ const App: React.FC = () => {
   const setCurrentChapter = useSetAtom(currentChapterAtom)
   const randomConfig = useAtomValue(randomConfigAtom)
   const chapterLogUploader = useMixPanelChapterLogUploader(state)
+  const firebaseChapterLogUploader = useFirebaseChapterLogUploader()
   const saveChapterRecord = useSaveChapterRecord()
 
   const reviewModeInfo = useAtomValue(reviewModeInfoAtom)
@@ -114,6 +116,7 @@ const App: React.FC = () => {
     // 当用户完成chương后且完成 word Record Tiết kiệm dữ liệu，Ghi chapter Record dữ liệu,
     if (state.isFinished && !state.isSavingRecord) {
       chapterLogUploader()
+      firebaseChapterLogUploader(state)
       saveChapterRecord(state)
     }
 

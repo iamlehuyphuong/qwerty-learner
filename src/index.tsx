@@ -1,12 +1,16 @@
 import Loading from './components/Loading'
 import './index.css'
 import { ErrorBook } from './pages/ErrorBook'
+import LoginPage from './pages/Login'
 import MobilePage from './pages/Mobile'
+import RegisterPage from './pages/Register'
 import TypingPage from './pages/Typing'
-import { isOpenDarkModeAtom } from '@/store'
+import { auth } from '@/lib/firebase'
+import { isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
 import { Analytics } from '@vercel/analytics/react'
 import 'animate.css'
-import { useAtomValue } from 'jotai'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useAtom, useAtomValue } from 'jotai'
 import mixpanel from 'mixpanel-browser'
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import 'react-app-polyfill/stable'
@@ -31,6 +35,14 @@ function Root() {
   }, [darkMode])
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
+  const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user)
+    })
+    return () => unsubscribe()
+  }, [setIsLoggedIn])
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,18 +62,26 @@ function Root() {
       <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/qwerty-learner' : ''}>
         <Suspense fallback={<Loading />}>
           <Routes>
-            {isMobile ? (
-              <Route path="/*" element={<Navigate to="/mobile" />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            {!isLoggedIn ? (
+              <Route path="*" element={<Navigate to="/login" replace />} />
             ) : (
               <>
-                <Route index element={<TypingPage />} />
-                <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/analysis" element={<AnalysisPage />} />
-                <Route path="/error-book" element={<ErrorBook />} />
-                <Route path="/*" element={<Navigate to="/" />} />
+                {isMobile ? (
+                  <Route path="*" element={<Navigate to="/mobile" replace />} />
+                ) : (
+                  <>
+                    <Route index element={<TypingPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/analysis" element={<AnalysisPage />} />
+                    <Route path="/error-book" element={<ErrorBook />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  </>
+                )}
+                <Route path="/mobile" element={<MobilePage />} />
               </>
             )}
-            <Route path="/mobile" element={<MobilePage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
