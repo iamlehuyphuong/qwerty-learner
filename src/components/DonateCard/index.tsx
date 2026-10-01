@@ -9,8 +9,8 @@ import dayjs from 'dayjs'
 import type React from 'react'
 import { Fragment, useLayoutEffect, useMemo, useState } from 'react'
 
-export const DonateCard = () => {
-  const [show, setShow] = useState(false)
+export const DonateCard = ({ defaultShow = false }: { defaultShow?: boolean }) => {
+  const [show, setShow] = useState(defaultShow)
 
   const chapterNumber = useChapterNumber()
   const wordNumber = useWordNumber()

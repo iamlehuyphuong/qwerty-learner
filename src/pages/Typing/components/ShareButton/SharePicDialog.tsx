@@ -18,34 +18,15 @@ import IconXMark from '~icons/heroicons/x-mark-solid'
 
 const PIC_RATIO = 3
 const PIC_LIST = [shareImage1, shareImage2, shareImage3, shareImage4, shareImage5, shareImage6, shareImage7, shareImage8, shareImage9]
-// Tôi biết một số điều hơi kỳ lạ，Nhưng lạ và thú vị(đầu chó)，powered by chatGPT
 const PROMOTE_LIST = [
-  { word: 'Một bước di chuyển nhanh chóng', sentence: 'Nhanh đến mức như có thêm một bàn tay so với người khác' },
-  { word: 'Nghe mưa tay rơi', sentence: 'Kỹ thuật sấm sét，Gây sốc khán giả' },
-  { word: 'nhanh như tia chớp', sentence: 'Tốc độ gõ cực nhanh，Như một tia sét lóe lên trên bàn phím' },
-  { word: 'Bàn tay như gió', sentence: 'Tốc độ tay nhanh đến kinh ngạc，như một cơn gió mạnh' },
-  { word: 'Chính xác như một mũi tên', sentence: 'Độ chính xác gõ cực cao，Chính xác như một mũi tên trúng hồng tâm' },
-  { word: 'Sturm und Drang', sentence: 'Tốc độ gõ nhanh đến mức có cảm giác như đang đua xe' },
-  { word: 'Nhanh như gió', sentence: 'gõ siêu nhanh，nhanh như gió' },
-  { word: 'Tuyển dụng tại chỗ', sentence: 'Độ chính xác và tốc độ gõ rất tốt，Đừng phạm sai lầm。' },
-  {
-    word: 'như đang đi trên mặt đất bằng phẳng',
-    sentence: 'Thành thạo kỹ năng đánh máy，như đang đi trên mặt đất bằng phẳng，mây trôi và nước chảy',
-  },
-  {
-    word: 'Gây tiếng vang ở phía đông và tấn công ở phía tây',
-    sentence: 'Kỹ năng đánh máy xuất sắc，Gây tiếng vang ở phía đông và tấn công ở phía tây，thắng bất ngờ',
-  },
-  { word: 'người sử dụng phép thuật', sentence: 'Tốc độ gõ phím cực kỳ nhanh，giống như một người sử dụng phép thuật。' },
-  { word: 'Linh hoạt', sentence: 'Tư thế gõ linh hoạt，就hình ảnhmột只蛇một样柔韧。' },
-  { word: 'như một con chim bay', sentence: 'Tốc độ gõ cực nhanh，就hình ảnhmột只飞鸟hiện hữu键盘上翱翔。' },
-  { word: 'châm biếm', sentence: 'Kỹ năng đánh máy xuất sắc，如同một连串妙语连珠。' },
-  {
-    word: 'Bất khả xâm phạm trước mọi chất độc',
-    sentence: '打字速度Và准确度都非常高，就hình ảnh身具Bất khả xâm phạm trước mọi chất độccủa能力。',
-  },
-  { word: '攻守兼Chuẩn bị', sentence: '打字速度Và精度都非常出色，攻守兼Chuẩn bị，bất khả chiến bại。' },
-  { word: 'trên giấy', sentence: '打字手法Linh hoạt，trên giấy，Sống động và thú vị。' },
+  { word: 'Gõ Như Bay', sentence: 'Tốc độ gõ phím lướt đi như gió, không gì cản bước!' },
+  { word: 'Nhanh Như Chớp', sentence: 'Tốc độ gõ phím cực nhanh, như một tia sét lóe lên.' },
+  { word: 'Tuyệt Đỉnh', sentence: 'Độ chính xác và tốc độ gõ hoàn hảo ở mọi góc độ.' },
+  { word: 'Vô Đối', sentence: 'Tốc độ đánh máy xuất thần, hoàn toàn không có đối thủ.' },
+  { word: 'Siêu Phàm', sentence: 'Bàn tay lướt trên phím mượt mà như một khúc nhạc.' },
+  { word: 'Thánh Gõ', sentence: 'Trình độ thượng thừa, gõ phím mà cứ ngỡ như đang múa.' },
+  { word: 'Chính Xác', sentence: 'Không chỉ gõ nhanh mà còn chuẩn xác đến từng ký tự.' },
+  { word: 'Đỉnh Cao', sentence: 'Sự kết hợp hoàn hảo giữa tốc độ và phản xạ cơ bắp.' },
 ]
 
 export type SharePicDialogProps = {
@@ -116,7 +97,7 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -126,16 +107,21 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all  dark:bg-gray-700">
-                  <div className="flex flex-col items-center justify-center pb-10 pl-20 pr-14 pt-20">
-                    <button className="absolute right-7 top-5" type="button" onClick={handleClose} title="đóng cửa对话框">
-                      <IconXMark className="h-6 w-6 text-gray-400" />
+                <Dialog.Panel className="relative w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all dark:bg-gray-800">
+                  <div className="flex flex-col items-center justify-center px-10 pb-10 pt-16">
+                    <button
+                      className="absolute right-5 top-5 rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
+                      type="button"
+                      onClick={handleClose}
+                      title="Đóng"
+                    >
+                      <IconXMark className="h-6 w-6 text-gray-500 dark:text-gray-400" />
                     </button>
-                    <div className="h-152 w-116">
+                    <div className="w-full max-w-[480px]">
                       {imageURL ? (
-                        <img src={imageURL} className="h-auto w-full" />
+                        <img src={imageURL} className="h-auto w-full rounded-xl border border-gray-200 shadow-md dark:border-gray-700" />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center rounded-lg border-2 border-solid border-white">
+                        <div className="flex aspect-[480/580] w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600">
                           <svg
                             className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
                             xmlns="http://www.w3.org/2000/svg"
@@ -154,12 +140,12 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
                     </div>
                     <button
                       ref={dialogFocusRef}
-                      className="my-btn-primary mr-9 mt-10 h-10"
+                      className="mt-8 flex h-12 w-full max-w-[300px] items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-6 font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
                       type="button"
                       onClick={handleDownload}
-                      title="cứu"
+                      title="Lưu ảnh"
                     >
-                      cứu
+                      🚀 Tải ảnh về máy
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -170,28 +156,27 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
       </Transition.Root>
 
       <div style={{ position: 'absolute', left: '-999px', zIndex: -1 }}>
-        <div ref={imageRef} className=" box-content w-85 bg-white p-4">
-          <div
-            className="relative flex h-112 w-75 flex-col items-start justify-start rounded-xl shadow-lg"
-            style={{ backgroundColor: '#F8F8FF' }}
-          >
-            <div className=" w-full ">
+        <div ref={imageRef} className="box-content w-[480px] bg-white p-6">
+          <div className="relative flex h-[580px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border border-indigo-50 bg-[#F8F8FF] shadow-xl">
+            <div className="relative z-10 w-full">
               <KeyboardPanel description={promote.word} />
-              <div className="text-center text-xs text-gray-500">{promote.sentence}</div>
-              <div className="mx-4 mt-6 flex rounded-xl bg-white px-4 py-3 opacity-50 shadow-xl">
-                <DataBox data={state.timerData.time + ''} description="thời gian" />
-                <DataBox data={state.timerData.accuracy + '%'} description="Tỷ lệ chính xác" />
+              <div className="mt-6 px-8 text-center text-[15px] font-medium text-gray-600">{promote.sentence}</div>
+              <div className="mx-6 mt-8 flex rounded-2xl bg-white px-4 py-4 shadow-lg ring-1 ring-black/5">
+                <DataBox data={state.timerData.time + ''} description="Thời gian" />
+                <DataBox data={state.timerData.accuracy + '%'} description="Độ chính xác" />
                 <DataBox data={state.timerData.wpm + ''} description="WPM" />
               </div>
-              <div className="ml-5 mt-4 self-start text-base text-gray-800">{currentDictInfo.name}</div>
-              <div className="ml-5 mt-2 self-start text-xs text-gray-600">{`Bài ${currentChapter + 1}`}</div>
+
+              <div className="mt-6 text-center text-xl font-bold text-gray-800">{currentDictInfo.name}</div>
+              <div className="mt-1 text-center text-sm font-bold text-indigo-500">{`Bài ${currentChapter + 1}`}</div>
             </div>
-            <div className="mb-3 ml-5 mt-auto">
-              <div className="text-xs">Qwerty.kaiyi.cool</div>
-              <div className="mt-1 text-xs font-normal text-gray-400">vìnhân viên bàn phímđược thiết kếtừ与trí nhớ cơ bắp锻炼软件</div>
+
+            <div className="relative z-10 mb-6 mt-auto flex w-full flex-col items-center">
+              <div className="text-sm font-black tracking-tight text-gray-900">{import.meta.env.VITE_APP_NAME || 'Type & English'}</div>
+              <div className="mt-1 text-xs font-medium text-gray-500">Công cụ học từ vựng qua phản xạ cơ bắp</div>
             </div>
-            <div className="absolute -right-9 bottom-10 ">
-              <img src={shareImage} className="w-48" width={186} height={122} />
+            <div className="absolute -right-6 bottom-4 z-0 opacity-90">
+              <img src={shareImage} className="w-56" />
             </div>
           </div>
         </div>
@@ -210,9 +195,15 @@ function DataBox({ data, description }: { data: string; description: string }) {
 }
 
 function KeyboardPanel({ description }: { description: string }) {
+  const normalizedDescription = description
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D')
+
   return (
-    <div className="mt-10 flex flex-wrap justify-center gap-0">
-      {description.split('').map((char, index) => (
+    <div className="mt-12 flex flex-wrap justify-center gap-1.5 px-4">
+      {normalizedDescription.split('').map((char, index) => (
         <KeyboardKey key={`${index}-${char}`} char={char} />
       ))}
     </div>
@@ -220,14 +211,16 @@ function KeyboardPanel({ description }: { description: string }) {
 }
 
 function KeyboardKey({ char }: { char: string }) {
+  if (char === ' ') return <div className="w-6" /> // Handle space character
+
   return (
-    <div className="relative -mx-1 h-18 w-18">
+    <div className="relative h-14 w-14 drop-shadow-md">
       <div className="absolute bottom-0 left-0 right-0 top-0">
-        <img src={keyboardSvg} className="h-full w-full" />
+        <img src={keyboardSvg} className="h-full w-full object-contain" />
       </div>
-      <div className="absolute left-0 right-0 top-2.5 flex items-center justify-center">
-        <span className="text-base font-normal text-white" style={{ fontSize: '20px', transform: 'rotateX(30deg) ' }}>
-          {char}
+      <div className="absolute left-0 right-0 top-1.5 flex items-center justify-center">
+        <span className="font-bold text-white shadow-black drop-shadow-sm" style={{ fontSize: '20px', transform: 'rotateX(30deg)' }}>
+          {char.toUpperCase()}
         </span>
       </div>
     </div>

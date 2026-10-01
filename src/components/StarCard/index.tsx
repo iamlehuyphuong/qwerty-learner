@@ -66,11 +66,11 @@ export default function StarCard() {
               <div className="flex flex-shrink-0 items-center">
                 <div className="ml-0.5">👈</div>
                 <IconStar className="h-4 w-4 text-indigo-600" />
-                <div className="ml-1 text-gray-600 dark:text-gray-300">thắp sáng nó lên！</div>
+                <div className="ml-1 text-gray-600 dark:text-gray-300">bấm chọn biểu tượng này!</div>
               </div>
             </div>
             <span className="w-full text-center text-gray-600 dark:text-gray-300">
-              Phím tắt yêu thích<span className="ml-2 text-indigo-600 dark:text-indigo-500">{IS_MAC_OS ? '⌘' : 'Ctrl'} + D</span>
+              Phím tắt Bookmark: <span className="ml-2 font-bold text-indigo-600 dark:text-indigo-500">{IS_MAC_OS ? '⌘' : 'Ctrl'} + D</span>
             </span>
           </div>
         ) : (
@@ -79,9 +79,9 @@ export default function StarCard() {
               className="rounded-lg bg-indigo-600 px-6 py-2 text-lg text-white transition-colors duration-300 focus:outline-none"
               type="button"
               onClick={onClickWantStar}
-              title="Tôi muốn thu thập"
+              title="Lưu trang web"
             >
-              Tôi muốn thu thập
+              Bookmark ngay
             </button>
           </div>
         )}
@@ -104,19 +104,18 @@ export default function StarCard() {
       <div className="fixed right-1 top-4 flex w-150 flex-col items-center justify-evenly rounded-2xl bg-white p-12 shadow-2xl dark:bg-gray-800">
         <div className="absolute right-3 top-3 flex h-5 items-center">
           {isCounting && (
-            <span className="mx-1.5 dark:text-gray-100">
-              <span className="text-indigo-600">{countdown}s </span>
-              后自动đóng cửa
+            <span className="mx-1.5 text-sm dark:text-gray-100">
+              Tự động đóng sau <span className="font-bold text-indigo-600">{countdown}s</span>
             </span>
           )}
-          <button type="button" onClick={onClickCloseStar} title="đóng cửa提示" aria-label="đóng cửa提示">
-            <IconCircleX className="h-5 w-5 text-indigo-400" />
+          <button type="button" onClick={onClickCloseStar} title="Đóng">
+            <IconCircleX className="h-5 w-5 text-indigo-400 transition-colors hover:text-indigo-600" />
           </button>
         </div>
-        <span className="pb-4 text-xl text-gray-600 dark:text-gray-50">
-          kiên trìluyện tập，Cải thiện kỹ năng ngôn ngữ。Sẽ{' '}
-          <span className="text-indigo-600">「{import.meta.env.VITE_APP_NAME || 'Type & English'}」</span>Lưu vào mục yêu thích，không bao
-          giờ mất！
+        <span className="pb-4 text-lg font-medium text-gray-700 dark:text-gray-100">
+          Kiên trì luyện tập mỗi ngày để hình thành phản xạ cơ bắp. Hãy thêm{' '}
+          <span className="font-bold text-indigo-600">「{import.meta.env.VITE_APP_NAME || 'Type & English'}」</span> vào Bookmark để truy
+          cập nhanh chóng nhé!
         </span>
         {content}
       </div>

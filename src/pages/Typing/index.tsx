@@ -2,6 +2,7 @@ import Layout from '../../components/Layout'
 import { DictChapterButton } from './components/DictChapterButton'
 import PronunciationSwitcher from './components/PronunciationSwitcher'
 import ResultScreen from './components/ResultScreen'
+import ShareButton from './components/ShareButton'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
 import Switcher from './components/Switcher'
@@ -13,10 +14,12 @@ import { TypingContext, TypingStateActionType, initialState, typingReducer } fro
 import { DonateCard } from '@/components/DonateCard'
 import EnhancedPromotionModal from '@/components/EnhancedPromotionModal'
 import Header from '@/components/Header'
+import StarCard from '@/components/StarCard'
 import Tooltip from '@/components/Tooltip'
 import { Button } from '@/components/ui/button'
+import { DISMISS_START_CARD_DATE_KEY } from '@/constants'
 import { idDictionaryMap } from '@/resources/dictionary'
-import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
+import { currentChapterAtom, currentDictIdAtom, infoPanelStateAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
 import { IsDesktop, isLegal } from '@/utils'
 import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
@@ -44,9 +47,9 @@ const App: React.FC = () => {
     if (!IsDesktop()) {
       setTimeout(() => {
         alert(
-          ` ${
+          `${
             import.meta.env.VITE_APP_NAME || 'Type & English'
-          } 目củavì提高nhân viên bàn phímcủaTiếng Anh输入效率，hiện tại暂未适配移动端，希望您sử dụng桌面端浏览器访问。如您sử dụngcủa是 Ipad 等平板电脑设Chuẩn bị，可以sử dụng外接键盘sử dụng本软件。`,
+          } được thiết kế để tối ưu hóa hiệu suất học từ vựng và gõ phím trên máy tính. Hiện tại ứng dụng chưa hỗ trợ tốt trên thiết bị di động, vui lòng truy cập bằng máy tính hoặc sử dụng bàn phím rời nếu bạn đang dùng iPad/Tablet nhé!`,
         )
       }, 500)
     }
@@ -133,6 +136,7 @@ const App: React.FC = () => {
   return (
     <TypingContext.Provider value={{ state: state, dispatch }}>
       {state.isFinished && <DonateCard />}
+      <StarCard />
       {state.isFinished && <ResultScreen />}
       <Layout>
         <Header>
@@ -170,21 +174,6 @@ const App: React.FC = () => {
         </div>
       </Layout>
       <WordList />
-      {/* Test UI Buttons */}
-      {import.meta.env.DEV && (
-        <div className="fixed bottom-4 left-4 z-[100] flex flex-col gap-2 opacity-30 transition-opacity hover:opacity-100">
-          <Button
-            size="sm"
-            variant="secondary"
-            onClick={() => {
-              window.localStorage.removeItem('hasSeenEnhancedPromotion')
-              window.location.reload()
-            }}
-          >
-            Test Promotion Modal
-          </Button>
-        </div>
-      )}
       <EnhancedPromotionModal />
     </TypingContext.Provider>
   )

@@ -1,4 +1,4 @@
-import logo from '@/assets/logo.svg'
+import logo from '@/assets/logo.png'
 import { Card } from '@/components/ui/card'
 import type { PropsWithChildren } from 'react'
 import type React from 'react'
