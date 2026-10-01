@@ -153,6 +153,14 @@ service cloud.firestore {
       }
     }
 
+    // ---------- donations/{transactionCode} ----------
+    // Chỉ Admin SDK (Cloud Functions) mới được ghi.
+    // User có thể đọc donation đã match với mình.
+    match /donations/{transactionCode} {
+      allow read: if request.auth != null && resource.data.matchedUserId == request.auth.uid;
+      allow write: if false; // Chỉ Admin SDK mới ghi được (bỏ qua rules)
+    }
+
     // Mặc định chặn mọi thứ khác
     match /{document=**} {
       allow read, write: if false;

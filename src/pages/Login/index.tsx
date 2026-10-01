@@ -117,7 +117,9 @@ const LoginPage = () => {
               <img src={logo} alt="Hero Logo" className="h-32 w-32 object-contain" />
             </div>
 
-            <h2 className="mb-6 text-4xl font-black leading-tight text-white drop-shadow-md">Học Tiếng Anh Bằng Phản Xạ Cơ Bắp</h2>
+            <h2 className="mb-6 whitespace-nowrap text-2xl font-black leading-tight text-white drop-shadow-md xl:text-[2rem]">
+              2in1: Thạo Gõ Phím - Giỏi Tiếng Anh
+            </h2>
 
             <p className="mb-10 max-w-lg text-lg leading-relaxed text-indigo-100 drop-shadow">
               Nâng cao trình độ tiếng Anh của bạn trong khi luyện tập đánh máy tốc độ cao. Sự kết hợp hoàn hảo giữa gõ phím 10 ngón và phát
