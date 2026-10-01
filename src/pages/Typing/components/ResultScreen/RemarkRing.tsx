@@ -35,7 +35,7 @@ export default function RemarkRing({ remark, caption, percentage = null, size = 
   return (
     <div
       className={classNames(
-        'relative flex flex-shrink-0 flex-col items-center justify-center rounded-full border-8 border-indigo-200 bg-transparent dark:border-gray-700',
+        'relative flex flex-shrink-0 flex-col items-center justify-center rounded-full border-8 border-indigo-200 bg-transparent dark:border-gray-600',
       )}
       style={{
         width: `${size}rem`,
@@ -49,8 +49,8 @@ export default function RemarkRing({ remark, caption, percentage = null, size = 
           aria-hidden
         />
       )}
-      <span className="text-xl tabular-nums text-gray-800 dark:text-gray-300">{remark}</span>
-      <span className="text-sm font-medium text-gray-600 dark:text-gray-500">{caption}</span>
+      <span className="text-xl tabular-nums text-gray-800 dark:text-gray-200">{remark}</span>
+      <span className="text-center text-sm font-medium text-gray-600 dark:text-gray-400">{caption}</span>
     </div>
   )
 }

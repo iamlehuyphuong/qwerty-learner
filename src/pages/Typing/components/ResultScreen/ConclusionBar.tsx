@@ -13,17 +13,17 @@ type IconMapper = {
 const ICON_MAPPER: IconMapper[] = [
   {
     icon: IconHeart,
-    className: 'text-indigo-600',
+    className: 'text-indigo-600 dark:text-white',
     text: (mistakeCount: number) => `hiệu suất tốt！` + (mistakeCount > 0 ? `Chỉ là sai thôi ${mistakeCount} từ` : 'Được rồi！'),
   },
   {
     icon: IconHandThumbUp,
-    className: 'text-indigo-600',
+    className: 'text-indigo-600 dark:text-white',
     text: () => 'Có một số vấn đề nhỏ，Có thể làm tốt hơn vào lần sau！',
   },
   {
     icon: IconExclamationTriangle,
-    className: 'text-indigo-600',
+    className: 'text-indigo-600 dark:text-white',
     text: () => 'Quá nhiều lỗi，Làm lại lần nữa thì sao？',
   },
 ]
@@ -34,7 +34,7 @@ const ConclusionBar = ({ mistakeLevel, mistakeCount }: ConclusionBarProps) => {
   return (
     <div className="flex h-10 flex-row items-center">
       <Icon className={classNames(className, 'h-5 w-5')} />
-      <span className="ml-2 inline-block align-middle text-sm font-medium leading-10 text-gray-700 sm:text-sm md:text-base">
+      <span className="ml-2 inline-block align-middle text-sm font-medium leading-10 text-gray-700 dark:text-white sm:text-sm md:text-base">
         {text(mistakeCount)}
       </span>
     </div>

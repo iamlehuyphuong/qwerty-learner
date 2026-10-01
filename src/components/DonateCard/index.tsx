@@ -1,7 +1,6 @@
-import type { AmountType } from '../DonatingCard'
 import { DonatingCard } from '../DonatingCard'
-import { StickerButton } from '../DonatingCard/components/StickerButton'
 import { useChapterNumber, useDayFromFirstWordRecord, useSumWrongCount, useWordNumber } from './hooks/useWordStats'
+import { Button } from '@/components/ui/button'
 import { DONATE_DATE } from '@/constants'
 import { reportDonateCard } from '@/utils'
 import noop from '@/utils/noop'
@@ -9,11 +8,9 @@ import { Dialog, Transition } from '@headlessui/react'
 import dayjs from 'dayjs'
 import type React from 'react'
 import { Fragment, useLayoutEffect, useMemo, useState } from 'react'
-import IconParty from '~icons/logos/partytown-icon'
 
 export const DonateCard = () => {
   const [show, setShow] = useState(false)
-  const [amount, setAmount] = useState<AmountType | undefined>(undefined)
 
   const chapterNumber = useChapterNumber()
   const wordNumber = useWordNumber()
@@ -25,67 +22,59 @@ export const DonateCard = () => {
     return now.diff(past, 'day')
   }, [])
 
-  const HighlightedText = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-    return <span className={`font-bold  ${className ? className : 'text-indigo-500'}`}>{children}</span>
-  }
+  const HighlightedText = ({ children }: { children: React.ReactNode }) => <span className="font-bold text-indigo-500">{children}</span>
 
   const onClickHasDonated = () => {
-    reportDonateCard({
-      type: 'donate',
-      chapterNumber,
-      wordNumber,
-      sumWrongCount,
-      dayFromFirstWord,
-      dayFromQwerty,
-      amount: amount ?? 0,
-    })
-
     setShow(false)
-    const now = dayjs()
-    window.localStorage.setItem(DONATE_DATE, now.format())
+    window.localStorage.setItem(DONATE_DATE, dayjs().format())
+    try {
+      reportDonateCard({
+        type: 'donate',
+        chapterNumber,
+        wordNumber,
+        sumWrongCount,
+        dayFromFirstWord,
+        dayFromQwerty,
+        amount: 0,
+      })
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   const onClickRemindMeLater = () => {
-    reportDonateCard({
-      type: 'dismiss',
-      chapterNumber,
-      wordNumber,
-      sumWrongCount,
-      dayFromFirstWord,
-      dayFromQwerty,
-      amount: amount ?? 0,
-    })
-
     setShow(false)
-  }
-
-  const onAmountChange = (amount: AmountType) => {
-    setAmount(amount)
+    try {
+      reportDonateCard({
+        type: 'dismiss',
+        chapterNumber,
+        wordNumber,
+        sumWrongCount,
+        dayFromFirstWord,
+        dayFromQwerty,
+        amount: 0,
+      })
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   useLayoutEffect(() => {
     if (chapterNumber && chapterNumber !== 0 && chapterNumber % 5 === 0) {
       const now = dayjs()
-
       const storedDonateDate = window.localStorage.getItem(DONATE_DATE)
       if (storedDonateDate) {
         const diff = now.diff(dayjs(storedDonateDate), 'day')
         if (diff <= 30) return
       }
-
       setShow(true)
     }
   }, [chapterNumber])
 
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog
-        as="div"
-        className="relative z-50"
-        onClose={() => {
-          noop()
-        }}
-      >
+      {/* z-[60] ensures this renders above ResultScreen's z-50 overlay */}
+      <Dialog as="div" className="pointer-events-auto relative z-[60]" onClose={() => noop()}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -95,11 +84,11 @@ export const DonateCard = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="pointer-events-auto fixed inset-0 bg-gray-900/70 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center">
+        <div className="pointer-events-auto fixed inset-0 z-[70] overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -109,59 +98,47 @@ export const DonateCard = () => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative my-8 w-[37rem] transform select-text overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
-                <div className="flex w-full flex-col justify-center gap-4 bg-white px-2 pb-4 pt-5 dark:bg-gray-800 dark:text-gray-300">
-                  <h1 className="gradient-text w-full pt-3 text-center text-[2.4rem] font-bold">{`${chapterNumber} Chapters Achievement !`}</h1>
-                  <div className="flex w-full flex-col gap-4 px-4">
-                    <p className="mx-auto px-4 indent-4">
-                      {import.meta.env.VITE_APP_NAME || 'Type & English'} Đã đồng hành cùng bạn trong suốt cuộc hành trình
-                      <HighlightedText> {dayFromFirstWord} </HighlightedText>bầu trời，Cùng nhau thực hiện
-                      <HighlightedText> {wordNumber} </HighlightedText>
-                      luyện từ，Đã sửa cho bạn <HighlightedText> {sumWrongCount} </HighlightedText>
-                      đầu vào sai。mọi thực hành，Đó là tất cả bằng chứng cho thấy bạn đang tiến bộ hơn
-                      <IconParty className="ml-2 inline-block" fontSize={16} />
-                      <IconParty className="inline-block" fontSize={16} />
-                      <IconParty className="inline-block" fontSize={16} />
-                      <br />
-                    </p>
-                    <p className="mx-auto px-4 indent-4 font-bold">
-                      {import.meta.env.VITE_APP_NAME || 'Type & English'} kiên trì{' '}
-                      <span className="font-medium ">Nguồn mở、Không có quảng cáo、Không thương mại hóa</span> đã
-                      <HighlightedText className="text-indigo-500"> {dayFromQwerty} </HighlightedText>bầu trời。
-                    </p>
-                    <p className="mx-auto px-4 indent-4">
-                      Khi ngày càng có nhiều sinh viên tham gia，Chi phí máy chủ và bảo trì cũng ngày càng tăng，
-                      <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                        Hiện tại, chi phí vận hành của dự án vẫn do cá nhân chủ đầu tư chịu.，Qwerty Sự hoạt động lâu dài của công ty cần sự
-                        giúp đỡ của bạn
-                      </span>
-                      。nếu như Qwerty hữu ích cho việc học tập của bạn，Rất mong các bạn cân nhắc quyên góp để ủng hộ chúng tôi——Dù chỉ
-                      bằng giá một tách cà phê，tất cả đều có thể giúp đỡ Qwerty Tiếp tục đồng hành cùng nhiều học viên hơn nữa để trưởng
-                      thành。
-                    </p>
-                    <p className="mx-auto px-4 indent-4 ">
-                      Để cảm ơn sự hào phóng của bạn，Đơn 50 rmb Đóng góp từ và cao hơn， Chúng tôi sẽ trả lại Qwerty dán tùy chỉnh 5 miếng
-                      <span className="text-xs">（Chỉ có Trung Quốc đại lục）</span>，Tôi hy vọng bạn có thể chia sẻ hạnh phúc của mình với
-                      bạn bè
-                    </p>
-                    <div className="flex items-center justify-center">
-                      <StickerButton />
-                    </div>
-                  </div>
+              <Dialog.Panel className="relative w-full max-w-lg transform select-text rounded-2xl bg-white p-8 shadow-2xl transition-all dark:bg-gray-800 dark:text-gray-200">
+                {/* Title */}
+                <h1 className="gradient-text mb-6 text-center text-[2rem] font-bold leading-tight">
+                  {chapterNumber} Chapters Achievement! 🎉
+                </h1>
 
-                  <DonatingCard className="mt-2" onAmountChange={onAmountChange} />
-                  <div className="flex w-full justify-between  px-14 pb-3 pt-0">
-                    <button
-                      type="button"
-                      className={`my-btn-primary ${!amount && 'invisible'} w-36 bg-amber-500 font-medium transition-all`}
-                      onClick={onClickHasDonated}
-                    >
-                      tôi đã quyên góp
-                    </button>
-                    <button type="button" className="my-btn-primary w-36 font-medium" onClick={onClickRemindMeLater}>
-                      Hẹn gặp lại lần sau
-                    </button>
-                  </div>
+                {/* Achievement stats */}
+                <p className="mb-4 indent-4 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                  Type & English đã đồng hành cùng bạn trong <HighlightedText>{dayFromFirstWord}</HighlightedText> ngày qua. Bạn đã hoàn
+                  thành <HighlightedText>{wordNumber}</HighlightedText> lần luyện từ và sửa{' '}
+                  <HighlightedText>{sumWrongCount}</HighlightedText> lỗi nhập sai — mỗi lần thực hành là một bước tiến rõ ràng! 🎊
+                </p>
+
+                {/* About the app */}
+                <p className="mb-4 indent-4 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                  <span className="font-semibold text-indigo-500">{import.meta.env.VITE_APP_NAME || 'Type & English'}</span> là dự án{' '}
+                  <span className="font-medium">hoàn toàn miễn phí và không quảng cáo</span>.
+                </p>
+
+                {/* Donation CTA */}
+                <p className="mb-6 text-justify indent-4 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                  Để duy trì và cải thiện dịch vụ, chúng tôi cần sự hỗ trợ từ cộng đồng. Nếu ứng dụng hữu ích với bạn, hãy cân nhắc{' '}
+                  <span className="font-semibold text-indigo-600 dark:text-indigo-400">ủng hộ một tách cà phê ☕</span> — dù nhỏ, mỗi đóng
+                  góp đều giúp dự án tiếp tục phát triển. Cảm ơn sự hỗ trợ của bạn!
+                </p>
+
+                <DonatingCard className="mb-6" />
+
+                {/* Action buttons */}
+                <div className="flex items-center justify-end gap-3">
+                  <Button
+                    variant="secondary"
+                    type="button"
+                    onClick={onClickRemindMeLater}
+                    className="dark:border dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
+                  >
+                    Hẹn gặp lại lần sau
+                  </Button>
+                  <Button variant="default" type="button" onClick={onClickHasDonated}>
+                    Đã ủng hộ rồi ❤️
+                  </Button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

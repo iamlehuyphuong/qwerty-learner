@@ -43,26 +43,26 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ openState, title, onClose, icon: 
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg ">
                 <div className="bg-white px-4 pb-4 pt-5 dark:bg-gray-800 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start">
-                    <div
-                      className={classNames(
-                        iconClassName,
-                        `mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full dark:bg-opacity-30 sm:mx-0 sm:h-10 sm:w-10`,
-                      )}
-                    >
-                      <Icon className="h-6 w-6 stroke-current dark:bg-opacity-100" />
-                    </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center justify-center gap-4">
+                      <div
+                        className={classNames(
+                          iconClassName,
+                          `flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full dark:bg-opacity-30 sm:h-10 sm:w-10`,
+                        )}
+                      >
+                        <Icon className="h-6 w-6 stroke-current dark:bg-opacity-100" />
+                      </div>
+                      <Dialog.Title as="h3" className="text-xl font-bold leading-6 text-gray-900 dark:text-white">
                         {title}
                       </Dialog.Title>
-                      <div className="mt-2">{children}</div>
                     </div>
+                    <div className="mt-4 w-full text-justify">{children}</div>
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 dark:bg-gray-700  sm:flex sm:flex-row-reverse sm:px-6">
                   <button type="button" className={classNames(buttonClassName, 'my-btn-info-panel ')} onClick={() => onClose()}>
-                    đóng cửa
+                    Đóng
                   </button>
                 </div>
               </Dialog.Panel>

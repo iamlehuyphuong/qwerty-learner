@@ -1,11 +1,11 @@
 import { TypingContext, TypingStateActionType } from '../../store'
 import ShareButton from '../ShareButton'
-import { AuthorButton } from './AuthorButton'
 import ConclusionBar from './ConclusionBar'
-import RemarkRing from './RemarkRing'
 import WordChip from './WordChip'
 import styles from './index.module.css'
 import Tooltip from '@/components/Tooltip'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import {
   currentChapterAtom,
   currentDictInfoAtom,
@@ -17,17 +17,17 @@ import {
 } from '@/store'
 import type { InfoPanelType } from '@/typings'
 import { recordOpenInfoPanelAction } from '@/utils'
-import { Transition } from '@headlessui/react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useNavigate } from 'react-router-dom'
 import IexportWords from '~icons/icon-park-outline/excel'
 import IconCoffee from '~icons/mdi/coffee'
-import IconXiaoHongShu from '~icons/my-icons/xiaohongshu'
-import IconGithub from '~icons/simple-icons/github'
-import IconWechat from '~icons/simple-icons/wechat'
-import IconX from '~icons/tabler/x'
+import IconZalo from '~icons/my-icons/zalo'
+import IconFacebook from '~icons/simple-icons/facebook'
+
+const iconBtnClass =
+  'h-8 w-8 border border-solid !border-slate-500 !bg-transparent text-indigo-500 transition-colors hover:!bg-indigo-500/10 hover:text-indigo-600'
 
 const ResultScreen = () => {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
@@ -44,7 +44,6 @@ const ResultScreen = () => {
   const isReviewMode = useAtomValue(isReviewModeAtom)
 
   useEffect(() => {
-    // tick a zero timer to calc the stats
     dispatch({ type: TypingStateActionType.TICK_TIMER, addTime: 0 })
   }, [dispatch])
 
@@ -113,41 +112,24 @@ const ResultScreen = () => {
   }, [state.timerData.time])
 
   const repeatButtonHandler = useCallback(async () => {
-    if (isReviewMode) {
-      return
-    }
-
+    if (isReviewMode) return
     setWordDictationConfig((old) => {
-      if (old.isOpen) {
-        if (old.openBy === 'auto') {
-          return { ...old, isOpen: false }
-        }
-      }
+      if (old.isOpen && old.openBy === 'auto') return { ...old, isOpen: false }
       return old
     })
     dispatch({ type: TypingStateActionType.REPEAT_CHAPTER, shouldShuffle: randomConfig.isOpen })
   }, [isReviewMode, setWordDictationConfig, dispatch, randomConfig.isOpen])
 
   const dictationButtonHandler = useCallback(async () => {
-    if (isReviewMode) {
-      return
-    }
-
+    if (isReviewMode) return
     setWordDictationConfig((old) => ({ ...old, isOpen: true, openBy: 'auto' }))
     dispatch({ type: TypingStateActionType.REPEAT_CHAPTER, shouldShuffle: randomConfig.isOpen })
   }, [isReviewMode, setWordDictationConfig, dispatch, randomConfig.isOpen])
 
   const nextButtonHandler = useCallback(() => {
-    if (isReviewMode) {
-      return
-    }
-
+    if (isReviewMode) return
     setWordDictationConfig((old) => {
-      if (old.isOpen) {
-        if (old.openBy === 'auto') {
-          return { ...old, isOpen: false }
-        }
-      }
+      if (old.isOpen && old.openBy === 'auto') return { ...old, isOpen: false }
       return old
     })
     if (!isLastChapter) {
@@ -178,17 +160,14 @@ const ResultScreen = () => {
     },
     { preventDefault: true },
   )
-
   useHotkeys(
     'space',
     (e) => {
-      // Sự kiện chặn của Firefox không hoạt động，sẽ gây ra sau khi nhấn phím cách Nhập lại đúng chữ cái đầu tiên sẽ bị báo lỗi
       e.stopPropagation()
       repeatButtonHandler()
     },
     { preventDefault: true },
   )
-
   useHotkeys(
     'shift+enter',
     () => {
@@ -206,140 +185,131 @@ const ResultScreen = () => {
   )
 
   return (
-    <div className="fixed inset-0 z-30 overflow-y-auto">
-      <div className="absolute inset-0 bg-gray-300 opacity-80 dark:bg-gray-600"></div>
-      <Transition
-        show={true}
-        enter="ease-in duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="ease-out duration-100"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+    <Dialog
+      open={true}
+      onOpenChange={(open) => {
+        if (!open) exitButtonHandler()
+      }}
+    >
+      <DialogContent
+        className="w-[90vw] max-w-5xl overflow-hidden rounded-2xl p-0 dark:border-gray-700 dark:bg-gray-800 md:w-4/5 lg:w-3/5"
+        onInteractOutside={(e) => e.preventDefault()}
       >
-        <div className="flex h-screen items-center justify-center">
-          <div className="my-card fixed flex w-[90vw] max-w-6xl flex-col overflow-hidden rounded-3xl bg-white pb-14 pl-10 pr-5 pt-10 shadow-lg dark:bg-gray-800 md:w-4/5 lg:w-3/5">
-            <div className="text-center font-sans text-xl font-normal text-gray-900 dark:text-gray-400 md:text-2xl">
-              {`${currentDictInfo.name} ${isReviewMode ? 'Ôn tập từ gõ sai' : 'Bài ' + (currentChapter + 1)}`}
-            </div>
-            <button className="absolute right-7 top-5" onClick={exitButtonHandler}>
-              <IconX className="text-gray-400" />
-            </button>
-            <div className="mt-10 flex flex-row gap-2 overflow-hidden">
-              <div className="flex flex-shrink-0 flex-grow-0 flex-col gap-3 px-4 sm:px-1 md:px-2 lg:px-4">
-                <RemarkRing remark={`${state.timerData.accuracy}%`} caption="Tỷ lệ chính xác" percentage={state.timerData.accuracy} />
-                <RemarkRing remark={timeString} caption="Thời gian hoàn thành" />
-                <RemarkRing remark={state.timerData.wpm + ''} caption="WPM" />
+        <div className="flex flex-col px-10 pb-10 pt-8">
+          {/* Title */}
+          <div className="text-center font-sans text-xl font-bold text-gray-900 dark:text-gray-100 md:text-2xl">
+            {`${currentDictInfo.name} ${isReviewMode ? 'Ôn tập từ gõ sai' : 'Bài ' + (currentChapter + 1)}`}
+          </div>
+
+          <div className="mt-10 flex flex-row items-stretch gap-4 overflow-hidden">
+            {/* Left: stats */}
+            <div className="flex shrink-0 grow-0 flex-col items-center justify-center gap-8 px-2">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-3xl font-bold tabular-nums text-foreground">{state.timerData.accuracy}%</span>
+                <span className="text-center text-xs text-muted-foreground">Tỷ lệ chính xác</span>
               </div>
-              <div className="z-10 ml-6 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700">
-                <div className="customized-scrollbar z-20 ml-8 mr-1 flex h-80 flex-row flex-wrap content-start gap-4 overflow-y-auto overflow-x-hidden pr-7 pt-9">
-                  {wrongWords.map((word, index) => (
-                    <WordChip key={`${index}-${word.name}`} word={word} />
-                  ))}
-                </div>
-                <div className="align-center flex w-full flex-row justify-start rounded-b-xl bg-indigo-200 px-4 dark:bg-indigo-400">
-                  <ConclusionBar mistakeLevel={mistakeLevel} mistakeCount={wrongWords.length} />
-                </div>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-3xl font-bold tabular-nums text-foreground">{timeString}</span>
+                <span className="text-center text-xs text-muted-foreground">Thời gian hoàn thành</span>
               </div>
-              <div className="ml-2 flex flex-col items-center justify-end gap-3 text-xl">
-                <AuthorButton />
-                {!isReviewMode && (
-                  <>
-                    <ShareButton />
-                    <IexportWords fontSize={18} className="cursor-pointer text-gray-500" onClick={exportWords}></IexportWords>
-                  </>
-                )}
-                <IconXiaoHongShu
-                  fontSize={15}
-                  className="cursor-pointer text-gray-500 hover:text-red-500 focus:outline-none"
-                  onClick={(e) => {
-                    handleOpenInfoPanel('redBook')
-                    e.currentTarget.blur()
-                  }}
-                />
-
-                <button
-                  onClick={(e) => {
-                    handleOpenInfoPanel('donate')
-                    e.currentTarget.blur()
-                  }}
-                  className="cursor-pointer"
-                  type="button"
-                  title="Đóng góp cho dự án của chúng tôi"
-                >
-                  <IconCoffee fontSize={17} className={`text-gray-500 hover:text-amber-500  focus:outline-none ${styles.imgShake}`} />
-                </button>
-
-                <button
-                  onClick={(e) => {
-                    handleOpenInfoPanel('community')
-                    e.currentTarget.blur()
-                  }}
-                  className="cursor-pointer text-gray-500 dark:text-gray-400"
-                  type="button"
-                  title="Tham gia cộng đồng của chúng tôi"
-                >
-                  <IconWechat fontSize={16} className="text-gray-500 hover:text-green-500 focus:outline-none" />
-                </button>
-
-                <a href="https://github.com/RealKai42/qwerty-learner" target="_blank" rel="noreferrer" className="leading-[0px]">
-                  <IconGithub fontSize={16} className="text-gray-500 hover:text-green-800 focus:outline-none" />
-                </a>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-3xl font-bold tabular-nums text-foreground">{state.timerData.wpm}</span>
+                <span className="text-center text-xs text-muted-foreground">Từ/Phút</span>
               </div>
             </div>
-            <div className="mt-10 flex w-full justify-center gap-5 px-5 text-xl">
+
+            {/* Center: word chip area */}
+            <div className="z-10 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700/60">
+              <div className="customized-scrollbar z-20 ml-8 mr-1 flex h-80 flex-row flex-wrap content-start gap-3 overflow-y-auto overflow-x-hidden pr-7 pt-9">
+                {wrongWords.map((word, index) => (
+                  <WordChip key={`${index}-${word.name}`} word={word} />
+                ))}
+              </div>
+              <div className="align-center flex w-full flex-row justify-start rounded-b-xl bg-indigo-200 px-4 dark:bg-indigo-500/70">
+                <ConclusionBar mistakeLevel={mistakeLevel} mistakeCount={wrongWords.length} />
+              </div>
+            </div>
+
+            {/* Right: action icon buttons — header style */}
+            <div className="flex shrink-0 flex-col items-center justify-center gap-3 px-2 py-4">
+              {!isReviewMode && <ShareButton />}
               {!isReviewMode && (
-                <>
-                  <Tooltip content="phím tắt：shift + enter">
-                    <button
-                      className="my-btn-primary h-12 border-2 border-solid border-gray-300 bg-white text-base text-gray-700 dark:border-gray-700 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700"
-                      type="button"
-                      onClick={dictationButtonHandler}
-                      title="Luyện tập lại bài này"
-                    >
-                      Luyện tập lại bài này
-                    </button>
-                  </Tooltip>
-                  <Tooltip content="phím tắt：space">
-                    <button
-                      className="my-btn-primary h-12 border-2 border-solid border-gray-300 bg-white text-base text-gray-700 dark:border-gray-700 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700"
-                      type="button"
-                      onClick={repeatButtonHandler}
-                      title="Lặp lại phần này"
-                    >
-                      Lặp lại phần này
-                    </button>
-                  </Tooltip>
-                </>
+                <Button variant="ghost" size="icon" type="button" onClick={exportWords} title="Xuất Excel" className={iconBtnClass}>
+                  <IexportWords className="h-4 w-4" />
+                </Button>
               )}
-              {!isLastChapter && !isReviewMode && (
-                <Tooltip content="phím tắt：enter">
-                  <button
-                    className={`{ isLastChapter ? 'cursor-not-allowed opacity-50' : ''} my-btn-primary h-12 text-base font-bold `}
-                    type="button"
-                    onClick={nextButtonHandler}
-                    title="Bài tiếp theo"
-                  >
-                    Bài tiếp theo
-                  </button>
-                </Tooltip>
-              )}
-
-              {isReviewMode && (
-                <button
-                  className="my-btn-primary h-12 text-base font-bold"
-                  type="button"
-                  onClick={onNavigateToGallery}
-                  title="Luyện tập bài khác"
-                >
-                  Luyện tập bài khác
-                </button>
-              )}
+              <Button variant="ghost" size="icon" asChild className={iconBtnClass} title="Liên hệ qua Zalo">
+                <a href={`https://zalo.me/${import.meta.env.VITE_ZALO_PHONE || '0123456789'}`} target="_blank" rel="noreferrer">
+                  <IconZalo className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild className={iconBtnClass} title="Trang Facebook">
+                <a href={`https://facebook.com/${import.meta.env.VITE_FACEBOOK_USERNAME || 'username'}`} target="_blank" rel="noreferrer">
+                  <IconFacebook className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                type="button"
+                onClick={(e) => {
+                  handleOpenInfoPanel('donate')
+                  e.currentTarget.blur()
+                }}
+                title="Đóng góp cho dự án"
+                className={`${iconBtnClass} ${styles.imgShake}`}
+              >
+                <IconCoffee className="h-4 w-4" />
+              </Button>
             </div>
           </div>
+
+          {/* Bottom: action buttons */}
+          <div className="mt-10 flex w-full justify-center gap-4 px-5">
+            {!isReviewMode && (
+              <>
+                <Tooltip content="phím tắt：shift + enter">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    type="button"
+                    onClick={dictationButtonHandler}
+                    title="Luyện tập lại bài này"
+                    className="dark:border dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
+                  >
+                    Luyện tập lại bài này
+                  </Button>
+                </Tooltip>
+                <Tooltip content="phím tắt：space">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    type="button"
+                    onClick={repeatButtonHandler}
+                    title="Lặp lại phần này"
+                    className="dark:border dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
+                  >
+                    Lặp lại phần này
+                  </Button>
+                </Tooltip>
+              </>
+            )}
+            {!isLastChapter && !isReviewMode && (
+              <Tooltip content="phím tắt：enter">
+                <Button variant="default" size="lg" type="button" onClick={nextButtonHandler} title="Bài tiếp theo">
+                  Bài tiếp theo
+                </Button>
+              </Tooltip>
+            )}
+            {isReviewMode && (
+              <Button variant="default" size="lg" type="button" onClick={onNavigateToGallery} title="Luyện tập bài khác">
+                Luyện tập bài khác
+              </Button>
+            )}
+          </div>
         </div>
-      </Transition>
-    </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 

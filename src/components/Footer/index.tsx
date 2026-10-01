@@ -40,17 +40,17 @@ const Footer: React.FC = () => {
         iconClassName="text-amber-500 bg-amber-100 dark:text-amber-300 dark:bg-amber-500"
         onClose={() => handleCloseInfoPanel('donate')}
       >
-        <p className="indent-4 text-sm text-gray-500 dark:text-gray-300">
+        <p className="text-justify indent-4 text-sm text-gray-500 dark:text-gray-300">
           Cảm ơn bạn rất nhiều vì đã sử dụng {import.meta.env.VITE_APP_NAME || 'Type & English'}! Hiện tại website đang được bảo trì và phát
           triển trong thời gian rảnh rỗi. Để đảm bảo rằng trang web có thể tiếp tục cung cấp dịch vụ chất lượng cao cho mọi người, chúng tôi
           cần sự giúp đỡ của bạn!
           <br />
-          Khoản đóng góp của bạn sẽ giúp chúng tôi trang trải chi phí vận hành trang web {import.meta.env.VITE_FRONTEND_URL}, cải thiện chức
-          năng, thiết kế, và nâng cao trải nghiệm người dùng.
+          Khoản đóng góp của bạn sẽ giúp chúng tôi trang trải chi phí duy trì hệ thống máy chủ, cải thiện các chức năng mới và tiếp tục mang
+          đến trải nghiệm học tập hoàn toàn miễn phí, chất lượng cao cho cộng đồng.
           <br />
         </p>
         <br />
-        <p className="indent-4 text-sm text-gray-700 dark:text-gray-200">
+        <p className="text-justify indent-4 text-sm text-gray-700 dark:text-gray-200">
           Chúng tôi tin rằng, những nỗ lực chung có thể làm cho {import.meta.env.VITE_APP_NAME || 'Type & English'} trở thành một nền tảng
           học tập tốt hơn. Sự ủng hộ của các bạn sẽ tiếp thêm động lực cho chúng tôi tiếp tục tiến về phía trước. Cảm ơn sự hỗ trợ của bạn!
         </p>

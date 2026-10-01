@@ -1,4 +1,5 @@
 import SharePicDialog from './SharePicDialog'
+import { Button } from '@/components/ui/button'
 import { recordShareAction } from '@/utils'
 import { useCallback, useMemo, useState } from 'react'
 import IconShare2 from '~icons/tabler/share-2'
@@ -23,14 +24,16 @@ export default function ShareButton() {
     <>
       {isShowSharePanel && <SharePicDialog showState={isShowSharePanel} setShowState={setIsShowSharePanel} randomChoose={randomChoose} />}
 
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         type="button"
-        className="cursor-pointer text-xl text-gray-500 hover:text-indigo-400"
         onClick={onClickShare}
-        title="分享你của成绩给朋友"
+        title="Chia sẻ kết quả của bạn"
+        className="h-8 w-8 border border-solid !border-slate-500 !bg-transparent text-indigo-500 transition-colors hover:!bg-indigo-500/10 hover:text-indigo-600"
       >
-        <IconShare2 />
-      </button>
+        <IconShare2 className="h-4 w-4" />
+      </Button>
     </>
   )
 }

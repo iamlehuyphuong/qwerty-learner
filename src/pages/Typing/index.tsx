@@ -11,6 +11,7 @@ import { useConfetti } from './hooks/useConfetti'
 import { useWordList } from './hooks/useWordList'
 import { TypingContext, TypingStateActionType, initialState, typingReducer } from './store'
 import { DonateCard } from '@/components/DonateCard'
+import EnhancedPromotionModal from '@/components/EnhancedPromotionModal'
 import Header from '@/components/Header'
 import Tooltip from '@/components/Tooltip'
 import { Button } from '@/components/ui/button'
@@ -169,6 +170,22 @@ const App: React.FC = () => {
         </div>
       </Layout>
       <WordList />
+      {/* Test UI Buttons */}
+      {import.meta.env.DEV && (
+        <div className="fixed bottom-4 left-4 z-[100] flex flex-col gap-2 opacity-30 transition-opacity hover:opacity-100">
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={() => {
+              window.localStorage.removeItem('hasSeenEnhancedPromotion')
+              window.location.reload()
+            }}
+          >
+            Test Promotion Modal
+          </Button>
+        </div>
+      )}
+      <EnhancedPromotionModal />
     </TypingContext.Provider>
   )
 }
