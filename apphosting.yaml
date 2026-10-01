@@ -12,7 +12,7 @@ env:
       - BUILD
       - RUNTIME
   - variable: VITE_APP_NAME
-    value: 'Type & English'
+    value: 'Typing English'
     availability:
       - BUILD
   - variable: VITE_FRONTEND_URL
@@ -24,11 +24,11 @@ env:
     availability:
       - BUILD
   - variable: VITE_ZALO_PHONE
-    value: '0123456789'
+    value: '0782513658'
     availability:
       - BUILD
   - variable: VITE_FACEBOOK_USERNAME
-    value: 'username'
+    value: 'iamhuyphuong'
     availability:
       - BUILD
   - variable: VITE_FIREBASE_API_KEY
@@ -60,10 +60,10 @@ env:
     availability:
       - BUILD
   - variable: VITE_BANK_ACCOUNT
-    value: '9988776655'
+    value: '0782513658'
     availability:
       - BUILD
   - variable: VITE_BANK_NAME
-    value: 'Vietcombank'
+    value: 'VPB'
     availability:
       - BUILD
