@@ -67,6 +67,7 @@
     "dev": "vite",
     "start": "serve -s build -l tcp://0.0.0.0:${PORT:-8080}",
     "build": "cross-env CI=false vite build --base=./",
+    "gcp-build": "npm run build",
     "test": "echo \"No tests\"",
     "test:e2e": "playwright test",
     "lint": "eslint .",
