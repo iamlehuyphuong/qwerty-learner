@@ -3,16 +3,17 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { auth, db } from '@/lib/firebase'
-import { isUserLoggedInAtom } from '@/store'
+import { authUserAtom, isUserLoggedInAtom } from '@/store'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
-import { useAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import type React from 'react'
 import { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 const RegisterPage = () => {
   const [isLoggedIn] = useAtom(isUserLoggedInAtom)
+  const setAuthUser = useSetAtom(authUserAtom)
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -38,6 +39,8 @@ const RegisterPage = () => {
       if (name && email && password) {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password)
         await updateProfile(userCredential.user, { displayName: name })
+        // onAuthStateChanged đã chạy trước khi có displayName, cập nhật để Header hiển thị đúng biệt danh
+        setAuthUser({ uid: userCredential.user.uid, email: userCredential.user.email, displayName: name })
 
         // Generate a unique code (Timestamp since Jan 1 2026 in Base36 + 1 random char)
         const epoch2026 = new Date('2026-01-01T00:00:00Z').getTime()

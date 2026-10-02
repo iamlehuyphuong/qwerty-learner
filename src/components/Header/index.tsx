@@ -11,10 +11,10 @@ import {
 import { Card } from '@/components/ui/card'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@/components/ui/dropdown'
 import { auth } from '@/lib/firebase'
-import { authUserAtom } from '@/store'
+import { authUserAtom, isUserLoggedInAtom } from '@/store'
 import { signOut } from 'firebase/auth'
 import { useAtomValue } from 'jotai'
-import { LogIn, UserPlus } from 'lucide-react'
+import { LogIn, UserPlus, HatGlasses } from 'lucide-react'
 import type { PropsWithChildren, ReactNode } from 'react'
 import type React from 'react'
 import { useState } from 'react'
@@ -28,8 +28,9 @@ const Header: React.FC<HeaderProps> = ({ children, leftNode }) => {
   const user = useAtomValue(authUserAtom)
   const navigate = useNavigate()
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
-  // null: khách; undefined: Firebase đang khôi phục phiên, hiển thị như đã đăng nhập để tránh nháy giao diện
-  const isGuest = user === null
+  const isLoggedInHint = useAtomValue(isUserLoggedInAtom)
+  // undefined: Firebase đang khôi phục phiên, dựa vào trạng thái lần trước để tránh nháy giao diện
+  const isGuest = user === undefined ? !isLoggedInHint : user === null
 
   const handleLogout = () => {
     // Đăng xuất xong vẫn ở lại app với chế độ khách, trạng thái được cập nhật qua onAuthStateChanged ở Root
@@ -45,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ children, leftNode }) => {
           <Dropdown>
             <DropdownTrigger className="flex cursor-pointer items-center gap-3 rounded-lg p-2 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-400 text-lg font-bold text-white shadow-md dark:bg-slate-600">
-                K
+                <HatGlasses className="h-6 w-6" />
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Khách</span>

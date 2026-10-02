@@ -14,7 +14,6 @@ import type {
   WordDictationType,
 } from '@/typings'
 import type { ReviewRecord } from '@/utils/db/record'
-import type { User } from 'firebase/auth'
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 
@@ -118,8 +117,10 @@ export const hasSeenEnhancedPromotionAtom = atomWithStorage('hasSeenEnhancedProm
 // Authentication — đăng nhập là tuỳ chọn, chưa đăng nhập vẫn dùng app ở chế độ khách (dữ liệu chỉ lưu trên máy)
 // Lưu localStorage để lần mở sau biết trước có cần chờ tải dữ liệu cloud hay không
 export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
+// Lưu bản sao thay vì object User của Firebase: updateProfile sửa trực tiếp object đó nên jotai không render lại
+export type AuthUser = { uid: string; email: string | null; displayName: string | null }
 // undefined: Firebase chưa khôi phục phiên đăng nhập, null: khách
-export const authUserAtom = atom<User | null | undefined>(undefined)
+export const authUserAtom = atom<AuthUser | null | undefined>(undefined)
 
 export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
 

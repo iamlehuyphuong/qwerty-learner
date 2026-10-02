@@ -44,7 +44,7 @@ function Root() {
   // Nơi duy nhất lắng nghe trạng thái đăng nhập, các component khác đọc qua authUserAtom
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setAuthUser(user)
+      setAuthUser(user ? { uid: user.uid, email: user.email, displayName: user.displayName } : null)
       setIsLoggedIn(!!user)
     })
     return () => unsubscribe()
@@ -67,7 +67,9 @@ function Root() {
     <React.StrictMode>
       <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/qwerty-learner' : ''}>
         <Suspense fallback={<Loading />}>
-          {isLoggedIn && cloudSyncStatus === 'loading' ? (
+          {/* Đã đăng nhập thì chờ tải xong dữ liệu cloud. Không so với 'loading' vì ngay sau khi đăng nhập
+              status vẫn là 'idle' của chế độ khách, app sẽ kịp render một nhịp với cấu hình của khách */}
+          {isLoggedIn && cloudSyncStatus !== 'ready' ? (
             <Loading />
           ) : (
             <Routes>
