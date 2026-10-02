@@ -1,6 +1,7 @@
 import type { CloudProgress, CloudSettings, CloudState, SyncedSettingKey } from '@/lib/cloudSync'
 import { fetchCloudState, pushProgress, pushSettings, syncedSettingAtoms } from '@/lib/cloudSync'
 import { auth } from '@/lib/firebase'
+import { fetchAndMergeCloudWordRecords } from '@/lib/syncWordRecords'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { cloudChapterProgressAtom, cloudSyncStatusAtom, currentChapterAtom, currentDictIdAtom } from '@/store'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -128,6 +129,9 @@ export function useCloudSync() {
       if (cancelled) return
 
       if (remote) {
+        // Fetch and merge word records in background (Error-Book sync)
+        fetchAndMergeCloudWordRecords(uid).catch((e) => console.error('Firebase: Error merging word records:', e))
+
         applyRemoteState(store, remote)
         setCloudChapterProgress(remote.chapterProgress)
       }

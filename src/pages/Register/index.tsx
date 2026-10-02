@@ -63,6 +63,7 @@ const RegisterPage = () => {
             averageWpm: 0,
             createdAt: serverTimestamp(),
             updatedAt: serverTimestamp(),
+            streak: { current: 0, best: 0, lastDate: '' },
           },
           // merge: cloud sync có thể đã ghi settings/progress ngay khi tài khoản được tạo
           { merge: true },

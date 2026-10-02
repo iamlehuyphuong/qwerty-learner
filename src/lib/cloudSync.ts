@@ -15,6 +15,7 @@ import {
   randomConfigAtom,
   wordDictationConfigAtom,
 } from '@/store'
+import dayjs from 'dayjs'
 import { collection, doc, getDoc, getDocs, runTransaction, serverTimestamp, setDoc } from 'firebase/firestore'
 
 /**
@@ -116,10 +117,13 @@ export async function recordChapterCompletion(
   result: { dictId: string; chapter: number; timeSpentMs: number; wpm: number; accuracy: number; wrongCount: number },
 ): Promise<CloudChapterProgress> {
   const ref = doc(db, 'users', uid, 'chapterProgress', chapterProgressKey(result.dictId, result.chapter))
+  const userRef = doc(db, 'users', uid)
+  const publicProfileRef = doc(db, 'publicProfiles', uid)
 
   return runTransaction(db, async (tx) => {
-    const snap = await tx.get(ref)
+    const [snap, userSnap] = await Promise.all([tx.get(ref), tx.get(userRef)])
     const prev = snap.exists() ? (snap.data() as CloudChapterProgress) : undefined
+    const userData = userSnap.exists() ? userSnap.data() : undefined
     const now = Date.now()
 
     const next: CloudChapterProgress = {
@@ -135,6 +139,45 @@ export async function recordChapterCompletion(
       lastCompletedAt: now,
     }
     tx.set(ref, next)
+
+    // Cập nhật streak
+    const today = dayjs().format('YYYY-MM-DD')
+    const streak = userData?.streak || { current: 0, best: 0, lastDate: '' }
+
+    let newCurrent = streak.current
+    if (streak.lastDate !== today) {
+      const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+      if (streak.lastDate === yesterday) {
+        newCurrent += 1
+      } else {
+        newCurrent = 1
+      }
+    }
+
+    const newBest = Math.max(streak.best, newCurrent)
+    const newStreak = {
+      current: newCurrent,
+      best: newBest,
+      lastDate: today,
+    }
+
+    // Nếu streak hoặc lastDate thay đổi thì mới cập nhật user document
+    if (streak.lastDate !== today || streak.current !== newCurrent) {
+      tx.set(userRef, { streak: newStreak }, { merge: true })
+
+      // Đồng bộ publicProfiles để dùng cho bảng xếp hạng
+      tx.set(
+        publicProfileRef,
+        {
+          uid,
+          name: userData?.name || 'Unknown',
+          bestStreak: newBest,
+          updatedAt: serverTimestamp(),
+        },
+        { merge: true },
+      )
+    }
+
     return next
   })
 }

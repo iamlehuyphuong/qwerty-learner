@@ -31,6 +31,7 @@ service cloud.firestore {
         'createdAt', 'updatedAt',
         'settings', 'settingsUpdatedAt',
         'progress',
+        'streak',
       ];
     }
 
@@ -40,6 +41,14 @@ service cloud.firestore {
         && progress.dictId is string && progress.dictId.size() > 0 && progress.dictId.size() <= 200
         && progress.chapter is int && progress.chapter >= 0
         && (!('updatedAt' in progress) || progress.updatedAt is timestamp);
+    }
+
+    function isValidStreak(streak) {
+      return streak is map
+        && streak.keys().hasOnly(['current', 'best', 'lastDate'])
+        && streak.current is int && streak.current >= 0
+        && streak.best is int && streak.best >= 0
+        && streak.lastDate is string;
     }
 
     function isValidUserData(uid) {
@@ -52,7 +61,8 @@ service cloud.firestore {
         && (!('totalWords' in data()) || isNonNegativeNumber(data().totalWords))
         && (!('averageWpm' in data()) || isNonNegativeNumber(data().averageWpm))
         && (!('settings' in data()) || data().settings is map)
-        && (!('progress' in data()) || isValidProgress(data().progress));
+        && (!('progress' in data()) || isValidProgress(data().progress))
+        && (!('streak' in data()) || isValidStreak(data().streak));
     }
 
     // Field chỉ được đặt một lần: chưa có thì được đặt, đã có thì không được đổi
@@ -159,6 +169,17 @@ service cloud.firestore {
     match /donations/{transactionCode} {
       allow read: if request.auth != null && resource.data.matchedUserId == request.auth.uid;
       allow write: if false; // Chỉ Admin SDK mới ghi được (bỏ qua rules)
+    }
+
+    // ---------- publicProfiles/{uid} ----------
+    // Dùng cho Leaderboard (Bảng xếp hạng)
+    match /publicProfiles/{uid} {
+      allow read: if request.auth != null;
+      allow write: if isOwner(uid)
+        && data().keys().hasOnly(['uid', 'name', 'bestStreak', 'updatedAt'])
+        && data().uid == uid
+        && data().name is string
+        && data().bestStreak is int && data().bestStreak >= 0;
     }
 
     // Mặc định chặn mọi thứ khác

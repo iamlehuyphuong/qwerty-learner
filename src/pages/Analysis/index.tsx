@@ -55,11 +55,9 @@ const Analysis = () => {
           <div className="flex justify-center pb-40">
             <div className="inline-flex flex-col gap-6">
               {isEmpty ? (
-                <Card className="grid h-60 place-content-center">
-                  <CardContent>
-                    <p className="text-lg text-muted-foreground">Chưa có dữ liệu luyện tập</p>
-                  </CardContent>
-                </Card>
+                <div className="grid h-60 place-content-center">
+                  <p className="text-lg text-muted-foreground">Chưa có dữ liệu luyện tập</p>
+                </div>
               ) : (
                 <>
                   <Card className="overflow-hidden">

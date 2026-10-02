@@ -1,7 +1,9 @@
 import { chapterProgressKey, recordChapterCompletion } from '@/lib/cloudSync'
 import { auth, db } from '@/lib/firebase'
+import { pushWordRecordsBatch } from '@/lib/syncWordRecords'
 import type { TypingState } from '@/pages/Typing/store/type'
 import { cloudChapterProgressAtom, currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
+import { db as localDb } from '@/utils/db'
 import { addDoc, collection, doc, increment, serverTimestamp, setDoc } from 'firebase/firestore'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
@@ -65,6 +67,17 @@ export function useFirebaseChapterLogUploader() {
             wrongCount,
           })
           setCloudChapterProgress((old) => ({ ...old, [chapterProgressKey(progress.dictId, progress.chapter)]: progress }))
+        }
+
+        // 4. Batch upload word records for this chapter
+        const wordRecordIds = typingState.chapterData.wordRecordIds || []
+        if (wordRecordIds.length > 0) {
+          const records = await localDb.wordRecords.bulkGet(wordRecordIds)
+          const validRecords = records.filter(Boolean).map((r, i) => ({ ...r!, localId: wordRecordIds[i] }))
+          if (validRecords.length > 0) {
+            await pushWordRecordsBatch(user.uid, validRecords)
+            console.log(`Firebase: Uploaded ${validRecords.length} word records.`)
+          }
         }
 
         console.log('Firebase: Uploaded usage history & updated stats successfully.')

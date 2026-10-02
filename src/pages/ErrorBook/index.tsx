@@ -9,6 +9,8 @@ import type { groupedWordRecords } from './type'
 import { LoadingUI } from '@/components/Loading'
 import { Button } from '@/components/ui/button'
 import { Table, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { auth } from '@/lib/firebase'
+import { deleteCloudWordRecords } from '@/lib/syncWordRecords'
 import { db, useDeleteWordRecord } from '@/utils/db'
 import type { WordRecord } from '@/utils/db/record'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
@@ -96,6 +98,13 @@ export function ErrorBook() {
 
   const handleDelete = async (word: string, dict: string) => {
     await deleteWordRecord(word, dict)
+
+    // Đồng bộ xoá lên Firestore (fire-and-forget)
+    const user = auth.currentUser
+    if (user) {
+      deleteCloudWordRecords(user.uid, word, dict).catch((e) => console.error('Failed to delete cloud records', e))
+    }
+
     setReload((prev) => !prev)
   }
 

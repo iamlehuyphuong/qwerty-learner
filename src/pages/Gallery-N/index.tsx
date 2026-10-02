@@ -2,11 +2,11 @@ import DictionaryGroup from './CategoryDicts'
 import { LanguageTabSwitcher } from './LanguageTabSwitcher'
 import Layout from '@/components/Layout'
 import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { dictionaries } from '@/resources/dictionary'
 import { currentDictInfoAtom } from '@/store'
 import type { Dictionary, LanguageCategoryType } from '@/typings'
 import groupBy, { groupByDictTags } from '@/utils/groupBy'
-import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { useAtomValue } from 'jotai'
 import { X } from 'lucide-react'
 import { createContext, useCallback, useEffect, useMemo } from 'react'
@@ -80,16 +80,13 @@ export default function GalleryPage() {
               <div className="flex w-full items-center pb-6">
                 <LanguageTabSwitcher />
               </div>
-              <ScrollArea.Root className="flex-1 overflow-y-auto">
-                <ScrollArea.Viewport className="h-full w-full ">
-                  <div className="mr-4 flex flex-1 flex-col items-start justify-start gap-14 overflow-y-auto">
-                    {groupedByCategoryAndTag.map(([category, groupeByTag]) => (
-                      <DictionaryGroup key={category} groupedDictsByTag={groupeByTag} />
-                    ))}
-                  </div>
-                </ScrollArea.Viewport>
-                <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
-              </ScrollArea.Root>
+              <ScrollArea className="flex-1 overflow-y-auto">
+                <div className="mr-4 flex flex-1 flex-col items-start justify-start gap-14 overflow-y-auto">
+                  {groupedByCategoryAndTag.map(([category, groupeByTag]) => (
+                    <DictionaryGroup key={category} groupedDictsByTag={groupeByTag} />
+                  ))}
+                </div>
+              </ScrollArea>
               {/* todo: Thêm điều hướng */}
               {/* <div className="mt-20 h-40 w-40 text-center ">
                 <CategoryNavigation />
