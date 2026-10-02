@@ -14,6 +14,10 @@ export interface IWordRecord {
   wrongCount: number
   // Mỗi chữ cái gõ sai là gì?, index vì字母của索引, 数组内vì错误của e.key
   mistakes: LetterMistakes
+  // Đồng bộ cloud: uid của tài khoản đã nhận bản ghi này. Không có = chưa đồng bộ (vd: luyện tập ở chế độ khách)
+  syncedUid?: string
+  // true nếu bản ghi được tải từ cloud về (do máy khác tạo), không tính vào thống kê trên máy
+  fromCloud?: boolean
 }
 
 export interface LetterMistakes {
@@ -29,6 +33,8 @@ export class WordRecord implements IWordRecord {
   timing: number[]
   wrongCount: number
   mistakes: LetterMistakes
+  syncedUid?: string
+  fromCloud?: boolean
 
   constructor(word: string, dict: string, chapter: number | null, timing: number[], wrongCount: number, mistakes: LetterMistakes) {
     this.word = word
@@ -65,6 +71,8 @@ export interface IChapterRecord {
   wordNumber: number
   // từ record của id danh sách
   wordRecordIds: number[]
+  // uid của tài khoản đang đăng nhập khi luyện tập, dùng để xoá dữ liệu trên máy khi đăng xuất
+  uid?: string
 }
 
 export class ChapterRecord implements IChapterRecord {
@@ -78,6 +86,7 @@ export class ChapterRecord implements IChapterRecord {
   correctWordIndexes: number[]
   wordNumber: number
   wordRecordIds: number[]
+  uid?: string
 
   constructor(
     dict: string,

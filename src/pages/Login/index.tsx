@@ -1,3 +1,4 @@
+import ForgotPasswordDialog from './components/ForgotPasswordDialog'
 import logo from '@/assets/logo.png'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -77,9 +78,7 @@ const LoginPage = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Mật khẩu</Label>
-                <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  Quên mật khẩu?
-                </a>
+                <ForgotPasswordDialog defaultEmail={email} />
               </div>
               <Input
                 id="password"

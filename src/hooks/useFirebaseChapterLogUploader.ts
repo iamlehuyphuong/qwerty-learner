@@ -1,10 +1,9 @@
 import { chapterProgressKey, recordChapterCompletion } from '@/lib/cloudSync'
 import { auth, db } from '@/lib/firebase'
-import { pushWordRecordsBatch } from '@/lib/syncWordRecords'
+import { syncPendingWordRecords } from '@/lib/syncWordRecords'
 import type { TypingState } from '@/pages/Typing/store/type'
 import { cloudChapterProgressAtom, currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
-import { db as localDb } from '@/utils/db'
-import { addDoc, collection, doc, increment, serverTimestamp, setDoc } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
 
@@ -19,6 +18,10 @@ export function useFirebaseChapterLogUploader() {
       const user = auth.currentUser
       if (!user || !db) return
 
+      // Đẩy các bản ghi từ chưa đồng bộ (bài vừa xong, các bài trước đó đẩy lỗi, lúc chưa đăng nhập).
+      // Chạy độc lập để lỗi ở các bước dưới không chặn việc đồng bộ lịch sử
+      syncPendingWordRecords(user.uid).catch((error) => console.error('Firebase: Error syncing word records:', error))
+
       try {
         const {
           chapterData: { correctCount, wrongCount, wordCount },
@@ -30,6 +33,7 @@ export function useFirebaseChapterLogUploader() {
         const finalWpm = Number.isFinite(wpm) ? wpm : 0
 
         // 1. Add log to users/{uid}/history
+        // Server (functions: onHistoryCreated) tính streak và thống kê tổng từ log này
         await addDoc(collection(db, 'users', user.uid, 'history'), {
           dictID,
           chapter: isRevision ? -1 : currentChapter,
@@ -43,20 +47,7 @@ export function useFirebaseChapterLogUploader() {
           timestamp: serverTimestamp(),
         })
 
-        // 2. Increment statistics in the parent user document
-        const userRef = doc(db, 'users', user.uid)
-        await setDoc(
-          userRef,
-          {
-            totalTimeSpentMs: increment(timeSpentMs),
-            totalChapters: increment(1),
-            totalWords: increment(wordCount),
-            updatedAt: serverTimestamp(),
-          },
-          { merge: true },
-        )
-
-        // 3. Update per-chapter progress users/{uid}/chapterProgress/{dictId}__{chapter}
+        // 2. Update per-chapter progress users/{uid}/chapterProgress/{dictId}__{chapter}
         if (!isRevision) {
           const progress = await recordChapterCompletion(user.uid, {
             dictId: dictID,
@@ -67,17 +58,6 @@ export function useFirebaseChapterLogUploader() {
             wrongCount,
           })
           setCloudChapterProgress((old) => ({ ...old, [chapterProgressKey(progress.dictId, progress.chapter)]: progress }))
-        }
-
-        // 4. Batch upload word records for this chapter
-        const wordRecordIds = typingState.chapterData.wordRecordIds || []
-        if (wordRecordIds.length > 0) {
-          const records = await localDb.wordRecords.bulkGet(wordRecordIds)
-          const validRecords = records.filter(Boolean).map((r, i) => ({ ...r!, localId: wordRecordIds[i] }))
-          if (validRecords.length > 0) {
-            await pushWordRecordsBatch(user.uid, validRecords)
-            console.log(`Firebase: Uploaded ${validRecords.length} word records.`)
-          }
         }
 
         console.log('Firebase: Uploaded usage history & updated stats successfully.')

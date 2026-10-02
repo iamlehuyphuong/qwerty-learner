@@ -1,5 +1,6 @@
 import type { IChapterRecord, IReviewRecord, IRevisionDictRecord, IWordRecord, LetterMistakes } from './record'
 import { ChapterRecord, ReviewRecord, WordRecord } from './record'
+import { auth } from '@/lib/firebase'
 import { TypingContext, TypingStateActionType } from '@/pages/Typing/store'
 import type { TypingState } from '@/pages/Typing/store/type'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
@@ -64,6 +65,7 @@ export function useSaveChapterRecord() {
         words.length,
         wordRecordIds ?? [],
       )
+      chapterRecord.uid = auth.currentUser?.uid
       db.chapterRecords.add(chapterRecord)
     },
     [currentChapter, dictID, isRevision],

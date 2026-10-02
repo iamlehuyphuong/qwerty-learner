@@ -1,4 +1,4 @@
-import { db } from '@/lib/firebase'
+import { db, functions } from '@/lib/firebase'
 import {
   fontSizeConfigAtom,
   hintSoundsConfigAtom,
@@ -15,19 +15,25 @@ import {
   randomConfigAtom,
   wordDictationConfigAtom,
 } from '@/store'
-import dayjs from 'dayjs'
 import { collection, doc, getDoc, getDocs, runTransaction, serverTimestamp, setDoc } from 'firebase/firestore'
+import { httpsCallable } from 'firebase/functions'
 
 /**
  * Cấu trúc dữ liệu trên Firestore:
  *
  * users/{uid}
- *   settings: { [key in SyncedSettingKey]: value }   // cấu hình người dùng
+ *   settings: { [key in SyncedSettingKey]: value }   // cấu hình người dùng (client ghi)
  *   settingsUpdatedAt: Timestamp
- *   progress: { dictId, chapter, updatedAt }          // chương trình & bài đang học
+ *   progress: { dictId, chapter, updatedAt }          // chương trình & bài đang học (client ghi)
+ *   uid, code, email, name, isDonated, totalDonate,   // hồ sơ: chỉ server ghi (functions: ensureUserProfile, webhook)
+ *   totalTimeSpentMs, totalChapters, totalWords,      // thống kê & streak: chỉ server ghi (functions: onHistoryCreated)
+ *   streak: { current, best, lastDate }
  *
  * users/{uid}/chapterProgress/{dictId}__{chapter}     // tổng hợp mỗi bài đã hoàn thành
  * users/{uid}/history/{autoId}                        // log từng lần luyện tập
+ * users/{uid}/wordRecords, dailyStats                 // lịch sử từng từ, xem src/lib/syncWordRecords.ts
+ * userCodes/{code}                                    // mã donate -> uid, đảm bảo mã không trùng (chỉ server)
+ * publicProfiles/{uid}                                // tên + streak cho bảng xếp hạng (chỉ server ghi)
  */
 
 // Các atom cấu hình được đồng bộ lên cloud. Key là tên field trong `users/{uid}.settings`
@@ -72,6 +78,8 @@ export type CloudChapterProgress = {
 export type CloudChapterProgressMap = Record<string, CloudChapterProgress>
 
 export type CloudState = {
+  // Hồ sơ (mã donate, tên...) đã được server tạo hay chưa
+  hasProfile: boolean
   settings?: CloudSettings
   progress?: CloudProgress
   chapterProgress: CloudChapterProgressMap
@@ -97,6 +105,7 @@ export async function fetchCloudState(uid: string): Promise<CloudState> {
 
   const progress = userData?.progress
   return {
+    hasProfile: typeof userData?.code === 'string',
     settings: userData?.settings,
     progress:
       progress && typeof progress.dictId === 'string' ? { dictId: progress.dictId, chapter: Number(progress.chapter) || 0 } : undefined,
@@ -117,13 +126,11 @@ export async function recordChapterCompletion(
   result: { dictId: string; chapter: number; timeSpentMs: number; wpm: number; accuracy: number; wrongCount: number },
 ): Promise<CloudChapterProgress> {
   const ref = doc(db, 'users', uid, 'chapterProgress', chapterProgressKey(result.dictId, result.chapter))
-  const userRef = doc(db, 'users', uid)
-  const publicProfileRef = doc(db, 'publicProfiles', uid)
 
+  // Streak và thống kê tổng được server tính từ users/{uid}/history (functions: onHistoryCreated)
   return runTransaction(db, async (tx) => {
-    const [snap, userSnap] = await Promise.all([tx.get(ref), tx.get(userRef)])
+    const snap = await tx.get(ref)
     const prev = snap.exists() ? (snap.data() as CloudChapterProgress) : undefined
-    const userData = userSnap.exists() ? userSnap.data() : undefined
     const now = Date.now()
 
     const next: CloudChapterProgress = {
@@ -139,45 +146,16 @@ export async function recordChapterCompletion(
       lastCompletedAt: now,
     }
     tx.set(ref, next)
-
-    // Cập nhật streak
-    const today = dayjs().format('YYYY-MM-DD')
-    const streak = userData?.streak || { current: 0, best: 0, lastDate: '' }
-
-    let newCurrent = streak.current
-    if (streak.lastDate !== today) {
-      const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD')
-      if (streak.lastDate === yesterday) {
-        newCurrent += 1
-      } else {
-        newCurrent = 1
-      }
-    }
-
-    const newBest = Math.max(streak.best, newCurrent)
-    const newStreak = {
-      current: newCurrent,
-      best: newBest,
-      lastDate: today,
-    }
-
-    // Nếu streak hoặc lastDate thay đổi thì mới cập nhật user document
-    if (streak.lastDate !== today || streak.current !== newCurrent) {
-      tx.set(userRef, { streak: newStreak }, { merge: true })
-
-      // Đồng bộ publicProfiles để dùng cho bảng xếp hạng
-      tx.set(
-        publicProfileRef,
-        {
-          uid,
-          name: userData?.name || 'Unknown',
-          bestStreak: newBest,
-          updatedAt: serverTimestamp(),
-        },
-        { merge: true },
-      )
-    }
-
     return next
   })
+}
+
+/**
+ * Tạo hồ sơ (mã donate không trùng, tên, email...) trên server nếu chưa có. Gọi nhiều lần không sao.
+ * `name`: biệt danh khi đăng ký, ghi đè tên hiện có.
+ */
+export async function ensureUserProfile(name?: string) {
+  const callable = httpsCallable<{ name?: string }, { code: string }>(functions, 'ensureUserProfile')
+  const result = await callable(name ? { name } : {})
+  return result.data
 }

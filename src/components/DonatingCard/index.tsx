@@ -1,7 +1,10 @@
 import { Amount } from './components/Amount'
-import { auth, db } from '@/lib/firebase'
+import { db } from '@/lib/firebase'
+import { authUserAtom } from '@/store'
 import { doc, getDoc } from 'firebase/firestore'
+import { useAtomValue } from 'jotai'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export type AmountType = -1 | 50000 | 100000 | 200000 | 500000
 const displayAmount: AmountType[] = [50000, 100000, 200000, 500000, -1]
@@ -9,13 +12,15 @@ const displayAmount: AmountType[] = [50000, 100000, 200000, 500000, -1]
 export const DonatingCard = ({ className, onAmountChange }: { className?: string; onAmountChange?: (amount: AmountType) => void }) => {
   const [amount, setAmount] = useState<AmountType | undefined>(undefined)
   const [userCode, setUserCode] = useState<string>('')
+  const authUser = useAtomValue(authUserAtom)
+  const uid = authUser?.uid
 
   useEffect(() => {
+    setUserCode('')
     const fetchUserCode = async () => {
-      const user = auth.currentUser
-      if (user) {
+      if (uid) {
         try {
-          const userDoc = await getDoc(doc(db, 'users', user.uid))
+          const userDoc = await getDoc(doc(db, 'users', uid))
           if (userDoc.exists()) {
             const data = userDoc.data()
             if (data.code) {
@@ -28,7 +33,7 @@ export const DonatingCard = ({ className, onAmountChange }: { className?: string
       }
     }
     fetchUserCode()
-  }, [])
+  }, [uid])
 
   const onClickAmount = (amount: AmountType) => {
     setAmount(amount)
@@ -41,6 +46,14 @@ export const DonatingCard = ({ className, onAmountChange }: { className?: string
   return (
     <div className={`flex w-full flex-col items-center justify-center gap-3 ${className && className}`}>
       <h2 className="text-center font-bold text-gray-800 dark:text-gray-300">Chọn số tiền quyên góp của bạn：</h2>
+      {authUser === null && (
+        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
+          <Link to="/login" className="font-semibold text-indigo-500 hover:text-indigo-600">
+            Đăng nhập
+          </Link>{' '}
+          để khoản ủng hộ được ghi nhận vào tài khoản của bạn.
+        </p>
+      )}
       <div className="mt-2 flex gap-3">
         {displayAmount.map((a) => {
           return <Amount active={a === amount} key={a} amount={a} onClick={onClickAmount} />

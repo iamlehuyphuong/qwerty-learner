@@ -2,6 +2,7 @@ import { getAnalytics } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+import { getFunctions } from 'firebase/functions'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -15,7 +16,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
+// Email hệ thống (đặt lại mật khẩu...) gửi bằng tiếng Việt
+auth.languageCode = 'vi'
 export const db = getFirestore(app)
+// Cùng region với Cloud Functions trong functions/index.js
+export const functions = getFunctions(app, 'asia-southeast1')
 
 // Only initialize analytics if running in browser
 export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null

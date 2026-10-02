@@ -121,6 +121,8 @@ export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
 export type AuthUser = { uid: string; email: string | null; displayName: string | null }
 // undefined: Firebase chưa khôi phục phiên đăng nhập, null: khách
 export const authUserAtom = atom<AuthUser | null | undefined>(undefined)
+// Đang trong luồng đăng ký: giữ trang Register hiển thị tới khi tạo xong hồ sơ (không chuyển sang màn hình Loading)
+export const isRegisteringAtom = atom(false)
 
 export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
 

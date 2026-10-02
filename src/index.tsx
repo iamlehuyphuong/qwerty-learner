@@ -7,7 +7,7 @@ import RegisterPage from './pages/Register'
 import TypingPage from './pages/Typing'
 import { useCloudSync } from '@/hooks/useCloudSync'
 import { auth } from '@/lib/firebase'
-import { authUserAtom, cloudSyncStatusAtom, isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
+import { authUserAtom, cloudSyncStatusAtom, isOpenDarkModeAtom, isRegisteringAtom, isUserLoggedInAtom } from '@/store'
 import { Analytics } from '@vercel/analytics/react'
 import 'animate.css'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -39,6 +39,7 @@ function Root() {
   const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
   const setAuthUser = useSetAtom(authUserAtom)
   const cloudSyncStatus = useAtomValue(cloudSyncStatusAtom)
+  const isRegistering = useAtomValue(isRegisteringAtom)
   useCloudSync()
 
   // Nơi duy nhất lắng nghe trạng thái đăng nhập, các component khác đọc qua authUserAtom
@@ -68,8 +69,9 @@ function Root() {
       <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/qwerty-learner' : ''}>
         <Suspense fallback={<Loading />}>
           {/* Đã đăng nhập thì chờ tải xong dữ liệu cloud. Không so với 'loading' vì ngay sau khi đăng nhập
-              status vẫn là 'idle' của chế độ khách, app sẽ kịp render một nhịp với cấu hình của khách */}
-          {isLoggedIn && cloudSyncStatus !== 'ready' ? (
+              status vẫn là 'idle' của chế độ khách, app sẽ kịp render một nhịp với cấu hình của khách.
+              Trong lúc đăng ký thì giữ trang Register để luồng đăng ký chạy hết và hiển thị được lỗi */}
+          {isLoggedIn && cloudSyncStatus !== 'ready' && !isRegistering ? (
             <Loading />
           ) : (
             <Routes>

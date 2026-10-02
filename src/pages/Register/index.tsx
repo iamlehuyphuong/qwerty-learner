@@ -2,10 +2,10 @@ import logo from '@/assets/logo.png'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { auth, db } from '@/lib/firebase'
-import { authUserAtom, isUserLoggedInAtom } from '@/store'
+import { ensureUserProfile } from '@/lib/cloudSync'
+import { auth } from '@/lib/firebase'
+import { authUserAtom, isRegisteringAtom, isUserLoggedInAtom } from '@/store'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { useAtom, useSetAtom } from 'jotai'
 import type React from 'react'
 import { useState } from 'react'
@@ -14,13 +14,13 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 const RegisterPage = () => {
   const [isLoggedIn] = useAtom(isUserLoggedInAtom)
   const setAuthUser = useSetAtom(authUserAtom)
+  const [isRegistering, setIsRegistering] = useAtom(isRegisteringAtom)
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
-  const [isRegistering, setIsRegistering] = useState(false)
 
   if (isLoggedIn && !isRegistering) {
     return <Navigate to="/" replace />
@@ -29,57 +29,38 @@ const RegisterPage = () => {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    if (password !== confirmPassword) {
+      setError('Mật khẩu xác nhận không khớp')
+      return
+    }
+    const nickname = name.trim()
+    if (!nickname || !email || !password) return
+
     setIsRegistering(true)
     try {
-      if (password !== confirmPassword) {
-        setError('Mật khẩu xác nhận không khớp')
-        setIsRegistering(false)
-        return
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      await updateProfile(userCredential.user, { displayName: nickname })
+      // onAuthStateChanged đã chạy trước khi có displayName, cập nhật để Header hiển thị đúng biệt danh
+      setAuthUser({ uid: userCredential.user.uid, email: userCredential.user.email, displayName: nickname })
+
+      // Server tạo hồ sơ (mã donate không trùng...). Lỗi thì useCloudSync sẽ tạo lại ở lần tải sau, không chặn người dùng
+      try {
+        await ensureUserProfile(nickname)
+      } catch (err) {
+        console.error('Lỗi khi tạo hồ sơ người dùng:', err)
       }
-      if (name && email && password) {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-        await updateProfile(userCredential.user, { displayName: name })
-        // onAuthStateChanged đã chạy trước khi có displayName, cập nhật để Header hiển thị đúng biệt danh
-        setAuthUser({ uid: userCredential.user.uid, email: userCredential.user.email, displayName: name })
 
-        // Generate a unique code (Timestamp since Jan 1 2026 in Base36 + 1 random char)
-        const epoch2026 = new Date('2026-01-01T00:00:00Z').getTime()
-        const secondsPassed = Math.floor((Date.now() - epoch2026) / 1000)
-        const timeString = secondsPassed.toString(36).toUpperCase()
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-        const randomChar = chars.charAt(Math.floor(Math.random() * chars.length))
-        const userCode = timeString + randomChar
-
-        // Create user document
-        await setDoc(
-          doc(db, 'users', userCredential.user.uid),
-          {
-            uid: userCredential.user.uid,
-            code: userCode,
-            email: email,
-            name: name,
-            isDonated: false,
-            totalDonate: 0,
-            totalTimeSpentMs: 0,
-            totalChapters: 0,
-            totalWords: 0,
-            averageWpm: 0,
-            createdAt: serverTimestamp(),
-            updatedAt: serverTimestamp(),
-            streak: { current: 0, best: 0, lastDate: '' },
-          },
-          // merge: cloud sync có thể đã ghi settings/progress ngay khi tài khoản được tạo
-          { merge: true },
-        )
-
-        navigate('/')
-      }
+      navigate('/')
     } catch (err: any) {
-      console.error('Lỗi khi tạo user doc:', err)
+      console.error('Lỗi đăng ký:', err)
       if (err.code === 'auth/email-already-in-use') {
         setError('Email này đã được đăng ký')
       } else if (err.code === 'auth/weak-password') {
         setError('Mật khẩu quá yếu, vui lòng chọn mật khẩu từ 6 ký tự trở lên')
+      } else if (err.code === 'auth/invalid-email') {
+        setError('Email không hợp lệ')
+      } else if (err.code === 'auth/network-request-failed') {
+        setError('Không có kết nối mạng, vui lòng thử lại')
       } else {
         setError(err.message || 'Lỗi đăng ký')
       }
@@ -160,9 +141,10 @@ const RegisterPage = () => {
             </div>
             <Button
               type="submit"
+              disabled={isRegistering}
               className="mt-2 h-12 w-full rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-lg font-bold text-white shadow-lg transition-transform hover:from-indigo-600 hover:to-purple-700 active:scale-95"
             >
-              Đăng ký
+              {isRegistering ? 'Đang tạo tài khoản...' : 'Đăng ký'}
             </Button>
           </form>
 

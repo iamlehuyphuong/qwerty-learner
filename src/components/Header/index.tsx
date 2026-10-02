@@ -10,14 +10,14 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Card } from '@/components/ui/card'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@/components/ui/dropdown'
-import { auth } from '@/lib/firebase'
+import { logoutAndClearLocalData } from '@/lib/account'
+import { countPendingWordRecords } from '@/lib/syncWordRecords'
 import { authUserAtom, isUserLoggedInAtom } from '@/store'
-import { signOut } from 'firebase/auth'
 import { useAtomValue } from 'jotai'
-import { LogIn, UserPlus, HatGlasses } from 'lucide-react'
+import { HatGlasses, LogIn, UserPlus } from 'lucide-react'
 import type { PropsWithChildren, ReactNode } from 'react'
 import type React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface HeaderProps extends PropsWithChildren {
@@ -32,9 +32,24 @@ const Header: React.FC<HeaderProps> = ({ children, leftNode }) => {
   // undefined: Firebase đang khôi phục phiên, dựa vào trạng thái lần trước để tránh nháy giao diện
   const isGuest = user === undefined ? !isLoggedInHint : user === null
 
-  const handleLogout = () => {
-    // Đăng xuất xong vẫn ở lại app với chế độ khách, trạng thái được cập nhật qua onAuthStateChanged ở Root
-    signOut(auth)
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
+  const [pendingCount, setPendingCount] = useState(0)
+
+  useEffect(() => {
+    if (showLogoutConfirm) countPendingWordRecords().then(setPendingCount)
+  }, [showLogoutConfirm])
+
+  const handleLogout = async (e: React.MouseEvent) => {
+    // Giữ hộp thoại mở trong lúc đồng bộ nốt dữ liệu
+    e.preventDefault()
+    setIsLoggingOut(true)
+    try {
+      // Đăng xuất xong vẫn ở lại app với chế độ khách, trạng thái được cập nhật qua onAuthStateChanged ở Root
+      await logoutAndClearLocalData()
+    } finally {
+      setIsLoggingOut(false)
+      setShowLogoutConfirm(false)
+    }
   }
 
   return (
@@ -116,16 +131,24 @@ const Header: React.FC<HeaderProps> = ({ children, leftNode }) => {
           <AlertDialogHeader>
             <AlertDialogTitle>Xác nhận đăng xuất</AlertDialogTitle>
             <AlertDialogDescription>
-              Bạn có chắc chắn muốn đăng xuất khỏi tài khoản này không? Sau khi đăng xuất bạn vẫn có thể tiếp tục luyện tập ở chế độ khách.
+              Lịch sử học của tài khoản sẽ được xoá khỏi trình duyệt này (vẫn còn trên cloud, đăng nhập lại sẽ có). Sau khi đăng xuất bạn
+              vẫn có thể tiếp tục luyện tập ở chế độ khách.
             </AlertDialogDescription>
+            {pendingCount > 0 && (
+              <p className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+                Còn {pendingCount} lượt gõ chưa được đồng bộ lên cloud. Hệ thống sẽ thử đồng bộ trước khi đăng xuất, nếu không được (mất
+                mạng) chúng sẽ được giữ lại trên máy này.
+              </p>
+            )}
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Huỷ</AlertDialogCancel>
+            <AlertDialogCancel disabled={isLoggingOut}>Huỷ</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleLogout}
+              disabled={isLoggingOut}
               className="bg-red-600 text-white hover:bg-red-700 dark:bg-red-700 dark:text-white dark:hover:bg-red-800"
             >
-              Đăng xuất
+              {isLoggingOut ? 'Đang đồng bộ...' : 'Đăng xuất'}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

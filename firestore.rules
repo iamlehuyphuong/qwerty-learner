@@ -1,11 +1,13 @@
 rules_version = '2';
 
 // Cấu trúc dữ liệu: xem src/lib/cloudSync.ts
-//   users/{uid}                                   thông tin user, settings, progress, thống kê tổng
+//   users/{uid}                                   client chỉ ghi settings/progress; hồ sơ, donate, thống kê, streak do server ghi
 //   users/{uid}/history/{autoId}                  log từng lần luyện tập (chỉ thêm mới)
 //   users/{uid}/chapterProgress/{dictId}__{ch}    tổng hợp từng bài đã hoàn thành
+//   users/{uid}/wordRecords, dailyStats           lịch sử từng từ & tổng hợp theo ngày (src/lib/syncWordRecords.ts)
+//   userCodes/{code}, publicProfiles/{uid}        chỉ server ghi
 //
-// Các field donate (isDonated, totalDonate) chỉ được thay đổi từ server (Admin SDK bỏ qua rules).
+// Server (Cloud Functions, Admin SDK) bỏ qua rules: functions/index.js
 service cloud.firestore {
   match /databases/{database}/documents {
 
@@ -23,16 +25,10 @@ service cloud.firestore {
 
     // ---------- users/{uid} ----------
 
-    function userAllowedKeys() {
-      return [
-        'uid', 'code', 'email', 'name',
-        'isDonated', 'totalDonate',
-        'totalTimeSpentMs', 'totalChapters', 'totalWords', 'averageWpm',
-        'createdAt', 'updatedAt',
-        'settings', 'settingsUpdatedAt',
-        'progress',
-        'streak',
-      ];
+    // Field client được ghi. Các field còn lại (uid, code, email, name, isDonated, totalDonate,
+    // totalTimeSpentMs, totalChapters, totalWords, streak, createdAt...) chỉ server ghi
+    function clientUserKeys() {
+      return ['settings', 'settingsUpdatedAt', 'progress', 'updatedAt'];
     }
 
     function isValidProgress(progress) {
@@ -43,58 +39,25 @@ service cloud.firestore {
         && (!('updatedAt' in progress) || progress.updatedAt is timestamp);
     }
 
-    function isValidStreak(streak) {
-      return streak is map
-        && streak.keys().hasOnly(['current', 'best', 'lastDate'])
-        && streak.current is int && streak.current >= 0
-        && streak.best is int && streak.best >= 0
-        && streak.lastDate is string;
-    }
-
-    function isValidUserData(uid) {
-      return (!('uid' in data()) || data().uid == uid)
-        && (!('email' in data()) || data().email is string)
-        && (!('name' in data()) || data().name is string)
-        && (!('code' in data()) || data().code is string)
-        && (!('totalTimeSpentMs' in data()) || isNonNegativeNumber(data().totalTimeSpentMs))
-        && (!('totalChapters' in data()) || isNonNegativeNumber(data().totalChapters))
-        && (!('totalWords' in data()) || isNonNegativeNumber(data().totalWords))
-        && (!('averageWpm' in data()) || isNonNegativeNumber(data().averageWpm))
-        && (!('settings' in data()) || data().settings is map)
+    function isValidClientUserData() {
+      return (!('settings' in data()) || data().settings is map)
+        && (!('settingsUpdatedAt' in data()) || data().settingsUpdatedAt is timestamp)
         && (!('progress' in data()) || isValidProgress(data().progress))
-        && (!('streak' in data()) || isValidStreak(data().streak));
-    }
-
-    // Field chỉ được đặt một lần: chưa có thì được đặt, đã có thì không được đổi
-    function isSetOnce(field) {
-      return !(field in resource.data) || data()[field] == resource.data[field];
-    }
-
-    // Field donate: user chỉ được khởi tạo giá trị mặc định, không được tự thay đổi
-    function isDonateFieldUnchanged(field, defaultValue) {
-      return (field in resource.data && field in data() && data()[field] == resource.data[field])
-        || (!(field in resource.data) && (!(field in data()) || data()[field] == defaultValue));
+        && (!('updatedAt' in data()) || data().updatedAt is timestamp);
     }
 
     match /users/{uid} {
       allow read: if isOwner(uid);
 
-      // Có thể được tạo bởi trang Register, bởi cloud sync hoặc bởi uploader (setDoc merge)
+      // Cloud sync có thể tạo document trước khi server tạo hồ sơ (setDoc merge)
       allow create: if isOwner(uid)
-        && data().keys().hasOnly(userAllowedKeys())
-        && isValidUserData(uid)
-        && (!('isDonated' in data()) || data().isDonated == false)
-        && (!('totalDonate' in data()) || data().totalDonate == 0);
+        && data().keys().hasOnly(clientUserKeys())
+        && isValidClientUserData();
 
-      // Chỉ kiểm tra các field client thay đổi, để field do server/admin thêm không làm hỏng lệnh ghi
+      // Chỉ kiểm tra các field client thay đổi, để field do server thêm không làm hỏng lệnh ghi
       allow update: if isOwner(uid)
-        && data().diff(resource.data).affectedKeys().hasOnly(userAllowedKeys())
-        && isValidUserData(uid)
-        && isSetOnce('uid')
-        && isSetOnce('code')
-        && isSetOnce('createdAt')
-        && isDonateFieldUnchanged('isDonated', false)
-        && isDonateFieldUnchanged('totalDonate', 0);
+        && data().diff(resource.data).affectedKeys().hasOnly(clientUserKeys())
+        && isValidClientUserData();
 
       allow delete: if false;
 
@@ -161,6 +124,64 @@ service cloud.firestore {
 
         allow delete: if false;
       }
+
+      // ---------- users/{uid}/wordRecords/{recordId} ----------
+      // ID tính từ nội dung bản ghi (src/lib/syncWordRecords.ts). Chỉ tạo mới, không cho ghi đè:
+      // batch đẩy lại bản ghi đã có sẽ bị từ chối toàn bộ nên dailyStats đi kèm không bị cộng trùng
+      match /wordRecords/{recordId} {
+        allow read: if isOwner(uid);
+
+        allow create: if isOwner(uid)
+          && data().keys().hasOnly([
+            'word', 'dict', 'chapter', 'timeStamp', 'timing', 'wrongCount', 'mistakes', 'hasError', 'syncedAt',
+          ])
+          && data().word is string && data().word.size() > 0 && data().word.size() <= 200
+          && data().dict is string && data().dict.size() > 0 && data().dict.size() <= 200
+          && (data().chapter == null || (data().chapter is int && data().chapter >= -1))
+          && data().timeStamp is int && data().timeStamp > 0
+          && data().timing is list && data().timing.size() <= 500
+          && data().wrongCount is int && data().wrongCount >= 0
+          && data().mistakes is map
+          && data().hasError == (data().wrongCount > 0)
+          && data().syncedAt == request.time;
+
+        allow update: if false;
+
+        // Xoá từ trong Error Book
+        allow delete: if isOwner(uid);
+      }
+
+      // ---------- users/{uid}/dailyStats/{date} ----------
+      // Tổng hợp theo ngày, client cộng dồn bằng increment/arrayUnion. Các bộ đếm không được giảm
+      match /dailyStats/{date} {
+        function isValidDailyStats() {
+          return data().keys().hasOnly([
+              'date', 'exerciseCount', 'totalTimeMs', 'wrongCount', 'totalChars', 'words', 'wrongKeys', 'updatedAt',
+            ])
+            && data().date == date
+            && date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+            && isNonNegativeNumber(data().exerciseCount)
+            && isNonNegativeNumber(data().totalTimeMs)
+            && isNonNegativeNumber(data().wrongCount)
+            && isNonNegativeNumber(data().totalChars)
+            && data().words is list && data().words.size() <= 10000
+            && data().wrongKeys is map
+            && data().updatedAt == request.time;
+        }
+
+        allow read: if isOwner(uid);
+
+        allow create: if isOwner(uid) && isValidDailyStats();
+
+        allow update: if isOwner(uid)
+          && isValidDailyStats()
+          && data().exerciseCount >= resource.data.exerciseCount
+          && data().totalTimeMs >= resource.data.totalTimeMs
+          && data().wrongCount >= resource.data.wrongCount
+          && data().totalChars >= resource.data.totalChars;
+
+        allow delete: if false;
+      }
     }
 
     // ---------- donations/{transactionCode} ----------
@@ -172,14 +193,16 @@ service cloud.firestore {
     }
 
     // ---------- publicProfiles/{uid} ----------
-    // Dùng cho Leaderboard (Bảng xếp hạng)
+    // Dùng cho Leaderboard (Bảng xếp hạng). Chỉ server ghi (functions: ensureUserProfile, onHistoryCreated)
     match /publicProfiles/{uid} {
       allow read: if request.auth != null;
-      allow write: if isOwner(uid)
-        && data().keys().hasOnly(['uid', 'name', 'bestStreak', 'updatedAt'])
-        && data().uid == uid
-        && data().name is string
-        && data().bestStreak is int && data().bestStreak >= 0;
+      allow write: if false;
+    }
+
+    // ---------- userCodes/{code} ----------
+    // Mã donate -> uid, đảm bảo mã không trùng. Chỉ server dùng
+    match /userCodes/{code} {
+      allow read, write: if false;
     }
 
     // Mặc định chặn mọi thứ khác

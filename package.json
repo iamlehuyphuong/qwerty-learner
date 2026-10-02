@@ -72,7 +72,8 @@
     "test:e2e": "playwright test",
     "lint": "eslint .",
     "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:rules": "npx -y firebase-tools@13 emulators:exec --only firestore --project demo-qwerty-rules \"node --test tests/rules/*.test.mjs\""
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -92,6 +93,7 @@
     ]
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@iconify/json": "^2.2.242",
     "@playwright/test": "^1.40.1",
     "@svgr/core": "^7.0.0",

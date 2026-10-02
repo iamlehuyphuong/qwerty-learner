@@ -1,5 +1,20 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "wordRecords",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "hasError",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "syncedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
   "fieldOverrides": [
     {
       "collectionGroup": "users",
