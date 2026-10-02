@@ -98,7 +98,9 @@ const RegisterPage = () => {
           </div>
 
           <h1 className="mb-2 text-3xl font-extrabold text-slate-900 dark:text-white">Đăng ký</h1>
-          <p className="mb-6 text-slate-500 dark:text-slate-400">Tạo tài khoản mới để bắt đầu quá trình luyện tập của bạn.</p>
+          <p className="mb-6 text-slate-500 dark:text-slate-400">
+            Tạo tài khoản để lưu và đồng bộ tiến độ học trên mọi thiết bị. Cấu hình và bài đang học ở chế độ khách sẽ được giữ lại.
+          </p>
 
           {error && (
             <p className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-500 dark:border-red-800 dark:bg-red-900/20">
@@ -160,6 +162,23 @@ const RegisterPage = () => {
               Đăng ký
             </Button>
           </form>
+
+          <div className="my-6 flex items-center gap-3 text-xs uppercase text-slate-400">
+            <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+            hoặc
+            <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+          </div>
+
+          <Button
+            asChild
+            variant="outline"
+            className="h-12 w-full rounded-xl border-slate-200 text-base font-semibold text-slate-700 dark:border-slate-700 dark:text-slate-200"
+          >
+            <Link to="/">Dùng ngay, không cần đăng nhập</Link>
+          </Button>
+          <p className="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">
+            Lịch sử học sẽ chỉ lưu trên trình duyệt này. Bạn có thể đăng nhập bất cứ lúc nào để đồng bộ.
+          </p>
 
           <p className="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
             Đã có tài khoản?{' '}

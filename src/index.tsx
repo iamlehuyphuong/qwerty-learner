@@ -7,11 +7,11 @@ import RegisterPage from './pages/Register'
 import TypingPage from './pages/Typing'
 import { useCloudSync } from '@/hooks/useCloudSync'
 import { auth } from '@/lib/firebase'
-import { cloudSyncStatusAtom, isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
+import { authUserAtom, cloudSyncStatusAtom, isOpenDarkModeAtom, isUserLoggedInAtom } from '@/store'
 import { Analytics } from '@vercel/analytics/react'
 import 'animate.css'
 import { onAuthStateChanged } from 'firebase/auth'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import mixpanel from 'mixpanel-browser'
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import 'react-app-polyfill/stable'
@@ -37,15 +37,18 @@ function Root() {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
   const [isLoggedIn, setIsLoggedIn] = useAtom(isUserLoggedInAtom)
+  const setAuthUser = useSetAtom(authUserAtom)
   const cloudSyncStatus = useAtomValue(cloudSyncStatusAtom)
   useCloudSync()
 
+  // Nơi duy nhất lắng nghe trạng thái đăng nhập, các component khác đọc qua authUserAtom
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setAuthUser(user)
       setIsLoggedIn(!!user)
     })
     return () => unsubscribe()
-  }, [setIsLoggedIn])
+  }, [setAuthUser, setIsLoggedIn])
 
   useEffect(() => {
     const handleResize = () => {
@@ -70,24 +73,19 @@ function Root() {
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              {!isLoggedIn ? (
-                <Route path="*" element={<Navigate to="/login" replace />} />
+              {/* Không bắt buộc đăng nhập: khách dùng đầy đủ tính năng, dữ liệu lưu trên máy */}
+              {isMobile ? (
+                <Route path="*" element={<Navigate to="/mobile" replace />} />
               ) : (
                 <>
-                  {isMobile ? (
-                    <Route path="*" element={<Navigate to="/mobile" replace />} />
-                  ) : (
-                    <>
-                      <Route index element={<TypingPage />} />
-                      <Route path="/gallery" element={<GalleryPage />} />
-                      <Route path="/analysis" element={<AnalysisPage />} />
-                      <Route path="/error-book" element={<ErrorBook />} />
-                      <Route path="*" element={<Navigate to="/" replace />} />
-                    </>
-                  )}
-                  <Route path="/mobile" element={<MobilePage />} />
+                  <Route index element={<TypingPage />} />
+                  <Route path="/gallery" element={<GalleryPage />} />
+                  <Route path="/analysis" element={<AnalysisPage />} />
+                  <Route path="/error-book" element={<ErrorBook />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </>
               )}
+              <Route path="/mobile" element={<MobilePage />} />
             </Routes>
           )}
         </Suspense>

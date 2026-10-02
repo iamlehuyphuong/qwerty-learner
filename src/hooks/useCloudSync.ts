@@ -1,13 +1,11 @@
 import type { CloudProgress, CloudSettings, CloudState, SyncedSettingKey } from '@/lib/cloudSync'
 import { fetchCloudState, pushProgress, pushSettings, syncedSettingAtoms } from '@/lib/cloudSync'
-import { auth } from '@/lib/firebase'
 import { fetchAndMergeCloudWordRecords } from '@/lib/syncWordRecords'
 import { idDictionaryMap } from '@/resources/dictionary'
-import { cloudChapterProgressAtom, cloudSyncStatusAtom, currentChapterAtom, currentDictIdAtom } from '@/store'
-import { onAuthStateChanged } from 'firebase/auth'
+import { authUserAtom, cloudChapterProgressAtom, cloudSyncStatusAtom, currentChapterAtom, currentDictIdAtom } from '@/store'
 import type { WritableAtom } from 'jotai'
-import { useSetAtom, useStore } from 'jotai'
-import { useEffect, useState } from 'react'
+import { useAtomValue, useSetAtom, useStore } from 'jotai'
+import { useEffect } from 'react'
 
 type Store = ReturnType<typeof useStore>
 type AnyWritableAtom = WritableAtom<unknown, [unknown], void>
@@ -64,16 +62,17 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 /**
  * Đồng bộ cấu hình, chương trình/bài đang học và tiến độ từng bài với Firestore.
  * - Khi đăng nhập: tải dữ liệu từ cloud và áp dụng (cloud là nguồn chuẩn), để máy khác tiếp tục đúng lộ trình.
+ *   Tài khoản mới (chưa có dữ liệu cloud) sẽ nhận cấu hình/bài đang học từ lúc dùng ở chế độ khách.
  * - Sau đó: mỗi khi cấu hình hoặc bài học thay đổi trên máy này thì đẩy lên cloud.
+ * - Khách (chưa đăng nhập): không đồng bộ, chỉ dùng dữ liệu trên máy.
  */
 export function useCloudSync() {
   const store = useStore()
   const setStatus = useSetAtom(cloudSyncStatusAtom)
   const setCloudChapterProgress = useSetAtom(cloudChapterProgressAtom)
+  const authUser = useAtomValue(authUserAtom)
   // undefined: Firebase chưa khôi phục phiên đăng nhập
-  const [uid, setUid] = useState<string | null | undefined>(undefined)
-
-  useEffect(() => onAuthStateChanged(auth, (user) => setUid(user?.uid ?? null)), [])
+  const uid = authUser === undefined ? undefined : authUser?.uid ?? null
 
   useEffect(() => {
     if (uid === undefined) return

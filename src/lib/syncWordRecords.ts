@@ -1,7 +1,7 @@
 import { db } from '@/lib/firebase'
 import type { IWordRecord } from '@/utils/db/record'
 import dayjs from 'dayjs'
-import { collection, doc, writeBatch, serverTimestamp, increment, getDocs, query, where } from 'firebase/firestore'
+import { collection, doc, getDocs, increment, query, serverTimestamp, where, writeBatch } from 'firebase/firestore'
 
 // Firestore writeBatch giới hạn 500 operations mỗi batch
 const MAX_BATCH_OPS = 450

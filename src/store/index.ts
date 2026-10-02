@@ -14,6 +14,7 @@ import type {
   WordDictationType,
 } from '@/typings'
 import type { ReviewRecord } from '@/utils/db/record'
+import type { User } from 'firebase/auth'
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 
@@ -114,8 +115,11 @@ export const dismissStartCardDateAtom = atomWithStorage<Date | null>(DISMISS_STA
 // Enhanced version promotion popup state
 export const hasSeenEnhancedPromotionAtom = atomWithStorage('hasSeenEnhancedPromotion', false)
 
-// Authentication
+// Authentication — đăng nhập là tuỳ chọn, chưa đăng nhập vẫn dùng app ở chế độ khách (dữ liệu chỉ lưu trên máy)
+// Lưu localStorage để lần mở sau biết trước có cần chờ tải dữ liệu cloud hay không
 export const isUserLoggedInAtom = atomWithStorage('isUserLoggedIn', false)
+// undefined: Firebase chưa khôi phục phiên đăng nhập, null: khách
+export const authUserAtom = atom<User | null | undefined>(undefined)
 
 export const isShowHandPositionAtom = atomWithStorage('isShowHandPosition', false)
 

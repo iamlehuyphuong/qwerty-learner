@@ -98,6 +98,23 @@ const LoginPage = () => {
             </Button>
           </form>
 
+          <div className="my-6 flex items-center gap-3 text-xs uppercase text-slate-400">
+            <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+            hoặc
+            <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+          </div>
+
+          <Button
+            asChild
+            variant="outline"
+            className="h-12 w-full rounded-xl border-slate-200 text-base font-semibold text-slate-700 dark:border-slate-700 dark:text-slate-200"
+          >
+            <Link to="/">Dùng ngay, không cần đăng nhập</Link>
+          </Button>
+          <p className="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">
+            Lịch sử học sẽ chỉ lưu trên trình duyệt này. Bạn có thể đăng nhập bất cứ lúc nào để đồng bộ.
+          </p>
+
           <p className="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
             Chưa có tài khoản?{' '}
             <Link to="/register" className="font-bold text-indigo-600 transition-colors hover:text-indigo-500">
