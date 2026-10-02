@@ -157,10 +157,10 @@ function computeStatsFromData(data: Record<string, DayData>): IWordStats {
     level: getLevel(words.size),
   }))
   // wpm=luyện tập đếm từ（Đừng loại bỏ trọng lượng）/tổng thời gian
-  const wpmRecord: IWordStats['wpmRecord'] = RecordArray.map<[string, number]>(([date, { exerciseCount, totalTime }]) => [
-    date,
-    Math.round(exerciseCount / (totalTime / 1000 / 60)),
-  ]).filter((d) => d[1])
+  const wpmRecord: IWordStats['wpmRecord'] = RecordArray.map<[string, number]>(([date, { exerciseCount, totalTime }]) => {
+    if (totalTime === 0) return [date, 0]
+    return [date, Math.round(exerciseCount / (totalTime / 1000 / 60))]
+  }).filter((d) => d[1])
   // Tỷ lệ chính xác=Tổng độ dài của mỗi từ/(Tổng độ dài của mỗi từ+Tổng số lỗi)
   const accuracyRecord: IWordStats['accuracyRecord'] = RecordArray.map<[string, number]>(([date, { totalChars, wrongCount }]) => {
     if (totalChars === 0) return [date, 0]
